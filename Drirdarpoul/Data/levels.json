@@ -1,0 +1,6830 @@
+[
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter01.level01",
+    "chapterID": "chapter01",
+    "number": 1,
+    "title": "第一张便笺",
+    "subtitle": "从六张牌开始",
+    "story": "修复师在盒底发现一张便笺：第一轮由 A 领出。已有三张牌的位置得到确认，请补回另外三张。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "A",
+      "roundCount": 2
+    },
+    "cards": [
+      {
+        "id": "S2"
+      },
+      {
+        "id": "S5"
+      },
+      {
+        "id": "S9"
+      },
+      {
+        "id": "H3"
+      },
+      {
+        "id": "H7"
+      },
+      {
+        "id": "H10"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 1 轮，A 出的是 ♠5。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "A",
+          "card": "S5"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 1 轮，C 出的是 ♥3。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "C",
+          "card": "H3"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "第 2 轮，B 出的是 ♥7。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "B",
+          "card": "H7"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "第 1 轮的赢家是 B。",
+        "constraint": {
+          "kind": "roundWinner",
+          "round": 1,
+          "player": "B"
+        }
+      },
+      {
+        "id": "f5",
+        "text": "第 2 轮领出的牌是 ♥7。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 2,
+          "card": "H7"
+        }
+      }
+    ],
+    "falseTestimonyCount": 0,
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "关注第一轮",
+        "text": "第一轮 A 出 ♠5，赢家却是 B。先找牌池里哪张牌能够赢过领出的黑桃。",
+        "evidenceIDs": [
+          "f1",
+          "f4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "只有同花色争胜",
+        "text": "无王牌时，只有领出花色参与争胜。B 要赢过 ♠5，就必须出比 5 更大的黑桃；再检查剩余牌中谁满足这个条件。",
+        "evidenceIDs": [
+          "f1",
+          "f4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第一轮 B 出 ♠9，因为它是牌池中唯一能以领出花色赢过 ♠5 的牌。先落实这一手，再用 C 没有跟黑桃的事实推断下一轮。",
+        "evidenceIDs": [
+          "f1",
+          "f4"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "B",
+          "card": "S9"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "S5",
+        "S9",
+        "H3",
+        "S2",
+        "H7",
+        "H10"
+      ],
+      "falseTestimonyIDs": [],
+      "explanation": "第 1 轮 A：♠5 → B：♠9 → C：♥3。领出的是黑桃，同花色中点数最大的牌属于 B，因此 B 获胜。\nC 本轮没有跟黑桃，说明其余手牌 ♥10 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 B：♥7 → C：♥10 → A：♠2。领出的是红桃，同花色中点数最大的牌属于 C，因此 C 获胜。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter01.level02",
+    "chapterID": "chapter01",
+    "number": 2,
+    "title": "同色的回声",
+    "subtitle": "手中有同花色，就必须跟随",
+    "story": "第二封信夹着一小段规则说明。先看领出的花色，再看同一人后来留下的牌，记录的空白就有了边界。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "A",
+      "roundCount": 2
+    },
+    "cards": [
+      {
+        "id": "S3"
+      },
+      {
+        "id": "S8"
+      },
+      {
+        "id": "H2"
+      },
+      {
+        "id": "H9"
+      },
+      {
+        "id": "D5"
+      },
+      {
+        "id": "D13"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 1 轮，A 出的是 ♦5。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "A",
+          "card": "D5"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 1 轮，C 出的是 ♥9。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "C",
+          "card": "H9"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "第 2 轮，A 出的是 ♠8。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "A",
+          "card": "S8"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "♠3 原本在 B 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "B",
+          "card": "S3"
+        }
+      }
+    ],
+    "falseTestimonyCount": 0,
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先看 C 第一轮没有跟方块这件事，再看 A 两个已经填好的位置。谁还能持有剩下的方块？",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "C 第一轮出红桃，说明他手中没有方块。A 的两张牌也都已经确认，所以剩下的方块只能在 B 手中；第一轮 B 必须跟领出的花色。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第一轮 B 出 ♦13。C 没有方块，A 的两张牌是 ♦5 和 ♠8，剩下的 ♦13 只能归 B，并且必须在第一轮跟出。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "B",
+          "card": "D13"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "D5",
+        "D13",
+        "H9",
+        "S8",
+        "S3",
+        "H2"
+      ],
+      "falseTestimonyIDs": [],
+      "explanation": "第 1 轮 A：♦5 → B：♦13 → C：♥9。领出的是方块，同花色中点数最大的牌属于 B，因此 B 获胜。\nC 本轮没有跟方块，说明其余手牌 ♥2 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 2 轮 B：♠3 → C：♥2 → A：♠8。领出的是黑桃，同花色中点数最大的牌属于 A，因此 A 获胜。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter01.level03",
+    "chapterID": "chapter01",
+    "number": 3,
+    "title": "大牌未必赢",
+    "subtitle": "只有领出花色可以争胜",
+    "story": "便笺上有人给一张大牌画了圈，却没有写它赢了。离开领出花色，点数再大也不能赢得这一轮。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "A",
+      "roundCount": 2
+    },
+    "cards": [
+      {
+        "id": "S2"
+      },
+      {
+        "id": "S6"
+      },
+      {
+        "id": "S11"
+      },
+      {
+        "id": "H3"
+      },
+      {
+        "id": "H7"
+      },
+      {
+        "id": "H12"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 1 轮，A 出的是 ♠6。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "A",
+          "card": "S6"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 1 轮，C 出的是 ♥12。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "C",
+          "card": "H12"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "♥3 原本在 B 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "B",
+          "card": "H3"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "♠11 原本在 B 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "B",
+          "card": "S11"
+        }
+      }
+    ],
+    "falseTestimonyCount": 0,
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "两条可信归属已经告诉你 B 的全部手牌。先决定 B 必须跟什么花色，不要只寻找桌上最大的数字。",
+        "evidenceIDs": [
+          "f1",
+          "f3",
+          "f4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "A 领出黑桃，而 B 的两张牌中有黑桃。B 必须先出那张黑桃；C 的红桃点数即使更大，也不能参与黑桃这一轮的争胜。",
+        "evidenceIDs": [
+          "f1",
+          "f3",
+          "f4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第一轮 B 出 ♠11。B 手里只有 ♥3 和 ♠11，必须跟黑桃，所以不能选择 ♥3。",
+        "evidenceIDs": [
+          "f1",
+          "f3",
+          "f4"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "B",
+          "card": "S11"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "S6",
+        "S11",
+        "H12",
+        "S2",
+        "H3",
+        "H7"
+      ],
+      "falseTestimonyIDs": [],
+      "explanation": "第 1 轮 A：♠6 → B：♠11 → C：♥12。领出的是黑桃，同花色中点数最大的牌属于 B，因此 B 获胜。\nC 本轮没有跟黑桃，说明其余手牌 ♥7 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 B：♥3 → C：♥7 → A：♠2。领出的是红桃，同花色中点数最大的牌属于 C，因此 C 获胜。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter01.level04",
+    "chapterID": "chapter01",
+    "number": 4,
+    "title": "接过领出权",
+    "subtitle": "赢家决定下一轮从谁开始",
+    "story": "前一轮的批注和后一轮的牌面被装进两个信封。把赢家与下一次领出连起来，才能还原真正的顺序。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "A",
+      "roundCount": 2
+    },
+    "cards": [
+      {
+        "id": "S3"
+      },
+      {
+        "id": "S8"
+      },
+      {
+        "id": "H2"
+      },
+      {
+        "id": "H9"
+      },
+      {
+        "id": "D5"
+      },
+      {
+        "id": "D13"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 1 轮，A 出的是 ♦13。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "A",
+          "card": "D13"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 1 轮，B 出的是 ♠8。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "B",
+          "card": "S8"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "第 2 轮的赢家是 B。",
+        "constraint": {
+          "kind": "roundWinner",
+          "round": 2,
+          "player": "B"
+        }
+      }
+    ],
+    "falseTestimonyCount": 0,
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先确定第一轮谁一定获胜，再用“第二轮 B 获胜”倒推第二轮的领出花色。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "A 领出的方块已经是牌池中最大的方块，所以 A 必定领出第二轮。B 要赢第二轮，必须与 A 同花色且更大；在剩余牌中寻找这样的两张牌。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第一轮 C 出 ♦5。A 用 ♦13 赢第一轮，第二轮要让 B 获胜，A 与 B 只能分别出 ♥2、♥9。B 第一轮没有跟方块，不能持有 ♦5；A 的两张牌已确定，所以 ♦5 必须在 C 第一轮。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "C",
+          "card": "D5"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "D13",
+        "S8",
+        "D5",
+        "H2",
+        "H9",
+        "S3"
+      ],
+      "falseTestimonyIDs": [],
+      "explanation": "第 1 轮 A：♦13 → B：♠8 → C：♦5。领出的是方块，同花色中点数最大的牌属于 A，因此 A 获胜。\nB 本轮没有跟方块，说明其余手牌 ♥9 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♥2 → B：♥9 → C：♠3。领出的是红桃，同花色中点数最大的牌属于 B，因此 B 获胜。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter01.level05",
+    "chapterID": "chapter01",
+    "number": 5,
+    "title": "没有跟上的牌",
+    "subtitle": "从缺门反推原来的手牌",
+    "story": "一张异色牌被特别标记。出牌者当时为什么没有跟花色？将来要出的牌此刻也在手里，这条规则会留下证据。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "A",
+      "roundCount": 2
+    },
+    "cards": [
+      {
+        "id": "S2"
+      },
+      {
+        "id": "S6"
+      },
+      {
+        "id": "S11"
+      },
+      {
+        "id": "H3"
+      },
+      {
+        "id": "H7"
+      },
+      {
+        "id": "H12"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 1 轮，A 出的是 ♠11。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "A",
+          "card": "S11"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 1 轮，B 出的是 ♥7。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "B",
+          "card": "H7"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "♥3 原本在 A 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "A",
+          "card": "H3"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "第 1 轮，C 出的是 ♠6。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "C",
+          "card": "S6"
+        }
+      }
+    ],
+    "falseTestimonyCount": 0,
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "关注 C 第二轮的空位。先从 B 没有跟黑桃推断他不能持有什么，再检查 A 的手牌是否已经满额。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "B 第一轮出红桃，说明他没有黑桃。A 第一轮的黑桃已固定，另一张牌的归属也已确定；因此剩余黑桃不能交给 A 或 B。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第二轮 C 出 ♠2。B 没有黑桃；A 的两张牌是 ♠11、♥3；C 第一轮已出 ♠6，因此剩下的 ♠2 必须留在 C 第二轮。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "C",
+          "card": "S2"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "S11",
+        "H7",
+        "S6",
+        "H3",
+        "H12",
+        "S2"
+      ],
+      "falseTestimonyIDs": [],
+      "explanation": "第 1 轮 A：♠11 → B：♥7 → C：♠6。领出的是黑桃，同花色中点数最大的牌属于 A，因此 A 获胜。\nB 本轮没有跟黑桃，说明其余手牌 ♥12 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♥3 → B：♥12 → C：♠2。领出的是红桃，同花色中点数最大的牌属于 B，因此 B 获胜。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter01.level06",
+    "chapterID": "chapter01",
+    "number": 6,
+    "title": "第三轮的落款",
+    "subtitle": "完成第一份三轮档案",
+    "story": "最后一封教学信多出一轮。先补最确定的空位；放错也可交换或撤销。还原后逐手复盘，检查三轮如何接续。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "A",
+      "roundCount": 3
+    },
+    "cards": [
+      {
+        "id": "S2"
+      },
+      {
+        "id": "S4"
+      },
+      {
+        "id": "S8"
+      },
+      {
+        "id": "S12"
+      },
+      {
+        "id": "H3"
+      },
+      {
+        "id": "H7"
+      },
+      {
+        "id": "H11"
+      },
+      {
+        "id": "D5"
+      },
+      {
+        "id": "D10"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 1 轮，A 出的是 ♠2。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "A",
+          "card": "S2"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 1 轮，B 出的是 ♥7。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "B",
+          "card": "H7"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "第 2 轮领出的牌是 ♥3。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 2,
+          "card": "H3"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "第 3 轮领出的牌是 ♠12。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 3,
+          "card": "S12"
+        }
+      },
+      {
+        "id": "f5",
+        "text": "第 2 轮，B 出的是 ♦5。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "B",
+          "card": "D5"
+        }
+      },
+      {
+        "id": "f6",
+        "text": "第 1 轮，C 出的是 ♠8。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "C",
+          "card": "S8"
+        }
+      }
+    ],
+    "falseTestimonyCount": 0,
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "第一轮的三张牌都能直接看见。比较领出花色中的点数，找出谁会领出第二轮。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f6"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "红桃不能赢过领出的黑桃。先确定两张黑桃中较大的那一张属于谁；这个人必须打出已确认的第二轮领出牌。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f6"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第二轮 C 出 ♥3。第一轮 C 的 ♠8 赢过 A 的 ♠2，而 B 的 ♥7 不参与争胜，所以第二轮由 C 领出已确认的 ♥3。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f6"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "C",
+          "card": "H3"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "S2",
+        "H7",
+        "S8",
+        "H11",
+        "D5",
+        "H3",
+        "S12",
+        "D10",
+        "S4"
+      ],
+      "falseTestimonyIDs": [],
+      "explanation": "第 1 轮 A：♠2 → B：♥7 → C：♠8。领出的是黑桃，同花色中点数最大的牌属于 C，因此 C 获胜。\nB 本轮没有跟黑桃，说明其余手牌 ♦5、♦10 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 C：♥3 → A：♥11 → B：♦5。领出的是红桃，同花色中点数最大的牌属于 A，因此 A 获胜。\nB 本轮没有跟红桃，说明其余手牌 ♦10 都不是红桃；这是必须跟花色规则留下的持牌证据。\n第 3 轮 A：♠12 → B：♦10 → C：♠4。领出的是黑桃，同花色中点数最大的牌属于 A，因此 A 获胜。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter02.level01",
+    "chapterID": "chapter02",
+    "number": 7,
+    "title": "雨点与车票",
+    "subtitle": "列车档案 01",
+    "story": "车票背面的牌局被雨点打湿。列车员保住了开局的两笔，请找回旅客尚未交出的牌。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "A",
+      "roundCount": 3
+    },
+    "cards": [
+      {
+        "id": "C2"
+      },
+      {
+        "id": "C7"
+      },
+      {
+        "id": "C12"
+      },
+      {
+        "id": "S3"
+      },
+      {
+        "id": "S9"
+      },
+      {
+        "id": "H4"
+      },
+      {
+        "id": "H10"
+      },
+      {
+        "id": "D5"
+      },
+      {
+        "id": "D13"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 1 轮，A 出的是 ♦5。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "A",
+          "card": "D5"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 1 轮，C 出的是 ♣12。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "C",
+          "card": "C12"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "第 2 轮领出的牌是 ♥10。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 2,
+          "card": "H10"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "第 3 轮领出的牌是 ♠3。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 3,
+          "card": "S3"
+        }
+      },
+      {
+        "id": "f5",
+        "text": "第 2 轮，C 出的是 ♣2。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "C",
+          "card": "C2"
+        }
+      },
+      {
+        "id": "f6",
+        "text": "♣7 原本在 C 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "C",
+          "card": "C7"
+        }
+      }
+    ],
+    "falseTestimonyCount": 0,
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先处理 C 的第三轮：有两条逐轮记录，还有一条明确的手牌归属。",
+        "evidenceIDs": [
+          "f2",
+          "f5",
+          "f6"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "每人恰好三张牌，分别用于三轮。如果一个人的前两轮已经记录，另一张确定属于他的牌就不能去其他人的列，也不能重复使用。",
+        "evidenceIDs": [
+          "f2",
+          "f5",
+          "f6"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第三轮 C 出 ♣7。C 前两轮已经分别出了 ♣12、♣2，而 ♣7 也确定属于 C，因此只剩第三轮这个位置。",
+        "evidenceIDs": [
+          "f2",
+          "f5",
+          "f6"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 3,
+          "player": "C",
+          "card": "C7"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "D5",
+        "D13",
+        "C12",
+        "H4",
+        "H10",
+        "C2",
+        "S9",
+        "S3",
+        "C7"
+      ],
+      "falseTestimonyIDs": [],
+      "explanation": "第 1 轮 A：♦5 → B：♦13 → C：♣12。领出的是方块，同花色中点数最大的牌属于 B，因此 B 获胜。\nC 本轮没有跟方块，说明其余手牌 ♣2、♣7 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 2 轮 B：♥10 → C：♣2 → A：♥4。领出的是红桃，同花色中点数最大的牌属于 B，因此 B 获胜。\nC 本轮没有跟红桃，说明其余手牌 ♣7 都不是红桃；这是必须跟花色规则留下的持牌证据。\n第 3 轮 B：♠3 → C：♣7 → A：♠9。领出的是黑桃，同花色中点数最大的牌属于 A，因此 A 获胜。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter02.level02",
+    "chapterID": "chapter02",
+    "number": 8,
+    "title": "二号车厢",
+    "subtitle": "列车档案 02",
+    "story": "二号车厢只留下两轮记录。行李标签确认了部分手牌归属，剩余空位必须符合跟花色规则。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "A",
+      "roundCount": 2
+    },
+    "cards": [
+      {
+        "id": "S3"
+      },
+      {
+        "id": "S8"
+      },
+      {
+        "id": "H2"
+      },
+      {
+        "id": "H9"
+      },
+      {
+        "id": "D5"
+      },
+      {
+        "id": "D13"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 1 轮，A 出的是 ♠8。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "A",
+          "card": "S8"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 1 轮，B 出的是 ♦13。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "B",
+          "card": "D13"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "第 2 轮的赢家是 C。",
+        "constraint": {
+          "kind": "roundWinner",
+          "round": 2,
+          "player": "C"
+        }
+      }
+    ],
+    "falseTestimonyCount": 0,
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先确定第一轮的赢家，再寻找第二轮能够让 C 获胜的同花色组合。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "A 的 ♠8 是牌池中最大的黑桃，所以 A 会领出第二轮。C 要赢第二轮，必须出与 A 相同花色且更大的牌；B 第一轮未跟黑桃，也说明他没有另一张黑桃。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第一轮 C 出 ♠3。A 赢第一轮；第二轮要让 C 赢，剩余牌中只能由 A 领 ♥2、C 跟 ♥9。B 没有黑桃，而 A 的两张牌已确定，故 ♠3 必须落在 C 第一轮。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "C",
+          "card": "S3"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "S8",
+        "D13",
+        "S3",
+        "H2",
+        "D5",
+        "H9"
+      ],
+      "falseTestimonyIDs": [],
+      "explanation": "第 1 轮 A：♠8 → B：♦13 → C：♠3。领出的是黑桃，同花色中点数最大的牌属于 A，因此 A 获胜。\nB 本轮没有跟黑桃，说明其余手牌 ♦5 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♥2 → B：♦5 → C：♥9。领出的是红桃，同花色中点数最大的牌属于 C，因此 C 获胜。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter02.level03",
+    "chapterID": "chapter02",
+    "number": 9,
+    "title": "隧道前的一手",
+    "subtitle": "列车档案 03",
+    "story": "列车驶入隧道前，速记员写下了最后看清的一手。出隧道后的赢家批注，是另一条可靠线索。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "A",
+      "roundCount": 3
+    },
+    "cards": [
+      {
+        "id": "D2"
+      },
+      {
+        "id": "D6"
+      },
+      {
+        "id": "D11"
+      },
+      {
+        "id": "C3"
+      },
+      {
+        "id": "C8"
+      },
+      {
+        "id": "C13"
+      },
+      {
+        "id": "S4"
+      },
+      {
+        "id": "S7"
+      },
+      {
+        "id": "S12"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 1 轮，A 出的是 ♣3。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "A",
+          "card": "C3"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 1 轮，C 出的是 ♠7。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "C",
+          "card": "S7"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "第 2 轮领出的牌是 ♠4。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 2,
+          "card": "S4"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "第 3 轮领出的牌是 ♣8。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 3,
+          "card": "C8"
+        }
+      },
+      {
+        "id": "f5",
+        "text": "♦2 原本在 B 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "B",
+          "card": "D2"
+        }
+      },
+      {
+        "id": "f6",
+        "text": "第 2 轮，C 出的是 ♦11。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "C",
+          "card": "D11"
+        }
+      }
+    ],
+    "falseTestimonyCount": 0,
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先关注第 2 轮 B 的牌位。这一处可以从以下公开记录入手：第 1 轮，A 出的是 ♣3；第 1 轮，C 出的是 ♠7；第 2 轮领出的牌是 ♠4。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "第一轮由 A 领出 ♣3，而 C 出了 ♠7。必须跟花色，所以 C 当时手中没有梅花，后面也不能再出梅花。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第二轮 B 出 ♠4。C 第一轮没有跟梅花，之后也不可能持有梅花。假如 A 用最小的 ♣3 赢了第一轮，B 也不能出或持有梅花，余下两张梅花就全归 A；但 A 还必须领出第二轮的 ♠4，这会让 A 超过三张牌。故只能 B 赢第一轮并领出 ♠4。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "B",
+          "card": "S4"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "C3",
+        "C13",
+        "S7",
+        "S12",
+        "S4",
+        "D11",
+        "C8",
+        "D2",
+        "D6"
+      ],
+      "falseTestimonyIDs": [],
+      "explanation": "第 1 轮 A：♣3 → B：♣13 → C：♠7。领出的是梅花，同花色中点数最大的牌属于 B，因此 B 获胜。\nC 本轮没有跟梅花，说明其余手牌 ♦11、♦6 都不是梅花；这是必须跟花色规则留下的持牌证据。\n第 2 轮 B：♠4 → C：♦11 → A：♠12。领出的是黑桃，同花色中点数最大的牌属于 A，因此 A 获胜。\nC 本轮没有跟黑桃，说明其余手牌 ♦6 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 3 轮 A：♣8 → B：♦2 → C：♦6。领出的是梅花，同花色中点数最大的牌属于 A，因此 A 获胜。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter02.level04",
+    "chapterID": "chapter02",
+    "number": 10,
+    "title": "靠窗的空位",
+    "subtitle": "列车档案 04",
+    "story": "窗缝吹走半张记分纸，留下的人名仍然清晰。花色与持牌记录可以一起恢复这三轮。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "A",
+      "roundCount": 3
+    },
+    "cards": [
+      {
+        "id": "D2"
+      },
+      {
+        "id": "D5"
+      },
+      {
+        "id": "D10"
+      },
+      {
+        "id": "C4"
+      },
+      {
+        "id": "C8"
+      },
+      {
+        "id": "C13"
+      },
+      {
+        "id": "S3"
+      },
+      {
+        "id": "S7"
+      },
+      {
+        "id": "S12"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 1 轮，A 出的是 ♠7。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "A",
+          "card": "S7"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 1 轮，B 出的是 ♣4。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "B",
+          "card": "C4"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "第 2 轮领出的牌是 ♦5。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 2,
+          "card": "D5"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "第 2 轮，A 出的是黑桃。",
+        "constraint": {
+          "kind": "playedSuit",
+          "round": 2,
+          "player": "A",
+          "suit": "S"
+        }
+      },
+      {
+        "id": "f5",
+        "text": "♣8 原本在 C 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "C",
+          "card": "C8"
+        }
+      },
+      {
+        "id": "f6",
+        "text": "第 3 轮领出的牌是 ♦2。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 3,
+          "card": "D2"
+        }
+      }
+    ],
+    "falseTestimonyCount": 0,
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先关注第 2 轮 A 的牌位。这一处可以从以下公开记录入手：第 1 轮，A 出的是 ♠7；第 2 轮领出的牌是 ♦5；第 2 轮，A 出的是黑桃。",
+        "evidenceIDs": [
+          "f1",
+          "f3",
+          "f4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "第一轮由 A 领出 ♠7，而 B 出了 ♣4。必须跟花色，所以 B 当时手中没有黑桃，后面也不能再出黑桃。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第二轮 A 出 ♠3。A 该轮确定出黑桃，因此不会是领出 ♦5 的人，第一轮一定由别人赢过 A 的 ♠7。能赢过它的黑桃只有 ♠12，已经用于第一轮赢家；A 第二轮的黑桃便只剩 ♠3。",
+        "evidenceIDs": [
+          "f1",
+          "f3",
+          "f4"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "A",
+          "card": "S3"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "S7",
+        "C4",
+        "S12",
+        "S3",
+        "D10",
+        "D5",
+        "C13",
+        "D2",
+        "C8"
+      ],
+      "falseTestimonyIDs": [],
+      "explanation": "第 1 轮 A：♠7 → B：♣4 → C：♠12。领出的是黑桃，同花色中点数最大的牌属于 C，因此 C 获胜。\nB 本轮没有跟黑桃，说明其余手牌 ♦10、♦2 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 C：♦5 → A：♠3 → B：♦10。领出的是方块，同花色中点数最大的牌属于 B，因此 B 获胜。\nA 本轮没有跟方块，说明其余手牌 ♣13 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 3 轮 B：♦2 → C：♣8 → A：♣13。领出的是方块，同花色中点数最大的牌属于 B，因此 B 获胜。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter02.level05",
+    "chapterID": "chapter02",
+    "number": 11,
+    "title": "餐车的茶渍",
+    "subtitle": "列车档案 05",
+    "story": "一圈茶渍遮住了点数。记录员另抄了花色，行李员则证实了几张牌原来属于谁。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "A",
+      "roundCount": 2
+    },
+    "cards": [
+      {
+        "id": "C2"
+      },
+      {
+        "id": "C6"
+      },
+      {
+        "id": "C11"
+      },
+      {
+        "id": "S3"
+      },
+      {
+        "id": "S7"
+      },
+      {
+        "id": "S12"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 1 轮，A 出的是 ♠3。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "A",
+          "card": "S3"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 1 轮，B 出的是 ♣11。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "B",
+          "card": "C11"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "♣2 原本在 C 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "C",
+          "card": "C2"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "♠7 原本在 C 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "C",
+          "card": "S7"
+        }
+      }
+    ],
+    "falseTestimonyCount": 0,
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先关注第 1 轮 C 的牌位。这一处可以从以下公开记录入手：第 1 轮，A 出的是 ♠3；♣2 原本在 C 的手中；♠7 原本在 C 的手中。",
+        "evidenceIDs": [
+          "f1",
+          "f3",
+          "f4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "第一轮由 A 领出 ♠3，而 B 出了 ♣11。必须跟花色，所以 B 当时手中没有黑桃，后面也不能再出黑桃。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第一轮 C 出 ♠7。C 的全部手牌是 ♣2 与 ♠7；A 已领出黑桃，C 有黑桃就必须跟，不能先打梅花。",
+        "evidenceIDs": [
+          "f1",
+          "f3",
+          "f4"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "C",
+          "card": "S7"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "S3",
+        "C11",
+        "S7",
+        "S12",
+        "C6",
+        "C2"
+      ],
+      "falseTestimonyIDs": [],
+      "explanation": "第 1 轮 A：♠3 → B：♣11 → C：♠7。领出的是黑桃，同花色中点数最大的牌属于 C，因此 C 获胜。\nB 本轮没有跟黑桃，说明其余手牌 ♣6 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 C：♣2 → A：♠12 → B：♣6。领出的是梅花，同花色中点数最大的牌属于 B，因此 B 获胜。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter02.level06",
+    "chapterID": "chapter02",
+    "number": 12,
+    "title": "换轨之后",
+    "subtitle": "列车档案 06",
+    "story": "换轨时的颠簸弄乱了笔迹。第一张牌没有丢，后面的每次领出仍要交给上一轮赢家。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "A",
+      "roundCount": 3
+    },
+    "cards": [
+      {
+        "id": "S3"
+      },
+      {
+        "id": "S6"
+      },
+      {
+        "id": "S9"
+      },
+      {
+        "id": "S13"
+      },
+      {
+        "id": "H2"
+      },
+      {
+        "id": "H5"
+      },
+      {
+        "id": "H10"
+      },
+      {
+        "id": "H14"
+      },
+      {
+        "id": "C7"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 1 轮，A 出的是 ♠3。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "A",
+          "card": "S3"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 1 轮，B 出的是 ♥5。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "B",
+          "card": "H5"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "第 3 轮，C 出的是 ♥10。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 3,
+          "player": "C",
+          "card": "H10"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "♣7 原本在 A 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "A",
+          "card": "C7"
+        }
+      },
+      {
+        "id": "f5",
+        "text": "♠13 原本在 A 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "A",
+          "card": "S13"
+        }
+      },
+      {
+        "id": "f6",
+        "text": "第 2 轮领出的牌是 ♠9。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 2,
+          "card": "S9"
+        }
+      },
+      {
+        "id": "f7",
+        "text": "第 3 轮，B 出的是 ♥14。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 3,
+          "player": "B",
+          "card": "H14"
+        }
+      }
+    ],
+    "falseTestimonyCount": 0,
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先关注第 2 轮 C 的牌位。这一处可以从以下公开记录入手：第 1 轮，A 出的是 ♠3；第 1 轮，B 出的是 ♥5；第 2 轮领出的牌是 ♠9。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f6"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "第一轮由 A 领出 ♠3，而 B 出了 ♥5。必须跟花色，所以 B 当时手中没有黑桃，后面也不能再出黑桃。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6",
+          "f7"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第二轮 C 出 ♠9。B 第一轮没有跟黑桃，所以他没有黑桃。假如 C 第一轮也不跟，剩余三张黑桃将全归 A，但 A 连同已出的 ♠3 会持有四张牌，超过每人三张的上限。因此 C 必须用更大的黑桃赢第一轮，并领出第二轮的 ♠9。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f6"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "C",
+          "card": "S9"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "S3",
+        "H5",
+        "S6",
+        "S13",
+        "H2",
+        "S9",
+        "C7",
+        "H14",
+        "H10"
+      ],
+      "falseTestimonyIDs": [],
+      "explanation": "第 1 轮 A：♠3 → B：♥5 → C：♠6。领出的是黑桃，同花色中点数最大的牌属于 C，因此 C 获胜。\nB 本轮没有跟黑桃，说明其余手牌 ♥2、♥14 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 C：♠9 → A：♠13 → B：♥2。领出的是黑桃，同花色中点数最大的牌属于 A，因此 A 获胜。\nB 本轮没有跟黑桃，说明其余手牌 ♥14 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 3 轮 A：♣7 → B：♥14 → C：♥10。领出的是梅花，同花色中点数最大的牌属于 A，因此 A 获胜。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter02.level07",
+    "chapterID": "chapter02",
+    "number": 13,
+    "title": "夜班检票员",
+    "subtitle": "列车档案 07",
+    "story": "夜班检票员没有记全牌面，只在赢家旁边打了一个钩。那枚钩与手牌容量一样可靠。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "A",
+      "roundCount": 3
+    },
+    "cards": [
+      {
+        "id": "H2"
+      },
+      {
+        "id": "H7"
+      },
+      {
+        "id": "H12"
+      },
+      {
+        "id": "D3"
+      },
+      {
+        "id": "D9"
+      },
+      {
+        "id": "C4"
+      },
+      {
+        "id": "C10"
+      },
+      {
+        "id": "S5"
+      },
+      {
+        "id": "S13"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 1 轮，A 出的是 ♠5。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "A",
+          "card": "S5"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 1 轮，B 出的是 ♥12。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "B",
+          "card": "H12"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "第 2 轮领出的牌是 ♦9。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 2,
+          "card": "D9"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "第 3 轮的赢家是 B。",
+        "constraint": {
+          "kind": "roundWinner",
+          "round": 3,
+          "player": "B"
+        }
+      },
+      {
+        "id": "f5",
+        "text": "♣4 原本在 B 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "B",
+          "card": "C4"
+        }
+      }
+    ],
+    "falseTestimonyCount": 0,
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先关注第 1 轮 C 的牌位。这一处可以从以下公开记录入手：第 1 轮，A 出的是 ♠5；第 1 轮，B 出的是 ♥12；第 2 轮领出的牌是 ♦9；第 3 轮的赢家是 B。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "第一轮由 A 领出 ♠5，而 B 出了 ♥12。必须跟花色，所以 B 当时手中没有黑桃，后面也不能再出黑桃。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第一轮 C 出 ♠13。B 没有黑桃，♠13 只能属于 A 或 C。若 A 留着 ♠13，用 ♠5 赢第一轮，再领出最大的方块 ♦9 赢第二轮，第三轮便由 A 领 ♠13；没有黑桃的 B 不可能赢第三轮。这与可信赢家记录冲突，所以 C 必须在第一轮出 ♠13。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "C",
+          "card": "S13"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "S5",
+        "H12",
+        "S13",
+        "D3",
+        "C4",
+        "D9",
+        "C10",
+        "H7",
+        "H2"
+      ],
+      "falseTestimonyIDs": [],
+      "explanation": "第 1 轮 A：♠5 → B：♥12 → C：♠13。领出的是黑桃，同花色中点数最大的牌属于 C，因此 C 获胜。\nB 本轮没有跟黑桃，说明其余手牌 ♣4、♥7 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 C：♦9 → A：♦3 → B：♣4。领出的是方块，同花色中点数最大的牌属于 C，因此 C 获胜。\nB 本轮没有跟方块，说明其余手牌 ♥7 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 3 轮 C：♥2 → A：♣10 → B：♥7。领出的是红桃，同花色中点数最大的牌属于 B，因此 B 获胜。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter02.level08",
+    "chapterID": "chapter02",
+    "number": 14,
+    "title": "折起的时刻表",
+    "subtitle": "列车档案 08",
+    "story": "时刻表折痕处缺了一行。虽然看不见那张牌，之后的出牌仍能证明它不可能来自某些人。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "A",
+      "roundCount": 3
+    },
+    "cards": [
+      {
+        "id": "D2"
+      },
+      {
+        "id": "D5"
+      },
+      {
+        "id": "D8"
+      },
+      {
+        "id": "D11"
+      },
+      {
+        "id": "D14"
+      },
+      {
+        "id": "C4"
+      },
+      {
+        "id": "C10"
+      },
+      {
+        "id": "S6"
+      },
+      {
+        "id": "S12"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 1 轮，A 出的是 ♣10。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "A",
+          "card": "C10"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 1 轮，B 出的是 ♦2。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "B",
+          "card": "D2"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "第 2 轮领出的牌是 ♦14。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 2,
+          "card": "D14"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "♦8 原本在 A 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "A",
+          "card": "D8"
+        }
+      },
+      {
+        "id": "f5",
+        "text": "第 3 轮，B 出的是 ♦11。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 3,
+          "player": "B",
+          "card": "D11"
+        }
+      },
+      {
+        "id": "f6",
+        "text": "第 3 轮，C 出的是 ♠12。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 3,
+          "player": "C",
+          "card": "S12"
+        }
+      }
+    ],
+    "falseTestimonyCount": 0,
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先关注第 2 轮 A 的牌位。这一处可以从以下公开记录入手：第 1 轮，A 出的是 ♣10；第 2 轮领出的牌是 ♦14。",
+        "evidenceIDs": [
+          "f1",
+          "f3"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "第一轮由 A 领出 ♣10，而 B 出了 ♦2。必须跟花色，所以 B 当时手中没有梅花，后面也不能再出梅花。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第二轮 A 出 ♦14。A 第一轮领出的 ♣10 是牌池中最大的梅花，不会被其他花色的高点数击败。A 因此赢第一轮，并负责领出第二轮已确认的 ♦14。",
+        "evidenceIDs": [
+          "f1",
+          "f3"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "A",
+          "card": "D14"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "C10",
+        "D2",
+        "C4",
+        "D14",
+        "D5",
+        "S6",
+        "D8",
+        "D11",
+        "S12"
+      ],
+      "falseTestimonyIDs": [],
+      "explanation": "第 1 轮 A：♣10 → B：♦2 → C：♣4。领出的是梅花，同花色中点数最大的牌属于 A，因此 A 获胜。\nB 本轮没有跟梅花，说明其余手牌 ♦5、♦11 都不是梅花；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♦14 → B：♦5 → C：♠6。领出的是方块，同花色中点数最大的牌属于 A，因此 A 获胜。\nC 本轮没有跟方块，说明其余手牌 ♠12 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 3 轮 A：♦8 → B：♦11 → C：♠12。领出的是方块，同花色中点数最大的牌属于 B，因此 B 获胜。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter02.level09",
+    "chapterID": "chapter02",
+    "number": 15,
+    "title": "站台来电",
+    "subtitle": "列车档案 09",
+    "story": "站台打来的电话补充了一条确切记录。将它与车厢中已有的记录交叉检查，不能让同一张牌出现两次。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "A",
+      "roundCount": 3
+    },
+    "cards": [
+      {
+        "id": "S2"
+      },
+      {
+        "id": "S6"
+      },
+      {
+        "id": "S11"
+      },
+      {
+        "id": "H3"
+      },
+      {
+        "id": "H8"
+      },
+      {
+        "id": "H13"
+      },
+      {
+        "id": "D4"
+      },
+      {
+        "id": "D7"
+      },
+      {
+        "id": "D12"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 1 轮，A 出的是 ♠2。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "A",
+          "card": "S2"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 1 轮，C 出的是 ♦12。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "C",
+          "card": "D12"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "第 2 轮领出的牌是 ♥3。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 2,
+          "card": "H3"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "♥13 原本在 B 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "B",
+          "card": "H13"
+        }
+      },
+      {
+        "id": "f5",
+        "text": "第 2 轮，A 出的是 ♠6。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "A",
+          "card": "S6"
+        }
+      },
+      {
+        "id": "f6",
+        "text": "♦7 原本在 C 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "C",
+          "card": "D7"
+        }
+      }
+    ],
+    "falseTestimonyCount": 0,
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先关注第 2 轮 B 的牌位。这一处可以从以下公开记录入手：第 1 轮，A 出的是 ♠2；第 1 轮，C 出的是 ♦12；第 2 轮领出的牌是 ♥3。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "第一轮由 A 领出 ♠2，而 C 出了 ♦12。必须跟花色，所以 C 当时手中没有黑桃，后面也不能再出黑桃。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第二轮 B 出 ♥3。C 没有跟黑桃，不能持有余下的黑桃。若 B 也不跟，A 就必须持有全部三张黑桃；A 虽会赢第一轮，却没有位置再持有第二轮必须领出的 ♥3。故第一轮由 B 以较大的黑桃获胜，第二轮 ♥3 属于 B。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "B",
+          "card": "H3"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "S2",
+        "S11",
+        "D12",
+        "S6",
+        "H3",
+        "H8",
+        "D4",
+        "H13",
+        "D7"
+      ],
+      "falseTestimonyIDs": [],
+      "explanation": "第 1 轮 A：♠2 → B：♠11 → C：♦12。领出的是黑桃，同花色中点数最大的牌属于 B，因此 B 获胜。\nC 本轮没有跟黑桃，说明其余手牌 ♥8、♦7 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 B：♥3 → C：♥8 → A：♠6。领出的是红桃，同花色中点数最大的牌属于 C，因此 C 获胜。\nA 本轮没有跟红桃，说明其余手牌 ♦4 都不是红桃；这是必须跟花色规则留下的持牌证据。\n第 3 轮 C：♦7 → A：♦4 → B：♥13。领出的是方块，同花色中点数最大的牌属于 C，因此 C 获胜。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter02.level10",
+    "chapterID": "chapter02",
+    "number": 16,
+    "title": "灯灭的一分钟",
+    "subtitle": "列车档案 10",
+    "story": "灯熄灭时，牌局仍按固定座次继续。人名对应的位置没变，只有领出的人可能改变。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "A",
+      "roundCount": 3
+    },
+    "cards": [
+      {
+        "id": "S2"
+      },
+      {
+        "id": "S5"
+      },
+      {
+        "id": "S10"
+      },
+      {
+        "id": "H4"
+      },
+      {
+        "id": "H8"
+      },
+      {
+        "id": "H13"
+      },
+      {
+        "id": "D3"
+      },
+      {
+        "id": "D7"
+      },
+      {
+        "id": "D12"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 1 轮，A 出的是 ♠10。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "A",
+          "card": "S10"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 1 轮，C 出的是 ♥4。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "C",
+          "card": "H4"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "第 2 轮领出的牌是 ♦3。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 2,
+          "card": "D3"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "♠2 原本在 A 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "A",
+          "card": "S2"
+        }
+      },
+      {
+        "id": "f5",
+        "text": "第 2 轮，B 出的是 ♥13。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "B",
+          "card": "H13"
+        }
+      },
+      {
+        "id": "f6",
+        "text": "第 3 轮领出的牌是 ♦7。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 3,
+          "card": "D7"
+        }
+      }
+    ],
+    "falseTestimonyCount": 0,
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先关注第 2 轮 A 的牌位。这一处可以从以下公开记录入手：第 1 轮，A 出的是 ♠10；第 2 轮领出的牌是 ♦3。",
+        "evidenceIDs": [
+          "f1",
+          "f3"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "第一轮由 A 领出 ♠10，而 C 出了 ♥4。必须跟花色，所以 C 当时手中没有黑桃，后面也不能再出黑桃。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第二轮 A 出 ♦3。A 领出的 ♠10 是本局最大的黑桃，因此必定赢第一轮。赢家领出下一轮，第二轮已确认的 ♦3 就落在 A 的位置。",
+        "evidenceIDs": [
+          "f1",
+          "f3"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "A",
+          "card": "D3"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "S10",
+        "S5",
+        "H4",
+        "D3",
+        "H13",
+        "D12",
+        "S2",
+        "H8",
+        "D7"
+      ],
+      "falseTestimonyIDs": [],
+      "explanation": "第 1 轮 A：♠10 → B：♠5 → C：♥4。领出的是黑桃，同花色中点数最大的牌属于 A，因此 A 获胜。\nC 本轮没有跟黑桃，说明其余手牌 ♦12、♦7 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♦3 → B：♥13 → C：♦12。领出的是方块，同花色中点数最大的牌属于 C，因此 C 获胜。\nB 本轮没有跟方块，说明其余手牌 ♥8 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 3 轮 C：♦7 → A：♠2 → B：♥8。领出的是方块，同花色中点数最大的牌属于 C，因此 C 获胜。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter02.level11",
+    "chapterID": "chapter02",
+    "number": 17,
+    "title": "终点前的三轮",
+    "subtitle": "列车档案 11",
+    "story": "终点站快到了，三位旅客把余下的牌全部打完。纸上不同花色交织，留下的缺门信息尤其有用。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "A",
+      "roundCount": 3
+    },
+    "cards": [
+      {
+        "id": "H2"
+      },
+      {
+        "id": "H4"
+      },
+      {
+        "id": "H8"
+      },
+      {
+        "id": "H12"
+      },
+      {
+        "id": "D3"
+      },
+      {
+        "id": "D7"
+      },
+      {
+        "id": "D11"
+      },
+      {
+        "id": "C5"
+      },
+      {
+        "id": "C10"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 1 轮，A 出的是 ♣5。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "A",
+          "card": "C5"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 1 轮，B 出的是 ♦7。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "B",
+          "card": "D7"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "第 2 轮领出的牌是 ♥4。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 2,
+          "card": "H4"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "第 1 轮，C 出的是 ♦3。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "C",
+          "card": "D3"
+        }
+      },
+      {
+        "id": "f5",
+        "text": "第 3 轮领出的牌是 ♥2。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 3,
+          "card": "H2"
+        }
+      },
+      {
+        "id": "f6",
+        "text": "♥12 原本在 B 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "B",
+          "card": "H12"
+        }
+      }
+    ],
+    "falseTestimonyCount": 0,
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先关注第 2 轮 A 的牌位。这一处可以从以下公开记录入手：第 1 轮，B 出的是 ♦7；第 2 轮领出的牌是 ♥4；第 1 轮，C 出的是 ♦3。",
+        "evidenceIDs": [
+          "f2",
+          "f3",
+          "f4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "第一轮由 A 领出 ♣5，而 B 出了 ♦7。必须跟花色，所以 B 当时手中没有梅花，后面也不能再出梅花。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第二轮 A 出 ♥4。第一轮 B、C 已分别出 ♦7、♦3：如果 A 领出方块，只剩更大的 ♦11；如果 A 领出其他花色，B、C 都不能争胜。两种情况下赢家都是 A，所以第二轮由 A 领出 ♥4。",
+        "evidenceIDs": [
+          "f2",
+          "f3",
+          "f4"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "A",
+          "card": "H4"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "C5",
+        "D7",
+        "D3",
+        "H4",
+        "H12",
+        "H8",
+        "C10",
+        "H2",
+        "D11"
+      ],
+      "falseTestimonyIDs": [],
+      "explanation": "第 1 轮 A：♣5 → B：♦7 → C：♦3。领出的是梅花，同花色中点数最大的牌属于 A，因此 A 获胜。\nB 本轮没有跟梅花，说明其余手牌 ♥12、♥2 都不是梅花；这是必须跟花色规则留下的持牌证据。\nC 本轮没有跟梅花，说明其余手牌 ♥8、♦11 都不是梅花；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♥4 → B：♥12 → C：♥8。领出的是红桃，同花色中点数最大的牌属于 B，因此 B 获胜。\n第 3 轮 B：♥2 → C：♦11 → A：♣10。领出的是红桃，同花色中点数最大的牌属于 B，因此 B 获胜。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter02.level12",
+    "chapterID": "chapter02",
+    "number": 18,
+    "title": "末班车归档",
+    "subtitle": "列车档案 12",
+    "story": "十二页记录终于收齐。最后一页需要同时核对持牌、赢家和余牌，让这段旅途有一个完整的落款。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "A",
+      "roundCount": 3
+    },
+    "cards": [
+      {
+        "id": "D3"
+      },
+      {
+        "id": "D6"
+      },
+      {
+        "id": "D9"
+      },
+      {
+        "id": "D13"
+      },
+      {
+        "id": "C2"
+      },
+      {
+        "id": "C5"
+      },
+      {
+        "id": "C10"
+      },
+      {
+        "id": "C14"
+      },
+      {
+        "id": "H7"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 1 轮，A 出的是 ♦6。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "A",
+          "card": "D6"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 1 轮，B 出的是 ♣10。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "B",
+          "card": "C10"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "第 2 轮领出的牌是 ♣5。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 2,
+          "card": "C5"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "第 2 轮，C 出的是 ♦9。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "C",
+          "card": "D9"
+        }
+      },
+      {
+        "id": "f5",
+        "text": "♥7 原本在 A 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "A",
+          "card": "H7"
+        }
+      },
+      {
+        "id": "f6",
+        "text": "第 3 轮领出的牌是 ♣2。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 3,
+          "card": "C2"
+        }
+      }
+    ],
+    "falseTestimonyCount": 0,
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先关注第 1 轮 C 的牌位。这一处可以从以下公开记录入手：第 1 轮，A 出的是 ♦6；第 2 轮领出的牌是 ♣5；第 2 轮，C 出的是 ♦9。",
+        "evidenceIDs": [
+          "f1",
+          "f3",
+          "f4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "第一轮由 A 领出 ♦6，而 B 出了 ♣10。必须跟花色，所以 B 当时手中没有方块，后面也不能再出方块。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第一轮 C 出 ♦3。C 第二轮还持有 ♦9，所以第一轮必须跟 A 领出的方块。♦9 留在第二轮不能提前用，剩下的候选是 ♦3、♦13；若 C 第一轮出 ♦13 获胜，他第二轮必须领 ♣5，便与已确认的 ♦9 冲突。因此只能出 ♦3。",
+        "evidenceIDs": [
+          "f1",
+          "f3",
+          "f4"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "C",
+          "card": "D3"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "D6",
+        "C10",
+        "D3",
+        "C5",
+        "C14",
+        "D9",
+        "H7",
+        "C2",
+        "D13"
+      ],
+      "falseTestimonyIDs": [],
+      "explanation": "第 1 轮 A：♦6 → B：♣10 → C：♦3。领出的是方块，同花色中点数最大的牌属于 A，因此 A 获胜。\nB 本轮没有跟方块，说明其余手牌 ♣14、♣2 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♣5 → B：♣14 → C：♦9。领出的是梅花，同花色中点数最大的牌属于 B，因此 B 获胜。\nC 本轮没有跟梅花，说明其余手牌 ♦13 都不是梅花；这是必须跟花色规则留下的持牌证据。\n第 3 轮 B：♣2 → C：♦13 → A：♥7。领出的是梅花，同花色中点数最大的牌属于 B，因此 B 获胜。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter03.level01",
+    "chapterID": "chapter03",
+    "number": 19,
+    "title": "钟声之前",
+    "subtitle": "茶馆档案 01",
+    "story": "茶馆的钟声响起前，三段记录已经写好。现在它们次序散乱，请用领出牌与赢家恢复联系。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "B",
+      "roundCount": 3
+    },
+    "cards": [
+      {
+        "id": "C2"
+      },
+      {
+        "id": "C5"
+      },
+      {
+        "id": "C8"
+      },
+      {
+        "id": "C11"
+      },
+      {
+        "id": "C14"
+      },
+      {
+        "id": "S4"
+      },
+      {
+        "id": "S10"
+      },
+      {
+        "id": "H6"
+      },
+      {
+        "id": "H12"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 3 轮领出的牌是 ♣14。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 3,
+          "card": "C14"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 1 轮领出的牌是 ♣5。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 1,
+          "card": "C5"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "第 2 轮领出的牌是 ♣2。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 2,
+          "card": "C2"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "第 1 轮，C 出的是黑桃。",
+        "constraint": {
+          "kind": "playedSuit",
+          "round": 1,
+          "player": "C",
+          "suit": "S"
+        }
+      },
+      {
+        "id": "f5",
+        "text": "♥12 原本在 A 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "A",
+          "card": "H12"
+        }
+      },
+      {
+        "id": "f6",
+        "text": "♣11 原本在 B 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "B",
+          "card": "C11"
+        }
+      },
+      {
+        "id": "f7",
+        "text": "第 3 轮，C 出的是 ♠10。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 3,
+          "player": "C",
+          "card": "S10"
+        }
+      }
+    ],
+    "falseTestimonyCount": 0,
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先关注第 1 轮 C 的牌位。这一处可以从以下公开记录入手：第 1 轮，C 出的是黑桃；第 3 轮，C 出的是 ♠10。",
+        "evidenceIDs": [
+          "f4",
+          "f7"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "先把这些已知花色和牌面放到对应的人与轮次。每张牌只使用一次；某人较晚轮次的牌，在较早轮次仍属于他的手牌，也受必须跟花色的规则约束。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6",
+          "f7"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第一轮 C 出 ♠4。牌池只有 ♠4、♠10 两张黑桃；C 第一轮的花色确定为黑桃，而 ♠10 已确认留到 C 第三轮。同一张牌不能使用两次，所以第一轮只剩 ♠4。",
+        "evidenceIDs": [
+          "f4",
+          "f7"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "C",
+          "card": "S4"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "C8",
+        "C5",
+        "S4",
+        "C2",
+        "C11",
+        "H6",
+        "H12",
+        "C14",
+        "S10"
+      ],
+      "falseTestimonyIDs": [],
+      "explanation": "第 1 轮 B：♣5 → C：♠4 → A：♣8。领出的是梅花，同花色中点数最大的牌属于 A，因此 A 获胜。\nC 本轮没有跟梅花，说明其余手牌 ♥6、♠10 都不是梅花；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♣2 → B：♣11 → C：♥6。领出的是梅花，同花色中点数最大的牌属于 B，因此 B 获胜。\nC 本轮没有跟梅花，说明其余手牌 ♠10 都不是梅花；这是必须跟花色规则留下的持牌证据。\n第 3 轮 B：♣14 → C：♠10 → A：♥12。领出的是梅花，同花色中点数最大的牌属于 B，因此 B 获胜。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter03.level02",
+    "chapterID": "chapter03",
+    "number": 20,
+    "title": "错放的杯垫",
+    "subtitle": "茶馆档案 02",
+    "story": "杯垫下面压着一条领出记录。杯垫摆放的位置不是座次证据，档案中明确的人名与规则才是。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "C",
+      "roundCount": 2
+    },
+    "cards": [
+      {
+        "id": "S3"
+      },
+      {
+        "id": "S8"
+      },
+      {
+        "id": "H2"
+      },
+      {
+        "id": "H9"
+      },
+      {
+        "id": "D5"
+      },
+      {
+        "id": "D13"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 2 轮领出的牌是 ♠3。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 2,
+          "card": "S3"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 1 轮领出的牌是 ♥2。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 1,
+          "card": "H2"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "♦5 原本在 A 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "A",
+          "card": "D5"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "第 2 轮，A 出的是 ♦13。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "A",
+          "card": "D13"
+        }
+      }
+    ],
+    "falseTestimonyCount": 0,
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先关注第 1 轮 A 的牌位。这一处可以从以下公开记录入手：♦5 原本在 A 的手中；第 2 轮，A 出的是 ♦13。",
+        "evidenceIDs": [
+          "f3",
+          "f4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "♦5 必须落在 A 的列内。每人恰有 2 张牌；检查它放在较晚轮次时，是否会让这个人较早时明明有领出花色却没有跟。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第一轮 A 出 ♦5。♦5 的归属已经确定是 A，A 第二轮又已确认出 ♦13。每人只有两张牌，♦5 只能落在 A 第一轮。",
+        "evidenceIDs": [
+          "f3",
+          "f4"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "A",
+          "card": "D5"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "D5",
+        "H9",
+        "H2",
+        "D13",
+        "S3",
+        "S8"
+      ],
+      "falseTestimonyIDs": [],
+      "explanation": "第 1 轮 C：♥2 → A：♦5 → B：♥9。领出的是红桃，同花色中点数最大的牌属于 B，因此 B 获胜。\nA 本轮没有跟红桃，说明其余手牌 ♦13 都不是红桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 B：♠3 → C：♠8 → A：♦13。领出的是黑桃，同花色中点数最大的牌属于 C，因此 C 获胜。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter03.level03",
+    "chapterID": "chapter03",
+    "number": 21,
+    "title": "从 B 开始",
+    "subtitle": "茶馆档案 03",
+    "story": "这一局从 B 领出。桌边仍然按 A、B、C 顺时针循环，下一轮则要从赢家重新开始。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "B",
+      "roundCount": 3
+    },
+    "cards": [
+      {
+        "id": "H2"
+      },
+      {
+        "id": "H5"
+      },
+      {
+        "id": "H10"
+      },
+      {
+        "id": "D4"
+      },
+      {
+        "id": "D8"
+      },
+      {
+        "id": "D13"
+      },
+      {
+        "id": "C3"
+      },
+      {
+        "id": "C7"
+      },
+      {
+        "id": "C12"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 3 轮领出的牌是 ♣7。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 3,
+          "card": "C7"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 2 轮领出的牌是 ♦13。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 2,
+          "card": "D13"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "第 1 轮领出的牌是 ♦8。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 1,
+          "card": "D8"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "第 3 轮的赢家是 C。",
+        "constraint": {
+          "kind": "roundWinner",
+          "round": 3,
+          "player": "C"
+        }
+      },
+      {
+        "id": "f5",
+        "text": "第 2 轮，A 出的是梅花。",
+        "constraint": {
+          "kind": "playedSuit",
+          "round": 2,
+          "player": "A",
+          "suit": "C"
+        }
+      },
+      {
+        "id": "f6",
+        "text": "第 1 轮，C 出的是 ♥10。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "C",
+          "card": "H10"
+        }
+      },
+      {
+        "id": "f7",
+        "text": "♥5 原本在 A 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "A",
+          "card": "H5"
+        }
+      }
+    ],
+    "falseTestimonyCount": 0,
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先关注第 2 轮 B 的牌位。这一处可以从以下公开记录入手：第 2 轮领出的牌是 ♦13；第 1 轮领出的牌是 ♦8。",
+        "evidenceIDs": [
+          "f2",
+          "f3"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "♦13 是第 2 轮的第一张牌，只能由该轮领出者打出。把这个条件与前轮赢家相连，再检查各人尚未打出的同花色牌。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6",
+          "f7"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第二轮 B 出 ♦13。首轮由 B 领出 ♦8，而更大的 ♦13 已确认留到第二轮才领出。第一轮没有其他方块能够超过 ♦8，因此 B 赢第一轮，随后领出 ♦13。",
+        "evidenceIDs": [
+          "f2",
+          "f3"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "B",
+          "card": "D13"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "D4",
+        "D8",
+        "H10",
+        "C3",
+        "D13",
+        "H2",
+        "H5",
+        "C7",
+        "C12"
+      ],
+      "falseTestimonyIDs": [],
+      "explanation": "第 1 轮 B：♦8 → C：♥10 → A：♦4。领出的是方块，同花色中点数最大的牌属于 B，因此 B 获胜。\nC 本轮没有跟方块，说明其余手牌 ♥2、♣12 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 2 轮 B：♦13 → C：♥2 → A：♣3。领出的是方块，同花色中点数最大的牌属于 B，因此 B 获胜。\nC 本轮没有跟方块，说明其余手牌 ♣12 都不是方块；这是必须跟花色规则留下的持牌证据。\nA 本轮没有跟方块，说明其余手牌 ♥5 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 3 轮 B：♣7 → C：♣12 → A：♥5。领出的是梅花，同花色中点数最大的牌属于 C，因此 C 获胜。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter03.level04",
+    "chapterID": "chapter03",
+    "number": 22,
+    "title": "柜台下的纸条",
+    "subtitle": "茶馆档案 04",
+    "story": "柜台下找到的纸条注明了某轮领出的牌，却没有写人名。谁赢得上一轮，谁才有资格领出它。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "C",
+      "roundCount": 3
+    },
+    "cards": [
+      {
+        "id": "D2"
+      },
+      {
+        "id": "D4"
+      },
+      {
+        "id": "D8"
+      },
+      {
+        "id": "D12"
+      },
+      {
+        "id": "C3"
+      },
+      {
+        "id": "C7"
+      },
+      {
+        "id": "C11"
+      },
+      {
+        "id": "S5"
+      },
+      {
+        "id": "S10"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 3 轮领出的牌是 ♣7。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 3,
+          "card": "C7"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 1 轮领出的牌是 ♦4。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 1,
+          "card": "D4"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "♦8 原本在 C 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "C",
+          "card": "D8"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "♠10 原本在 C 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "C",
+          "card": "S10"
+        }
+      },
+      {
+        "id": "f5",
+        "text": "第 1 轮，B 出的是黑桃。",
+        "constraint": {
+          "kind": "playedSuit",
+          "round": 1,
+          "player": "B",
+          "suit": "S"
+        }
+      },
+      {
+        "id": "f6",
+        "text": "第 3 轮，C 出的是方块。",
+        "constraint": {
+          "kind": "playedSuit",
+          "round": 3,
+          "player": "C",
+          "suit": "D"
+        }
+      }
+    ],
+    "falseTestimonyCount": 0,
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先关注第 1 轮 B 的牌位。这一处可以从以下公开记录入手：♠10 原本在 C 的手中；第 1 轮，B 出的是黑桃。",
+        "evidenceIDs": [
+          "f4",
+          "f5"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "♠10 必须落在 C 的列内。每人恰有 3 张牌；检查它放在较晚轮次时，是否会让这个人较早时明明有领出花色却没有跟。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第一轮 B 出 ♠5。B 的这一手确定是黑桃，而牌池只有 ♠5 与 ♠10 两张黑桃。♠10 已确认属于 C，不能同时分给 B，故 B 只能出 ♠5。",
+        "evidenceIDs": [
+          "f4",
+          "f5"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "B",
+          "card": "S5"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "D12",
+        "S5",
+        "D4",
+        "C3",
+        "C11",
+        "S10",
+        "D2",
+        "C7",
+        "D8"
+      ],
+      "falseTestimonyIDs": [],
+      "explanation": "第 1 轮 C：♦4 → A：♦12 → B：♠5。领出的是方块，同花色中点数最大的牌属于 A，因此 A 获胜。\nB 本轮没有跟方块，说明其余手牌 ♣11、♣7 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♣3 → B：♣11 → C：♠10。领出的是梅花，同花色中点数最大的牌属于 B，因此 B 获胜。\nC 本轮没有跟梅花，说明其余手牌 ♦8 都不是梅花；这是必须跟花色规则留下的持牌证据。\n第 3 轮 B：♣7 → C：♦8 → A：♦2。领出的是梅花，同花色中点数最大的牌属于 B，因此 B 获胜。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter03.level05",
+    "chapterID": "chapter03",
+    "number": 23,
+    "title": "两次交接",
+    "subtitle": "茶馆档案 05",
+    "story": "记录上的箭头被抹掉了。两次领出权交接仍由牌面决定，不能按纸条摆放的先后来推断。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "C",
+      "roundCount": 3
+    },
+    "cards": [
+      {
+        "id": "C3"
+      },
+      {
+        "id": "C6"
+      },
+      {
+        "id": "C9"
+      },
+      {
+        "id": "C13"
+      },
+      {
+        "id": "S2"
+      },
+      {
+        "id": "S5"
+      },
+      {
+        "id": "S10"
+      },
+      {
+        "id": "S14"
+      },
+      {
+        "id": "D7"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 3 轮领出的牌是 ♠10。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 3,
+          "card": "S10"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 1 轮领出的牌是 ♣6。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 1,
+          "card": "C6"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "第 2 轮领出的牌是 ♠5。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 2,
+          "card": "S5"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "♠5 原本在 C 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "C",
+          "card": "S5"
+        }
+      },
+      {
+        "id": "f5",
+        "text": "♣13 原本在 C 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "C",
+          "card": "C13"
+        }
+      },
+      {
+        "id": "f6",
+        "text": "第 1 轮，A 出的是方块。",
+        "constraint": {
+          "kind": "playedSuit",
+          "round": 1,
+          "player": "A",
+          "suit": "D"
+        }
+      }
+    ],
+    "falseTestimonyCount": 0,
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先关注第 2 轮 C 的牌位。这一处可以从以下公开记录入手：第 2 轮领出的牌是 ♠5；♠5 原本在 C 的手中。",
+        "evidenceIDs": [
+          "f3",
+          "f4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "♠5 必须落在 C 的列内。每人恰有 3 张牌；检查它放在较晚轮次时，是否会让这个人较早时明明有领出花色却没有跟。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第二轮 C 出 ♠5。这张牌既被确认为第二轮领出牌，也被确认为原本属于 C。它必须落在 C 第二轮，同时证明 C 是第二轮的领出者。",
+        "evidenceIDs": [
+          "f3",
+          "f4"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "C",
+          "card": "S5"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "D7",
+        "C3",
+        "C6",
+        "S14",
+        "S2",
+        "S5",
+        "S10",
+        "C9",
+        "C13"
+      ],
+      "falseTestimonyIDs": [],
+      "explanation": "第 1 轮 C：♣6 → A：♦7 → B：♣3。领出的是梅花，同花色中点数最大的牌属于 C，因此 C 获胜。\nA 本轮没有跟梅花，说明其余手牌 ♠14、♠10 都不是梅花；这是必须跟花色规则留下的持牌证据。\n第 2 轮 C：♠5 → A：♠14 → B：♠2。领出的是黑桃，同花色中点数最大的牌属于 A，因此 A 获胜。\n第 3 轮 A：♠10 → B：♣9 → C：♣13。领出的是黑桃，同花色中点数最大的牌属于 A，因此 A 获胜。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter03.level06",
+    "chapterID": "chapter03",
+    "number": 24,
+    "title": "逆光的笔迹",
+    "subtitle": "茶馆档案 06",
+    "story": "逆光让几个点数难以辨认，但修复师已确认下面的公开事实。先连起轮次，再补每个人的牌。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "A",
+      "roundCount": 3
+    },
+    "cards": [
+      {
+        "id": "S2"
+      },
+      {
+        "id": "S7"
+      },
+      {
+        "id": "S12"
+      },
+      {
+        "id": "H3"
+      },
+      {
+        "id": "H9"
+      },
+      {
+        "id": "D4"
+      },
+      {
+        "id": "D10"
+      },
+      {
+        "id": "C5"
+      },
+      {
+        "id": "C13"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 3 轮领出的牌是 ♥3。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 3,
+          "card": "H3"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 1 轮领出的牌是 ♦4。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 1,
+          "card": "D4"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "第 3 轮的赢家是 C。",
+        "constraint": {
+          "kind": "roundWinner",
+          "round": 3,
+          "player": "C"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "♠7 原本在 C 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "C",
+          "card": "S7"
+        }
+      },
+      {
+        "id": "f5",
+        "text": "♣5 原本在 C 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "C",
+          "card": "C5"
+        }
+      },
+      {
+        "id": "f6",
+        "text": "第 3 轮，B 出的是梅花。",
+        "constraint": {
+          "kind": "playedSuit",
+          "round": 3,
+          "player": "B",
+          "suit": "C"
+        }
+      },
+      {
+        "id": "f7",
+        "text": "第 2 轮，C 出的是梅花。",
+        "constraint": {
+          "kind": "playedSuit",
+          "round": 2,
+          "player": "C",
+          "suit": "C"
+        }
+      },
+      {
+        "id": "f8",
+        "text": "第 1 轮，B 出的是 ♠12。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "B",
+          "card": "S12"
+        }
+      }
+    ],
+    "falseTestimonyCount": 0,
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先关注第 3 轮 B 的牌位。这一处可以从以下公开记录入手：♣5 原本在 C 的手中；第 3 轮，B 出的是梅花。",
+        "evidenceIDs": [
+          "f5",
+          "f6"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "♣5 必须落在 C 的列内。每人恰有 3 张牌；检查它放在较晚轮次时，是否会让这个人较早时明明有领出花色却没有跟。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6",
+          "f7",
+          "f8"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第三轮 B 出 ♣13。本局只有 ♣5、♣13 两张梅花。♣5 确定属于 C；B 第三轮却确定出梅花，因此 B 只能出剩下的 ♣13。",
+        "evidenceIDs": [
+          "f5",
+          "f6"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 3,
+          "player": "B",
+          "card": "C13"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "D4",
+        "S12",
+        "S7",
+        "D10",
+        "S2",
+        "C5",
+        "H3",
+        "C13",
+        "H9"
+      ],
+      "falseTestimonyIDs": [],
+      "explanation": "第 1 轮 A：♦4 → B：♠12 → C：♠7。领出的是方块，同花色中点数最大的牌属于 A，因此 A 获胜。\nB 本轮没有跟方块，说明其余手牌 ♠2、♣13 都不是方块；这是必须跟花色规则留下的持牌证据。\nC 本轮没有跟方块，说明其余手牌 ♣5、♥9 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♦10 → B：♠2 → C：♣5。领出的是方块，同花色中点数最大的牌属于 A，因此 A 获胜。\nB 本轮没有跟方块，说明其余手牌 ♣13 都不是方块；这是必须跟花色规则留下的持牌证据。\nC 本轮没有跟方块，说明其余手牌 ♥9 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 3 轮 A：♥3 → B：♣13 → C：♥9。领出的是红桃，同花色中点数最大的牌属于 C，因此 C 获胜。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter03.level07",
+    "chapterID": "chapter03",
+    "number": 25,
+    "title": "第三把椅子",
+    "subtitle": "茶馆档案 07",
+    "story": "这次由 C 开局。椅子没有移动，固定座次循环会让每轮的第二、第三手自然确定。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "C",
+      "roundCount": 3
+    },
+    "cards": [
+      {
+        "id": "H2"
+      },
+      {
+        "id": "H5"
+      },
+      {
+        "id": "H8"
+      },
+      {
+        "id": "H11"
+      },
+      {
+        "id": "H14"
+      },
+      {
+        "id": "D4"
+      },
+      {
+        "id": "D10"
+      },
+      {
+        "id": "C6"
+      },
+      {
+        "id": "C12"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 3 轮领出的牌是 ♥5。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 3,
+          "card": "H5"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 2 轮领出的牌是 ♥14。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 2,
+          "card": "H14"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "第 1 轮领出的牌是 ♦4。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 1,
+          "card": "D4"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "第 3 轮的赢家是 B。",
+        "constraint": {
+          "kind": "roundWinner",
+          "round": 3,
+          "player": "B"
+        }
+      },
+      {
+        "id": "f5",
+        "text": "第 1 轮，B 出的是 ♥11。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "B",
+          "card": "H11"
+        }
+      },
+      {
+        "id": "f6",
+        "text": "第 3 轮，C 出的是 ♣6。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 3,
+          "player": "C",
+          "card": "C6"
+        }
+      }
+    ],
+    "falseTestimonyCount": 0,
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先关注第 1 轮 A 的牌位。这一处可以从以下公开记录入手：第 3 轮领出的牌是 ♥5；第 2 轮领出的牌是 ♥14；第 1 轮领出的牌是 ♦4；第 1 轮，B 出的是 ♥11。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f5"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "♥5 是第 3 轮的第一张牌，只能由该轮领出者打出。把这个条件与前轮赢家相连，再检查各人尚未打出的同花色牌。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第一轮 A 出 ♦10。C 领 ♦4，B 出 ♥11，因此 B 没有方块。若 C 赢第一轮，他会连着领出最大的红桃 ♥14，再领第三轮的 ♥5；C 的三张牌随即用满，而 A、B 又都没有方块，剩余的 ♦10 将无人能持有。因此 A 必须用 ♦10 赢第一轮。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f5"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "A",
+          "card": "D10"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "D10",
+        "H11",
+        "D4",
+        "H14",
+        "H2",
+        "C12",
+        "H5",
+        "H8",
+        "C6"
+      ],
+      "falseTestimonyIDs": [],
+      "explanation": "第 1 轮 C：♦4 → A：♦10 → B：♥11。领出的是方块，同花色中点数最大的牌属于 A，因此 A 获胜。\nB 本轮没有跟方块，说明其余手牌 ♥2、♥8 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♥14 → B：♥2 → C：♣12。领出的是红桃，同花色中点数最大的牌属于 A，因此 A 获胜。\nC 本轮没有跟红桃，说明其余手牌 ♣6 都不是红桃；这是必须跟花色规则留下的持牌证据。\n第 3 轮 A：♥5 → B：♥8 → C：♣6。领出的是红桃，同花色中点数最大的牌属于 B，因此 B 获胜。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter03.level08",
+    "chapterID": "chapter03",
+    "number": 26,
+    "title": "梅花印记",
+    "subtitle": "茶馆档案 08",
+    "story": "纸条角上有梅花形的印记。印记只作装饰；真正能确定顺序的是公开记录中的花色、牌面与赢家。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "A",
+      "roundCount": 3
+    },
+    "cards": [
+      {
+        "id": "C2"
+      },
+      {
+        "id": "C6"
+      },
+      {
+        "id": "C11"
+      },
+      {
+        "id": "S3"
+      },
+      {
+        "id": "S8"
+      },
+      {
+        "id": "S13"
+      },
+      {
+        "id": "H4"
+      },
+      {
+        "id": "H7"
+      },
+      {
+        "id": "H12"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 3 轮领出的牌是 ♠13。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 3,
+          "card": "S13"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 2 轮领出的牌是 ♣2。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 2,
+          "card": "C2"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "第 1 轮领出的牌是 ♠8。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 1,
+          "card": "S8"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "♣11 原本在 A 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "A",
+          "card": "C11"
+        }
+      },
+      {
+        "id": "f5",
+        "text": "第 1 轮，C 出的是 ♥4。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "C",
+          "card": "H4"
+        }
+      },
+      {
+        "id": "f6",
+        "text": "第 2 轮，C 出的是 ♥12。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "C",
+          "card": "H12"
+        }
+      }
+    ],
+    "falseTestimonyCount": 0,
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先关注第 2 轮 A 的牌位。这一处可以从以下公开记录入手：第 3 轮领出的牌是 ♠13；第 2 轮领出的牌是 ♣2；第 1 轮领出的牌是 ♠8。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "♠13 是第 3 轮的第一张牌，只能由该轮领出者打出。把这个条件与前轮赢家相连，再检查各人尚未打出的同花色牌。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第二轮 A 出 ♣2。A 第一轮领出 ♠8。唯一更大的黑桃 ♠13 已确认留到第三轮领出，不可能第一轮出现；所以 A 赢第一轮，并领出已确认的第二轮 ♣2。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "A",
+          "card": "C2"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "S8",
+        "S3",
+        "H4",
+        "C2",
+        "C6",
+        "H12",
+        "C11",
+        "S13",
+        "H7"
+      ],
+      "falseTestimonyIDs": [],
+      "explanation": "第 1 轮 A：♠8 → B：♠3 → C：♥4。领出的是黑桃，同花色中点数最大的牌属于 A，因此 A 获胜。\nC 本轮没有跟黑桃，说明其余手牌 ♥12、♥7 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♣2 → B：♣6 → C：♥12。领出的是梅花，同花色中点数最大的牌属于 B，因此 B 获胜。\nC 本轮没有跟梅花，说明其余手牌 ♥7 都不是梅花；这是必须跟花色规则留下的持牌证据。\n第 3 轮 B：♠13 → C：♥7 → A：♣11。领出的是黑桃，同花色中点数最大的牌属于 B，因此 B 获胜。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter03.level09",
+    "chapterID": "chapter03",
+    "number": 27,
+    "title": "没有编号的页",
+    "subtitle": "茶馆档案 09",
+    "story": "这一页没有手写编号。领出记录跨越三轮，必须同时满足才能恢复整场牌局的先后。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "A",
+      "roundCount": 3
+    },
+    "cards": [
+      {
+        "id": "C2"
+      },
+      {
+        "id": "C5"
+      },
+      {
+        "id": "C10"
+      },
+      {
+        "id": "S4"
+      },
+      {
+        "id": "S8"
+      },
+      {
+        "id": "S13"
+      },
+      {
+        "id": "H3"
+      },
+      {
+        "id": "H7"
+      },
+      {
+        "id": "H12"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 3 轮领出的牌是 ♣2。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 3,
+          "card": "C2"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 2 轮领出的牌是 ♠13。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 2,
+          "card": "S13"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "第 2 轮，B 出的是红桃。",
+        "constraint": {
+          "kind": "playedSuit",
+          "round": 2,
+          "player": "B",
+          "suit": "H"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "♣5 原本在 B 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "B",
+          "card": "C5"
+        }
+      },
+      {
+        "id": "f5",
+        "text": "第 3 轮的赢家是 B。",
+        "constraint": {
+          "kind": "roundWinner",
+          "round": 3,
+          "player": "B"
+        }
+      },
+      {
+        "id": "f6",
+        "text": "第 2 轮，C 出的是 ♠4。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "C",
+          "card": "S4"
+        }
+      },
+      {
+        "id": "f7",
+        "text": "第 1 轮，B 出的是 ♥7。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "B",
+          "card": "H7"
+        }
+      }
+    ],
+    "falseTestimonyCount": 0,
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先关注第 2 轮 A 的牌位。这一处可以从以下公开记录入手：第 2 轮领出的牌是 ♠13；第 2 轮，B 出的是红桃；第 2 轮，C 出的是 ♠4。",
+        "evidenceIDs": [
+          "f2",
+          "f3",
+          "f6"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "♠13 是第 2 轮的第一张牌，只能由该轮领出者打出。把这个条件与前轮赢家相连，再检查各人尚未打出的同花色牌。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6",
+          "f7"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第二轮 A 出 ♠13。该轮领出牌已确认是 ♠13，B 却出红桃，C 已确认出 ♠4；两人都不可能领出 ♠13，因此这张牌只能属于 A 的第二轮。",
+        "evidenceIDs": [
+          "f2",
+          "f3",
+          "f6"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "A",
+          "card": "S13"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "H12",
+        "H7",
+        "C10",
+        "S13",
+        "H3",
+        "S4",
+        "C2",
+        "C5",
+        "S8"
+      ],
+      "falseTestimonyIDs": [],
+      "explanation": "第 1 轮 A：♥12 → B：♥7 → C：♣10。领出的是红桃，同花色中点数最大的牌属于 A，因此 A 获胜。\nC 本轮没有跟红桃，说明其余手牌 ♠4、♠8 都不是红桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♠13 → B：♥3 → C：♠4。领出的是黑桃，同花色中点数最大的牌属于 A，因此 A 获胜。\nB 本轮没有跟黑桃，说明其余手牌 ♣5 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 3 轮 A：♣2 → B：♣5 → C：♠8。领出的是梅花，同花色中点数最大的牌属于 B，因此 B 获胜。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter03.level10",
+    "chapterID": "chapter03",
+    "number": 28,
+    "title": "最后一壶茶",
+    "subtitle": "茶馆档案 10",
+    "story": "最后一壶茶送到时，记录员只写下了第三轮的片段。从已经确认的归属逐步向前推，补齐缺失的交接。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "B",
+      "roundCount": 3
+    },
+    "cards": [
+      {
+        "id": "S2"
+      },
+      {
+        "id": "S4"
+      },
+      {
+        "id": "S8"
+      },
+      {
+        "id": "S12"
+      },
+      {
+        "id": "H3"
+      },
+      {
+        "id": "H7"
+      },
+      {
+        "id": "H11"
+      },
+      {
+        "id": "D5"
+      },
+      {
+        "id": "D10"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 3 轮领出的牌是 ♠4。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 3,
+          "card": "S4"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 1 轮领出的牌是 ♥3。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 1,
+          "card": "H3"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "第 2 轮领出的牌是 ♠2。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 2,
+          "card": "S2"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "♠12 原本在 B 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "B",
+          "card": "S12"
+        }
+      },
+      {
+        "id": "f5",
+        "text": "第 1 轮，C 出的是 ♥7。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "C",
+          "card": "H7"
+        }
+      },
+      {
+        "id": "f6",
+        "text": "第 2 轮，A 出的是 ♦10。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "A",
+          "card": "D10"
+        }
+      }
+    ],
+    "falseTestimonyCount": 0,
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先关注第 2 轮 C 的牌位。这一处可以从以下公开记录入手：第 1 轮领出的牌是 ♥3；第 2 轮领出的牌是 ♠2；第 2 轮，A 出的是 ♦10。",
+        "evidenceIDs": [
+          "f2",
+          "f3",
+          "f6"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "♥3 是第 1 轮的第一张牌，只能由该轮领出者打出。把这个条件与前轮赢家相连，再检查各人尚未打出的同花色牌。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第二轮 C 出 ♠2。B 第一轮领 ♥3。若 B 获胜，另外两人必然没有红桃，剩余 ♥7、♥11 就都属于 B；B 不可能再持有第二轮必须领出的 ♠2。因此赢家是 A 或 C，而 A 第二轮已出 ♦10，只能由 C 领 ♠2。",
+        "evidenceIDs": [
+          "f2",
+          "f3",
+          "f6"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "C",
+          "card": "S2"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "S8",
+        "H3",
+        "H7",
+        "D10",
+        "S12",
+        "S2",
+        "D5",
+        "S4",
+        "H11"
+      ],
+      "falseTestimonyIDs": [],
+      "explanation": "第 1 轮 B：♥3 → C：♥7 → A：♠8。领出的是红桃，同花色中点数最大的牌属于 C，因此 C 获胜。\nA 本轮没有跟红桃，说明其余手牌 ♦10、♦5 都不是红桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 C：♠2 → A：♦10 → B：♠12。领出的是黑桃，同花色中点数最大的牌属于 B，因此 B 获胜。\nA 本轮没有跟黑桃，说明其余手牌 ♦5 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 3 轮 B：♠4 → C：♥11 → A：♦5。领出的是黑桃，同花色中点数最大的牌属于 B，因此 B 获胜。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter03.level11",
+    "chapterID": "chapter03",
+    "number": 29,
+    "title": "钟摆停下以后",
+    "subtitle": "茶馆档案 11",
+    "story": "钟摆停了，牌局没有停。时间不再可靠，规则却仍可靠：先前的赢家领出，手中有同花色必须跟随。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "B",
+      "roundCount": 3
+    },
+    "cards": [
+      {
+        "id": "H3"
+      },
+      {
+        "id": "H6"
+      },
+      {
+        "id": "H9"
+      },
+      {
+        "id": "H13"
+      },
+      {
+        "id": "D2"
+      },
+      {
+        "id": "D5"
+      },
+      {
+        "id": "D10"
+      },
+      {
+        "id": "D14"
+      },
+      {
+        "id": "S7"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 3 轮领出的牌是 ♦5。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 3,
+          "card": "D5"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 1 轮领出的牌是 ♥9。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 1,
+          "card": "H9"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "第 2 轮领出的牌是 ♦2。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 2,
+          "card": "D2"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "♥13 原本在 B 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "B",
+          "card": "H13"
+        }
+      },
+      {
+        "id": "f5",
+        "text": "第 2 轮，C 出的是黑桃。",
+        "constraint": {
+          "kind": "playedSuit",
+          "round": 2,
+          "player": "C",
+          "suit": "S"
+        }
+      },
+      {
+        "id": "f6",
+        "text": "第 1 轮，C 出的是 ♥6。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "C",
+          "card": "H6"
+        }
+      },
+      {
+        "id": "f7",
+        "text": "第 2 轮，A 出的是 ♦14。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "A",
+          "card": "D14"
+        }
+      }
+    ],
+    "falseTestimonyCount": 0,
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先关注第 2 轮 B 的牌位。这一处可以从以下公开记录入手：第 1 轮领出的牌是 ♥9；第 2 轮领出的牌是 ♦2；♥13 原本在 B 的手中。",
+        "evidenceIDs": [
+          "f2",
+          "f3",
+          "f4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "♥13 必须落在 B 的列内。每人恰有 3 张牌；检查它放在较晚轮次时，是否会让这个人较早时明明有领出花色却没有跟。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6",
+          "f7"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第二轮 B 出 ♦2。B 首轮领出的牌是 ♥9，唯一更大的红桃 ♥13 又确定在 B 自己手中，因此别人无法赢过这手 ♥9。B 赢第一轮，接着领出第二轮的 ♦2。",
+        "evidenceIDs": [
+          "f2",
+          "f3",
+          "f4"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "B",
+          "card": "D2"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "D10",
+        "H9",
+        "H6",
+        "D14",
+        "D2",
+        "S7",
+        "D5",
+        "H13",
+        "H3"
+      ],
+      "falseTestimonyIDs": [],
+      "explanation": "第 1 轮 B：♥9 → C：♥6 → A：♦10。领出的是红桃，同花色中点数最大的牌属于 B，因此 B 获胜。\nA 本轮没有跟红桃，说明其余手牌 ♦14、♦5 都不是红桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 B：♦2 → C：♠7 → A：♦14。领出的是方块，同花色中点数最大的牌属于 A，因此 A 获胜。\nC 本轮没有跟方块，说明其余手牌 ♥3 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 3 轮 A：♦5 → B：♥13 → C：♥3。领出的是方块，同花色中点数最大的牌属于 A，因此 A 获胜。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter03.level12",
+    "chapterID": "chapter03",
+    "number": 30,
+    "title": "风散纸页",
+    "subtitle": "茶馆档案 12",
+    "story": "将茶馆最后一组散页归档。先后顺序必须由公开事实和牌局规则共同确定，不能拿作者的排列作线索。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "B",
+      "roundCount": 3
+    },
+    "cards": [
+      {
+        "id": "D2"
+      },
+      {
+        "id": "D7"
+      },
+      {
+        "id": "D12"
+      },
+      {
+        "id": "C3"
+      },
+      {
+        "id": "C9"
+      },
+      {
+        "id": "S4"
+      },
+      {
+        "id": "S10"
+      },
+      {
+        "id": "H5"
+      },
+      {
+        "id": "H13"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 3 轮领出的牌是 ♦2。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 3,
+          "card": "D2"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 2 轮领出的牌是 ♠4。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 2,
+          "card": "S4"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "第 1 轮领出的牌是 ♥5。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 1,
+          "card": "H5"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "♣3 原本在 B 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "B",
+          "card": "C3"
+        }
+      },
+      {
+        "id": "f5",
+        "text": "第 3 轮，A 出的是梅花。",
+        "constraint": {
+          "kind": "playedSuit",
+          "round": 3,
+          "player": "A",
+          "suit": "C"
+        }
+      },
+      {
+        "id": "f6",
+        "text": "♦7 原本在 C 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "C",
+          "card": "D7"
+        }
+      },
+      {
+        "id": "f7",
+        "text": "第 3 轮的赢家是 C。",
+        "constraint": {
+          "kind": "roundWinner",
+          "round": 3,
+          "player": "C"
+        }
+      }
+    ],
+    "falseTestimonyCount": 0,
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先关注第 3 轮 A 的牌位。这一处可以从以下公开记录入手：♣3 原本在 B 的手中；第 3 轮，A 出的是梅花。",
+        "evidenceIDs": [
+          "f4",
+          "f5"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "♣3 必须落在 B 的列内。每人恰有 3 张牌；检查它放在较晚轮次时，是否会让这个人较早时明明有领出花色却没有跟。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6",
+          "f7"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第三轮 A 出 ♣9。本局只有两张梅花：♣3、♣9。♣3 已确认属于 B，而 A 第三轮确定出梅花，因此只能是 ♣9。",
+        "evidenceIDs": [
+          "f4",
+          "f5"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 3,
+          "player": "A",
+          "card": "C9"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "H13",
+        "H5",
+        "D7",
+        "S4",
+        "D12",
+        "S10",
+        "C9",
+        "C3",
+        "D2"
+      ],
+      "falseTestimonyIDs": [],
+      "explanation": "第 1 轮 B：♥5 → C：♦7 → A：♥13。领出的是红桃，同花色中点数最大的牌属于 A，因此 A 获胜。\nC 本轮没有跟红桃，说明其余手牌 ♠10、♦2 都不是红桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♠4 → B：♦12 → C：♠10。领出的是黑桃，同花色中点数最大的牌属于 C，因此 C 获胜。\nB 本轮没有跟黑桃，说明其余手牌 ♣3 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 3 轮 C：♦2 → A：♣9 → B：♣3。领出的是方块，同花色中点数最大的牌属于 C，因此 C 获胜。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter04.level01",
+    "chapterID": "chapter04",
+    "number": 31,
+    "title": "港口第一封信",
+    "subtitle": "证词档案 01",
+    "story": "三位旧友寄来不同的回忆。下面的可信记录已由原稿核对；证词区明确标出了错误条数，请一并推理。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "B",
+      "roundCount": 2
+    },
+    "cards": [
+      {
+        "id": "C2"
+      },
+      {
+        "id": "C6"
+      },
+      {
+        "id": "C11"
+      },
+      {
+        "id": "S3"
+      },
+      {
+        "id": "S7"
+      },
+      {
+        "id": "S12"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 1 轮，B 出的是 ♣2。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "B",
+          "card": "C2"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "♣11 原本在 B 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "B",
+          "card": "C11"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "♠7 原本在 C 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "C",
+          "card": "S7"
+        }
+      }
+    ],
+    "falseTestimonyCount": 1,
+    "testimonies": [
+      {
+        "id": "t1",
+        "text": "第 2 轮，A 出的是 ♠3。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "A",
+          "card": "S3"
+        }
+      },
+      {
+        "id": "t2",
+        "text": "第 1 轮，C 出的是 ♠12。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "C",
+          "card": "S12"
+        }
+      },
+      {
+        "id": "t3",
+        "text": "第 1 轮，A 出的是 ♣6。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "A",
+          "card": "C6"
+        }
+      },
+      {
+        "id": "t4",
+        "text": "第 1 轮，C 出的是 ♣6。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "C",
+          "card": "C6"
+        }
+      }
+    ],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先把证词 2、3、4 放在一起读：它们是否对同一张牌或同一个牌位给出了不同说法？本页恰有一条错误证词。",
+        "evidenceIDs": [
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "同一张 ♣6 不可能同时出现在 A 与 C 的第一轮。因此证词 3、4 至少有一句是假；再检验哪种情况会迫使证词 2 也是假，超过允许的错误数量。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第一轮 A 出 ♣6。证词 3 与证词 4 把同一张 ♣6 放在两个位置，至少有一句是假。若证词 3 假、证词 4 真，证词 2 又会与证词 4 的 C 第一轮牌面冲突，便出现两句假话。因此唯一的假话只能是证词 4，证词 3 所说的 A 第一轮 ♣6 成立。",
+        "evidenceIDs": [
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "A",
+          "card": "C6"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "C6",
+        "C2",
+        "S12",
+        "S3",
+        "C11",
+        "S7"
+      ],
+      "falseTestimonyIDs": [
+        "t4"
+      ],
+      "explanation": "第 1 轮 B：♣2 → C：♠12 → A：♣6。领出的是梅花，同花色中点数最大的牌属于 A，因此 A 获胜。\nC 本轮没有跟梅花，说明其余手牌 ♠7 都不是梅花；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♠3 → B：♣11 → C：♠7。领出的是黑桃，同花色中点数最大的牌属于 C，因此 C 获胜。\n归档核对：证词 4有误，其余证词成立。可信记录全部成立。\n证词 4 的更正：第 1 轮，C 出的是 ♠12。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter04.level02",
+    "chapterID": "chapter04",
+    "number": 32,
+    "title": "记错的花色",
+    "subtitle": "证词档案 02",
+    "story": "来信人记得轮次，却可能认错了花色。证词中的每句话都能由完整牌局判断真假，主观印象不作证据。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "C",
+      "roundCount": 3
+    },
+    "cards": [
+      {
+        "id": "S2"
+      },
+      {
+        "id": "S5"
+      },
+      {
+        "id": "S10"
+      },
+      {
+        "id": "H4"
+      },
+      {
+        "id": "H8"
+      },
+      {
+        "id": "H13"
+      },
+      {
+        "id": "D3"
+      },
+      {
+        "id": "D7"
+      },
+      {
+        "id": "D12"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 1 轮，C 出的是 ♠10。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "C",
+          "card": "S10"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 3 轮，B 出的是黑桃。",
+        "constraint": {
+          "kind": "playedSuit",
+          "round": 3,
+          "player": "B",
+          "suit": "S"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "♦7 原本在 B 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "B",
+          "card": "D7"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "♦12 原本在 C 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "C",
+          "card": "D12"
+        }
+      },
+      {
+        "id": "f5",
+        "text": "第 2 轮，A 出的是 ♥4。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "A",
+          "card": "H4"
+        }
+      },
+      {
+        "id": "f6",
+        "text": "第 1 轮，B 出的是 ♠5。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "B",
+          "card": "S5"
+        }
+      }
+    ],
+    "falseTestimonyCount": 2,
+    "testimonies": [
+      {
+        "id": "t1",
+        "text": "第 3 轮，C 出的是 ♦3。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 3,
+          "player": "C",
+          "card": "D3"
+        }
+      },
+      {
+        "id": "t2",
+        "text": "♥8 原本在 C 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "C",
+          "card": "H8"
+        }
+      },
+      {
+        "id": "t3",
+        "text": "第 3 轮领出的牌是 ♥13。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 3,
+          "card": "H13"
+        }
+      },
+      {
+        "id": "t4",
+        "text": "第 3 轮领出的牌是 ♥8。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 3,
+          "card": "H8"
+        }
+      }
+    ],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先关注第 2 轮 C 的牌位。这一处可以从以下公开记录入手：第 1 轮，C 出的是 ♠10；♦12 原本在 C 的手中。同时保留“恰有 2 条错误证词”的条件。",
+        "evidenceIDs": [
+          "f1",
+          "f4",
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "♦12 必须落在 C 的列内。每人恰有 3 张牌；检查它放在较晚轮次时，是否会让这个人较早时明明有领出花色却没有跟。证词必须合起来核对：恰有 2 条为假，而不是每句话都必须为真。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6",
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第 2 轮，C 出的是 ♦12。暂时不采用“♦12 原本在 C 的手中”时，这里还可能出现 ♦3、♦7、♥4、♥8、♥13、♠2、♠5；但这些分支都无法在遵守跟花色与赢家领出规则的同时满足这条记录。把该记录放回，留下的只有 ♦12。",
+        "evidenceIDs": [
+          "f1",
+          "f4",
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "C",
+          "card": "D12"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "D3",
+        "S5",
+        "S10",
+        "H4",
+        "D7",
+        "D12",
+        "H13",
+        "S2",
+        "H8"
+      ],
+      "falseTestimonyIDs": [
+        "t1",
+        "t3"
+      ],
+      "explanation": "第 1 轮 C：♠10 → A：♦3 → B：♠5。领出的是黑桃，同花色中点数最大的牌属于 C，因此 C 获胜。\nA 本轮没有跟黑桃，说明其余手牌 ♥4、♥13 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 C：♦12 → A：♥4 → B：♦7。领出的是方块，同花色中点数最大的牌属于 C，因此 C 获胜。\nA 本轮没有跟方块，说明其余手牌 ♥13 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 3 轮 C：♥8 → A：♥13 → B：♠2。领出的是红桃，同花色中点数最大的牌属于 A，因此 A 获胜。\n归档核对：证词 1、证词 3有误，其余证词成立。可信记录全部成立。\n证词 1 的更正：第 3 轮，C 出的是 ♥8。\n证词 3 的更正：第 3 轮领出的牌是 ♥8。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter04.level03",
+    "chapterID": "chapter04",
+    "number": 33,
+    "title": "码头的交接",
+    "subtitle": "证词档案 03",
+    "story": "有人把领出者与赢家混在一起。仔细区分这一轮谁先出，与谁将在下一轮先出。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "C",
+      "roundCount": 3
+    },
+    "cards": [
+      {
+        "id": "H2"
+      },
+      {
+        "id": "H4"
+      },
+      {
+        "id": "H8"
+      },
+      {
+        "id": "H12"
+      },
+      {
+        "id": "D3"
+      },
+      {
+        "id": "D7"
+      },
+      {
+        "id": "D11"
+      },
+      {
+        "id": "C5"
+      },
+      {
+        "id": "C10"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 1 轮，C 出的是 ♥4。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "C",
+          "card": "H4"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 3 轮领出的牌是 ♦7。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 3,
+          "card": "D7"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "第 1 轮，A 出的是方块。",
+        "constraint": {
+          "kind": "playedSuit",
+          "round": 1,
+          "player": "A",
+          "suit": "D"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "♦3 原本在 C 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "C",
+          "card": "D3"
+        }
+      },
+      {
+        "id": "f5",
+        "text": "第 3 轮，A 出的是 ♣10。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 3,
+          "player": "A",
+          "card": "C10"
+        }
+      }
+    ],
+    "falseTestimonyCount": 1,
+    "testimonies": [
+      {
+        "id": "t1",
+        "text": "第 2 轮，B 出的是 ♥12。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "B",
+          "card": "H12"
+        }
+      },
+      {
+        "id": "t2",
+        "text": "第 3 轮的赢家是 C。",
+        "constraint": {
+          "kind": "roundWinner",
+          "round": 3,
+          "player": "C"
+        }
+      },
+      {
+        "id": "t3",
+        "text": "第 2 轮，C 出的是 ♥8。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "C",
+          "card": "H8"
+        }
+      },
+      {
+        "id": "t4",
+        "text": "第 3 轮，C 出的是 ♦3。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 3,
+          "player": "C",
+          "card": "D3"
+        }
+      }
+    ],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先关注第 1 轮 B 的牌位。这一处可以从以下公开记录入手：第 1 轮，C 出的是 ♥4；第 3 轮领出的牌是 ♦7。同时保留“恰有 1 条错误证词”的条件。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "♦7 是第 3 轮的第一张牌，只能由该轮领出者打出。把这个条件与前轮赢家相连，再检查各人尚未打出的同花色牌。证词必须合起来核对：恰有 1 条为假，而不是每句话都必须为真。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第 1 轮，B 出的是 ♥2。暂时不采用“第 3 轮领出的牌是 ♦7”时，这里还可能出现 ♦7、♦11、♥12；但这些分支都无法在遵守跟花色与赢家领出规则的同时满足这条记录。把该记录放回，留下的只有 ♥2。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "B",
+          "card": "H2"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "D11",
+        "H2",
+        "H4",
+        "C5",
+        "H12",
+        "H8",
+        "C10",
+        "D7",
+        "D3"
+      ],
+      "falseTestimonyIDs": [
+        "t2"
+      ],
+      "explanation": "第 1 轮 C：♥4 → A：♦11 → B：♥2。领出的是红桃，同花色中点数最大的牌属于 C，因此 C 获胜。\nA 本轮没有跟红桃，说明其余手牌 ♣5、♣10 都不是红桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 C：♥8 → A：♣5 → B：♥12。领出的是红桃，同花色中点数最大的牌属于 B，因此 B 获胜。\nA 本轮没有跟红桃，说明其余手牌 ♣10 都不是红桃；这是必须跟花色规则留下的持牌证据。\n第 3 轮 B：♦7 → C：♦3 → A：♣10。领出的是方块，同花色中点数最大的牌属于 B，因此 B 获胜。\n归档核对：证词 2有误，其余证词成立。可信记录全部成立。\n证词 2 的更正：第 3 轮的赢家是 B。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter04.level04",
+    "chapterID": "chapter04",
+    "number": 34,
+    "title": "相邻的数字",
+    "subtitle": "证词档案 04",
+    "story": "潮湿的纸上点数容易看错。不要先认定某个人可靠，按题目公开的错误条数核对所有证词。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "C",
+      "roundCount": 3
+    },
+    "cards": [
+      {
+        "id": "D3"
+      },
+      {
+        "id": "D6"
+      },
+      {
+        "id": "D9"
+      },
+      {
+        "id": "D13"
+      },
+      {
+        "id": "C2"
+      },
+      {
+        "id": "C5"
+      },
+      {
+        "id": "C10"
+      },
+      {
+        "id": "C14"
+      },
+      {
+        "id": "H7"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 1 轮，C 出的是 ♣14。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "C",
+          "card": "C14"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "♣5 原本在 C 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "C",
+          "card": "C5"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "第 3 轮领出的牌是 ♦6。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 3,
+          "card": "D6"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "第 3 轮，A 出的是 ♦13。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 3,
+          "player": "A",
+          "card": "D13"
+        }
+      },
+      {
+        "id": "f5",
+        "text": "第 2 轮，A 出的是 ♦9。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "A",
+          "card": "D9"
+        }
+      }
+    ],
+    "falseTestimonyCount": 2,
+    "testimonies": [
+      {
+        "id": "t1",
+        "text": "第 2 轮的赢家是 B。",
+        "constraint": {
+          "kind": "roundWinner",
+          "round": 2,
+          "player": "B"
+        }
+      },
+      {
+        "id": "t2",
+        "text": "♣10 原本在 A 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "A",
+          "card": "C10"
+        }
+      },
+      {
+        "id": "t3",
+        "text": "第 2 轮，B 出的是 ♣10。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "B",
+          "card": "C10"
+        }
+      },
+      {
+        "id": "t4",
+        "text": "♥7 原本在 A 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "A",
+          "card": "H7"
+        }
+      }
+    ],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先关注第 1 轮 B 的牌位。这一处可以从以下公开记录入手：第 1 轮，C 出的是 ♣14；♣5 原本在 C 的手中；第 3 轮领出的牌是 ♦6；第 3 轮，A 出的是 ♦13。同时保留“恰有 2 条错误证词”的条件。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "♣5 必须落在 C 的列内。每人恰有 3 张牌；检查它放在较晚轮次时，是否会让这个人较早时明明有领出花色却没有跟。证词必须合起来核对：恰有 2 条为假，而不是每句话都必须为真。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第 1 轮，B 出的是 ♣2。暂时不采用“第 3 轮，A 出的是 ♦13”时，这里还可能出现 ♣10、♦3、♦9、♦13、♥7；但这些分支都无法在遵守跟花色与赢家领出规则的同时满足这条记录。把该记录放回，留下的只有 ♣2。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "B",
+          "card": "C2"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "D3",
+        "C2",
+        "C14",
+        "D9",
+        "C10",
+        "C5",
+        "D13",
+        "D6",
+        "H7"
+      ],
+      "falseTestimonyIDs": [
+        "t2",
+        "t4"
+      ],
+      "explanation": "第 1 轮 C：♣14 → A：♦3 → B：♣2。领出的是梅花，同花色中点数最大的牌属于 C，因此 C 获胜。\nA 本轮没有跟梅花，说明其余手牌 ♦9、♦13 都不是梅花；这是必须跟花色规则留下的持牌证据。\n第 2 轮 C：♣5 → A：♦9 → B：♣10。领出的是梅花，同花色中点数最大的牌属于 B，因此 B 获胜。\nA 本轮没有跟梅花，说明其余手牌 ♦13 都不是梅花；这是必须跟花色规则留下的持牌证据。\n第 3 轮 B：♦6 → C：♥7 → A：♦13。领出的是方块，同花色中点数最大的牌属于 A，因此 A 获胜。\n归档核对：证词 2、证词 4有误，其余证词成立。可信记录全部成立。\n证词 2 的更正：♣10 原本在 B 的手中。\n证词 4 的更正：♥7 原本在 C 的手中。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter04.level05",
+    "chapterID": "chapter04",
+    "number": 35,
+    "title": "第二位见证人",
+    "subtitle": "证词档案 05",
+    "story": "第二位见证人的来信补全了另一种说法。它仍是待核实证词，不能覆盖经过原稿确认的事实。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "C",
+      "roundCount": 3
+    },
+    "cards": [
+      {
+        "id": "C2"
+      },
+      {
+        "id": "C7"
+      },
+      {
+        "id": "C12"
+      },
+      {
+        "id": "S3"
+      },
+      {
+        "id": "S9"
+      },
+      {
+        "id": "H4"
+      },
+      {
+        "id": "H10"
+      },
+      {
+        "id": "D5"
+      },
+      {
+        "id": "D13"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 1 轮，C 出的是 ♥4。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "C",
+          "card": "H4"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 1 轮，B 出的是黑桃。",
+        "constraint": {
+          "kind": "playedSuit",
+          "round": 1,
+          "player": "B",
+          "suit": "S"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "第 1 轮，A 出的是黑桃。",
+        "constraint": {
+          "kind": "playedSuit",
+          "round": 1,
+          "player": "A",
+          "suit": "S"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "♠9 原本在 B 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "B",
+          "card": "S9"
+        }
+      },
+      {
+        "id": "f5",
+        "text": "第 3 轮领出的牌是 ♣7。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 3,
+          "card": "C7"
+        }
+      },
+      {
+        "id": "f6",
+        "text": "第 2 轮，A 出的是 ♦13。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "A",
+          "card": "D13"
+        }
+      }
+    ],
+    "falseTestimonyCount": 1,
+    "testimonies": [
+      {
+        "id": "t1",
+        "text": "第 2 轮，C 出的是 ♣2。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "C",
+          "card": "C2"
+        }
+      },
+      {
+        "id": "t2",
+        "text": "第 3 轮，B 出的是 ♣7。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 3,
+          "player": "B",
+          "card": "C7"
+        }
+      },
+      {
+        "id": "t3",
+        "text": "♣7 原本在 B 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "B",
+          "card": "C7"
+        }
+      },
+      {
+        "id": "t4",
+        "text": "第 3 轮，B 出的是 ♣12。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 3,
+          "player": "B",
+          "card": "C12"
+        }
+      }
+    ],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先关注第 1 轮 A 的牌位。这一处可以从以下公开记录入手：第 1 轮，A 出的是黑桃；♠9 原本在 B 的手中。同时保留“恰有 1 条错误证词”的条件。",
+        "evidenceIDs": [
+          "f3",
+          "f4",
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "♠9 必须落在 B 的列内。每人恰有 3 张牌；检查它放在较晚轮次时，是否会让这个人较早时明明有领出花色却没有跟。证词必须合起来核对：恰有 1 条为假，而不是每句话都必须为真。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6",
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第一轮 A 出 ♠3。A 的这一手已确认是黑桃，牌池中的另一张黑桃 ♠9 又已确认归 B。牌不能重复，故 A 第一轮只剩 ♠3；证词真假仍需要结合后两轮再核实。",
+        "evidenceIDs": [
+          "f3",
+          "f4",
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "A",
+          "card": "S3"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "S3",
+        "S9",
+        "H4",
+        "D13",
+        "C12",
+        "C2",
+        "D5",
+        "C7",
+        "H10"
+      ],
+      "falseTestimonyIDs": [
+        "t4"
+      ],
+      "explanation": "第 1 轮 C：♥4 → A：♠3 → B：♠9。领出的是红桃，同花色中点数最大的牌属于 C，因此 C 获胜。\nA 本轮没有跟红桃，说明其余手牌 ♦13、♦5 都不是红桃；这是必须跟花色规则留下的持牌证据。\nB 本轮没有跟红桃，说明其余手牌 ♣12、♣7 都不是红桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 C：♣2 → A：♦13 → B：♣12。领出的是梅花，同花色中点数最大的牌属于 B，因此 B 获胜。\nA 本轮没有跟梅花，说明其余手牌 ♦5 都不是梅花；这是必须跟花色规则留下的持牌证据。\n第 3 轮 B：♣7 → C：♥10 → A：♦5。领出的是梅花，同花色中点数最大的牌属于 B，因此 B 获胜。\n归档核对：证词 4有误，其余证词成立。可信记录全部成立。\n证词 4 的更正：第 3 轮，B 出的是 ♣7。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter04.level06",
+    "chapterID": "chapter04",
+    "number": 36,
+    "title": "灯塔来信",
+    "subtitle": "证词档案 06",
+    "story": "灯塔守夜人记下了夜间牌局。几句话互相牵连，某一句暂时不符并不代表整份假设立刻失败。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "A",
+      "roundCount": 3
+    },
+    "cards": [
+      {
+        "id": "S2"
+      },
+      {
+        "id": "S5"
+      },
+      {
+        "id": "S8"
+      },
+      {
+        "id": "S11"
+      },
+      {
+        "id": "S14"
+      },
+      {
+        "id": "H4"
+      },
+      {
+        "id": "H10"
+      },
+      {
+        "id": "D6"
+      },
+      {
+        "id": "D12"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 1 轮，A 出的是 ♥10。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "A",
+          "card": "H10"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 2 轮领出的牌是 ♠5。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 2,
+          "card": "S5"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "第 3 轮领出的牌是 ♠14。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 3,
+          "card": "S14"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "第 3 轮，C 出的是 ♠8。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 3,
+          "player": "C",
+          "card": "S8"
+        }
+      },
+      {
+        "id": "f5",
+        "text": "♦6 原本在 B 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "B",
+          "card": "D6"
+        }
+      }
+    ],
+    "falseTestimonyCount": 2,
+    "testimonies": [
+      {
+        "id": "t1",
+        "text": "第 1 轮，C 出的是 ♦12。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "C",
+          "card": "D12"
+        }
+      },
+      {
+        "id": "t2",
+        "text": "第 1 轮，B 出的是黑桃。",
+        "constraint": {
+          "kind": "playedSuit",
+          "round": 1,
+          "player": "B",
+          "suit": "S"
+        }
+      },
+      {
+        "id": "t3",
+        "text": "♠14 原本在 B 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "B",
+          "card": "S14"
+        }
+      },
+      {
+        "id": "t4",
+        "text": "第 1 轮，C 出的是 ♠11。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "C",
+          "card": "S11"
+        }
+      }
+    ],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先关注第 2 轮 A 的牌位。这一处可以从以下公开记录入手：第 1 轮，A 出的是 ♥10；第 2 轮领出的牌是 ♠5。同时保留“恰有 2 条错误证词”的条件。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "♠5 是第 2 轮的第一张牌，只能由该轮领出者打出。把这个条件与前轮赢家相连，再检查各人尚未打出的同花色牌。证词必须合起来核对：恰有 2 条为假，而不是每句话都必须为真。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第二轮 A 出 ♠5。A 第一轮领出的 ♥10 是本局最大的红桃，其他花色都不能击败它。因此 A 赢第一轮，第二轮已确认的领出牌 ♠5 必须由 A 打出。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "A",
+          "card": "S5"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "H10",
+        "D6",
+        "D12",
+        "S5",
+        "S11",
+        "S2",
+        "H4",
+        "S14",
+        "S8"
+      ],
+      "falseTestimonyIDs": [
+        "t2",
+        "t4"
+      ],
+      "explanation": "第 1 轮 A：♥10 → B：♦6 → C：♦12。领出的是红桃，同花色中点数最大的牌属于 A，因此 A 获胜。\nB 本轮没有跟红桃，说明其余手牌 ♠11、♠14 都不是红桃；这是必须跟花色规则留下的持牌证据。\nC 本轮没有跟红桃，说明其余手牌 ♠2、♠8 都不是红桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♠5 → B：♠11 → C：♠2。领出的是黑桃，同花色中点数最大的牌属于 B，因此 B 获胜。\n第 3 轮 B：♠14 → C：♠8 → A：♥4。领出的是黑桃，同花色中点数最大的牌属于 B，因此 B 获胜。\n归档核对：证词 2、证词 4有误，其余证词成立。可信记录全部成立。\n证词 2 的更正：第 1 轮，B 出的是方块。\n证词 4 的更正：第 1 轮，C 出的是 ♦12。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter04.level07",
+    "chapterID": "chapter04",
+    "number": 37,
+    "title": "邮戳之间",
+    "subtitle": "证词档案 07",
+    "story": "邮戳证明来信同属一场牌局。将证词与持牌限制放在一起，找出恰好符合错误数量的还原。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "A",
+      "roundCount": 3
+    },
+    "cards": [
+      {
+        "id": "D2"
+      },
+      {
+        "id": "D6"
+      },
+      {
+        "id": "D11"
+      },
+      {
+        "id": "C3"
+      },
+      {
+        "id": "C8"
+      },
+      {
+        "id": "C13"
+      },
+      {
+        "id": "S4"
+      },
+      {
+        "id": "S7"
+      },
+      {
+        "id": "S12"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 1 轮，A 出的是 ♣13。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "A",
+          "card": "C13"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 3 轮领出的牌是 ♣8。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 3,
+          "card": "C8"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "♦11 原本在 A 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "A",
+          "card": "D11"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "第 1 轮，B 出的是 ♠4。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "B",
+          "card": "S4"
+        }
+      },
+      {
+        "id": "f5",
+        "text": "第 2 轮，B 出的是 ♦6。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "B",
+          "card": "D6"
+        }
+      }
+    ],
+    "falseTestimonyCount": 1,
+    "testimonies": [
+      {
+        "id": "t1",
+        "text": "第 3 轮，C 出的是黑桃。",
+        "constraint": {
+          "kind": "playedSuit",
+          "round": 3,
+          "player": "C",
+          "suit": "S"
+        }
+      },
+      {
+        "id": "t2",
+        "text": "第 2 轮，C 出的是黑桃。",
+        "constraint": {
+          "kind": "playedSuit",
+          "round": 2,
+          "player": "C",
+          "suit": "S"
+        }
+      },
+      {
+        "id": "t3",
+        "text": "第 2 轮，A 出的是 ♠7。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "A",
+          "card": "S7"
+        }
+      },
+      {
+        "id": "t4",
+        "text": "第 3 轮，C 出的是梅花。",
+        "constraint": {
+          "kind": "playedSuit",
+          "round": 3,
+          "player": "C",
+          "suit": "C"
+        }
+      }
+    ],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先关注第 3 轮 A 的牌位。这一处可以从以下公开记录入手：第 1 轮，A 出的是 ♣13；♦11 原本在 A 的手中。同时保留“恰有 1 条错误证词”的条件。",
+        "evidenceIDs": [
+          "f1",
+          "f3",
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "第一轮由 A 领出 ♣13，而 B 出了 ♠4。必须跟花色，所以 B 当时手中没有梅花，后面也不能再出梅花。证词必须合起来核对：恰有 1 条为假，而不是每句话都必须为真。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第三轮 A 出 ♦11。证词 1 与证词 4 对 C 第三轮的花色互相矛盾，恰有一条错误意味着另外两条证词必须成立，所以 A 第二轮出 ♠7。A 第一轮的 ♣13 已固定，♦11 又确定归 A，因此 ♦11 只能留在 A 第三轮。",
+        "evidenceIDs": [
+          "f1",
+          "f3",
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 3,
+          "player": "A",
+          "card": "D11"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "C13",
+        "S4",
+        "C3",
+        "S7",
+        "D6",
+        "S12",
+        "D11",
+        "D2",
+        "C8"
+      ],
+      "falseTestimonyIDs": [
+        "t1"
+      ],
+      "explanation": "第 1 轮 A：♣13 → B：♠4 → C：♣3。领出的是梅花，同花色中点数最大的牌属于 A，因此 A 获胜。\nB 本轮没有跟梅花，说明其余手牌 ♦6、♦2 都不是梅花；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♠7 → B：♦6 → C：♠12。领出的是黑桃，同花色中点数最大的牌属于 C，因此 C 获胜。\nB 本轮没有跟黑桃，说明其余手牌 ♦2 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 3 轮 C：♣8 → A：♦11 → B：♦2。领出的是梅花，同花色中点数最大的牌属于 C，因此 C 获胜。\n归档核对：证词 1有误，其余证词成立。可信记录全部成立。\n证词 1 的更正：第 3 轮，C 出的是梅花。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter04.level08",
+    "chapterID": "chapter04",
+    "number": 38,
+    "title": "两处偏差",
+    "subtitle": "证词档案 08",
+    "story": "这一页有两处明确的记忆偏差。错误并非随机惩罚，而是需要由同一个完整牌局同时判定的约束。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "A",
+      "roundCount": 3
+    },
+    "cards": [
+      {
+        "id": "D2"
+      },
+      {
+        "id": "D5"
+      },
+      {
+        "id": "D10"
+      },
+      {
+        "id": "C4"
+      },
+      {
+        "id": "C8"
+      },
+      {
+        "id": "C13"
+      },
+      {
+        "id": "S3"
+      },
+      {
+        "id": "S7"
+      },
+      {
+        "id": "S12"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 1 轮，A 出的是 ♦5。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "A",
+          "card": "D5"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 2 轮，C 出的是方块。",
+        "constraint": {
+          "kind": "playedSuit",
+          "round": 2,
+          "player": "C",
+          "suit": "D"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "♠3 原本在 C 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "C",
+          "card": "S3"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "第 3 轮的赢家是 B。",
+        "constraint": {
+          "kind": "roundWinner",
+          "round": 3,
+          "player": "B"
+        }
+      },
+      {
+        "id": "f5",
+        "text": "♣8 原本在 B 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "B",
+          "card": "C8"
+        }
+      },
+      {
+        "id": "f6",
+        "text": "第 3 轮，A 出的是 ♣13。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 3,
+          "player": "A",
+          "card": "C13"
+        }
+      }
+    ],
+    "falseTestimonyCount": 2,
+    "testimonies": [
+      {
+        "id": "t1",
+        "text": "第 1 轮的赢家是 C。",
+        "constraint": {
+          "kind": "roundWinner",
+          "round": 1,
+          "player": "C"
+        }
+      },
+      {
+        "id": "t2",
+        "text": "第 2 轮，B 出的是 ♠7。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "B",
+          "card": "S7"
+        }
+      },
+      {
+        "id": "t3",
+        "text": "♠7 原本在 A 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "A",
+          "card": "S7"
+        }
+      },
+      {
+        "id": "t4",
+        "text": "第 2 轮，A 出的是 ♠7。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "A",
+          "card": "S7"
+        }
+      }
+    ],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先关注第 1 轮 C 的牌位。这一处可以从以下公开记录入手：第 1 轮，A 出的是 ♦5；第 2 轮，C 出的是方块；♠3 原本在 C 的手中。同时保留“恰有 2 条错误证词”的条件。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "♠3 必须落在 C 的列内。每人恰有 3 张牌；检查它放在较晚轮次时，是否会让这个人较早时明明有领出花色却没有跟。证词必须合起来核对：恰有 2 条为假，而不是每句话都必须为真。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6",
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第 1 轮，C 出的是 ♦10。暂时不采用“♠3 原本在 C 的手中”时，这里还可能出现 ♦2；但这些分支都无法在遵守跟花色与赢家领出规则的同时满足这条记录。把该记录放回，留下的只有 ♦10。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "C",
+          "card": "D10"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "D5",
+        "C8",
+        "D10",
+        "C4",
+        "S7",
+        "D2",
+        "C13",
+        "S12",
+        "S3"
+      ],
+      "falseTestimonyIDs": [
+        "t3",
+        "t4"
+      ],
+      "explanation": "第 1 轮 A：♦5 → B：♣8 → C：♦10。领出的是方块，同花色中点数最大的牌属于 C，因此 C 获胜。\nB 本轮没有跟方块，说明其余手牌 ♠7、♠12 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 2 轮 C：♦2 → A：♣4 → B：♠7。领出的是方块，同花色中点数最大的牌属于 C，因此 C 获胜。\nA 本轮没有跟方块，说明其余手牌 ♣13 都不是方块；这是必须跟花色规则留下的持牌证据。\nB 本轮没有跟方块，说明其余手牌 ♠12 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 3 轮 C：♠3 → A：♣13 → B：♠12。领出的是黑桃，同花色中点数最大的牌属于 B，因此 B 获胜。\n归档核对：证词 3、证词 4有误，其余证词成立。可信记录全部成立。\n证词 3 的更正：♠7 原本在 B 的手中。\n证词 4 的更正：第 2 轮，A 出的是 ♣4。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter04.level09",
+    "chapterID": "chapter04",
+    "number": 39,
+    "title": "最后的旁观者",
+    "subtitle": "证词档案 09",
+    "story": "最后一位旁观者寄来的纸条让档案接近完整。检查三轮中的赢家轮转，也检查每条证词的实际含义。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "A",
+      "roundCount": 3
+    },
+    "cards": [
+      {
+        "id": "C2"
+      },
+      {
+        "id": "C4"
+      },
+      {
+        "id": "C8"
+      },
+      {
+        "id": "C12"
+      },
+      {
+        "id": "S3"
+      },
+      {
+        "id": "S7"
+      },
+      {
+        "id": "S11"
+      },
+      {
+        "id": "H5"
+      },
+      {
+        "id": "H10"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 1 轮，A 出的是 ♥5。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "A",
+          "card": "H5"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 2 轮领出的牌是 ♣4。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 2,
+          "card": "C4"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "第 1 轮，B 出的是 ♣12。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "B",
+          "card": "C12"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "♣2 原本在 B 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "B",
+          "card": "C2"
+        }
+      },
+      {
+        "id": "f5",
+        "text": "♠7 原本在 B 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "B",
+          "card": "S7"
+        }
+      }
+    ],
+    "falseTestimonyCount": 1,
+    "testimonies": [
+      {
+        "id": "t1",
+        "text": "♣8 原本在 C 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "C",
+          "card": "C8"
+        }
+      },
+      {
+        "id": "t2",
+        "text": "第 3 轮领出的牌是 ♠3。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 3,
+          "card": "S3"
+        }
+      },
+      {
+        "id": "t3",
+        "text": "第 2 轮，A 出的是 ♠3。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "A",
+          "card": "S3"
+        }
+      },
+      {
+        "id": "t4",
+        "text": "♥10 原本在 A 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "A",
+          "card": "H10"
+        }
+      }
+    ],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先关注第 2 轮 A 的牌位。这一处可以从以下公开记录入手：第 1 轮，A 出的是 ♥5；第 2 轮领出的牌是 ♣4。同时保留“恰有 1 条错误证词”的条件。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "第一轮由 A 领出 ♥5，而 B 出了 ♣12。必须跟花色，所以 B 当时手中没有红桃，后面也不能再出红桃。证词必须合起来核对：恰有 1 条为假，而不是每句话都必须为真。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第 2 轮，A 出的是 ♣4。暂时不采用“第 2 轮领出的牌是 ♣4”时，这里还可能出现 ♣2、♥10、♠3、♠7；但这些分支都无法在遵守跟花色与赢家领出规则的同时满足这条记录。把该记录放回，留下的只有 ♣4。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "A",
+          "card": "C4"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "H5",
+        "C12",
+        "S11",
+        "C4",
+        "C2",
+        "C8",
+        "H10",
+        "S7",
+        "S3"
+      ],
+      "falseTestimonyIDs": [
+        "t3"
+      ],
+      "explanation": "第 1 轮 A：♥5 → B：♣12 → C：♠11。领出的是红桃，同花色中点数最大的牌属于 A，因此 A 获胜。\nB 本轮没有跟红桃，说明其余手牌 ♣2、♠7 都不是红桃；这是必须跟花色规则留下的持牌证据。\nC 本轮没有跟红桃，说明其余手牌 ♣8、♠3 都不是红桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♣4 → B：♣2 → C：♣8。领出的是梅花，同花色中点数最大的牌属于 C，因此 C 获胜。\n第 3 轮 C：♠3 → A：♥10 → B：♠7。领出的是黑桃，同花色中点数最大的牌属于 B，因此 B 获胜。\n归档核对：证词 3有误，其余证词成立。可信记录全部成立。\n证词 3 的更正：第 2 轮，A 出的是 ♣4。"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "contentRevision": 1,
+    "id": "chapter04.level10",
+    "chapterID": "chapter04",
+    "number": 40,
+    "title": "封存之前",
+    "subtitle": "证词档案 10",
+    "story": "四十份档案来到最后一页。把可靠事实、待核实证词和自己的假设分清，再让每张牌回到唯一的位置。",
+    "rules": {
+      "id": "follow_suit_no_trump",
+      "version": 1,
+      "players": [
+        "A",
+        "B",
+        "C"
+      ],
+      "firstLeader": "B",
+      "roundCount": 3
+    },
+    "cards": [
+      {
+        "id": "S3"
+      },
+      {
+        "id": "S6"
+      },
+      {
+        "id": "S9"
+      },
+      {
+        "id": "S13"
+      },
+      {
+        "id": "H2"
+      },
+      {
+        "id": "H5"
+      },
+      {
+        "id": "H10"
+      },
+      {
+        "id": "H14"
+      },
+      {
+        "id": "C7"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "text": "第 1 轮，B 出的是 ♥14。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 1,
+          "player": "B",
+          "card": "H14"
+        }
+      },
+      {
+        "id": "f2",
+        "text": "第 3 轮，B 出的是梅花。",
+        "constraint": {
+          "kind": "playedSuit",
+          "round": 3,
+          "player": "B",
+          "suit": "C"
+        }
+      },
+      {
+        "id": "f3",
+        "text": "第 3 轮领出的牌是 ♠3。",
+        "constraint": {
+          "kind": "leadCard",
+          "round": 3,
+          "card": "S3"
+        }
+      },
+      {
+        "id": "f4",
+        "text": "第 2 轮，A 出的是 ♠13。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "A",
+          "card": "S13"
+        }
+      },
+      {
+        "id": "f5",
+        "text": "第 3 轮，C 出的是 ♥5。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 3,
+          "player": "C",
+          "card": "H5"
+        }
+      }
+    ],
+    "falseTestimonyCount": 2,
+    "testimonies": [
+      {
+        "id": "t1",
+        "text": "第 2 轮，C 出的是红桃。",
+        "constraint": {
+          "kind": "playedSuit",
+          "round": 2,
+          "player": "C",
+          "suit": "H"
+        }
+      },
+      {
+        "id": "t2",
+        "text": "第 2 轮，C 出的是 ♥2。",
+        "constraint": {
+          "kind": "cardPlayed",
+          "round": 2,
+          "player": "C",
+          "card": "H2"
+        }
+      },
+      {
+        "id": "t3",
+        "text": "♠9 原本在 B 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "B",
+          "card": "S9"
+        }
+      },
+      {
+        "id": "t4",
+        "text": "♠6 原本在 A 的手中。",
+        "constraint": {
+          "kind": "owner",
+          "player": "A",
+          "card": "S6"
+        }
+      }
+    ],
+    "hints": [
+      {
+        "title": "关注证据",
+        "text": "先关注第 3 轮 A 的牌位。这一处可以从以下公开记录入手：第 3 轮，B 出的是梅花；第 3 轮领出的牌是 ♠3；第 3 轮，C 出的是 ♥5。同时保留“恰有 2 条错误证词”的条件。",
+        "evidenceIDs": [
+          "f2",
+          "f3",
+          "f5",
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "连接规则",
+        "text": "♠3 是第 3 轮的第一张牌，只能由该轮领出者打出。把这个条件与前轮赢家相连，再检查各人尚未打出的同花色牌。证词必须合起来核对：恰有 2 条为假，而不是每句话都必须为真。",
+        "evidenceIDs": [
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "conclusion": null
+      },
+      {
+        "title": "给出一步",
+        "text": "第三轮 A 出 ♠3。该轮已确认领出 ♠3，但 B 的牌确定是梅花，C 已确认出 ♥5；他们都不可能领出黑桃，因此只能由 A 在第三轮出 ♠3。",
+        "evidenceIDs": [
+          "f2",
+          "f3",
+          "f5",
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "conclusion": {
+          "kind": "cardPlayed",
+          "round": 3,
+          "player": "A",
+          "card": "S3"
+        }
+      }
+    ],
+    "authorSolution": {
+      "plays": [
+        "S9",
+        "H14",
+        "H10",
+        "S13",
+        "S6",
+        "H2",
+        "S3",
+        "C7",
+        "H5"
+      ],
+      "falseTestimonyIDs": [
+        "t3",
+        "t4"
+      ],
+      "explanation": "第 1 轮 B：♥14 → C：♥10 → A：♠9。领出的是红桃，同花色中点数最大的牌属于 B，因此 B 获胜。\nA 本轮没有跟红桃，说明其余手牌 ♠13、♠3 都不是红桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 B：♠6 → C：♥2 → A：♠13。领出的是黑桃，同花色中点数最大的牌属于 A，因此 A 获胜。\nC 本轮没有跟黑桃，说明其余手牌 ♥5 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 3 轮 A：♠3 → B：♣7 → C：♥5。领出的是黑桃，同花色中点数最大的牌属于 A，因此 A 获胜。\n归档核对：证词 3、证词 4有误，其余证词成立。可信记录全部成立。\n证词 3 的更正：♠9 原本在 A 的手中。\n证词 4 的更正：♠6 原本在 B 的手中。"
+    }
+  }
+]

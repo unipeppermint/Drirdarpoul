@@ -1,0 +1,31 @@
+# macOS metadata
+.DS_Store
+._*
+
+# Xcode build products and local user settings
+/build/
+DerivedData/
+xcuserdata/
+*.xcuserstate
+*.xccheckout
+*.xcscmblueprint
+*.xcarchive
+*.xcresult
+*.ipa
+*.dSYM
+*.dSYM.zip
+
+# Swift Package Manager build products
+.build/
+
+# Python helper caches
+__pycache__/
+*.py[cod]
+
+# Local temporary files
+/tmp/
+*.swp
+*.swo
+*~
+
+# Keep output/ artifacts referenced by the project documentation.
