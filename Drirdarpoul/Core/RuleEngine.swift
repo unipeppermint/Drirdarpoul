@@ -13,25 +13,25 @@ enum RuleEngine {
     static func validateStructure(level: Level) -> [String] {
         var errors: [String] = []
         let rules = level.rules
-        if level.schemaVersion != 1 { errors.append("不支持的关卡结构版本。") }
-        if level.contentRevision < 1 { errors.append("关卡修订号必须为正整数。") }
-        if rules.id != "follow_suit_no_trump" || rules.version != 1 { errors.append("不支持的规则版本。") }
+        if level.schemaVersion != 1 { errors.append("Unsupported file format version.") }
+        if level.contentRevision < 1 { errors.append("The content revision must be a positive integer.") }
+        if rules.id != "follow_suit_no_trump" || rules.version != 1 { errors.append("Unsupported rules version.") }
         if !(2...4).contains(rules.players.count) || Set(rules.players).count != rules.players.count || rules.players.contains(where: { $0.isEmpty }) {
-            errors.append("座次必须包含 2 至 4 个不同的人物。")
+            errors.append("The seating order must contain 2 to 4 different players.")
         }
-        if !rules.players.contains(rules.firstLeader) { errors.append("首轮领出者不在座次中。") }
-        if !(1...8).contains(rules.roundCount) { errors.append("轮数必须在 1 至 8 之间。") }
+        if !rules.players.contains(rules.firstLeader) { errors.append("The first leader is not in the seating order.") }
+        if !(1...8).contains(rules.roundCount) { errors.append("There must be between 1 and 8 rounds.") }
         let expectedCards = rules.players.count.multipliedReportingOverflow(by: rules.roundCount)
-        if expectedCards.overflow || level.cards.count != expectedCards.partialValue { errors.append("牌数与每人每轮一张的规则不符。") }
+        if expectedCards.overflow || level.cards.count != expectedCards.partialValue { errors.append("The card count must allow one card per player per round.") }
         let cardIDs = Set(level.cards.map { $0.id })
-        if cardIDs.count != level.cards.count { errors.append("牌组包含重复的牌。") }
+        if cardIDs.count != level.cards.count { errors.append("The deck contains duplicate cards.") }
         if level.cards.contains(where: { !["S", "H", "D", "C"].contains($0.suit) || !(2...14).contains($0.rank) || $0.id != "\($0.suit)\($0.rank)" }) {
-            errors.append("牌组包含无法识别的花色或点数。")
+            errors.append("The deck contains an unrecognized suit or rank.")
         }
-        if level.falseTestimonyCount < 0 || level.falseTestimonyCount > level.testimonies.count { errors.append("错误证词数量超出范围。") }
+        if level.falseTestimonyCount < 0 || level.falseTestimonyCount > level.testimonies.count { errors.append("The false-statement count is out of range.") }
         let evidence = level.facts + level.testimonies
         if Set(evidence.map { $0.id }).count != evidence.count || evidence.contains(where: { $0.id.isEmpty }) {
-            errors.append("线索编号必须非空且唯一。")
+            errors.append("Clue IDs must be nonempty and unique.")
         }
         func validConstraint(_ c: Constraint) -> Bool {
             let roundOK = c.round.map { $0 >= 1 && $0 <= rules.roundCount } ?? false
@@ -47,10 +47,10 @@ enum RuleEngine {
             default: return false
             }
         }
-        for item in evidence where !validConstraint(item.constraint) { errors.append("线索 \(item.id) 的约束或引用无效。") }
+        for item in evidence where !validConstraint(item.constraint) { errors.append("Clue \(item.id) has an invalid condition or reference.") }
         for (index, hint) in level.hints.enumerated() {
-            if hint.evidenceIDs.contains(where: { id in !evidence.contains(where: { $0.id == id }) }) { errors.append("提示 \(index + 1) 引用了不存在的线索。") }
-            if let conclusion = hint.conclusion, !validConstraint(conclusion) { errors.append("提示 \(index + 1) 的结论无效。") }
+            if hint.evidenceIDs.contains(where: { id in !evidence.contains(where: { $0.id == id }) }) { errors.append("Hint \(index + 1) refers to a missing clue.") }
+            if let conclusion = hint.conclusion, !validConstraint(conclusion) { errors.append("Hint \(index + 1) has an invalid conclusion.") }
         }
         return errors
     }
@@ -75,7 +75,7 @@ enum RuleEngine {
     static func evaluateValidLevel(level: Level, board: [String?], includeEvents: Bool) -> Evaluation {
         guard board.count == level.slotCount else {
             return Evaluation(complete: false, accepted: false,
-                              issues: [RuleIssue(message: "牌位数量与档案不符。", slots: [], evidenceID: nil)],
+                              issues: [RuleIssue(message: "The number of slots does not match this file.", slots: [], evidenceID: nil)],
                               evidence: [], events: [], leaders: [:], winners: [:])
         }
         var issues: [RuleIssue] = []
@@ -83,9 +83,9 @@ enum RuleEngine {
         var firstSlot: [String: Int] = [:]
         for (slot, value) in board.enumerated() {
             guard let card = value else { continue }
-            if !cardIDs.contains(card) { issues.append(RuleIssue(message: "这张牌不属于本档案的牌组。", slots: [slot], evidenceID: nil)) }
+            if !cardIDs.contains(card) { issues.append(RuleIssue(message: "This card does not belong to this file's deck.", slots: [slot], evidenceID: nil)) }
             if let earlier = firstSlot[card] {
-                issues.append(RuleIssue(message: "同一张牌只能出现一次。", slots: [earlier, slot], evidenceID: nil))
+                issues.append(RuleIssue(message: "Each card can appear only once.", slots: [earlier, slot], evidenceID: nil))
             } else { firstSlot[card] = slot }
         }
         let rounds = roundStates(level: level, board: board)
@@ -101,7 +101,7 @@ enum RuleEngine {
                    let later = ((state.number + 1)...level.rules.roundCount).map({ ($0 - 1) * playerCount + playerIndex }).first(where: {
                        board[$0].map { Card(id: $0).suit == lead.suit } ?? false
                    }) {
-                    issues.append(RuleIssue(message: "第 \(state.number) 轮领出\(lead.suitName)，\(player) 手中仍有\(lead.suitName)，必须跟随花色。", slots: [slot, later], evidenceID: nil))
+                    issues.append(RuleIssue(message: "Round \(state.number) leads \(lead.suitName). \(player) still holds \(lead.suitName) and must follow suit.", slots: [slot, later], evidenceID: nil))
                 }
             }
         }
@@ -110,7 +110,7 @@ enum RuleEngine {
             let result = truth(of: fact.constraint, level: level, board: board, rounds: rounds)
             evidence.append(EvidenceResult(id: fact.id, text: fact.text, truth: result, isTestimony: false))
             if result == .contradicted {
-                issues.append(RuleIssue(message: "与可靠线索冲突：\(fact.text)", slots: relatedSlots(fact.constraint, level: level, board: board), evidenceID: fact.id))
+                issues.append(RuleIssue(message: "This conflicts with a reliable clue: \(fact.text)", slots: relatedSlots(fact.constraint, level: level, board: board), evidenceID: fact.id))
             }
         }
         var falseCount = 0
@@ -122,7 +122,7 @@ enum RuleEngine {
             if result == .unknown { unknownCount += 1 }
         }
         if falseCount > level.falseTestimonyCount || falseCount + unknownCount < level.falseTestimonyCount {
-            issues.append(RuleIssue(message: "证词数量不符：档案要求恰有 \(level.falseTestimonyCount) 条错误证词；当前已有 \(falseCount) 条不成立、\(unknownCount) 条待核实。", slots: [], evidenceID: nil))
+            issues.append(RuleIssue(message: "Exactly \(level.falseTestimonyCount) statements must be false. Currently \(falseCount) are false and \(unknownCount) are undetermined.", slots: [], evidenceID: nil))
         }
         let complete = board.allSatisfy { $0 != nil }
         let accepted = complete && issues.isEmpty && evidence.allSatisfy { $0.truth != .unknown }
@@ -231,23 +231,23 @@ enum RuleEngine {
                 let card = Card(id: id)
                 var explanation: String
                 if offset == 0 {
-                    explanation = "\(player) 领出\(card.spoken)，本轮跟随\(card.suitName)。"
+                    explanation = "\(player) leads the \(card.spoken). The lead suit is \(card.suitName)."
                 } else if card.suit == state.leadCard?.suit {
-                    explanation = "\(player) 出\(card.spoken)，跟随领出花色。"
+                    explanation = "\(player) plays the \(card.spoken), following suit."
                 } else {
                     let remainingSlots = ((state.number * players.count)..<board.count).filter { $0 % players.count == (slot % players.count) }
-                    if let issue = issues.first(where: { $0.evidenceID == nil && $0.slots.first == slot && $0.message.contains("必须跟随") }) {
+                    if let issue = issues.first(where: { $0.evidenceID == nil && $0.slots.first == slot && $0.message.contains("must follow suit") }) {
                         explanation = issue.message
                     } else if remainingSlots.allSatisfy({ board[$0] != nil }) {
-                        explanation = "\(player) 已无\(state.leadCard?.suitName ?? "领出花色")，可垫出\(card.spoken)；垫牌不参与争胜。"
+                        explanation = "\(player) has no \(state.leadCard?.suitName ?? "cards of the lead suit") left and may discard the \(card.spoken). An off-suit card cannot win."
                     } else {
-                        explanation = "\(player) 出\(card.spoken)；须确认剩余手牌中没有\(state.leadCard?.suitName ?? "领出花色")。"
+                        explanation = "\(player) plays the \(card.spoken). Check that their remaining hand contains no \(state.leadCard?.suitName ?? "cards of the lead suit")."
                     }
                 }
                 let winner = offset == players.count - 1 ? state.winner : nil
                 if let winner = winner, let winningSlot = level.slot(round: state.number, player: winner), let winningID = board[winningSlot] {
-                    explanation += " \(winner) 的\(Card(id: winningID).spoken)是本轮领出花色中最大的一张，赢得本轮。"
-                    if state.number < level.rules.roundCount { explanation += " 下一轮由 \(winner) 领出。" }
+                    explanation += " \(winner) wins with the \(Card(id: winningID).spoken), the highest card of the lead suit."
+                    if state.number < level.rules.roundCount { explanation += " \(winner) leads the next round." }
                 }
                 events.append(ReplayEvent(round: state.number, player: player, card: id, slot: slot, leader: leader, winner: winner, explanation: explanation))
             }

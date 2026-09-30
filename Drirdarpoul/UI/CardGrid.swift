@@ -57,20 +57,20 @@ final class CardCell: UICollectionViewCell {
         if let id = item.card {
             let card = Card(id:id); rank.text = "\(card.rank)\n\(card.symbol)"; lowerRank.text = rank.text; suit.text = card.symbol
             rank.textColor = card.isRed ? Palette.wine : Palette.ink;suit.textColor = rank.textColor;lowerRank.textColor = rank.textColor
-            accessibilityLabel = "\(item.caption)，\(card.spoken)，\(item.fixed ? "已知固定牌" : "可移动")"
+            accessibilityLabel = "\(item.caption), \(card.spoken), \(item.fixed ? "Fixed card" : "Movable")"
         } else {
-            rank.text = nil;lowerRank.text = nil;suit.text = "?";suit.textColor = Palette.muted.withAlphaComponent(0.6);accessibilityLabel = "\(item.caption)，空位"
+            rank.text = nil;lowerRank.text = nil;suit.text = "?";suit.textColor = Palette.muted.withAlphaComponent(0.6);accessibilityLabel = "\(item.caption), Empty slot"
         }
         fixedMark.isHidden = !item.fixed
         face.emptyBorder.isHidden = item.card != nil || item.selected
         face.layer.shadowOpacity = item.card == nil ? 0 : 0.14
         face.backgroundColor = item.card == nil || item.highlighted ? Palette.wash.withAlphaComponent(0.5) : Palette.card
         face.layer.borderWidth = item.selected ? 2 : (item.card == nil ? 0 : 0.7);face.layer.borderColor = (item.selected ? Palette.wine : Palette.line).cgColor
-        accessibilityValue = item.selected ? "已选中" : nil
-        if readOnly { accessibilityLabel = "\(context)，\(item.caption)，" + (item.card.map { Card(id:$0).spoken } ?? "尚未回放") }
-        else { accessibilityLabel = context + "，" + (accessibilityLabel ?? "") }
-        accessibilityHint = readOnly ? "点按可定位复盘到这一手" : item.fixed ? "公开事实，不可移动" : "点选牌后，再点选目标位置；也可以拖拽"
-        accessibilityCustomActions = remove.map { callback in [UIAccessibilityCustomAction(name:"移回待归位牌",actionHandler:{ _ in callback();return true })] }
+        accessibilityValue = item.selected ? "Selected" : nil
+        if readOnly { accessibilityLabel = "\(context), \(item.caption), " + (item.card.map { Card(id:$0).spoken } ?? "Not yet replayed") }
+        else { accessibilityLabel = context + ", " + (accessibilityLabel ?? "") }
+        accessibilityHint = readOnly ? "Tap to jump to this play" : item.fixed ? "Confirmed by a clue; cannot be moved" : "Select a card, then tap its destination. You can also drag it."
+        accessibilityCustomActions = remove.map { callback in [UIAccessibilityCustomAction(name:"Return to unplaced cards",actionHandler:{ _ in callback();return true })] }
         accessibilityIdentifier = item.slot.map { "slot.\($0)" } ?? "pool.\(item.card ?? "empty")"
         faceWidth.constant = traitCollection.preferredContentSizeCategory.isAccessibilityCategory ? 108 : 72
     }
@@ -81,7 +81,7 @@ final class CardGrid: UICollectionView, UICollectionViewDataSource, UICollection
     var onDropCard: ((String, Int?) -> Void)?
     var onRemove: ((String) -> Void)?
     var allowsEditing = true
-    var accessibilityContext = "待归位牌"
+    var accessibilityContext = "Unplaced cards"
     private var sizeConstraint: NSLayoutConstraint!
     private var columns: Int { traitCollection.preferredContentSizeCategory.isAccessibilityCategory ? 2 : 3 }
     private var itemHeight: CGFloat { traitCollection.preferredContentSizeCategory.isAccessibilityCategory ? 185 : 125 }

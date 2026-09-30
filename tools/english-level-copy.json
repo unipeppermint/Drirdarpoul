@@ -1,0 +1,1233 @@
+{
+  "chapter01.level01": {
+    "structureSHA256": "70c0fa215e48d01a748cc6cb445176c24747d2065cbf274d996e52d99de54c2e",
+    "title": "The First Note",
+    "subtitle": "Start with six cards",
+    "story": "A restorer finds a note at the bottom of the box. A led the first round. Three cards are already confirmed; recover the other three.",
+    "facts": [
+      "In round 1, A plays ♠5.",
+      "In round 1, C plays ♥3.",
+      "In round 2, B plays ♥7.",
+      "B wins round 1.",
+      "Round 2 is led with ♥7."
+    ],
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "In round one, A plays ♠5, but B wins. Which card in the pool can beat the spade that was led?"
+      },
+      {
+        "title": "Connect the rules",
+        "text": "With no trumps, only the lead suit can win. B needs a spade higher than 5. Look for the one remaining card that fits."
+      },
+      {
+        "title": "One step forward",
+        "text": "B plays ♠9 in round one: it is the only card in the pool that can beat ♠5 in the lead suit. Place it, then use C's failure to follow spades to work out the next round."
+      }
+    ],
+    "explanation": "Round 1: A: ♠5 → B: ♠9 → C: ♥3. The lead suit is spades. B holds the highest card of that suit and wins.\n\nC did not follow spades, so the remaining cards (♥10) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 2: B: ♥7 → C: ♥10 → A: ♠2. The lead suit is hearts. C holds the highest card of that suit and wins."
+  },
+  "chapter01.level02": {
+    "structureSHA256": "8df9a4d8ddb3ecf806d959f0cfb20a15fb88b9b1f49dd1aa9957b52e8dcb9be1",
+    "title": "Echoes of a Suit",
+    "subtitle": "If you have the suit, follow it",
+    "story": "The second letter includes a scrap of rules. Compare the lead suit with the cards each player uses later, and the gaps begin to narrow.",
+    "facts": [
+      "In round 1, A plays ♦5.",
+      "In round 1, C plays ♥9.",
+      "In round 2, A plays ♠8.",
+      "B originally holds ♠3."
+    ],
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "C did not follow diamonds in round one. Now look at A's two confirmed slots. Who can still hold the remaining diamond?"
+      },
+      {
+        "title": "Connect the rules",
+        "text": "C played a heart, so C had no diamonds. Both of A's cards are known. The remaining diamond must belong to B, who must follow suit in round one."
+      },
+      {
+        "title": "One step forward",
+        "text": "B plays ♦13 in round one. C has no diamonds, and A holds ♦5 and ♠8. Only B can hold ♦13 and must play it when diamonds are led."
+      }
+    ],
+    "explanation": "Round 1: A: ♦5 → B: ♦13 → C: ♥9. The lead suit is diamonds. B holds the highest card of that suit and wins.\n\nC did not follow diamonds, so the remaining cards (♥2) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 2: B: ♠3 → C: ♥2 → A: ♠8. The lead suit is spades. A holds the highest card of that suit and wins."
+  },
+  "chapter01.level03": {
+    "structureSHA256": "6362451708a24b9b9677f1796a98817d7b9e1a2a0c7f1114875278eb18de7a5a",
+    "title": "High Is Not Enough",
+    "subtitle": "Only the lead suit can win",
+    "story": "Someone circled a high card without calling it a winner. Outside the lead suit, even the highest rank cannot win the round.",
+    "facts": [
+      "In round 1, A plays ♠6.",
+      "In round 1, C plays ♥12.",
+      "B originally holds ♥3.",
+      "B originally holds ♠11."
+    ],
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Two ownership clues identify B's entire hand. Decide which suit B must follow before looking for the highest number on the table."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "A leads spades, and B holds a spade. B must play it. Even a higher heart played by C cannot win a round led in spades."
+      },
+      {
+        "title": "One step forward",
+        "text": "B plays ♠11 in round one. B holds only ♥3 and ♠11 and must follow spades, so ♥3 cannot be played yet."
+      }
+    ],
+    "explanation": "Round 1: A: ♠6 → B: ♠11 → C: ♥12. The lead suit is spades. B holds the highest card of that suit and wins.\n\nC did not follow spades, so the remaining cards (♥7) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 2: B: ♥3 → C: ♥7 → A: ♠2. The lead suit is hearts. C holds the highest card of that suit and wins."
+  },
+  "chapter01.level04": {
+    "structureSHA256": "ca280bb189f65bce132b9417776a6c061c14f9535d202983a0ceee399992cd4c",
+    "title": "Passing the Lead",
+    "subtitle": "The winner leads the next round",
+    "story": "Notes about one round and cards from the next were sealed in separate envelopes. Connect the winner to the next lead to recover the order.",
+    "facts": [
+      "In round 1, A plays ♦13.",
+      "In round 1, B plays ♠8.",
+      "B wins round 2."
+    ],
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "First find the certain winner of round one. Then use the clue that B wins round two to work backward to its lead suit."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "A leads the highest diamond in the pool, so A will lead round two. To win that round, B must play a higher card of A's suit. Find a remaining pair that works."
+      },
+      {
+        "title": "One step forward",
+        "text": "C plays ♦5 in round one. A wins with ♦13. For B to win round two, A and B must play ♥2 and ♥9 respectively. B did not follow diamonds, and A's hand is full, so ♦5 belongs in C's first round."
+      }
+    ],
+    "explanation": "Round 1: A: ♦13 → B: ♠8 → C: ♦5. The lead suit is diamonds. A holds the highest card of that suit and wins.\n\nB did not follow diamonds, so the remaining cards (♥9) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♥2 → B: ♥9 → C: ♠3. The lead suit is hearts. B holds the highest card of that suit and wins."
+  },
+  "chapter01.level05": {
+    "structureSHA256": "741df9ccf33d88cff1564e4e5b3324ca6001722a0d81e5b775a0667c3bdfd071",
+    "title": "The Missing Suit",
+    "subtitle": "A discard reveals a hand",
+    "story": "An off-suit card is marked in the margin. Why did its owner not follow suit? Cards played later were still in hand then, leaving a useful trace.",
+    "facts": [
+      "In round 1, A plays ♠11.",
+      "In round 1, B plays ♥7.",
+      "A originally holds ♥3.",
+      "In round 1, C plays ♠6."
+    ],
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Focus on C's second-round slot. What can B not hold after failing to follow spades? Is A's hand already full?"
+      },
+      {
+        "title": "Connect the rules",
+        "text": "B played a heart in round one and therefore had no spades. A's first spade is fixed and A's other card is known. The remaining spade cannot belong to A or B."
+      },
+      {
+        "title": "One step forward",
+        "text": "C plays ♠2 in round two. B has no spades; A holds ♠11 and ♥3. C already plays ♠6 in round one, leaving ♠2 for C's second round."
+      }
+    ],
+    "explanation": "Round 1: A: ♠11 → B: ♥7 → C: ♠6. The lead suit is spades. A holds the highest card of that suit and wins.\n\nB did not follow spades, so the remaining cards (♥12) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♥3 → B: ♥12 → C: ♠2. The lead suit is hearts. B holds the highest card of that suit and wins."
+  },
+  "chapter01.level06": {
+    "structureSHA256": "d40210fc68c8f33cdd822674ad6b9a76d9c4cb8ab1e740395b8e4baf3cd1b60b",
+    "title": "A Third-Round Signature",
+    "subtitle": "Your first three-round file",
+    "story": "The last teaching letter adds a third round. Begin with the clearest gap. Swap or undo freely, then replay the result to see how the rounds connect.",
+    "facts": [
+      "In round 1, A plays ♠2.",
+      "In round 1, B plays ♥7.",
+      "Round 2 is led with ♥3.",
+      "Round 3 is led with ♠12.",
+      "In round 2, B plays ♦5.",
+      "In round 1, C plays ♠8."
+    ],
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "All three cards in round one are visible. Compare the cards of the lead suit to find who leads round two."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "Hearts cannot beat a spade lead. Find the higher of the two spades. Its owner must play the confirmed lead card in round two."
+      },
+      {
+        "title": "One step forward",
+        "text": "C plays ♥3 in round two. C's ♠8 beats A's ♠2, while B's ♥7 cannot win. C therefore leads the confirmed ♥3 in round two."
+      }
+    ],
+    "explanation": "Round 1: A: ♠2 → B: ♥7 → C: ♠8. The lead suit is spades. C holds the highest card of that suit and wins.\n\nB did not follow spades, so the remaining cards (♦5, ♦10) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 2: C: ♥3 → A: ♥11 → B: ♦5. The lead suit is hearts. A holds the highest card of that suit and wins.\n\nB did not follow hearts, so the remaining cards (♦10) cannot be hearts. This follows from the requirement to follow suit when able.\n\nRound 3: A: ♠12 → B: ♦10 → C: ♠4. The lead suit is spades. A holds the highest card of that suit and wins."
+  },
+  "chapter02.level01": {
+    "structureSHA256": "665fe27d2c397a2663ba212e058de2f6b58dd1872b7149d2802b99abad1f70b3",
+    "title": "Raindrops and Tickets",
+    "subtitle": "Train file 01",
+    "story": "Rain has blurred the game on the back of a ticket. The conductor saved two opening plays. Recover the cards the passengers had yet to play.",
+    "facts": [
+      "In round 1, A plays ♦5.",
+      "In round 1, C plays ♣12.",
+      "Round 2 is led with ♥10.",
+      "Round 3 is led with ♠3.",
+      "In round 2, C plays ♣2.",
+      "C originally holds ♣7."
+    ],
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Start with C's third round: two round records and one ownership clue concern this player."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "Each player has exactly three cards, one for each round. If two plays are recorded, another card known to belong to that player must fill the remaining slot."
+      },
+      {
+        "title": "One step forward",
+        "text": "C plays ♣7 in round three. C already plays ♣12 and ♣2 in the first two rounds. The remaining card known to belong to C, ♣7, must fill round three."
+      }
+    ],
+    "explanation": "Round 1: A: ♦5 → B: ♦13 → C: ♣12. The lead suit is diamonds. B holds the highest card of that suit and wins.\n\nC did not follow diamonds, so the remaining cards (♣2, ♣7) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 2: B: ♥10 → C: ♣2 → A: ♥4. The lead suit is hearts. B holds the highest card of that suit and wins.\n\nC did not follow hearts, so the remaining cards (♣7) cannot be hearts. This follows from the requirement to follow suit when able.\n\nRound 3: B: ♠3 → C: ♣7 → A: ♠9. The lead suit is spades. A holds the highest card of that suit and wins."
+  },
+  "chapter02.level02": {
+    "structureSHA256": "61edcbd848fc7fd048a1834cb210e71a6238fb58dcf23e5c80c68cd62b6607fb",
+    "title": "Carriage Two",
+    "subtitle": "Train file 02",
+    "story": "Only two rounds survive from the second carriage. Luggage tags identify some card owners; the remaining gaps must obey the follow-suit rule.",
+    "facts": [
+      "In round 1, A plays ♠8.",
+      "In round 1, B plays ♦13.",
+      "C wins round 2."
+    ],
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Find the winner of round one, then look for a same-suit pair that lets C win round two."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "A's ♠8 is the highest spade, so A leads round two. C must play a higher card of that suit to win. B did not follow spades in round one and cannot hold the other spade."
+      },
+      {
+        "title": "One step forward",
+        "text": "C plays ♠3 in round one. A wins that round. For C to win round two, the only remaining pair is A's ♥2 and C's ♥9. B has no spades and A's hand is full, so ♠3 belongs in C's first round."
+      }
+    ],
+    "explanation": "Round 1: A: ♠8 → B: ♦13 → C: ♠3. The lead suit is spades. A holds the highest card of that suit and wins.\n\nB did not follow spades, so the remaining cards (♦5) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♥2 → B: ♦5 → C: ♥9. The lead suit is hearts. C holds the highest card of that suit and wins."
+  },
+  "chapter02.level03": {
+    "structureSHA256": "2a3c654fa6bc1bb19acac8cb5f4a2f14ff28b2f6931998f8e0651a36928bb954",
+    "title": "Before the Tunnel",
+    "subtitle": "Train file 03",
+    "story": "Before the train entered the tunnel, a clerk recorded the last play they could see. A note about a later winner provides another reliable clue.",
+    "facts": [
+      "In round 1, A plays ♣3.",
+      "In round 1, C plays ♠7.",
+      "Round 2 is led with ♠4.",
+      "Round 3 is led with ♣8.",
+      "B originally holds ♦2.",
+      "In round 2, C plays ♦11."
+    ],
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Focus on B's slot in round 2. Start with these public records: In round 1, A plays ♣3. In round 1, C plays ♠7. Round 2 is led with ♠4."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "A leads ♣3 in round one, while C plays ♠7. Players must follow suit, so C had no clubs and cannot play that suit in a later round."
+      },
+      {
+        "title": "One step forward",
+        "text": "B plays ♠4 in round two. C did not follow clubs and cannot hold any later. If A won round one with the lowest club, ♣3, B could not hold clubs either. Both remaining clubs would belong to A, who would also need the next lead, ♠4: four cards in a three-card hand. B must instead win round one and lead ♠4."
+      }
+    ],
+    "explanation": "Round 1: A: ♣3 → B: ♣13 → C: ♠7. The lead suit is clubs. B holds the highest card of that suit and wins.\n\nC did not follow clubs, so the remaining cards (♦11, ♦6) cannot be clubs. This follows from the requirement to follow suit when able.\n\nRound 2: B: ♠4 → C: ♦11 → A: ♠12. The lead suit is spades. A holds the highest card of that suit and wins.\n\nC did not follow spades, so the remaining cards (♦6) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 3: A: ♣8 → B: ♦2 → C: ♦6. The lead suit is clubs. A holds the highest card of that suit and wins."
+  },
+  "chapter02.level04": {
+    "structureSHA256": "dd0dc9b6c18406a42accc9703292056a6cf0e452cf0c59a3e957b5ea9e45e398",
+    "title": "The Window Seat",
+    "subtitle": "Train file 04",
+    "story": "A draft carried away half the score sheet, but the players' names remain clear. Combine suit records with card ownership to restore three rounds.",
+    "facts": [
+      "In round 1, A plays ♠7.",
+      "In round 1, B plays ♣4.",
+      "Round 2 is led with ♦5.",
+      "In round 2, A plays spades.",
+      "C originally holds ♣8.",
+      "Round 3 is led with ♦2."
+    ],
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Focus on A's slot in round 2. Start with these public records: In round 1, A plays ♠7. Round 2 is led with ♦5. In round 2, A plays spades."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "A leads ♠7 in round one, while B plays ♣4. Players must follow suit, so B had no spades and cannot play that suit in a later round."
+      },
+      {
+        "title": "One step forward",
+        "text": "A plays ♠3 in round two. A is known to play a spade then, so cannot lead the recorded ♦5. Someone else must have beaten A's ♠7 in round one. Only ♠12 can do that, leaving ♠3 as A's second-round spade."
+      }
+    ],
+    "explanation": "Round 1: A: ♠7 → B: ♣4 → C: ♠12. The lead suit is spades. C holds the highest card of that suit and wins.\n\nB did not follow spades, so the remaining cards (♦10, ♦2) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 2: C: ♦5 → A: ♠3 → B: ♦10. The lead suit is diamonds. B holds the highest card of that suit and wins.\n\nA did not follow diamonds, so the remaining cards (♣13) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 3: B: ♦2 → C: ♣8 → A: ♣13. The lead suit is diamonds. B holds the highest card of that suit and wins."
+  },
+  "chapter02.level05": {
+    "structureSHA256": "9a90eaf5418f1f56b19efe41ffffaed449d4025c4d4ddf04b51f798977f36918",
+    "title": "Tea in the Dining Car",
+    "subtitle": "Train file 05",
+    "story": "A tea stain covers the ranks. The clerk copied the suits elsewhere, and the porter confirmed who originally held several cards.",
+    "facts": [
+      "In round 1, A plays ♠3.",
+      "In round 1, B plays ♣11.",
+      "C originally holds ♣2.",
+      "C originally holds ♠7."
+    ],
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Focus on C's slot in round 1. Start with these public records: In round 1, A plays ♠3. C originally holds ♣2. C originally holds ♠7."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "A leads ♠3 in round one, while B plays ♣11. Players must follow suit, so B had no spades and cannot play that suit in a later round."
+      },
+      {
+        "title": "One step forward",
+        "text": "C plays ♠7 in round one. C's entire hand is ♣2 and ♠7. A has led spades, so C must follow with ♠7 rather than play the club."
+      }
+    ],
+    "explanation": "Round 1: A: ♠3 → B: ♣11 → C: ♠7. The lead suit is spades. C holds the highest card of that suit and wins.\n\nB did not follow spades, so the remaining cards (♣6) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 2: C: ♣2 → A: ♠12 → B: ♣6. The lead suit is clubs. B holds the highest card of that suit and wins."
+  },
+  "chapter02.level06": {
+    "structureSHA256": "cf9e7a830c9bf6ae79083bf018a91634d110324b4076e0fb35e8324e5fceaa6d",
+    "title": "After the Junction",
+    "subtitle": "Train file 06",
+    "story": "The jolt at a junction scattered the handwriting. The first card survives. Every later lead still belongs to the previous round's winner.",
+    "facts": [
+      "In round 1, A plays ♠3.",
+      "In round 1, B plays ♥5.",
+      "In round 3, C plays ♥10.",
+      "A originally holds ♣7.",
+      "A originally holds ♠13.",
+      "Round 2 is led with ♠9.",
+      "In round 3, B plays ♥14."
+    ],
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Focus on C's slot in round 2. Start with these public records: In round 1, A plays ♠3. In round 1, B plays ♥5. Round 2 is led with ♠9."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "A leads ♠3 in round one, while B plays ♥5. Players must follow suit, so B had no spades and cannot play that suit in a later round."
+      },
+      {
+        "title": "One step forward",
+        "text": "C plays ♠9 in round two. B did not follow spades and holds none. If C also failed to follow, all three remaining spades would belong to A. With the already played ♠3, that would give A four cards instead of three. C must win round one with a higher spade and lead ♠9 next."
+      }
+    ],
+    "explanation": "Round 1: A: ♠3 → B: ♥5 → C: ♠6. The lead suit is spades. C holds the highest card of that suit and wins.\n\nB did not follow spades, so the remaining cards (♥2, ♥14) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 2: C: ♠9 → A: ♠13 → B: ♥2. The lead suit is spades. A holds the highest card of that suit and wins.\n\nB did not follow spades, so the remaining cards (♥14) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 3: A: ♣7 → B: ♥14 → C: ♥10. The lead suit is clubs. A holds the highest card of that suit and wins."
+  },
+  "chapter02.level07": {
+    "structureSHA256": "4bcceb2c2dcf4492a1d1fa0e7c38c459c652b8b548b95fd8e02a71f84ffd6287",
+    "title": "The Night Conductor",
+    "subtitle": "Train file 07",
+    "story": "The night conductor missed some cards but left a check beside a winner. That mark is as reliable as the limit on each player's hand.",
+    "facts": [
+      "In round 1, A plays ♠5.",
+      "In round 1, B plays ♥12.",
+      "Round 2 is led with ♦9.",
+      "B wins round 3.",
+      "B originally holds ♣4."
+    ],
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Focus on C's slot in round 1. Start with these public records: In round 1, A plays ♠5. In round 1, B plays ♥12. Round 2 is led with ♦9. B wins round 3."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "A leads ♠5 in round one, while B plays ♥12. Players must follow suit, so B had no spades and cannot play that suit in a later round."
+      },
+      {
+        "title": "One step forward",
+        "text": "C plays ♠13 in round one. B has no spades, so ♠13 belongs to A or C. If A kept it while winning with ♠5, A would then lead ♦9, the highest diamond, and lead ♠13 in round three. B, with no spades, could not win that round. This contradicts the reliable winner record. C must play ♠13 in round one."
+      }
+    ],
+    "explanation": "Round 1: A: ♠5 → B: ♥12 → C: ♠13. The lead suit is spades. C holds the highest card of that suit and wins.\n\nB did not follow spades, so the remaining cards (♣4, ♥7) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 2: C: ♦9 → A: ♦3 → B: ♣4. The lead suit is diamonds. C holds the highest card of that suit and wins.\n\nB did not follow diamonds, so the remaining cards (♥7) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 3: C: ♥2 → A: ♣10 → B: ♥7. The lead suit is hearts. B holds the highest card of that suit and wins."
+  },
+  "chapter02.level08": {
+    "structureSHA256": "ce7ba9c72ee051253df649ac329b65d0d259827305bda7b2eae2364cfa01d6cf",
+    "title": "The Folded Timetable",
+    "subtitle": "Train file 08",
+    "story": "A line is missing along the timetable's fold. Later plays can still prove which players could not have held the missing card.",
+    "facts": [
+      "In round 1, A plays ♣10.",
+      "In round 1, B plays ♦2.",
+      "Round 2 is led with ♦14.",
+      "A originally holds ♦8.",
+      "In round 3, B plays ♦11.",
+      "In round 3, C plays ♠12."
+    ],
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Focus on A's slot in round 2. Start with these public records: In round 1, A plays ♣10. Round 2 is led with ♦14."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "A leads ♣10 in round one, while B plays ♦2. Players must follow suit, so B had no clubs and cannot play that suit in a later round."
+      },
+      {
+        "title": "One step forward",
+        "text": "A plays ♦14 in round two. A's opening ♣10 is the highest club in the pool and cannot lose to another suit. A wins round one and must lead the confirmed ♦14 next."
+      }
+    ],
+    "explanation": "Round 1: A: ♣10 → B: ♦2 → C: ♣4. The lead suit is clubs. A holds the highest card of that suit and wins.\n\nB did not follow clubs, so the remaining cards (♦5, ♦11) cannot be clubs. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♦14 → B: ♦5 → C: ♠6. The lead suit is diamonds. A holds the highest card of that suit and wins.\n\nC did not follow diamonds, so the remaining cards (♠12) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 3: A: ♦8 → B: ♦11 → C: ♠12. The lead suit is diamonds. B holds the highest card of that suit and wins."
+  },
+  "chapter02.level09": {
+    "structureSHA256": "ccd8b45554f7059df9edc91c76a819e166166dc1c1c81fad208cbde13a7badb8",
+    "title": "A Call from the Platform",
+    "subtitle": "Train file 09",
+    "story": "A call from the platform adds one definite record. Check it against the carriage notes, remembering that no card can appear twice.",
+    "facts": [
+      "In round 1, A plays ♠2.",
+      "In round 1, C plays ♦12.",
+      "Round 2 is led with ♥3.",
+      "B originally holds ♥13.",
+      "In round 2, A plays ♠6.",
+      "C originally holds ♦7."
+    ],
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Focus on B's slot in round 2. Start with these public records: In round 1, A plays ♠2. In round 1, C plays ♦12. Round 2 is led with ♥3."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "A leads ♠2 in round one, while C plays ♦12. Players must follow suit, so C had no spades and cannot play that suit in a later round."
+      },
+      {
+        "title": "One step forward",
+        "text": "B plays ♥3 in round two. C did not follow spades and cannot hold any remaining spade. If B also failed to follow, A would hold all three spades. A would win, but have no room in hand for the next lead, ♥3. B must win with a higher spade and then lead ♥3."
+      }
+    ],
+    "explanation": "Round 1: A: ♠2 → B: ♠11 → C: ♦12. The lead suit is spades. B holds the highest card of that suit and wins.\n\nC did not follow spades, so the remaining cards (♥8, ♦7) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 2: B: ♥3 → C: ♥8 → A: ♠6. The lead suit is hearts. C holds the highest card of that suit and wins.\n\nA did not follow hearts, so the remaining cards (♦4) cannot be hearts. This follows from the requirement to follow suit when able.\n\nRound 3: C: ♦7 → A: ♦4 → B: ♥13. The lead suit is diamonds. C holds the highest card of that suit and wins."
+  },
+  "chapter02.level10": {
+    "structureSHA256": "80302b582765bedad88f95ba3425acbe6954eb4b8cb2e2093a1eefb57fec8088",
+    "title": "A Minute in the Dark",
+    "subtitle": "Train file 10",
+    "story": "The lights went out, but play continued around the same seats. Each name still marks the same column; only the leader may change.",
+    "facts": [
+      "In round 1, A plays ♠10.",
+      "In round 1, C plays ♥4.",
+      "Round 2 is led with ♦3.",
+      "A originally holds ♠2.",
+      "In round 2, B plays ♥13.",
+      "Round 3 is led with ♦7."
+    ],
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Focus on A's slot in round 2. Start with these public records: In round 1, A plays ♠10. Round 2 is led with ♦3."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "A leads ♠10 in round one, while C plays ♥4. Players must follow suit, so C had no spades and cannot play that suit in a later round."
+      },
+      {
+        "title": "One step forward",
+        "text": "A plays ♦3 in round two. A's opening ♠10 is the highest spade in this game, so A wins round one. The winner leads next, placing the confirmed ♦3 in A's second-round slot."
+      }
+    ],
+    "explanation": "Round 1: A: ♠10 → B: ♠5 → C: ♥4. The lead suit is spades. A holds the highest card of that suit and wins.\n\nC did not follow spades, so the remaining cards (♦12, ♦7) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♦3 → B: ♥13 → C: ♦12. The lead suit is diamonds. C holds the highest card of that suit and wins.\n\nB did not follow diamonds, so the remaining cards (♥8) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 3: C: ♦7 → A: ♠2 → B: ♥8. The lead suit is diamonds. C holds the highest card of that suit and wins."
+  },
+  "chapter02.level11": {
+    "structureSHA256": "3c3eff07d8ffb5bbd36523a91e1f65d183d184f7e720b21e5e4ff0a9ea7b7962",
+    "title": "Three Rounds to Go",
+    "subtitle": "Train file 11",
+    "story": "Near the terminus, three passengers played out their hands. Amid the mixed suits, the cards they could not follow offer valuable evidence.",
+    "facts": [
+      "In round 1, A plays ♣5.",
+      "In round 1, B plays ♦7.",
+      "Round 2 is led with ♥4.",
+      "In round 1, C plays ♦3.",
+      "Round 3 is led with ♥2.",
+      "B originally holds ♥12."
+    ],
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Focus on A's slot in round 2. Start with these public records: In round 1, B plays ♦7. Round 2 is led with ♥4. In round 1, C plays ♦3."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "A leads ♣5 in round one, while B plays ♦7. Players must follow suit, so B had no clubs and cannot play that suit in a later round."
+      },
+      {
+        "title": "One step forward",
+        "text": "A plays ♥4 in round two. B and C play ♦7 and ♦3 in round one. If A leads diamonds, only the higher ♦11 remains. If A leads another suit, neither B nor C can win. Either way, A wins and leads ♥4 in round two."
+      }
+    ],
+    "explanation": "Round 1: A: ♣5 → B: ♦7 → C: ♦3. The lead suit is clubs. A holds the highest card of that suit and wins.\n\nB did not follow clubs, so the remaining cards (♥12, ♥2) cannot be clubs. This follows from the requirement to follow suit when able.\n\nC did not follow clubs, so the remaining cards (♥8, ♦11) cannot be clubs. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♥4 → B: ♥12 → C: ♥8. The lead suit is hearts. B holds the highest card of that suit and wins.\n\nRound 3: B: ♥2 → C: ♦11 → A: ♣10. The lead suit is hearts. B holds the highest card of that suit and wins."
+  },
+  "chapter02.level12": {
+    "structureSHA256": "9a1098554a6a00446a98f7c9941a3d8f142a13a18957fe3ed648bd764b728fb7",
+    "title": "The Last Train Filed",
+    "subtitle": "Train file 12",
+    "story": "All twelve pages have arrived. Check ownership, winners, and remaining hands together to bring this journey to a complete close.",
+    "facts": [
+      "In round 1, A plays ♦6.",
+      "In round 1, B plays ♣10.",
+      "Round 2 is led with ♣5.",
+      "In round 2, C plays ♦9.",
+      "A originally holds ♥7.",
+      "Round 3 is led with ♣2."
+    ],
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Focus on C's slot in round 1. Start with these public records: In round 1, A plays ♦6. Round 2 is led with ♣5. In round 2, C plays ♦9."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "A leads ♦6 in round one, while B plays ♣10. Players must follow suit, so B had no diamonds and cannot play that suit in a later round."
+      },
+      {
+        "title": "One step forward",
+        "text": "C plays ♦3 in round one. C still holds ♦9 for round two and must follow A's diamond lead. ♦9 cannot be used early, leaving ♦3 or ♦13. If C won with ♦13, C would have to lead ♣5 next, contradicting the confirmed ♦9. Only ♦3 works."
+      }
+    ],
+    "explanation": "Round 1: A: ♦6 → B: ♣10 → C: ♦3. The lead suit is diamonds. A holds the highest card of that suit and wins.\n\nB did not follow diamonds, so the remaining cards (♣14, ♣2) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♣5 → B: ♣14 → C: ♦9. The lead suit is clubs. B holds the highest card of that suit and wins.\n\nC did not follow clubs, so the remaining cards (♦13) cannot be clubs. This follows from the requirement to follow suit when able.\n\nRound 3: B: ♣2 → C: ♦13 → A: ♥7. The lead suit is clubs. B holds the highest card of that suit and wins."
+  },
+  "chapter03.level01": {
+    "structureSHA256": "5dbef2cb33ff8c152e3bb708071d779f4858c21355725fadc35323504f5f2b49",
+    "title": "Before the Chime",
+    "subtitle": "Tea room file 01",
+    "story": "Three rounds were recorded before the clock chimed. The notes are now out of order. Use the lead cards and winners to reconnect them.",
+    "facts": [
+      "Round 3 is led with ♣14.",
+      "Round 1 is led with ♣5.",
+      "Round 2 is led with ♣2.",
+      "In round 1, C plays spades.",
+      "A originally holds ♥12.",
+      "B originally holds ♣11.",
+      "In round 3, C plays ♠10."
+    ],
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Focus on C's slot in round 1. Start with these public records: In round 1, C plays spades. In round 3, C plays ♠10."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "Place the known suits and cards with their players and rounds. Each card is used once. A card played in a later round was still in that player's hand earlier and was subject to the follow-suit rule."
+      },
+      {
+        "title": "One step forward",
+        "text": "C plays ♠4 in round one. There are only two spades: ♠4 and ♠10. C must play a spade in round one, but ♠10 is reserved for C's third round. A card cannot be used twice, so ♠4 is the only choice."
+      }
+    ],
+    "explanation": "Round 1: B: ♣5 → C: ♠4 → A: ♣8. The lead suit is clubs. A holds the highest card of that suit and wins.\n\nC did not follow clubs, so the remaining cards (♥6, ♠10) cannot be clubs. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♣2 → B: ♣11 → C: ♥6. The lead suit is clubs. B holds the highest card of that suit and wins.\n\nC did not follow clubs, so the remaining cards (♠10) cannot be clubs. This follows from the requirement to follow suit when able.\n\nRound 3: B: ♣14 → C: ♠10 → A: ♥12. The lead suit is clubs. B holds the highest card of that suit and wins."
+  },
+  "chapter03.level02": {
+    "structureSHA256": "674daf2f3abf10b2fe4ddc4254b817a6d875c44e026554618145d36fa72adefb",
+    "title": "A Misplaced Coaster",
+    "subtitle": "Tea room file 02",
+    "story": "A lead-card record lies beneath a coaster. The coaster's position proves nothing about the seats; rely on the named records and the rules.",
+    "facts": [
+      "Round 2 is led with ♠3.",
+      "Round 1 is led with ♥2.",
+      "A originally holds ♦5.",
+      "In round 2, A plays ♦13."
+    ],
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Focus on A's slot in round 1. Start with these public records: A originally holds ♦5. In round 2, A plays ♦13."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "♦5 must go in A's column. Each player has exactly 2 cards. If you place it in a later round, check whether that would mean failing to follow its suit in an earlier round."
+      },
+      {
+        "title": "One step forward",
+        "text": "A plays ♦5 in round one. A is known to hold ♦5 and to play ♦13 in round two. With exactly two cards per player, ♦5 must occupy A's first round."
+      }
+    ],
+    "explanation": "Round 1: C: ♥2 → A: ♦5 → B: ♥9. The lead suit is hearts. B holds the highest card of that suit and wins.\n\nA did not follow hearts, so the remaining cards (♦13) cannot be hearts. This follows from the requirement to follow suit when able.\n\nRound 2: B: ♠3 → C: ♠8 → A: ♦13. The lead suit is spades. C holds the highest card of that suit and wins."
+  },
+  "chapter03.level03": {
+    "structureSHA256": "c556c7c10097a91cc590cb222c64d80b6852b266d9361e8d92b4c7eaeb54807f",
+    "title": "Beginning with B",
+    "subtitle": "Tea room file 03",
+    "story": "B leads this game. The seats still cycle A, B, C, and each new round starts with the previous winner.",
+    "facts": [
+      "Round 3 is led with ♣7.",
+      "Round 2 is led with ♦13.",
+      "Round 1 is led with ♦8.",
+      "C wins round 3.",
+      "In round 2, A plays clubs.",
+      "In round 1, C plays ♥10.",
+      "A originally holds ♥5."
+    ],
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Focus on B's slot in round 2. Start with these public records: Round 2 is led with ♦13. Round 1 is led with ♦8."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "♦13 is the first card of round 2, so only that round's leader can play it. Connect this to the previous winner, then check the same-suit cards still in each hand."
+      },
+      {
+        "title": "One step forward",
+        "text": "B plays ♦13 in round two. B opens with ♦8. The only higher diamond, ♦13, is reserved as the next round's lead, so nothing can beat ♦8 in round one. B wins and then leads ♦13."
+      }
+    ],
+    "explanation": "Round 1: B: ♦8 → C: ♥10 → A: ♦4. The lead suit is diamonds. B holds the highest card of that suit and wins.\n\nC did not follow diamonds, so the remaining cards (♥2, ♣12) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 2: B: ♦13 → C: ♥2 → A: ♣3. The lead suit is diamonds. B holds the highest card of that suit and wins.\n\nC did not follow diamonds, so the remaining cards (♣12) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nA did not follow diamonds, so the remaining cards (♥5) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 3: B: ♣7 → C: ♣12 → A: ♥5. The lead suit is clubs. C holds the highest card of that suit and wins."
+  },
+  "chapter03.level04": {
+    "structureSHA256": "71c1fd5334a128e5319c42eb639f91a17ba3de6d22b960dc326a7b3cb3457ac2",
+    "title": "Under the Counter",
+    "subtitle": "Tea room file 04",
+    "story": "A slip beneath the counter names a round's lead card but not its owner. Only the winner of the previous round can have led it.",
+    "facts": [
+      "Round 3 is led with ♣7.",
+      "Round 1 is led with ♦4.",
+      "C originally holds ♦8.",
+      "C originally holds ♠10.",
+      "In round 1, B plays spades.",
+      "In round 3, C plays diamonds."
+    ],
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Focus on B's slot in round 1. Start with these public records: C originally holds ♠10. In round 1, B plays spades."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "♠10 must go in C's column. Each player has exactly 3 cards. If you place it in a later round, check whether that would mean failing to follow its suit in an earlier round."
+      },
+      {
+        "title": "One step forward",
+        "text": "B plays ♠5 in round one. This play is known to be a spade. The pool has only ♠5 and ♠10, and ♠10 belongs to C. It cannot also belong to B, leaving ♠5."
+      }
+    ],
+    "explanation": "Round 1: C: ♦4 → A: ♦12 → B: ♠5. The lead suit is diamonds. A holds the highest card of that suit and wins.\n\nB did not follow diamonds, so the remaining cards (♣11, ♣7) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♣3 → B: ♣11 → C: ♠10. The lead suit is clubs. B holds the highest card of that suit and wins.\n\nC did not follow clubs, so the remaining cards (♦8) cannot be clubs. This follows from the requirement to follow suit when able.\n\nRound 3: B: ♣7 → C: ♦8 → A: ♦2. The lead suit is clubs. B holds the highest card of that suit and wins."
+  },
+  "chapter03.level05": {
+    "structureSHA256": "df55c2a97ef4542881d7638fd482b62e2a179ef9a252fed2390177a15d3f5930",
+    "title": "Two Handovers",
+    "subtitle": "Tea room file 05",
+    "story": "The arrows in the record have faded. The cards still determine both changes of leader; the order of the loose slips does not.",
+    "facts": [
+      "Round 3 is led with ♠10.",
+      "Round 1 is led with ♣6.",
+      "Round 2 is led with ♠5.",
+      "C originally holds ♠5.",
+      "C originally holds ♣13.",
+      "In round 1, A plays diamonds."
+    ],
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Focus on C's slot in round 2. Start with these public records: Round 2 is led with ♠5. C originally holds ♠5."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "♠5 must go in C's column. Each player has exactly 3 cards. If you place it in a later round, check whether that would mean failing to follow its suit in an earlier round."
+      },
+      {
+        "title": "One step forward",
+        "text": "C plays ♠5 in round two. This card is both the confirmed lead for round two and a card known to belong to C. It must occupy C's second-round slot, making C the leader."
+      }
+    ],
+    "explanation": "Round 1: C: ♣6 → A: ♦7 → B: ♣3. The lead suit is clubs. C holds the highest card of that suit and wins.\n\nA did not follow clubs, so the remaining cards (♠14, ♠10) cannot be clubs. This follows from the requirement to follow suit when able.\n\nRound 2: C: ♠5 → A: ♠14 → B: ♠2. The lead suit is spades. A holds the highest card of that suit and wins.\n\nRound 3: A: ♠10 → B: ♣9 → C: ♣13. The lead suit is spades. A holds the highest card of that suit and wins."
+  },
+  "chapter03.level06": {
+    "structureSHA256": "878c0a48123ab6a0b0553134dd974105f104d15a45f98eaf51fe16fc223326a7",
+    "title": "Ink against the Light",
+    "subtitle": "Tea room file 06",
+    "story": "Backlighting obscures several ranks, but the restorer has confirmed the public records below. Connect the rounds, then place each hand.",
+    "facts": [
+      "Round 3 is led with ♥3.",
+      "Round 1 is led with ♦4.",
+      "C wins round 3.",
+      "C originally holds ♠7.",
+      "C originally holds ♣5.",
+      "In round 3, B plays clubs.",
+      "In round 2, C plays clubs.",
+      "In round 1, B plays ♠12."
+    ],
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Focus on B's slot in round 3. Start with these public records: C originally holds ♣5. In round 3, B plays clubs."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "♣5 must go in C's column. Each player has exactly 3 cards. If you place it in a later round, check whether that would mean failing to follow its suit in an earlier round."
+      },
+      {
+        "title": "One step forward",
+        "text": "B plays ♣13 in round three. This game contains only ♣5 and ♣13. ♣5 belongs to C, while B is known to play a club in round three. B must play ♣13."
+      }
+    ],
+    "explanation": "Round 1: A: ♦4 → B: ♠12 → C: ♠7. The lead suit is diamonds. A holds the highest card of that suit and wins.\n\nB did not follow diamonds, so the remaining cards (♠2, ♣13) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nC did not follow diamonds, so the remaining cards (♣5, ♥9) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♦10 → B: ♠2 → C: ♣5. The lead suit is diamonds. A holds the highest card of that suit and wins.\n\nB did not follow diamonds, so the remaining cards (♣13) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nC did not follow diamonds, so the remaining cards (♥9) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 3: A: ♥3 → B: ♣13 → C: ♥9. The lead suit is hearts. C holds the highest card of that suit and wins."
+  },
+  "chapter03.level07": {
+    "structureSHA256": "a0d347972ffcfd744e8150cc2762532ee365c88ff6b5aec500b6d831df11dc3e",
+    "title": "The Third Chair",
+    "subtitle": "Tea room file 07",
+    "story": "C begins this game. The chairs have not moved, so the fixed seating cycle determines the second and third plays of every round.",
+    "facts": [
+      "Round 3 is led with ♥5.",
+      "Round 2 is led with ♥14.",
+      "Round 1 is led with ♦4.",
+      "B wins round 3.",
+      "In round 1, B plays ♥11.",
+      "In round 3, C plays ♣6."
+    ],
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Focus on A's slot in round 1. Start with these public records: Round 3 is led with ♥5. Round 2 is led with ♥14. Round 1 is led with ♦4. In round 1, B plays ♥11."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "♥5 is the first card of round 3, so only that round's leader can play it. Connect this to the previous winner, then check the same-suit cards still in each hand."
+      },
+      {
+        "title": "One step forward",
+        "text": "A plays ♦10 in round one. C leads ♦4 and B plays ♥11, so B has no diamonds. If C won, C would then lead the highest heart, ♥14, followed by ♥5 in round three. C's hand would be full, while neither A nor B could hold diamonds. No one could hold ♦10. A must therefore win round one with ♦10."
+      }
+    ],
+    "explanation": "Round 1: C: ♦4 → A: ♦10 → B: ♥11. The lead suit is diamonds. A holds the highest card of that suit and wins.\n\nB did not follow diamonds, so the remaining cards (♥2, ♥8) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♥14 → B: ♥2 → C: ♣12. The lead suit is hearts. A holds the highest card of that suit and wins.\n\nC did not follow hearts, so the remaining cards (♣6) cannot be hearts. This follows from the requirement to follow suit when able.\n\nRound 3: A: ♥5 → B: ♥8 → C: ♣6. The lead suit is hearts. B holds the highest card of that suit and wins."
+  },
+  "chapter03.level08": {
+    "structureSHA256": "2ad3b5bb95cdc503ab07f9c60d728a4bb123607d0a972d28c2f07c966b9cb1d4",
+    "title": "The Club Emblem",
+    "subtitle": "Tea room file 08",
+    "story": "A club-shaped emblem decorates the page. The emblem is not a clue; recorded suits, cards, and winners establish the order.",
+    "facts": [
+      "Round 3 is led with ♠13.",
+      "Round 2 is led with ♣2.",
+      "Round 1 is led with ♠8.",
+      "A originally holds ♣11.",
+      "In round 1, C plays ♥4.",
+      "In round 2, C plays ♥12."
+    ],
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Focus on A's slot in round 2. Start with these public records: Round 3 is led with ♠13. Round 2 is led with ♣2. Round 1 is led with ♠8."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "♠13 is the first card of round 3, so only that round's leader can play it. Connect this to the previous winner, then check the same-suit cards still in each hand."
+      },
+      {
+        "title": "One step forward",
+        "text": "A plays ♣2 in round two. A opens with ♠8. The only higher spade, ♠13, is reserved as the third-round lead and cannot appear in round one. A wins and leads the confirmed ♣2 next."
+      }
+    ],
+    "explanation": "Round 1: A: ♠8 → B: ♠3 → C: ♥4. The lead suit is spades. A holds the highest card of that suit and wins.\n\nC did not follow spades, so the remaining cards (♥12, ♥7) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♣2 → B: ♣6 → C: ♥12. The lead suit is clubs. B holds the highest card of that suit and wins.\n\nC did not follow clubs, so the remaining cards (♥7) cannot be clubs. This follows from the requirement to follow suit when able.\n\nRound 3: B: ♠13 → C: ♥7 → A: ♣11. The lead suit is spades. B holds the highest card of that suit and wins."
+  },
+  "chapter03.level09": {
+    "structureSHA256": "65ceb49928e1a57a107ec9466d5961dc8268a1735dc1ddccf10756e0dc681a5c",
+    "title": "The Unnumbered Page",
+    "subtitle": "Tea room file 09",
+    "story": "This page has no handwritten number. Its lead-card records span three rounds and must all fit the same sequence of play.",
+    "facts": [
+      "Round 3 is led with ♣2.",
+      "Round 2 is led with ♠13.",
+      "In round 2, B plays hearts.",
+      "B originally holds ♣5.",
+      "B wins round 3.",
+      "In round 2, C plays ♠4.",
+      "In round 1, B plays ♥7."
+    ],
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Focus on A's slot in round 2. Start with these public records: Round 2 is led with ♠13. In round 2, B plays hearts. In round 2, C plays ♠4."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "♠13 is the first card of round 2, so only that round's leader can play it. Connect this to the previous winner, then check the same-suit cards still in each hand."
+      },
+      {
+        "title": "One step forward",
+        "text": "A plays ♠13 in round two. ♠13 is the confirmed lead. B plays a heart, and C is known to play ♠4. Neither can lead ♠13, leaving A."
+      }
+    ],
+    "explanation": "Round 1: A: ♥12 → B: ♥7 → C: ♣10. The lead suit is hearts. A holds the highest card of that suit and wins.\n\nC did not follow hearts, so the remaining cards (♠4, ♠8) cannot be hearts. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♠13 → B: ♥3 → C: ♠4. The lead suit is spades. A holds the highest card of that suit and wins.\n\nB did not follow spades, so the remaining cards (♣5) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 3: A: ♣2 → B: ♣5 → C: ♠8. The lead suit is clubs. B holds the highest card of that suit and wins."
+  },
+  "chapter03.level10": {
+    "structureSHA256": "0c18217d26620defc4225e4d572a90322bc0da8d09ec339b965578a9a807aeb0",
+    "title": "The Last Pot of Tea",
+    "subtitle": "Tea room file 10",
+    "story": "When the last pot arrived, the clerk recorded only a fragment of round three. Work from confirmed ownership to recover the missing handovers.",
+    "facts": [
+      "Round 3 is led with ♠4.",
+      "Round 1 is led with ♥3.",
+      "Round 2 is led with ♠2.",
+      "B originally holds ♠12.",
+      "In round 1, C plays ♥7.",
+      "In round 2, A plays ♦10."
+    ],
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Focus on C's slot in round 2. Start with these public records: Round 1 is led with ♥3. Round 2 is led with ♠2. In round 2, A plays ♦10."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "♥3 is the first card of round 1, so only that round's leader can play it. Connect this to the previous winner, then check the same-suit cards still in each hand."
+      },
+      {
+        "title": "One step forward",
+        "text": "C plays ♠2 in round two. B leads ♥3 in round one. If B won, both other players would have no hearts, leaving ♥7 and ♥11 with B. B's hand would then have no room for the required next lead, ♠2. A or C must win, and A plays ♦10 in round two, so C must lead ♠2."
+      }
+    ],
+    "explanation": "Round 1: B: ♥3 → C: ♥7 → A: ♠8. The lead suit is hearts. C holds the highest card of that suit and wins.\n\nA did not follow hearts, so the remaining cards (♦10, ♦5) cannot be hearts. This follows from the requirement to follow suit when able.\n\nRound 2: C: ♠2 → A: ♦10 → B: ♠12. The lead suit is spades. B holds the highest card of that suit and wins.\n\nA did not follow spades, so the remaining cards (♦5) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 3: B: ♠4 → C: ♥11 → A: ♦5. The lead suit is spades. B holds the highest card of that suit and wins."
+  },
+  "chapter03.level11": {
+    "structureSHA256": "3c1f4719c3d722a25ac4d7083bb63b8e21f515a789af8b8e2f8dcad491a70d29",
+    "title": "After the Pendulum Stopped",
+    "subtitle": "Tea room file 11",
+    "story": "The pendulum stopped, but the game continued. Time is unreliable; the rules are not. Winners lead, and players must follow suit when able.",
+    "facts": [
+      "Round 3 is led with ♦5.",
+      "Round 1 is led with ♥9.",
+      "Round 2 is led with ♦2.",
+      "B originally holds ♥13.",
+      "In round 2, C plays spades.",
+      "In round 1, C plays ♥6.",
+      "In round 2, A plays ♦14."
+    ],
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Focus on B's slot in round 2. Start with these public records: Round 1 is led with ♥9. Round 2 is led with ♦2. B originally holds ♥13."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "♥13 must go in B's column. Each player has exactly 3 cards. If you place it in a later round, check whether that would mean failing to follow its suit in an earlier round."
+      },
+      {
+        "title": "One step forward",
+        "text": "B plays ♦2 in round two. B leads ♥9 in round one and also owns the only higher heart, ♥13. No other player can beat ♥9. B wins and leads ♦2 next."
+      }
+    ],
+    "explanation": "Round 1: B: ♥9 → C: ♥6 → A: ♦10. The lead suit is hearts. B holds the highest card of that suit and wins.\n\nA did not follow hearts, so the remaining cards (♦14, ♦5) cannot be hearts. This follows from the requirement to follow suit when able.\n\nRound 2: B: ♦2 → C: ♠7 → A: ♦14. The lead suit is diamonds. A holds the highest card of that suit and wins.\n\nC did not follow diamonds, so the remaining cards (♥3) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 3: A: ♦5 → B: ♥13 → C: ♥3. The lead suit is diamonds. A holds the highest card of that suit and wins."
+  },
+  "chapter03.level12": {
+    "structureSHA256": "357a32df68e65a5dbd05a24168dcf410e4319bbd7133924d538cd17063f2602d",
+    "title": "Pages in the Wind",
+    "subtitle": "Tea room file 12",
+    "story": "File the tea room's final scattered pages. Their order must follow from the public records and the rules, not from the way the pages are arranged.",
+    "facts": [
+      "Round 3 is led with ♦2.",
+      "Round 2 is led with ♠4.",
+      "Round 1 is led with ♥5.",
+      "B originally holds ♣3.",
+      "In round 3, A plays clubs.",
+      "C originally holds ♦7.",
+      "C wins round 3."
+    ],
+    "testimonies": [],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Focus on A's slot in round 3. Start with these public records: B originally holds ♣3. In round 3, A plays clubs."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "♣3 must go in B's column. Each player has exactly 3 cards. If you place it in a later round, check whether that would mean failing to follow its suit in an earlier round."
+      },
+      {
+        "title": "One step forward",
+        "text": "A plays ♣9 in round three. There are only two clubs, ♣3 and ♣9. ♣3 belongs to B, and A must play a club in round three, leaving ♣9."
+      }
+    ],
+    "explanation": "Round 1: B: ♥5 → C: ♦7 → A: ♥13. The lead suit is hearts. A holds the highest card of that suit and wins.\n\nC did not follow hearts, so the remaining cards (♠10, ♦2) cannot be hearts. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♠4 → B: ♦12 → C: ♠10. The lead suit is spades. C holds the highest card of that suit and wins.\n\nB did not follow spades, so the remaining cards (♣3) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 3: C: ♦2 → A: ♣9 → B: ♣3. The lead suit is diamonds. C holds the highest card of that suit and wins."
+  },
+  "chapter04.level01": {
+    "structureSHA256": "42ab73dae4b49639076fef2a40b173cded78d682c275f723ceee4220a05e386b",
+    "title": "The First Harbor Letter",
+    "subtitle": "Witness file 01",
+    "story": "Three old friends send different recollections. The reliable clues have been checked against the originals. Use the stated number of false witness accounts as well.",
+    "facts": [
+      "In round 1, B plays ♣2.",
+      "B originally holds ♣11.",
+      "C originally holds ♠7."
+    ],
+    "testimonies": [
+      "In round 2, A plays ♠3.",
+      "In round 1, C plays ♠12.",
+      "In round 1, A plays ♣6.",
+      "In round 1, C plays ♣6."
+    ],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Read statements 2, 3, and 4 together. Do they make different claims about the same card or slot? Exactly one statement is false."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "The same ♣6 cannot be played by both A and C in round one. At least one of statements 3 and 4 is false. Check which possibility would also make statement 2 false, exceeding the allowed count."
+      },
+      {
+        "title": "One step forward",
+        "text": "A plays ♣6 in round one. Statements 3 and 4 put the same ♣6 in different slots, so at least one is false. If statement 3 were false and 4 true, statement 2 would also conflict with C's first-round card in statement 4. That makes two false statements, but only one is allowed. Statement 4 is false, so statement 3 confirms A's ♣6."
+      }
+    ],
+    "explanation": "Round 1: B: ♣2 → C: ♠12 → A: ♣6. The lead suit is clubs. A holds the highest card of that suit and wins.\n\nC did not follow clubs, so the remaining cards (♠7) cannot be clubs. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♠3 → B: ♣11 → C: ♠7. The lead suit is spades. C holds the highest card of that suit and wins.\n\nFalse statements: statement 4. All other statements and every reliable clue are true.\n\nCorrection to statement 4: In round 1, C plays ♠12."
+  },
+  "chapter04.level02": {
+    "structureSHA256": "4bd9ea372aad521b6b0cbcaf760bec94de95c6f52a381fa8809a5d63b66af158",
+    "title": "A Suit Misremembered",
+    "subtitle": "Witness file 02",
+    "story": "A correspondent remembers the round but may have mistaken the suit. A complete game can establish whether each statement is true; impressions alone cannot.",
+    "facts": [
+      "In round 1, C plays ♠10.",
+      "In round 3, B plays spades.",
+      "B originally holds ♦7.",
+      "C originally holds ♦12.",
+      "In round 2, A plays ♥4.",
+      "In round 1, B plays ♠5."
+    ],
+    "testimonies": [
+      "In round 3, C plays ♦3.",
+      "C originally holds ♥8.",
+      "Round 3 is led with ♥13.",
+      "Round 3 is led with ♥8."
+    ],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Focus on C's slot in round 2. Start with these public records: In round 1, C plays ♠10. C originally holds ♦12. Keep the requirement of exactly 2 false statements in mind."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "♦12 must go in C's column. Each player has exactly 3 cards. If you place it in a later round, check whether that would mean failing to follow its suit in an earlier round. Check the statements together: exactly 2 must be false, rather than every statement being true."
+      },
+      {
+        "title": "One step forward",
+        "text": "In round 2, C plays ♦12. Without the record \"C originally holds ♦12.\", this slot could also hold ♦3, ♦7, ♥4, ♥8, ♥13, ♠2, ♠5. None of those alternatives can satisfy that record together with following suit and the winner leading next. Restoring the record leaves only ♦12."
+      }
+    ],
+    "explanation": "Round 1: C: ♠10 → A: ♦3 → B: ♠5. The lead suit is spades. C holds the highest card of that suit and wins.\n\nA did not follow spades, so the remaining cards (♥4, ♥13) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 2: C: ♦12 → A: ♥4 → B: ♦7. The lead suit is diamonds. C holds the highest card of that suit and wins.\n\nA did not follow diamonds, so the remaining cards (♥13) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 3: C: ♥8 → A: ♥13 → B: ♠2. The lead suit is hearts. A holds the highest card of that suit and wins.\n\nFalse statements: statement 1, statement 3. All other statements and every reliable clue are true.\n\nCorrection to statement 1: In round 3, C plays ♥8.\n\nCorrection to statement 3: Round 3 is led with ♥8."
+  },
+  "chapter04.level03": {
+    "structureSHA256": "3a20ab2a0ec0d7fc645e15d8e36e39f91061152794355767b92dcca277a0e766",
+    "title": "A Handover at the Dock",
+    "subtitle": "Witness file 03",
+    "story": "Someone has confused a leader with a winner. Distinguish who starts this round from who will start the next.",
+    "facts": [
+      "In round 1, C plays ♥4.",
+      "Round 3 is led with ♦7.",
+      "In round 1, A plays diamonds.",
+      "C originally holds ♦3.",
+      "In round 3, A plays ♣10."
+    ],
+    "testimonies": [
+      "In round 2, B plays ♥12.",
+      "C wins round 3.",
+      "In round 2, C plays ♥8.",
+      "In round 3, C plays ♦3."
+    ],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Focus on B's slot in round 1. Start with these public records: In round 1, C plays ♥4. Round 3 is led with ♦7. Keep the requirement of exactly 1 false statements in mind."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "♦7 is the first card of round 3, so only that round's leader can play it. Connect this to the previous winner, then check the same-suit cards still in each hand. Check the statements together: exactly 1 must be false, rather than every statement being true."
+      },
+      {
+        "title": "One step forward",
+        "text": "In round 1, B plays ♥2. Without the record \"Round 3 is led with ♦7.\", this slot could also hold ♦7, ♦11, ♥12. None of those alternatives can satisfy that record together with following suit and the winner leading next. Restoring the record leaves only ♥2."
+      }
+    ],
+    "explanation": "Round 1: C: ♥4 → A: ♦11 → B: ♥2. The lead suit is hearts. C holds the highest card of that suit and wins.\n\nA did not follow hearts, so the remaining cards (♣5, ♣10) cannot be hearts. This follows from the requirement to follow suit when able.\n\nRound 2: C: ♥8 → A: ♣5 → B: ♥12. The lead suit is hearts. B holds the highest card of that suit and wins.\n\nA did not follow hearts, so the remaining cards (♣10) cannot be hearts. This follows from the requirement to follow suit when able.\n\nRound 3: B: ♦7 → C: ♦3 → A: ♣10. The lead suit is diamonds. B holds the highest card of that suit and wins.\n\nFalse statements: statement 2. All other statements and every reliable clue are true.\n\nCorrection to statement 2: B wins round 3."
+  },
+  "chapter04.level04": {
+    "structureSHA256": "d14a65b68a734c7fb5b06b743adc2345b4956b5ccdde7abd7fa731627e1d6482",
+    "title": "Neighboring Numbers",
+    "subtitle": "Witness file 04",
+    "story": "Damp paper makes ranks easy to misread. Do not decide that one witness is trustworthy in advance. Test all statements against the given false count.",
+    "facts": [
+      "In round 1, C plays ♣14.",
+      "C originally holds ♣5.",
+      "Round 3 is led with ♦6.",
+      "In round 3, A plays ♦13.",
+      "In round 2, A plays ♦9."
+    ],
+    "testimonies": [
+      "B wins round 2.",
+      "A originally holds ♣10.",
+      "In round 2, B plays ♣10.",
+      "A originally holds ♥7."
+    ],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Focus on B's slot in round 1. Start with these public records: In round 1, C plays ♣14. C originally holds ♣5. Round 3 is led with ♦6. In round 3, A plays ♦13. Keep the requirement of exactly 2 false statements in mind."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "♣5 must go in C's column. Each player has exactly 3 cards. If you place it in a later round, check whether that would mean failing to follow its suit in an earlier round. Check the statements together: exactly 2 must be false, rather than every statement being true."
+      },
+      {
+        "title": "One step forward",
+        "text": "In round 1, B plays ♣2. Without the record \"In round 3, A plays ♦13.\", this slot could also hold ♣10, ♦3, ♦9, ♦13, ♥7. None of those alternatives can satisfy that record together with following suit and the winner leading next. Restoring the record leaves only ♣2."
+      }
+    ],
+    "explanation": "Round 1: C: ♣14 → A: ♦3 → B: ♣2. The lead suit is clubs. C holds the highest card of that suit and wins.\n\nA did not follow clubs, so the remaining cards (♦9, ♦13) cannot be clubs. This follows from the requirement to follow suit when able.\n\nRound 2: C: ♣5 → A: ♦9 → B: ♣10. The lead suit is clubs. B holds the highest card of that suit and wins.\n\nA did not follow clubs, so the remaining cards (♦13) cannot be clubs. This follows from the requirement to follow suit when able.\n\nRound 3: B: ♦6 → C: ♥7 → A: ♦13. The lead suit is diamonds. A holds the highest card of that suit and wins.\n\nFalse statements: statement 2, statement 4. All other statements and every reliable clue are true.\n\nCorrection to statement 2: B originally holds ♣10.\n\nCorrection to statement 4: C originally holds ♥7."
+  },
+  "chapter04.level05": {
+    "structureSHA256": "156cbce6e5e63af5c97bb70e88f0427f90e52686218ec82d4d17a7f9094f9404",
+    "title": "The Second Witness",
+    "subtitle": "Witness file 05",
+    "story": "A second witness offers another account. It remains unverified testimony and cannot overrule a fact confirmed by the original record.",
+    "facts": [
+      "In round 1, C plays ♥4.",
+      "In round 1, B plays spades.",
+      "In round 1, A plays spades.",
+      "B originally holds ♠9.",
+      "Round 3 is led with ♣7.",
+      "In round 2, A plays ♦13."
+    ],
+    "testimonies": [
+      "In round 2, C plays ♣2.",
+      "In round 3, B plays ♣7.",
+      "B originally holds ♣7.",
+      "In round 3, B plays ♣12."
+    ],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Focus on A's slot in round 1. Start with these public records: In round 1, A plays spades. B originally holds ♠9. Keep the requirement of exactly 1 false statements in mind."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "♠9 must go in B's column. Each player has exactly 3 cards. If you place it in a later round, check whether that would mean failing to follow its suit in an earlier round. Check the statements together: exactly 1 must be false, rather than every statement being true."
+      },
+      {
+        "title": "One step forward",
+        "text": "A plays ♠3 in round one. This play is known to be a spade, and the only other spade, ♠9, belongs to B. Cards cannot be duplicated, leaving ♠3 for A. The witness statements still need to be checked against the later rounds."
+      }
+    ],
+    "explanation": "Round 1: C: ♥4 → A: ♠3 → B: ♠9. The lead suit is hearts. C holds the highest card of that suit and wins.\n\nA did not follow hearts, so the remaining cards (♦13, ♦5) cannot be hearts. This follows from the requirement to follow suit when able.\n\nB did not follow hearts, so the remaining cards (♣12, ♣7) cannot be hearts. This follows from the requirement to follow suit when able.\n\nRound 2: C: ♣2 → A: ♦13 → B: ♣12. The lead suit is clubs. B holds the highest card of that suit and wins.\n\nA did not follow clubs, so the remaining cards (♦5) cannot be clubs. This follows from the requirement to follow suit when able.\n\nRound 3: B: ♣7 → C: ♥10 → A: ♦5. The lead suit is clubs. B holds the highest card of that suit and wins.\n\nFalse statements: statement 4. All other statements and every reliable clue are true.\n\nCorrection to statement 4: In round 3, B plays ♣7."
+  },
+  "chapter04.level06": {
+    "structureSHA256": "5bc80a3ea56653b037deafeff8fc345c11752ab05f70e0c41a45d90f3292a485",
+    "title": "A Letter from the Lighthouse",
+    "subtitle": "Witness file 06",
+    "story": "The lighthouse keeper recorded a late-night game. The statements are linked; one statement being false need not invalidate the whole reconstruction.",
+    "facts": [
+      "In round 1, A plays ♥10.",
+      "Round 2 is led with ♠5.",
+      "Round 3 is led with ♠14.",
+      "In round 3, C plays ♠8.",
+      "B originally holds ♦6."
+    ],
+    "testimonies": [
+      "In round 1, C plays ♦12.",
+      "In round 1, B plays spades.",
+      "B originally holds ♠14.",
+      "In round 1, C plays ♠11."
+    ],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Focus on A's slot in round 2. Start with these public records: In round 1, A plays ♥10. Round 2 is led with ♠5. Keep the requirement of exactly 2 false statements in mind."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "♠5 is the first card of round 2, so only that round's leader can play it. Connect this to the previous winner, then check the same-suit cards still in each hand. Check the statements together: exactly 2 must be false, rather than every statement being true."
+      },
+      {
+        "title": "One step forward",
+        "text": "A plays ♠5 in round two. A's opening ♥10 is the highest heart. No other suit can beat it, so A wins and must play the confirmed next lead, ♠5."
+      }
+    ],
+    "explanation": "Round 1: A: ♥10 → B: ♦6 → C: ♦12. The lead suit is hearts. A holds the highest card of that suit and wins.\n\nB did not follow hearts, so the remaining cards (♠11, ♠14) cannot be hearts. This follows from the requirement to follow suit when able.\n\nC did not follow hearts, so the remaining cards (♠2, ♠8) cannot be hearts. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♠5 → B: ♠11 → C: ♠2. The lead suit is spades. B holds the highest card of that suit and wins.\n\nRound 3: B: ♠14 → C: ♠8 → A: ♥4. The lead suit is spades. B holds the highest card of that suit and wins.\n\nFalse statements: statement 2, statement 4. All other statements and every reliable clue are true.\n\nCorrection to statement 2: In round 1, B plays diamonds.\n\nCorrection to statement 4: In round 1, C plays ♦12."
+  },
+  "chapter04.level07": {
+    "structureSHA256": "ab22e60270da4e3a8b9c6e3e6a16ff9aa0a3aacb5cd9004e72474b7e55a870fc",
+    "title": "Between the Postmarks",
+    "subtitle": "Witness file 07",
+    "story": "The postmarks place the letters at the same game. Combine the statements with hand limits to find the reconstruction with exactly the required false count.",
+    "facts": [
+      "In round 1, A plays ♣13.",
+      "Round 3 is led with ♣8.",
+      "A originally holds ♦11.",
+      "In round 1, B plays ♠4.",
+      "In round 2, B plays ♦6."
+    ],
+    "testimonies": [
+      "In round 3, C plays spades.",
+      "In round 2, C plays spades.",
+      "In round 2, A plays ♠7.",
+      "In round 3, C plays clubs."
+    ],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Focus on A's slot in round 3. Start with these public records: In round 1, A plays ♣13. A originally holds ♦11. Keep the requirement of exactly 1 false statements in mind."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "A leads ♣13 in round one, while B plays ♠4. Players must follow suit, so B had no clubs and cannot play that suit in a later round. Check the statements together: exactly 1 must be false, rather than every statement being true."
+      },
+      {
+        "title": "One step forward",
+        "text": "A plays ♦11 in round three. Statements 1 and 4 disagree about C's third-round suit. With exactly one false statement, the other two statements must be true, confirming A's ♠7 in round two. A's first-round ♣13 is fixed, and ♦11 belongs to A, leaving it for round three."
+      }
+    ],
+    "explanation": "Round 1: A: ♣13 → B: ♠4 → C: ♣3. The lead suit is clubs. A holds the highest card of that suit and wins.\n\nB did not follow clubs, so the remaining cards (♦6, ♦2) cannot be clubs. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♠7 → B: ♦6 → C: ♠12. The lead suit is spades. C holds the highest card of that suit and wins.\n\nB did not follow spades, so the remaining cards (♦2) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 3: C: ♣8 → A: ♦11 → B: ♦2. The lead suit is clubs. C holds the highest card of that suit and wins.\n\nFalse statements: statement 1. All other statements and every reliable clue are true.\n\nCorrection to statement 1: In round 3, C plays clubs."
+  },
+  "chapter04.level08": {
+    "structureSHA256": "f9f6e40f93f8241c269d570d5d4d324fcbf61e37eae0345f8b19be86e90f6661",
+    "title": "Two Faulty Memories",
+    "subtitle": "Witness file 08",
+    "story": "This page contains two definite errors of memory. Both must be shown false by the same complete game, while the other statements remain true.",
+    "facts": [
+      "In round 1, A plays ♦5.",
+      "In round 2, C plays diamonds.",
+      "C originally holds ♠3.",
+      "B wins round 3.",
+      "B originally holds ♣8.",
+      "In round 3, A plays ♣13."
+    ],
+    "testimonies": [
+      "C wins round 1.",
+      "In round 2, B plays ♠7.",
+      "A originally holds ♠7.",
+      "In round 2, A plays ♠7."
+    ],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Focus on C's slot in round 1. Start with these public records: In round 1, A plays ♦5. In round 2, C plays diamonds. C originally holds ♠3. Keep the requirement of exactly 2 false statements in mind."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "♠3 must go in C's column. Each player has exactly 3 cards. If you place it in a later round, check whether that would mean failing to follow its suit in an earlier round. Check the statements together: exactly 2 must be false, rather than every statement being true."
+      },
+      {
+        "title": "One step forward",
+        "text": "In round 1, C plays ♦10. Without the record \"C originally holds ♠3.\", this slot could also hold ♦2. None of those alternatives can satisfy that record together with following suit and the winner leading next. Restoring the record leaves only ♦10."
+      }
+    ],
+    "explanation": "Round 1: A: ♦5 → B: ♣8 → C: ♦10. The lead suit is diamonds. C holds the highest card of that suit and wins.\n\nB did not follow diamonds, so the remaining cards (♠7, ♠12) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 2: C: ♦2 → A: ♣4 → B: ♠7. The lead suit is diamonds. C holds the highest card of that suit and wins.\n\nA did not follow diamonds, so the remaining cards (♣13) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nB did not follow diamonds, so the remaining cards (♠12) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 3: C: ♠3 → A: ♣13 → B: ♠12. The lead suit is spades. B holds the highest card of that suit and wins.\n\nFalse statements: statement 3, statement 4. All other statements and every reliable clue are true.\n\nCorrection to statement 3: B originally holds ♠7.\n\nCorrection to statement 4: In round 2, A plays ♣4."
+  },
+  "chapter04.level09": {
+    "structureSHA256": "5880dd53ab55acedee7c90aee208b99b871fb6ea76aa7f9f451e2b127b719f2e",
+    "title": "The Last Onlooker",
+    "subtitle": "Witness file 09",
+    "story": "The final onlooker's note brings the file close to completion. Check the changing winners across all three rounds and the precise claim in every statement.",
+    "facts": [
+      "In round 1, A plays ♥5.",
+      "Round 2 is led with ♣4.",
+      "In round 1, B plays ♣12.",
+      "B originally holds ♣2.",
+      "B originally holds ♠7."
+    ],
+    "testimonies": [
+      "C originally holds ♣8.",
+      "Round 3 is led with ♠3.",
+      "In round 2, A plays ♠3.",
+      "A originally holds ♥10."
+    ],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Focus on A's slot in round 2. Start with these public records: In round 1, A plays ♥5. Round 2 is led with ♣4. Keep the requirement of exactly 1 false statements in mind."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "A leads ♥5 in round one, while B plays ♣12. Players must follow suit, so B had no hearts and cannot play that suit in a later round. Check the statements together: exactly 1 must be false, rather than every statement being true."
+      },
+      {
+        "title": "One step forward",
+        "text": "In round 2, A plays ♣4. Without the record \"Round 2 is led with ♣4.\", this slot could also hold ♣2, ♥10, ♠3, ♠7. None of those alternatives can satisfy that record together with following suit and the winner leading next. Restoring the record leaves only ♣4."
+      }
+    ],
+    "explanation": "Round 1: A: ♥5 → B: ♣12 → C: ♠11. The lead suit is hearts. A holds the highest card of that suit and wins.\n\nB did not follow hearts, so the remaining cards (♣2, ♠7) cannot be hearts. This follows from the requirement to follow suit when able.\n\nC did not follow hearts, so the remaining cards (♣8, ♠3) cannot be hearts. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♣4 → B: ♣2 → C: ♣8. The lead suit is clubs. C holds the highest card of that suit and wins.\n\nRound 3: C: ♠3 → A: ♥10 → B: ♠7. The lead suit is spades. B holds the highest card of that suit and wins.\n\nFalse statements: statement 3. All other statements and every reliable clue are true.\n\nCorrection to statement 3: In round 2, A plays ♣4."
+  },
+  "chapter04.level10": {
+    "structureSHA256": "e92661d845039ab460e212c3bcbdd79b89e80366161621437cdfee9a68c3f436",
+    "title": "Before the Seal",
+    "subtitle": "Witness file 10",
+    "story": "Forty files have led to this last page. Separate reliable facts, witness accounts, and your own assumptions, then return every card to its only possible place.",
+    "facts": [
+      "In round 1, B plays ♥14.",
+      "In round 3, B plays clubs.",
+      "Round 3 is led with ♠3.",
+      "In round 2, A plays ♠13.",
+      "In round 3, C plays ♥5."
+    ],
+    "testimonies": [
+      "In round 2, C plays hearts.",
+      "In round 2, C plays ♥2.",
+      "B originally holds ♠9.",
+      "A originally holds ♠6."
+    ],
+    "hints": [
+      {
+        "title": "Look at the evidence",
+        "text": "Focus on A's slot in round 3. Start with these public records: In round 3, B plays clubs. Round 3 is led with ♠3. In round 3, C plays ♥5. Keep the requirement of exactly 2 false statements in mind."
+      },
+      {
+        "title": "Connect the rules",
+        "text": "♠3 is the first card of round 3, so only that round's leader can play it. Connect this to the previous winner, then check the same-suit cards still in each hand. Check the statements together: exactly 2 must be false, rather than every statement being true."
+      },
+      {
+        "title": "One step forward",
+        "text": "A plays ♠3 in round three. ♠3 is the confirmed lead, but B plays a club and C plays ♥5. Neither can lead the spade, so A must play ♠3."
+      }
+    ],
+    "explanation": "Round 1: B: ♥14 → C: ♥10 → A: ♠9. The lead suit is hearts. B holds the highest card of that suit and wins.\n\nA did not follow hearts, so the remaining cards (♠13, ♠3) cannot be hearts. This follows from the requirement to follow suit when able.\n\nRound 2: B: ♠6 → C: ♥2 → A: ♠13. The lead suit is spades. A holds the highest card of that suit and wins.\n\nC did not follow spades, so the remaining cards (♥5) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 3: A: ♠3 → B: ♣7 → C: ♥5. The lead suit is spades. A holds the highest card of that suit and wins.\n\nFalse statements: statement 3, statement 4. All other statements and every reliable clue are true.\n\nCorrection to statement 3: A originally holds ♠9.\n\nCorrection to statement 4: B originally holds ♠6."
+  }
+}

@@ -13,7 +13,7 @@ final class ViewController: UIViewController, UINavigationControllerDelegate {
         view.backgroundColor = Palette.paper
         do {
             let appStore = try AppStore(); store = appStore
-            let pages: [(UIViewController, String, String)] = [(HomeViewController(store: appStore), "档案", "folder"), (CollectionViewController(store: appStore), "收藏", "star"), (SettingsViewController(store: appStore), "设置", "gearshape")]
+            let pages: [(UIViewController, String, String)] = [(HomeViewController(store: appStore), "Archive", "folder"), (CollectionViewController(store: appStore), "Collection", "star"), (SettingsViewController(store: appStore), "Settings", "gearshape")]
             viewControllers = pages.map { controller, title, symbol in
                 let nav = UINavigationController(rootViewController: controller)
                 nav.delegate = self
@@ -29,7 +29,7 @@ final class ViewController: UIViewController, UINavigationControllerDelegate {
             NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: UIContentSizeCategory.didChangeNotification, object: nil)
             updateText()
         } catch {
-            let label = textLabel("档案暂时无法打开\n\(error.localizedDescription)", .body, color: Palette.wine)
+            let label = textLabel("Unable to open the archive\nPlease close and reopen the app. If the problem continues, reinstall it.", .body, color: Palette.wine)
             label.translatesAutoresizingMaskIntoConstraints = false; view.addSubview(label)
             NSLayoutConstraint.activate([label.centerYAnchor.constraint(equalTo: view.centerYAnchor), label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24), label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)])
         }

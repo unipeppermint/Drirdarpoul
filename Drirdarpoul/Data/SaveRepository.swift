@@ -149,11 +149,11 @@ final class SaveRepository {
                 let (loaded, raw, migrated) = try read(primaryURL)
                 document = loaded
                 lastGoodData = raw
-                if migrated { appendNotice("已升级旧版存档，原始记录保留在备份中。") }
+                if migrated { appendNotice("Your save was upgraded. The original record is preserved in a backup.") }
             } catch ReadFailure.futureVersion {
                 protectedNewerVersion = true
                 primaryFailed = true
-                appendNotice("存档来自更新版本，当前仅临时游玩；请更新应用以继续保存。原文件已保留。")
+                appendNotice("This save is from a newer version. You can play temporarily, but must update the app to save progress. The original file is preserved.")
             } catch {
                 primaryFailed = true
                 preserveCorruptFile(primaryURL)
@@ -164,16 +164,16 @@ final class SaveRepository {
                 let (loaded, raw, _) = try read(backupURL)
                 document = loaded
                 lastGoodData = raw
-                appendNotice("已从最近备份恢复进度，最后一次操作可能需要重新完成。")
+                appendNotice("Progress was restored from the latest backup. You may need to repeat your last move.")
             } catch ReadFailure.futureVersion {
                 protectedNewerVersion = true
-                appendNotice("备份来自更新版本，原始文件已保留；请更新应用后恢复。")
+                appendNotice("The backup is from a newer version. The original file is preserved; update the app to restore it.")
             } catch {
                 preserveCorruptFile(backupURL)
-                appendNotice("本地存档与备份无法读取，已保留损坏文件。可以重新开始当前档案。")
+                appendNotice("Neither the save nor its backup could be read. The damaged files are preserved. You can start this case again.")
             }
         } else if primaryFailed && lastGoodData == nil && !protectedNewerVersion {
-            appendNotice("本地存档无法读取，已保留损坏文件。可以重新开始当前档案。")
+            appendNotice("The save could not be read. The damaged file is preserved. You can start this case again.")
         }
         normalizeLoadedDrafts()
         normalizeLoadedCompletions()
@@ -183,13 +183,13 @@ final class SaveRepository {
         for (id, draft) in document.drafts {
             guard id == draft.levelID else {
                 document.drafts.removeValue(forKey: id)
-                appendNotice("已移除无法识别的草稿，完成记录保留。")
+                appendNotice("Unrecognized drafts were removed. Completed records are preserved.")
                 continue
             }
             guard let level = knownLevels[id] else { continue }
             guard draft.contentRevision == level.contentRevision else {
                 document.drafts.removeValue(forKey: id)
-                appendNotice("部分关卡内容已更新，对应草稿已重置；已完成记录仍然保留。")
+                appendNotice("Some file content was updated and its drafts were reset. Completed records are preserved.")
                 continue
             }
             let repaired = GameSession(level: level, draft: draft).makeDraft()
@@ -197,7 +197,7 @@ final class SaveRepository {
                 repaired.notes != draft.notes || repaired.testimonyMarks != draft.testimonyMarks ||
                 repaired.hintCount != draft.hintCount {
                 document.drafts[id] = repaired
-                appendNotice("已修复草稿中无效的牌位或撤销记录，其余进度保留。")
+                appendNotice("Invalid card placements or undo history were repaired. Other progress is preserved.")
             }
         }
     }
@@ -211,13 +211,13 @@ final class SaveRepository {
             do { backup = try read(backupURL).0 }
             catch ReadFailure.futureVersion {
                 protectedNewerVersion = true
-                appendNotice("备份来自更新版本，原始文件已保留；请更新应用后恢复。")
+                appendNotice("The backup is from a newer version. The original file is preserved; update the app to restore it.")
             } catch { preserveCorruptFile(backupURL) }
         }
         for (id, record) in invalid {
             if let previous = backup?.completed[id], isValidCompletion(previous, for: id) {
                 document.completed[id] = previous
-                appendNotice("部分完成记录未通过规则复核，已从最近备份恢复；其余进度保留。")
+                appendNotice("Some completed records failed a rule check and were restored from the latest backup. Other progress is preserved.")
             } else {
                 document.completed.removeValue(forKey: id)
                 // Preserve the player's work as a hypothesis, never as an unlock.
@@ -228,9 +228,9 @@ final class SaveRepository {
                                       hintCount: record.hintCount, testimonyMarks: record.testimonyMarks,
                                       undoStack: [], lastUsed: record.lastPlayedAt)
                     document.drafts[id] = GameSession(level: level, draft: draft).makeDraft()
-                    appendNotice("部分完成记录未通过规则复核，已保留为推理草稿；重新验证通过后可再次归档。")
+                    appendNotice("Some completed records failed a rule check and were kept as drafts. Check them again to return them to your collection.")
                 } else {
-                    appendNotice("部分完成记录的牌面数据已损坏，该记录无法恢复；其余进度保留。")
+                    appendNotice("Some completed card records are damaged and cannot be restored. Other progress is preserved.")
                 }
             }
         }
@@ -263,7 +263,7 @@ final class SaveRepository {
 
     private func writeDocument() -> Bool {
         guard !protectedNewerVersion else {
-            storedError = "存档版本较新，为保护原文件，本次进度暂未写入。"
+            storedError = "This save is from a newer version. Progress was not written, to protect the original file."
             return false
         }
         do {
@@ -272,7 +272,7 @@ final class SaveRepository {
             encoder.outputFormatting = [.sortedKeys]
             let data = try encoder.encode(document)
             guard data.count <= Self.maximumFileSize else {
-                storedError = "存档过大，未覆盖原有进度。"
+                storedError = "The save is too large. Your previous progress has not been overwritten."
                 return false
             }
             // Both writes are atomic. A crash between them still leaves a valid primary
@@ -283,7 +283,7 @@ final class SaveRepository {
             storedError = nil
             return true
         } catch {
-            storedError = "暂时无法保存进度：\(error.localizedDescription)"
+            storedError = "Progress could not be saved. Please check available storage and try again."
             return false
         }
     }

@@ -23,48 +23,53 @@ final class AppStore {
 
 final class HomeViewController: PaperScreen {
     let store: AppStore
-    init(store: AppStore) { self.store = store; super.init(nibName: nil, bundle: nil); title = "档案" }
+    init(store: AppStore) { self.store = store; super.init(nibName: nil, bundle: nil); title = "Archive" }
     required init?(coder: NSCoder) { fatalError() }
     override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated); render() }
+    override func fontChanged() { if isViewLoaded { render() } }
     private func render() {
         clear()
-        let brand = vertical([SuitMark(), textLabel("牌局档案", .largeTitle, serif: true)], spacing: 7)
+        let brand = vertical([SuitMark(), textLabel("Card Trace", .largeTitle, serif: true)], spacing: 7)
         brand.alignment = .leading
-        let head = horizontal([brand, UIView(), textLabel("每张牌，\n都留下了线索。", .subheadline, color: Palette.muted, serif: true)])
+        let head = horizontal([brand, UIView(), textLabel("Every card\nleaves a trace.", .subheadline, color: Palette.muted, serif: true)])
         head.alignment = .bottom
         if traitCollection.preferredContentSizeCategory.isAccessibilityCategory { head.axis = .vertical;head.alignment = .leading;head.spacing = 8 }
         add(head)
         let level = store.nextLevel
-        let art = ArchiveIllustration(); art.heightAnchor.constraint(equalTo: art.widthAnchor, multiplier: 0.72).isActive = true
-        let stamp = textLabel(String(format: "档案 %02d", level.number), .title3, color: Palette.wine, serif: true)
+        let complete = store.levels.allSatisfy { store.saves.completed[$0.id] != nil }
+        let chapter = LevelRepository.chapters.first { $0.id == level.chapterID }!
+        let art = artworkView(complete ? "LettersEngravingV2" : chapterArtwork(level.chapterID)); art.heightAnchor.constraint(equalTo: art.widthAnchor, multiplier: 0.64).isActive = true
+        let stamp = textLabel(complete ? "COMPLETE" : String(format: "FILE %02d", level.number), .title3, color: Palette.wine, serif: true)
         stamp.backgroundColor = Palette.paper.withAlphaComponent(0.92); stamp.layer.borderColor = Palette.wine.cgColor; stamp.layer.borderWidth = 1
         stamp.textAlignment = .center; stamp.translatesAutoresizingMaskIntoConstraints = false; art.addSubview(stamp)
         NSLayoutConstraint.activate([stamp.topAnchor.constraint(equalTo: art.topAnchor, constant: 12), stamp.trailingAnchor.constraint(equalTo: art.trailingAnchor, constant: -12), stamp.widthAnchor.constraint(greaterThanOrEqualToConstant: 83),stamp.heightAnchor.constraint(greaterThanOrEqualToConstant: 34)])
-        let info = vertical([textLabel(level.title, .title2, serif: true), textLabel("\(level.subtitle) · 第 \(level.number) 关", .subheadline, color: Palette.muted)], spacing: 5)
-        let count = textLabel("\(store.saves.completed.count) / 40", .title3, serif: true); count.textAlignment = .right
-        let progress = vertical([count, textLabel("已完成", .caption1, color: Palette.muted)], spacing: 5); progress.alignment = .trailing
+        let info = vertical([textLabel(complete ? "Every mystery, restored" : level.title, .title2, serif: true), textLabel(complete ? "Four chapters to revisit." : "\(chapter.title) · File \(level.number)", .subheadline, color: Palette.muted)], spacing: 6)
+        let count = textLabel("\(store.saves.completed.count) / \(store.levels.count)", .title3, serif: true); count.textAlignment = .right
+        let progress = vertical([count, textLabel("Restored", .caption1, color: Palette.muted)], spacing: 5); progress.alignment = .trailing
         progress.setContentHuggingPriority(.required, for: .horizontal)
-        let play = ActionButton(store.saves.drafts[level.id] == nil ? "打开档案    →" : "继续推理    →", primary: true)
+        let play = ActionButton(complete ? "Revisit the first file" : (store.saves.drafts[level.id] == nil ? "Open file" : "Continue"), primary: true, accessory: "arrow.right")
         play.accessibilityIdentifier = "home.continue"; play.action = { [weak self] in guard let self = self else { return }; self.store.open(level, from: self) }
-        let summary = horizontal([info, UIView(), progress])
+        let summary = horizontal([info, progress], spacing: 16)
         if traitCollection.preferredContentSizeCategory.isAccessibilityCategory { summary.axis = .vertical;summary.alignment = .leading;progress.alignment = .leading;count.textAlignment = .left }
+        else { progress.widthAnchor.constraint(equalToConstant: 72).isActive = true }
         add(paperPanel(vertical([art, summary, play], spacing: 12), inset: 10))
-        add(textLabel("探索档案", .title2, serif: true))
+        add(textLabel("Explore the archive", .title2, serif: true))
         for chapter in LevelRepository.chapters {
             let levels = store.levels.filter { $0.chapterID == chapter.id }
             let done = levels.filter { store.saves.completed[$0.id] != nil }.count
             let available = store.unlocked(chapter.id)
-            let detail = available ? "\(chapter.subtitle) · \(done)/\(levels.count) 已还原" : "完成前章解锁 · 全部免费"
+            let detail = available ? "\(chapter.subtitle) · \(done)/\(levels.count) restored" : "\(chapter.subtitle) · Complete the previous chapter"
             let row = IllustratedArchiveRow(title: chapter.title, detail: detail, imageName: chapterArtwork(chapter.id), locked: !available)
             row.accessibilityIdentifier = "chapter.\(chapter.id)"
             row.action = { [weak self] in
                 guard let self = self else { return }
                 if available { self.navigationController?.pushViewController(ChapterViewController(store: self.store, chapter: chapter), animated: true) }
-                else { self.message("档案尚未开启", "完成前章的全部档案后解锁。所有章节免费。") }
+                else { self.message("Chapter locked", "Restore every file in the previous chapter to open this one.") }
             }
             add(row)
         }
-        add(textLabel("40 份档案 · 提示、撤销与复盘全部免费", .caption1, color: Palette.muted))
+        let footer = textLabel("Four chapters. Forty mysteries.", .caption1, color: Palette.muted, serif: true)
+        footer.textAlignment = .center; add(footer)
         if let notice = store.saves.notice { add(textLabel(notice, .footnote, color: Palette.wine)) }
         if let error = store.saves.lastError { add(textLabel(error, .footnote, color: Palette.wine)) }
     }
@@ -76,70 +81,107 @@ final class ChapterViewController: PaperScreen {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated); clear()
         let banner = artworkView(chapterArtwork(chapter.id)); banner.heightAnchor.constraint(equalTo: banner.widthAnchor, multiplier: 0.55).isActive = true
-        add(banner); add(textLabel(chapter.story, .body, color: Palette.muted))
-        for level in store.levels.filter({ $0.chapterID == chapter.id }) {
-            let done = store.saves.completed[level.id] != nil
-            let button = IllustratedArchiveRow(title: "\(String(format: "%02d", level.number))  \(level.title)", detail: done ? "✓ 已还原 · 再次推理" : level.subtitle, imageName: chapterArtwork(chapter.id))
+        add(banner)
+        add(textLabel(chapter.story, .body, color: Palette.muted))
+        let levels = store.levels.filter { $0.chapterID == chapter.id }
+        let done = levels.filter { store.saves.completed[$0.id] != nil }.count
+        add(horizontal([textLabel("Case files", .title3, serif: true), UIView(), textLabel("\(done) / \(levels.count) restored", .caption1, color: Palette.muted)]))
+        let rows = vertical(spacing: 0)
+        for (index, level) in levels.enumerated() {
+            if index > 0 { rows.addArrangedSubview(archiveDivider()) }
+            let button = ArchiveLevelRow(level: level, completed: store.saves.completed[level.id] != nil, started: store.saves.drafts[level.id] != nil)
             button.accessibilityIdentifier = "level.\(level.number)"
             button.action = { [weak self] in guard let self = self else { return }; self.store.open(level, from: self) }
-            add(button)
+            rows.addArrangedSubview(button)
         }
+        add(paperPanel(rows, inset: 14))
     }
 }
 final class CollectionViewController: PaperScreen {
     let store: AppStore
-    init(store: AppStore) { self.store = store; super.init(nibName: nil, bundle: nil); title = "收藏" }
+    init(store: AppStore) { self.store = store; super.init(nibName: nil, bundle: nil); title = "Collection" }
     required init?(coder: NSCoder) { fatalError() }
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated); clear()
-        add(horizontal([textLabel("我的档案", .largeTitle, serif: true), UIView(), textLabel(String(format: "%02d", store.saves.completed.count), .largeTitle, color: Palette.wine, serif: true)]))
-        add(textLabel("收藏每一次恍然大悟。", .subheadline, color: Palette.muted))
+        super.viewWillAppear(animated); render()
+    }
+    override func fontChanged() { if isViewLoaded { render() } }
+    private func render() {
+        clear()
+        let total = vertical([textLabel(String(format: "%02d", store.saves.completed.count), .largeTitle, color: Palette.wine, serif: true), textLabel("Restored", .caption1, color: Palette.muted)], spacing: 3)
+        total.alignment = .trailing; total.setContentHuggingPriority(.required, for: .horizontal)
+        let header = horizontal([textLabel("My collection", .largeTitle, serif: true), total], spacing: 16)
+        if traitCollection.preferredContentSizeCategory.isAccessibilityCategory { header.axis = .vertical; header.alignment = .leading; total.alignment = .leading }
+        else { total.widthAnchor.constraint(equalToConstant: 72).isActive = true }
+        add(header)
+        add(textLabel("Keep every moment of discovery.", .subheadline, color: Palette.muted))
         if store.saves.completed.isEmpty {
-            let art = ArchiveIllustration(motif: 2); art.heightAnchor.constraint(equalToConstant: 160).isActive = true
-            let start = ActionButton("开启第一份档案", primary: true); start.action = { [weak self] in guard let self = self else { return }; self.store.open(self.store.nextLevel, from: self) }
-            add(paperPanel(vertical([art, textLabel("故事，等待你来还原。", .title3, serif: true), textLabel("完成档案后，故事、推理笔记和逐手复盘都会保存在这里。", .body, color: Palette.muted), start])))
+            let art = artworkView("LettersEngravingV2"); art.heightAnchor.constraint(equalTo: art.widthAnchor, multiplier: 0.66).isActive = true
+            let start = ActionButton(store.saves.drafts[store.nextLevel.id] == nil ? "Open your first file" : "Continue your investigation", primary: true, accessory: "arrow.right"); start.action = { [weak self] in guard let self = self else { return }; self.store.open(self.store.nextLevel, from: self) }
+            add(paperPanel(vertical([art, textLabel("A story waiting to be told", .title3, serif: true), textLabel("Restore a file to collect its story, your notes, and a play-by-play replay here.", .body, color: Palette.muted), start])))
         }
         for level in store.levels {
             guard let record = store.saves.completed[level.id] else { continue }
-            let review = ActionButton("查看复盘    →"); review.accessibilityIdentifier = "collection.replay.\(level.number)"
+            let review = ActionButton("View replay", accessory: "arrow.right"); review.accessibilityIdentifier = "collection.replay.\(level.number)"
             review.action = { [weak self] in
                 guard let self = self else { return }
-                guard record.contentRevision == level.contentRevision else { self.message("档案内容已更新", "历史完成记录仍保留。重新推理后可生成当前版本的复盘。"); return }
+                guard record.contentRevision == level.contentRevision else { self.message("File updated", "Your completed record is safe. Solve this file again to create a replay for the updated version."); return }
                 let replay = ReplayViewController(store: self.store, level: level, board: record.board.map { Optional($0) }, fromCollection: true)
                 replay.hidesBottomBarWhenPushed = true; self.navigationController?.pushViewController(replay, animated: true)
             }
-            let replayGame = ActionButton("再次推理"); replayGame.action = { [weak self] in guard let self = self else { return }; self.confirmReplay(level) }
+            let replayGame = ActionButton("Solve again"); replayGame.action = { [weak self] in guard let self = self else { return }; self.confirmReplay(level) }
             let notes = record.notes
             let art = artworkView(chapterArtwork(level.chapterID))
             NSLayoutConstraint.activate([art.widthAnchor.constraint(equalToConstant: 104),art.heightAnchor.constraint(equalToConstant: 113)])
-            let editorial = vertical([textLabel(String(format: "NO. %02d", level.number), .caption1, color: Palette.wine, serif: true), textLabel(level.title, .title2, serif: true), textLabel(level.subtitle, .subheadline, color: Palette.muted), textLabel("✓ 已还原", .caption1, color: Palette.green)], spacing: 7)
+            let editorial = vertical([textLabel(String(format: "NO. %02d", level.number), .caption1, color: Palette.wine, serif: true), textLabel(level.title, .title2, serif: true), textLabel(level.subtitle, .subheadline, color: Palette.muted), textLabel("✓ Restored", .caption1, color: Palette.green)], spacing: 7)
             let top = horizontal([editorial, art], spacing: 10); top.alignment = .top
+            if traitCollection.preferredContentSizeCategory.isAccessibilityCategory { top.axis = .vertical }
             let story = textLabel(level.story, .footnote, color: Palette.muted)
-            add(paperPanel(vertical([top, story, horizontal([review, replayGame])], spacing: 12), inset: 13))
-            if !notes.isEmpty { add(paperPanel(vertical([textLabel("✎  推理笔记", .headline, serif: true),textLabel(notes, .subheadline, color: Palette.muted)], spacing: 7), inset: 13)) }
+            let actions = horizontal([review, replayGame], spacing: 8); actions.distribution = .fillEqually; actions.alignment = .fill
+            if traitCollection.preferredContentSizeCategory.isAccessibilityCategory { actions.axis = .vertical }
+            add(paperPanel(vertical([top, story, actions], spacing: 14), inset: 15))
+            if !notes.isEmpty { add(paperPanel(vertical([archiveHeading("Notebook", symbol: "pencil"),textLabel(notes, .subheadline, color: Palette.muted)], spacing: 7), inset: 13)) }
         }
     }
     private func confirmReplay(_ level: Level) {
-        let alert = UIAlertController(title: "重新推理这份档案？", message: "重置这份档案的摆牌草稿，通关收藏记录保留。", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "取消", style: .cancel)); alert.addAction(UIAlertAction(title: "重新开始", style: .default) { [weak self] _ in
+        let alert = UIAlertController(title: "Start this file again?", message: "This resets your card placements for this file. Your completed record stays in your collection.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel)); alert.addAction(UIAlertAction(title: "Start again", style: .default) { [weak self] _ in
             guard let self = self else { return }; self.store.saves.resetDraft(for: level); self.store.open(level, from: self)
         }); present(alert, animated: true)
     }
 }
 final class SettingsViewController: PaperScreen {
     let store: AppStore
-    init(store: AppStore) { self.store = store; super.init(nibName: nil, bundle: nil); title = "设置" }
+    init(store: AppStore) { self.store = store; super.init(nibName: nil, bundle: nil); title = "Settings" }
     required init?(coder: NSCoder) { fatalError() }
     override func viewDidLoad() {
-        super.viewDidLoad(); add(textLabel("让推理更从容", .largeTitle, serif: true))
-        let haptics = UISwitch(); haptics.onTintColor = Palette.wine; haptics.isOn = store.settings.hapticsEnabled; haptics.addTarget(self, action: #selector(setHaptics(_:)), for: .valueChanged); haptics.accessibilityLabel = "操作触感"
-        let large = UISwitch(); large.onTintColor = Palette.wine; large.isOn = store.settings.largerText; large.addTarget(self, action: #selector(setLarge(_:)), for: .valueChanged); large.accessibilityLabel = "加大文字"
-        add(paperPanel(vertical([horizontal([textLabel("操作触感"), UIView(), haptics]), horizontal([textLabel("加大文字"), UIView(), large])], spacing: 24)))
-        add(paperPanel(vertical([textLabel("离线，也能安心收藏", .title3, serif: true), textLabel("摆牌、笔记和提示阅读进度会自动保存在本机。卸载应用会移除本地档案；暂不提供跨设备同步。", .body, color: Palette.muted)])))
-        add(paperPanel(vertical([textLabel("玩法速记", .title3, serif: true), textLabel("每轮每人出一张牌。手中有领出花色时必须跟花色；没有时才可以出其他花色。没有王牌，只有领出花色参与比较，点数最大者获胜并领出下一轮。", .body)])))
-        add(textLabel("牌局档案  1.0\n40 份档案 · 提示、撤销与复盘全部免费\n采用系统字体，支持旁白与减少动态效果。", .footnote, color: Palette.muted))
-        if store.saves.isReadOnly { add(textLabel(store.saves.notice ?? "存档版本较新，当前为只读模式。", .body, color: Palette.wine)) }
+        super.viewDidLoad()
+        add(textLabel("Settings", .largeTitle, serif: true))
+        add(textLabel("Find the truth at your own pace.", .subheadline, color: Palette.muted))
+        add(textLabel("Your experience", .title3, serif: true))
+        let haptics = UISwitch(); haptics.onTintColor = Palette.wine; haptics.isOn = store.settings.hapticsEnabled
+        haptics.addTarget(self, action: #selector(setHaptics(_:)), for: .valueChanged); haptics.accessibilityIdentifier = "settings.haptics"
+        let large = UISwitch(); large.onTintColor = Palette.wine; large.isOn = store.settings.largerText
+        large.addTarget(self, action: #selector(setLarge(_:)), for: .valueChanged); large.accessibilityIdentifier = "settings.largeText"
+        let preferences = vertical([
+            ArchiveSettingsRow("Haptic feedback", detail: "A gentle response when you place a card", symbol: "hand.tap", toggle: haptics), archiveDivider(),
+            ArchiveSettingsRow("Larger text", detail: "Make cards and clues easier to read", symbol: "textformat.size", toggle: large)
+        ], spacing: 0)
+        add(paperPanel(preferences, inset: 14))
+        add(textLabel("Field guide", .title3, serif: true))
+        let rules = ArchiveSettingsRow("How to play", detail: "Rules, clues, and replay", symbol: "book")
+        rules.accessibilityIdentifier = "settings.rules"; rules.action = { [weak self] in self?.openGuide(.rules) }
+        let storage = ArchiveSettingsRow("Saving your files", detail: "Pick up where you left off", symbol: "archivebox")
+        storage.accessibilityIdentifier = "settings.storage"; storage.action = { [weak self] in self?.openGuide(.storage) }
+        add(paperPanel(vertical([rules, archiveDivider(), storage], spacing: 0), inset: 14))
+        let brand = SuitMark()
+        let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "1.0"
+        let signature = vertical([brand, textLabel("Card Trace", .title3, serif: true), textLabel("Every card leaves a trace.", .caption1, color: Palette.muted), textLabel("Version \(version)", .caption2, color: Palette.muted)], spacing: 9)
+        signature.alignment = .center; signature.layoutMargins = UIEdgeInsets(top: 20, left: 0, bottom: 12, right: 0); signature.isLayoutMarginsRelativeArrangement = true; add(signature)
+        if store.saves.isReadOnly { add(textLabel(store.saves.notice ?? "Update the app to keep saving your files.", .body, color: Palette.wine)) }
     }
-    @objc private func setHaptics(_ sender: UISwitch) { store.settings.hapticsEnabled = sender.isOn }
+    private func openGuide(_ topic: ArchiveGuideViewController.Topic) {
+        navigationController?.pushViewController(ArchiveGuideViewController(topic: topic), animated: !UIAccessibility.isReduceMotionEnabled)
+    }
+    @objc private func setHaptics(_ sender: UISwitch) { store.settings.hapticsEnabled = sender.isOn; if sender.isOn { store.haptic() } }
     @objc private func setLarge(_ sender: UISwitch) { store.settings.largerText = sender.isOn; NotificationCenter.default.post(name: .init("CardTraceTextChanged"), object: nil) }
 }

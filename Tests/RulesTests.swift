@@ -34,7 +34,7 @@ enum RulesTests {
         expect(good.events.map { $0.card } == ["S5", "S9", "H3", "H7", "H10", "S2"], "replay uses chronological cards")
         expect(good.events[2].winner == "B" && good.events[5].winner == "C", "winner attached to round-final event")
         expect(good.events[1].winner == nil, "winner is not announced before round ends")
-        expect(good.events[5].explanation.contains("垫牌不参与争胜"), "off-suit explanation")
+        expect(good.events[5].explanation.contains("An off-suit card cannot win"), "off-suit explanation")
         let counted = SolutionCounter.count(level: sample)
         expect(counted.count == 1 && counted.exhausted, "exact original product example has proven unique solution")
         expect(counted.solutions.first == solved.compactMap { $0 }, "solver solution matches derivation")
@@ -50,7 +50,7 @@ enum RulesTests {
         expect(RuleEngine.evaluate(level: sample, board: partial).issues.isEmpty, "unknown future hand is not a revoke")
         let revoke: [String?] = ["S5", nil, "H3", nil, nil, "S2"]
         let revokeResult = RuleEngine.evaluate(level: sample, board: revoke)
-        expect(revokeResult.issues.contains { $0.slots == [2, 5] && $0.message.contains("必须跟随") }, "future assigned same-suit card proves failure to follow")
+        expect(revokeResult.issues.contains { $0.slots == [2, 5] && $0.message.contains("must follow suit") }, "future assigned same-suit card proves failure to follow")
         expect(!RuleEngine.evaluate(level: sample, board: ["S5", "S9", "H3", "H10", "H7", "S2"]).accepted, "complete revoke rejected")
 
         let free = fixture(facts: [])
@@ -165,7 +165,7 @@ enum RulesTests {
         expect(game.move(card: "S2", to: 5) && game.move(card: "H10", to: 3), "first-level wrong remainder is still editable")
         let incorrectGame = RuleEngine.evaluate(level: prototypeFirst, board: game.board)
         expect(incorrectGame.complete && !incorrectGame.accepted && incorrectGame.events.count == 6, "incorrect complete game still supports full replay")
-        expect(incorrectGame.events.contains { $0.slot == 2 && $0.explanation.contains("必须跟随花色") }, "replay locates the proven rule violation at the offending play")
+        expect(incorrectGame.events.contains { $0.slot == 2 && $0.explanation.contains("must follow suit") }, "replay locates the proven rule violation at the offending play")
         expect(game.move(card: "S2", to: 3), "board-to-board swap corrects first level")
         expect(RuleEngine.evaluate(level: prototypeFirst, board: game.board).accepted, "first-level three moves and swap close the game")
         let resumedGame = GameSession(level: prototypeFirst, draft: game.makeDraft())

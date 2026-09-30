@@ -100,7 +100,7 @@ struct SessionTests {
         try Data("corrupt".utf8).write(to: primary)
         let backupRecovery = SaveRepository(levels: [level], directory: dir)
         expect(backupRecovery.draft(for: level)?.board == ["S5", "S9", nil, nil, nil, nil], "corrupt primary recovers prior valid backup")
-        expect(backupRecovery.notice?.contains("备份") == true, "backup recovery informs player")
+        expect(backupRecovery.notice?.contains("backup") == true, "backup recovery informs player")
         expect(FileManager.default.fileExists(atPath: primary.path + ".damaged"), "corrupt bytes preserved")
         expect(backupRecovery.saveNow(), "recovered store can save safely")
 
@@ -128,7 +128,7 @@ struct SessionTests {
         let revised = SaveRepository(levels: [fixture(revision: 2)], directory: revisionDir)
         expect(revised.drafts[level.id] == nil, "content revision resets only incompatible draft")
         expect(revised.completed[level.id]?.notes == "完成", "content revision preserves completion and notes")
-        expect(revised.notice?.contains("内容已更新") == true, "revision reset explains reason")
+        expect(revised.notice?.contains("content was updated") == true, "revision reset explains reason")
 
         let invalidFollowSuit = ["S5", "H3", "S2", "H7", "S9", "H10"]
         let invalidTestimony = ["S5", "S2", "S9", "H3", "H7", "H10"]
@@ -149,7 +149,7 @@ struct SessionTests {
         let semanticRecovery = SaveRepository(levels: [level], directory: semanticDir)
         expect(semanticRecovery.completed[level.id]?.board == level.authorSolution.plays, "semantic corruption restores the individual valid backup record")
         expect(semanticRecovery.drafts[level.id]?.board == first.board, "completion recovery preserves unrelated current draft state")
-        expect(semanticRecovery.notice?.contains("规则复核") == true, "semantic recovery explains why backup was needed")
+        expect(semanticRecovery.notice?.contains("rule check") == true, "semantic recovery explains why backup was needed")
         expect(semanticRecovery.saveNow(), "semantically recovered store can save")
         let semanticReopen = SaveRepository(levels: [level], directory: semanticDir)
         expect(semanticReopen.completed[level.id]?.board == level.authorSolution.plays, "repaired completion remains valid after another launch")
@@ -165,7 +165,7 @@ struct SessionTests {
         let semanticRejected = SaveRepository(levels: [level], directory: unrecoverableDir)
         expect(semanticRejected.completed.isEmpty, "invalid completion in both files cannot unlock a chapter")
         expect(semanticRejected.drafts[level.id]?.board == invalidFollowSuit && semanticRejected.drafts[level.id]?.notes == "完成", "unrecoverable completion is retained as a hypothesis with the player's notes")
-        expect(semanticRejected.notice?.contains("推理草稿") == true, "demoted completion informs player")
+        expect(semanticRejected.notice?.contains("drafts") == true, "demoted completion informs player")
 
         let futureDir = testRoot.appendingPathComponent("future")
         try FileManager.default.createDirectory(at: futureDir, withIntermediateDirectories: true)
@@ -193,7 +193,7 @@ struct SessionTests {
         let legacyData = try JSONSerialization.data(withJSONObject: legacy)
         try legacyData.write(to: migrationDir.appendingPathComponent("progress.json"))
         let migration = SaveRepository(levels: [level], directory: migrationDir)
-        expect(migration.draft(for: level)?.board == first.board && migration.notice?.contains("升级") == true, "supported old version migrates without losing state")
+        expect(migration.draft(for: level)?.board == first.board && migration.notice?.contains("upgraded") == true, "supported old version migrates without losing state")
         expect(migration.saveNow(), "migrated document saves")
         let migrationBackup = try Data(contentsOf: migrationDir.appendingPathComponent("progress.backup.json"))
         expect(migrationBackup == legacyData, "first migrated save preserves original bytes as backup")

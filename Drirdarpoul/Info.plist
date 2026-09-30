@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>牌局档案</string>
+	<string>Card Trace</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -24,6 +24,10 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>SourceHanSerifSC-SemiBold.otf</string>
+	</array>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
 	</array>
 </dict>
 </plist>

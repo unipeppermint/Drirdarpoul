@@ -5,9 +5,9 @@
     "id": "chapter01.level01",
     "chapterID": "chapter01",
     "number": 1,
-    "title": "第一张便笺",
-    "subtitle": "从六张牌开始",
-    "story": "修复师在盒底发现一张便笺：第一轮由 A 领出。已有三张牌的位置得到确认，请补回另外三张。",
+    "title": "The First Note",
+    "subtitle": "Start with six cards",
+    "story": "A restorer finds a note at the bottom of the box. A led the first round. Three cards are already confirmed; recover the other three.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -42,7 +42,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 1 轮，A 出的是 ♠5。",
+        "text": "In round 1, A plays ♠5.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -52,7 +52,7 @@
       },
       {
         "id": "f2",
-        "text": "第 1 轮，C 出的是 ♥3。",
+        "text": "In round 1, C plays ♥3.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -62,7 +62,7 @@
       },
       {
         "id": "f3",
-        "text": "第 2 轮，B 出的是 ♥7。",
+        "text": "In round 2, B plays ♥7.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 2,
@@ -72,7 +72,7 @@
       },
       {
         "id": "f4",
-        "text": "第 1 轮的赢家是 B。",
+        "text": "B wins round 1.",
         "constraint": {
           "kind": "roundWinner",
           "round": 1,
@@ -81,7 +81,7 @@
       },
       {
         "id": "f5",
-        "text": "第 2 轮领出的牌是 ♥7。",
+        "text": "Round 2 is led with ♥7.",
         "constraint": {
           "kind": "leadCard",
           "round": 2,
@@ -93,8 +93,8 @@
     "testimonies": [],
     "hints": [
       {
-        "title": "关注第一轮",
-        "text": "第一轮 A 出 ♠5，赢家却是 B。先找牌池里哪张牌能够赢过领出的黑桃。",
+        "title": "Look at the evidence",
+        "text": "In round one, A plays ♠5, but B wins. Which card in the pool can beat the spade that was led?",
         "evidenceIDs": [
           "f1",
           "f4"
@@ -102,8 +102,8 @@
         "conclusion": null
       },
       {
-        "title": "只有同花色争胜",
-        "text": "无王牌时，只有领出花色参与争胜。B 要赢过 ♠5，就必须出比 5 更大的黑桃；再检查剩余牌中谁满足这个条件。",
+        "title": "Connect the rules",
+        "text": "With no trumps, only the lead suit can win. B needs a spade higher than 5. Look for the one remaining card that fits.",
         "evidenceIDs": [
           "f1",
           "f4"
@@ -111,8 +111,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第一轮 B 出 ♠9，因为它是牌池中唯一能以领出花色赢过 ♠5 的牌。先落实这一手，再用 C 没有跟黑桃的事实推断下一轮。",
+        "title": "One step forward",
+        "text": "B plays ♠9 in round one: it is the only card in the pool that can beat ♠5 in the lead suit. Place it, then use C's failure to follow spades to work out the next round.",
         "evidenceIDs": [
           "f1",
           "f4"
@@ -135,7 +135,7 @@
         "H10"
       ],
       "falseTestimonyIDs": [],
-      "explanation": "第 1 轮 A：♠5 → B：♠9 → C：♥3。领出的是黑桃，同花色中点数最大的牌属于 B，因此 B 获胜。\nC 本轮没有跟黑桃，说明其余手牌 ♥10 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 B：♥7 → C：♥10 → A：♠2。领出的是红桃，同花色中点数最大的牌属于 C，因此 C 获胜。"
+      "explanation": "Round 1: A: ♠5 → B: ♠9 → C: ♥3. The lead suit is spades. B holds the highest card of that suit and wins.\n\nC did not follow spades, so the remaining cards (♥10) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 2: B: ♥7 → C: ♥10 → A: ♠2. The lead suit is hearts. C holds the highest card of that suit and wins."
     }
   },
   {
@@ -144,9 +144,9 @@
     "id": "chapter01.level02",
     "chapterID": "chapter01",
     "number": 2,
-    "title": "同色的回声",
-    "subtitle": "手中有同花色，就必须跟随",
-    "story": "第二封信夹着一小段规则说明。先看领出的花色，再看同一人后来留下的牌，记录的空白就有了边界。",
+    "title": "Echoes of a Suit",
+    "subtitle": "If you have the suit, follow it",
+    "story": "The second letter includes a scrap of rules. Compare the lead suit with the cards each player uses later, and the gaps begin to narrow.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -181,7 +181,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 1 轮，A 出的是 ♦5。",
+        "text": "In round 1, A plays ♦5.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -191,7 +191,7 @@
       },
       {
         "id": "f2",
-        "text": "第 1 轮，C 出的是 ♥9。",
+        "text": "In round 1, C plays ♥9.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -201,7 +201,7 @@
       },
       {
         "id": "f3",
-        "text": "第 2 轮，A 出的是 ♠8。",
+        "text": "In round 2, A plays ♠8.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 2,
@@ -211,7 +211,7 @@
       },
       {
         "id": "f4",
-        "text": "♠3 原本在 B 的手中。",
+        "text": "B originally holds ♠3.",
         "constraint": {
           "kind": "owner",
           "player": "B",
@@ -223,8 +223,8 @@
     "testimonies": [],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先看 C 第一轮没有跟方块这件事，再看 A 两个已经填好的位置。谁还能持有剩下的方块？",
+        "title": "Look at the evidence",
+        "text": "C did not follow diamonds in round one. Now look at A's two confirmed slots. Who can still hold the remaining diamond?",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -233,8 +233,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "C 第一轮出红桃，说明他手中没有方块。A 的两张牌也都已经确认，所以剩下的方块只能在 B 手中；第一轮 B 必须跟领出的花色。",
+        "title": "Connect the rules",
+        "text": "C played a heart, so C had no diamonds. Both of A's cards are known. The remaining diamond must belong to B, who must follow suit in round one.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -243,8 +243,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第一轮 B 出 ♦13。C 没有方块，A 的两张牌是 ♦5 和 ♠8，剩下的 ♦13 只能归 B，并且必须在第一轮跟出。",
+        "title": "One step forward",
+        "text": "B plays ♦13 in round one. C has no diamonds, and A holds ♦5 and ♠8. Only B can hold ♦13 and must play it when diamonds are led.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -268,7 +268,7 @@
         "H2"
       ],
       "falseTestimonyIDs": [],
-      "explanation": "第 1 轮 A：♦5 → B：♦13 → C：♥9。领出的是方块，同花色中点数最大的牌属于 B，因此 B 获胜。\nC 本轮没有跟方块，说明其余手牌 ♥2 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 2 轮 B：♠3 → C：♥2 → A：♠8。领出的是黑桃，同花色中点数最大的牌属于 A，因此 A 获胜。"
+      "explanation": "Round 1: A: ♦5 → B: ♦13 → C: ♥9. The lead suit is diamonds. B holds the highest card of that suit and wins.\n\nC did not follow diamonds, so the remaining cards (♥2) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 2: B: ♠3 → C: ♥2 → A: ♠8. The lead suit is spades. A holds the highest card of that suit and wins."
     }
   },
   {
@@ -277,9 +277,9 @@
     "id": "chapter01.level03",
     "chapterID": "chapter01",
     "number": 3,
-    "title": "大牌未必赢",
-    "subtitle": "只有领出花色可以争胜",
-    "story": "便笺上有人给一张大牌画了圈，却没有写它赢了。离开领出花色，点数再大也不能赢得这一轮。",
+    "title": "High Is Not Enough",
+    "subtitle": "Only the lead suit can win",
+    "story": "Someone circled a high card without calling it a winner. Outside the lead suit, even the highest rank cannot win the round.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -314,7 +314,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 1 轮，A 出的是 ♠6。",
+        "text": "In round 1, A plays ♠6.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -324,7 +324,7 @@
       },
       {
         "id": "f2",
-        "text": "第 1 轮，C 出的是 ♥12。",
+        "text": "In round 1, C plays ♥12.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -334,7 +334,7 @@
       },
       {
         "id": "f3",
-        "text": "♥3 原本在 B 的手中。",
+        "text": "B originally holds ♥3.",
         "constraint": {
           "kind": "owner",
           "player": "B",
@@ -343,7 +343,7 @@
       },
       {
         "id": "f4",
-        "text": "♠11 原本在 B 的手中。",
+        "text": "B originally holds ♠11.",
         "constraint": {
           "kind": "owner",
           "player": "B",
@@ -355,8 +355,8 @@
     "testimonies": [],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "两条可信归属已经告诉你 B 的全部手牌。先决定 B 必须跟什么花色，不要只寻找桌上最大的数字。",
+        "title": "Look at the evidence",
+        "text": "Two ownership clues identify B's entire hand. Decide which suit B must follow before looking for the highest number on the table.",
         "evidenceIDs": [
           "f1",
           "f3",
@@ -365,8 +365,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "A 领出黑桃，而 B 的两张牌中有黑桃。B 必须先出那张黑桃；C 的红桃点数即使更大，也不能参与黑桃这一轮的争胜。",
+        "title": "Connect the rules",
+        "text": "A leads spades, and B holds a spade. B must play it. Even a higher heart played by C cannot win a round led in spades.",
         "evidenceIDs": [
           "f1",
           "f3",
@@ -375,8 +375,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第一轮 B 出 ♠11。B 手里只有 ♥3 和 ♠11，必须跟黑桃，所以不能选择 ♥3。",
+        "title": "One step forward",
+        "text": "B plays ♠11 in round one. B holds only ♥3 and ♠11 and must follow spades, so ♥3 cannot be played yet.",
         "evidenceIDs": [
           "f1",
           "f3",
@@ -400,7 +400,7 @@
         "H7"
       ],
       "falseTestimonyIDs": [],
-      "explanation": "第 1 轮 A：♠6 → B：♠11 → C：♥12。领出的是黑桃，同花色中点数最大的牌属于 B，因此 B 获胜。\nC 本轮没有跟黑桃，说明其余手牌 ♥7 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 B：♥3 → C：♥7 → A：♠2。领出的是红桃，同花色中点数最大的牌属于 C，因此 C 获胜。"
+      "explanation": "Round 1: A: ♠6 → B: ♠11 → C: ♥12. The lead suit is spades. B holds the highest card of that suit and wins.\n\nC did not follow spades, so the remaining cards (♥7) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 2: B: ♥3 → C: ♥7 → A: ♠2. The lead suit is hearts. C holds the highest card of that suit and wins."
     }
   },
   {
@@ -409,9 +409,9 @@
     "id": "chapter01.level04",
     "chapterID": "chapter01",
     "number": 4,
-    "title": "接过领出权",
-    "subtitle": "赢家决定下一轮从谁开始",
-    "story": "前一轮的批注和后一轮的牌面被装进两个信封。把赢家与下一次领出连起来，才能还原真正的顺序。",
+    "title": "Passing the Lead",
+    "subtitle": "The winner leads the next round",
+    "story": "Notes about one round and cards from the next were sealed in separate envelopes. Connect the winner to the next lead to recover the order.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -446,7 +446,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 1 轮，A 出的是 ♦13。",
+        "text": "In round 1, A plays ♦13.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -456,7 +456,7 @@
       },
       {
         "id": "f2",
-        "text": "第 1 轮，B 出的是 ♠8。",
+        "text": "In round 1, B plays ♠8.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -466,7 +466,7 @@
       },
       {
         "id": "f3",
-        "text": "第 2 轮的赢家是 B。",
+        "text": "B wins round 2.",
         "constraint": {
           "kind": "roundWinner",
           "round": 2,
@@ -478,8 +478,8 @@
     "testimonies": [],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先确定第一轮谁一定获胜，再用“第二轮 B 获胜”倒推第二轮的领出花色。",
+        "title": "Look at the evidence",
+        "text": "First find the certain winner of round one. Then use the clue that B wins round two to work backward to its lead suit.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -488,8 +488,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "A 领出的方块已经是牌池中最大的方块，所以 A 必定领出第二轮。B 要赢第二轮，必须与 A 同花色且更大；在剩余牌中寻找这样的两张牌。",
+        "title": "Connect the rules",
+        "text": "A leads the highest diamond in the pool, so A will lead round two. To win that round, B must play a higher card of A's suit. Find a remaining pair that works.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -498,8 +498,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第一轮 C 出 ♦5。A 用 ♦13 赢第一轮，第二轮要让 B 获胜，A 与 B 只能分别出 ♥2、♥9。B 第一轮没有跟方块，不能持有 ♦5；A 的两张牌已确定，所以 ♦5 必须在 C 第一轮。",
+        "title": "One step forward",
+        "text": "C plays ♦5 in round one. A wins with ♦13. For B to win round two, A and B must play ♥2 and ♥9 respectively. B did not follow diamonds, and A's hand is full, so ♦5 belongs in C's first round.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -523,7 +523,7 @@
         "S3"
       ],
       "falseTestimonyIDs": [],
-      "explanation": "第 1 轮 A：♦13 → B：♠8 → C：♦5。领出的是方块，同花色中点数最大的牌属于 A，因此 A 获胜。\nB 本轮没有跟方块，说明其余手牌 ♥9 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♥2 → B：♥9 → C：♠3。领出的是红桃，同花色中点数最大的牌属于 B，因此 B 获胜。"
+      "explanation": "Round 1: A: ♦13 → B: ♠8 → C: ♦5. The lead suit is diamonds. A holds the highest card of that suit and wins.\n\nB did not follow diamonds, so the remaining cards (♥9) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♥2 → B: ♥9 → C: ♠3. The lead suit is hearts. B holds the highest card of that suit and wins."
     }
   },
   {
@@ -532,9 +532,9 @@
     "id": "chapter01.level05",
     "chapterID": "chapter01",
     "number": 5,
-    "title": "没有跟上的牌",
-    "subtitle": "从缺门反推原来的手牌",
-    "story": "一张异色牌被特别标记。出牌者当时为什么没有跟花色？将来要出的牌此刻也在手里，这条规则会留下证据。",
+    "title": "The Missing Suit",
+    "subtitle": "A discard reveals a hand",
+    "story": "An off-suit card is marked in the margin. Why did its owner not follow suit? Cards played later were still in hand then, leaving a useful trace.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -569,7 +569,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 1 轮，A 出的是 ♠11。",
+        "text": "In round 1, A plays ♠11.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -579,7 +579,7 @@
       },
       {
         "id": "f2",
-        "text": "第 1 轮，B 出的是 ♥7。",
+        "text": "In round 1, B plays ♥7.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -589,7 +589,7 @@
       },
       {
         "id": "f3",
-        "text": "♥3 原本在 A 的手中。",
+        "text": "A originally holds ♥3.",
         "constraint": {
           "kind": "owner",
           "player": "A",
@@ -598,7 +598,7 @@
       },
       {
         "id": "f4",
-        "text": "第 1 轮，C 出的是 ♠6。",
+        "text": "In round 1, C plays ♠6.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -611,8 +611,8 @@
     "testimonies": [],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "关注 C 第二轮的空位。先从 B 没有跟黑桃推断他不能持有什么，再检查 A 的手牌是否已经满额。",
+        "title": "Look at the evidence",
+        "text": "Focus on C's second-round slot. What can B not hold after failing to follow spades? Is A's hand already full?",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -622,8 +622,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "B 第一轮出红桃，说明他没有黑桃。A 第一轮的黑桃已固定，另一张牌的归属也已确定；因此剩余黑桃不能交给 A 或 B。",
+        "title": "Connect the rules",
+        "text": "B played a heart in round one and therefore had no spades. A's first spade is fixed and A's other card is known. The remaining spade cannot belong to A or B.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -633,8 +633,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第二轮 C 出 ♠2。B 没有黑桃；A 的两张牌是 ♠11、♥3；C 第一轮已出 ♠6，因此剩下的 ♠2 必须留在 C 第二轮。",
+        "title": "One step forward",
+        "text": "C plays ♠2 in round two. B has no spades; A holds ♠11 and ♥3. C already plays ♠6 in round one, leaving ♠2 for C's second round.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -659,7 +659,7 @@
         "S2"
       ],
       "falseTestimonyIDs": [],
-      "explanation": "第 1 轮 A：♠11 → B：♥7 → C：♠6。领出的是黑桃，同花色中点数最大的牌属于 A，因此 A 获胜。\nB 本轮没有跟黑桃，说明其余手牌 ♥12 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♥3 → B：♥12 → C：♠2。领出的是红桃，同花色中点数最大的牌属于 B，因此 B 获胜。"
+      "explanation": "Round 1: A: ♠11 → B: ♥7 → C: ♠6. The lead suit is spades. A holds the highest card of that suit and wins.\n\nB did not follow spades, so the remaining cards (♥12) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♥3 → B: ♥12 → C: ♠2. The lead suit is hearts. B holds the highest card of that suit and wins."
     }
   },
   {
@@ -668,9 +668,9 @@
     "id": "chapter01.level06",
     "chapterID": "chapter01",
     "number": 6,
-    "title": "第三轮的落款",
-    "subtitle": "完成第一份三轮档案",
-    "story": "最后一封教学信多出一轮。先补最确定的空位；放错也可交换或撤销。还原后逐手复盘，检查三轮如何接续。",
+    "title": "A Third-Round Signature",
+    "subtitle": "Your first three-round file",
+    "story": "The last teaching letter adds a third round. Begin with the clearest gap. Swap or undo freely, then replay the result to see how the rounds connect.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -714,7 +714,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 1 轮，A 出的是 ♠2。",
+        "text": "In round 1, A plays ♠2.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -724,7 +724,7 @@
       },
       {
         "id": "f2",
-        "text": "第 1 轮，B 出的是 ♥7。",
+        "text": "In round 1, B plays ♥7.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -734,7 +734,7 @@
       },
       {
         "id": "f3",
-        "text": "第 2 轮领出的牌是 ♥3。",
+        "text": "Round 2 is led with ♥3.",
         "constraint": {
           "kind": "leadCard",
           "round": 2,
@@ -743,7 +743,7 @@
       },
       {
         "id": "f4",
-        "text": "第 3 轮领出的牌是 ♠12。",
+        "text": "Round 3 is led with ♠12.",
         "constraint": {
           "kind": "leadCard",
           "round": 3,
@@ -752,7 +752,7 @@
       },
       {
         "id": "f5",
-        "text": "第 2 轮，B 出的是 ♦5。",
+        "text": "In round 2, B plays ♦5.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 2,
@@ -762,7 +762,7 @@
       },
       {
         "id": "f6",
-        "text": "第 1 轮，C 出的是 ♠8。",
+        "text": "In round 1, C plays ♠8.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -775,8 +775,8 @@
     "testimonies": [],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "第一轮的三张牌都能直接看见。比较领出花色中的点数，找出谁会领出第二轮。",
+        "title": "Look at the evidence",
+        "text": "All three cards in round one are visible. Compare the cards of the lead suit to find who leads round two.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -786,8 +786,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "红桃不能赢过领出的黑桃。先确定两张黑桃中较大的那一张属于谁；这个人必须打出已确认的第二轮领出牌。",
+        "title": "Connect the rules",
+        "text": "Hearts cannot beat a spade lead. Find the higher of the two spades. Its owner must play the confirmed lead card in round two.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -797,8 +797,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第二轮 C 出 ♥3。第一轮 C 的 ♠8 赢过 A 的 ♠2，而 B 的 ♥7 不参与争胜，所以第二轮由 C 领出已确认的 ♥3。",
+        "title": "One step forward",
+        "text": "C plays ♥3 in round two. C's ♠8 beats A's ♠2, while B's ♥7 cannot win. C therefore leads the confirmed ♥3 in round two.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -826,7 +826,7 @@
         "S4"
       ],
       "falseTestimonyIDs": [],
-      "explanation": "第 1 轮 A：♠2 → B：♥7 → C：♠8。领出的是黑桃，同花色中点数最大的牌属于 C，因此 C 获胜。\nB 本轮没有跟黑桃，说明其余手牌 ♦5、♦10 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 C：♥3 → A：♥11 → B：♦5。领出的是红桃，同花色中点数最大的牌属于 A，因此 A 获胜。\nB 本轮没有跟红桃，说明其余手牌 ♦10 都不是红桃；这是必须跟花色规则留下的持牌证据。\n第 3 轮 A：♠12 → B：♦10 → C：♠4。领出的是黑桃，同花色中点数最大的牌属于 A，因此 A 获胜。"
+      "explanation": "Round 1: A: ♠2 → B: ♥7 → C: ♠8. The lead suit is spades. C holds the highest card of that suit and wins.\n\nB did not follow spades, so the remaining cards (♦5, ♦10) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 2: C: ♥3 → A: ♥11 → B: ♦5. The lead suit is hearts. A holds the highest card of that suit and wins.\n\nB did not follow hearts, so the remaining cards (♦10) cannot be hearts. This follows from the requirement to follow suit when able.\n\nRound 3: A: ♠12 → B: ♦10 → C: ♠4. The lead suit is spades. A holds the highest card of that suit and wins."
     }
   },
   {
@@ -835,9 +835,9 @@
     "id": "chapter02.level01",
     "chapterID": "chapter02",
     "number": 7,
-    "title": "雨点与车票",
-    "subtitle": "列车档案 01",
-    "story": "车票背面的牌局被雨点打湿。列车员保住了开局的两笔，请找回旅客尚未交出的牌。",
+    "title": "Raindrops and Tickets",
+    "subtitle": "Train file 01",
+    "story": "Rain has blurred the game on the back of a ticket. The conductor saved two opening plays. Recover the cards the passengers had yet to play.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -881,7 +881,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 1 轮，A 出的是 ♦5。",
+        "text": "In round 1, A plays ♦5.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -891,7 +891,7 @@
       },
       {
         "id": "f2",
-        "text": "第 1 轮，C 出的是 ♣12。",
+        "text": "In round 1, C plays ♣12.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -901,7 +901,7 @@
       },
       {
         "id": "f3",
-        "text": "第 2 轮领出的牌是 ♥10。",
+        "text": "Round 2 is led with ♥10.",
         "constraint": {
           "kind": "leadCard",
           "round": 2,
@@ -910,7 +910,7 @@
       },
       {
         "id": "f4",
-        "text": "第 3 轮领出的牌是 ♠3。",
+        "text": "Round 3 is led with ♠3.",
         "constraint": {
           "kind": "leadCard",
           "round": 3,
@@ -919,7 +919,7 @@
       },
       {
         "id": "f5",
-        "text": "第 2 轮，C 出的是 ♣2。",
+        "text": "In round 2, C plays ♣2.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 2,
@@ -929,7 +929,7 @@
       },
       {
         "id": "f6",
-        "text": "♣7 原本在 C 的手中。",
+        "text": "C originally holds ♣7.",
         "constraint": {
           "kind": "owner",
           "player": "C",
@@ -941,8 +941,8 @@
     "testimonies": [],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先处理 C 的第三轮：有两条逐轮记录，还有一条明确的手牌归属。",
+        "title": "Look at the evidence",
+        "text": "Start with C's third round: two round records and one ownership clue concern this player.",
         "evidenceIDs": [
           "f2",
           "f5",
@@ -951,8 +951,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "每人恰好三张牌，分别用于三轮。如果一个人的前两轮已经记录，另一张确定属于他的牌就不能去其他人的列，也不能重复使用。",
+        "title": "Connect the rules",
+        "text": "Each player has exactly three cards, one for each round. If two plays are recorded, another card known to belong to that player must fill the remaining slot.",
         "evidenceIDs": [
           "f2",
           "f5",
@@ -961,8 +961,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第三轮 C 出 ♣7。C 前两轮已经分别出了 ♣12、♣2，而 ♣7 也确定属于 C，因此只剩第三轮这个位置。",
+        "title": "One step forward",
+        "text": "C plays ♣7 in round three. C already plays ♣12 and ♣2 in the first two rounds. The remaining card known to belong to C, ♣7, must fill round three.",
         "evidenceIDs": [
           "f2",
           "f5",
@@ -989,7 +989,7 @@
         "C7"
       ],
       "falseTestimonyIDs": [],
-      "explanation": "第 1 轮 A：♦5 → B：♦13 → C：♣12。领出的是方块，同花色中点数最大的牌属于 B，因此 B 获胜。\nC 本轮没有跟方块，说明其余手牌 ♣2、♣7 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 2 轮 B：♥10 → C：♣2 → A：♥4。领出的是红桃，同花色中点数最大的牌属于 B，因此 B 获胜。\nC 本轮没有跟红桃，说明其余手牌 ♣7 都不是红桃；这是必须跟花色规则留下的持牌证据。\n第 3 轮 B：♠3 → C：♣7 → A：♠9。领出的是黑桃，同花色中点数最大的牌属于 A，因此 A 获胜。"
+      "explanation": "Round 1: A: ♦5 → B: ♦13 → C: ♣12. The lead suit is diamonds. B holds the highest card of that suit and wins.\n\nC did not follow diamonds, so the remaining cards (♣2, ♣7) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 2: B: ♥10 → C: ♣2 → A: ♥4. The lead suit is hearts. B holds the highest card of that suit and wins.\n\nC did not follow hearts, so the remaining cards (♣7) cannot be hearts. This follows from the requirement to follow suit when able.\n\nRound 3: B: ♠3 → C: ♣7 → A: ♠9. The lead suit is spades. A holds the highest card of that suit and wins."
     }
   },
   {
@@ -998,9 +998,9 @@
     "id": "chapter02.level02",
     "chapterID": "chapter02",
     "number": 8,
-    "title": "二号车厢",
-    "subtitle": "列车档案 02",
-    "story": "二号车厢只留下两轮记录。行李标签确认了部分手牌归属，剩余空位必须符合跟花色规则。",
+    "title": "Carriage Two",
+    "subtitle": "Train file 02",
+    "story": "Only two rounds survive from the second carriage. Luggage tags identify some card owners; the remaining gaps must obey the follow-suit rule.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -1035,7 +1035,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 1 轮，A 出的是 ♠8。",
+        "text": "In round 1, A plays ♠8.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -1045,7 +1045,7 @@
       },
       {
         "id": "f2",
-        "text": "第 1 轮，B 出的是 ♦13。",
+        "text": "In round 1, B plays ♦13.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -1055,7 +1055,7 @@
       },
       {
         "id": "f3",
-        "text": "第 2 轮的赢家是 C。",
+        "text": "C wins round 2.",
         "constraint": {
           "kind": "roundWinner",
           "round": 2,
@@ -1067,8 +1067,8 @@
     "testimonies": [],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先确定第一轮的赢家，再寻找第二轮能够让 C 获胜的同花色组合。",
+        "title": "Look at the evidence",
+        "text": "Find the winner of round one, then look for a same-suit pair that lets C win round two.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -1077,8 +1077,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "A 的 ♠8 是牌池中最大的黑桃，所以 A 会领出第二轮。C 要赢第二轮，必须出与 A 相同花色且更大的牌；B 第一轮未跟黑桃，也说明他没有另一张黑桃。",
+        "title": "Connect the rules",
+        "text": "A's ♠8 is the highest spade, so A leads round two. C must play a higher card of that suit to win. B did not follow spades in round one and cannot hold the other spade.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -1087,8 +1087,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第一轮 C 出 ♠3。A 赢第一轮；第二轮要让 C 赢，剩余牌中只能由 A 领 ♥2、C 跟 ♥9。B 没有黑桃，而 A 的两张牌已确定，故 ♠3 必须落在 C 第一轮。",
+        "title": "One step forward",
+        "text": "C plays ♠3 in round one. A wins that round. For C to win round two, the only remaining pair is A's ♥2 and C's ♥9. B has no spades and A's hand is full, so ♠3 belongs in C's first round.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -1112,7 +1112,7 @@
         "H9"
       ],
       "falseTestimonyIDs": [],
-      "explanation": "第 1 轮 A：♠8 → B：♦13 → C：♠3。领出的是黑桃，同花色中点数最大的牌属于 A，因此 A 获胜。\nB 本轮没有跟黑桃，说明其余手牌 ♦5 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♥2 → B：♦5 → C：♥9。领出的是红桃，同花色中点数最大的牌属于 C，因此 C 获胜。"
+      "explanation": "Round 1: A: ♠8 → B: ♦13 → C: ♠3. The lead suit is spades. A holds the highest card of that suit and wins.\n\nB did not follow spades, so the remaining cards (♦5) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♥2 → B: ♦5 → C: ♥9. The lead suit is hearts. C holds the highest card of that suit and wins."
     }
   },
   {
@@ -1121,9 +1121,9 @@
     "id": "chapter02.level03",
     "chapterID": "chapter02",
     "number": 9,
-    "title": "隧道前的一手",
-    "subtitle": "列车档案 03",
-    "story": "列车驶入隧道前，速记员写下了最后看清的一手。出隧道后的赢家批注，是另一条可靠线索。",
+    "title": "Before the Tunnel",
+    "subtitle": "Train file 03",
+    "story": "Before the train entered the tunnel, a clerk recorded the last play they could see. A note about a later winner provides another reliable clue.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -1167,7 +1167,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 1 轮，A 出的是 ♣3。",
+        "text": "In round 1, A plays ♣3.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -1177,7 +1177,7 @@
       },
       {
         "id": "f2",
-        "text": "第 1 轮，C 出的是 ♠7。",
+        "text": "In round 1, C plays ♠7.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -1187,7 +1187,7 @@
       },
       {
         "id": "f3",
-        "text": "第 2 轮领出的牌是 ♠4。",
+        "text": "Round 2 is led with ♠4.",
         "constraint": {
           "kind": "leadCard",
           "round": 2,
@@ -1196,7 +1196,7 @@
       },
       {
         "id": "f4",
-        "text": "第 3 轮领出的牌是 ♣8。",
+        "text": "Round 3 is led with ♣8.",
         "constraint": {
           "kind": "leadCard",
           "round": 3,
@@ -1205,7 +1205,7 @@
       },
       {
         "id": "f5",
-        "text": "♦2 原本在 B 的手中。",
+        "text": "B originally holds ♦2.",
         "constraint": {
           "kind": "owner",
           "player": "B",
@@ -1214,7 +1214,7 @@
       },
       {
         "id": "f6",
-        "text": "第 2 轮，C 出的是 ♦11。",
+        "text": "In round 2, C plays ♦11.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 2,
@@ -1227,8 +1227,8 @@
     "testimonies": [],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先关注第 2 轮 B 的牌位。这一处可以从以下公开记录入手：第 1 轮，A 出的是 ♣3；第 1 轮，C 出的是 ♠7；第 2 轮领出的牌是 ♠4。",
+        "title": "Look at the evidence",
+        "text": "Focus on B's slot in round 2. Start with these public records: In round 1, A plays ♣3. In round 1, C plays ♠7. Round 2 is led with ♠4.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -1237,8 +1237,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "第一轮由 A 领出 ♣3，而 C 出了 ♠7。必须跟花色，所以 C 当时手中没有梅花，后面也不能再出梅花。",
+        "title": "Connect the rules",
+        "text": "A leads ♣3 in round one, while C plays ♠7. Players must follow suit, so C had no clubs and cannot play that suit in a later round.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -1250,8 +1250,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第二轮 B 出 ♠4。C 第一轮没有跟梅花，之后也不可能持有梅花。假如 A 用最小的 ♣3 赢了第一轮，B 也不能出或持有梅花，余下两张梅花就全归 A；但 A 还必须领出第二轮的 ♠4，这会让 A 超过三张牌。故只能 B 赢第一轮并领出 ♠4。",
+        "title": "One step forward",
+        "text": "B plays ♠4 in round two. C did not follow clubs and cannot hold any later. If A won round one with the lowest club, ♣3, B could not hold clubs either. Both remaining clubs would belong to A, who would also need the next lead, ♠4: four cards in a three-card hand. B must instead win round one and lead ♠4.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -1278,7 +1278,7 @@
         "D6"
       ],
       "falseTestimonyIDs": [],
-      "explanation": "第 1 轮 A：♣3 → B：♣13 → C：♠7。领出的是梅花，同花色中点数最大的牌属于 B，因此 B 获胜。\nC 本轮没有跟梅花，说明其余手牌 ♦11、♦6 都不是梅花；这是必须跟花色规则留下的持牌证据。\n第 2 轮 B：♠4 → C：♦11 → A：♠12。领出的是黑桃，同花色中点数最大的牌属于 A，因此 A 获胜。\nC 本轮没有跟黑桃，说明其余手牌 ♦6 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 3 轮 A：♣8 → B：♦2 → C：♦6。领出的是梅花，同花色中点数最大的牌属于 A，因此 A 获胜。"
+      "explanation": "Round 1: A: ♣3 → B: ♣13 → C: ♠7. The lead suit is clubs. B holds the highest card of that suit and wins.\n\nC did not follow clubs, so the remaining cards (♦11, ♦6) cannot be clubs. This follows from the requirement to follow suit when able.\n\nRound 2: B: ♠4 → C: ♦11 → A: ♠12. The lead suit is spades. A holds the highest card of that suit and wins.\n\nC did not follow spades, so the remaining cards (♦6) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 3: A: ♣8 → B: ♦2 → C: ♦6. The lead suit is clubs. A holds the highest card of that suit and wins."
     }
   },
   {
@@ -1287,9 +1287,9 @@
     "id": "chapter02.level04",
     "chapterID": "chapter02",
     "number": 10,
-    "title": "靠窗的空位",
-    "subtitle": "列车档案 04",
-    "story": "窗缝吹走半张记分纸，留下的人名仍然清晰。花色与持牌记录可以一起恢复这三轮。",
+    "title": "The Window Seat",
+    "subtitle": "Train file 04",
+    "story": "A draft carried away half the score sheet, but the players' names remain clear. Combine suit records with card ownership to restore three rounds.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -1333,7 +1333,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 1 轮，A 出的是 ♠7。",
+        "text": "In round 1, A plays ♠7.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -1343,7 +1343,7 @@
       },
       {
         "id": "f2",
-        "text": "第 1 轮，B 出的是 ♣4。",
+        "text": "In round 1, B plays ♣4.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -1353,7 +1353,7 @@
       },
       {
         "id": "f3",
-        "text": "第 2 轮领出的牌是 ♦5。",
+        "text": "Round 2 is led with ♦5.",
         "constraint": {
           "kind": "leadCard",
           "round": 2,
@@ -1362,7 +1362,7 @@
       },
       {
         "id": "f4",
-        "text": "第 2 轮，A 出的是黑桃。",
+        "text": "In round 2, A plays spades.",
         "constraint": {
           "kind": "playedSuit",
           "round": 2,
@@ -1372,7 +1372,7 @@
       },
       {
         "id": "f5",
-        "text": "♣8 原本在 C 的手中。",
+        "text": "C originally holds ♣8.",
         "constraint": {
           "kind": "owner",
           "player": "C",
@@ -1381,7 +1381,7 @@
       },
       {
         "id": "f6",
-        "text": "第 3 轮领出的牌是 ♦2。",
+        "text": "Round 3 is led with ♦2.",
         "constraint": {
           "kind": "leadCard",
           "round": 3,
@@ -1393,8 +1393,8 @@
     "testimonies": [],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先关注第 2 轮 A 的牌位。这一处可以从以下公开记录入手：第 1 轮，A 出的是 ♠7；第 2 轮领出的牌是 ♦5；第 2 轮，A 出的是黑桃。",
+        "title": "Look at the evidence",
+        "text": "Focus on A's slot in round 2. Start with these public records: In round 1, A plays ♠7. Round 2 is led with ♦5. In round 2, A plays spades.",
         "evidenceIDs": [
           "f1",
           "f3",
@@ -1403,8 +1403,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "第一轮由 A 领出 ♠7，而 B 出了 ♣4。必须跟花色，所以 B 当时手中没有黑桃，后面也不能再出黑桃。",
+        "title": "Connect the rules",
+        "text": "A leads ♠7 in round one, while B plays ♣4. Players must follow suit, so B had no spades and cannot play that suit in a later round.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -1416,8 +1416,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第二轮 A 出 ♠3。A 该轮确定出黑桃，因此不会是领出 ♦5 的人，第一轮一定由别人赢过 A 的 ♠7。能赢过它的黑桃只有 ♠12，已经用于第一轮赢家；A 第二轮的黑桃便只剩 ♠3。",
+        "title": "One step forward",
+        "text": "A plays ♠3 in round two. A is known to play a spade then, so cannot lead the recorded ♦5. Someone else must have beaten A's ♠7 in round one. Only ♠12 can do that, leaving ♠3 as A's second-round spade.",
         "evidenceIDs": [
           "f1",
           "f3",
@@ -1444,7 +1444,7 @@
         "C8"
       ],
       "falseTestimonyIDs": [],
-      "explanation": "第 1 轮 A：♠7 → B：♣4 → C：♠12。领出的是黑桃，同花色中点数最大的牌属于 C，因此 C 获胜。\nB 本轮没有跟黑桃，说明其余手牌 ♦10、♦2 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 C：♦5 → A：♠3 → B：♦10。领出的是方块，同花色中点数最大的牌属于 B，因此 B 获胜。\nA 本轮没有跟方块，说明其余手牌 ♣13 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 3 轮 B：♦2 → C：♣8 → A：♣13。领出的是方块，同花色中点数最大的牌属于 B，因此 B 获胜。"
+      "explanation": "Round 1: A: ♠7 → B: ♣4 → C: ♠12. The lead suit is spades. C holds the highest card of that suit and wins.\n\nB did not follow spades, so the remaining cards (♦10, ♦2) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 2: C: ♦5 → A: ♠3 → B: ♦10. The lead suit is diamonds. B holds the highest card of that suit and wins.\n\nA did not follow diamonds, so the remaining cards (♣13) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 3: B: ♦2 → C: ♣8 → A: ♣13. The lead suit is diamonds. B holds the highest card of that suit and wins."
     }
   },
   {
@@ -1453,9 +1453,9 @@
     "id": "chapter02.level05",
     "chapterID": "chapter02",
     "number": 11,
-    "title": "餐车的茶渍",
-    "subtitle": "列车档案 05",
-    "story": "一圈茶渍遮住了点数。记录员另抄了花色，行李员则证实了几张牌原来属于谁。",
+    "title": "Tea in the Dining Car",
+    "subtitle": "Train file 05",
+    "story": "A tea stain covers the ranks. The clerk copied the suits elsewhere, and the porter confirmed who originally held several cards.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -1490,7 +1490,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 1 轮，A 出的是 ♠3。",
+        "text": "In round 1, A plays ♠3.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -1500,7 +1500,7 @@
       },
       {
         "id": "f2",
-        "text": "第 1 轮，B 出的是 ♣11。",
+        "text": "In round 1, B plays ♣11.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -1510,7 +1510,7 @@
       },
       {
         "id": "f3",
-        "text": "♣2 原本在 C 的手中。",
+        "text": "C originally holds ♣2.",
         "constraint": {
           "kind": "owner",
           "player": "C",
@@ -1519,7 +1519,7 @@
       },
       {
         "id": "f4",
-        "text": "♠7 原本在 C 的手中。",
+        "text": "C originally holds ♠7.",
         "constraint": {
           "kind": "owner",
           "player": "C",
@@ -1531,8 +1531,8 @@
     "testimonies": [],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先关注第 1 轮 C 的牌位。这一处可以从以下公开记录入手：第 1 轮，A 出的是 ♠3；♣2 原本在 C 的手中；♠7 原本在 C 的手中。",
+        "title": "Look at the evidence",
+        "text": "Focus on C's slot in round 1. Start with these public records: In round 1, A plays ♠3. C originally holds ♣2. C originally holds ♠7.",
         "evidenceIDs": [
           "f1",
           "f3",
@@ -1541,8 +1541,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "第一轮由 A 领出 ♠3，而 B 出了 ♣11。必须跟花色，所以 B 当时手中没有黑桃，后面也不能再出黑桃。",
+        "title": "Connect the rules",
+        "text": "A leads ♠3 in round one, while B plays ♣11. Players must follow suit, so B had no spades and cannot play that suit in a later round.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -1552,8 +1552,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第一轮 C 出 ♠7。C 的全部手牌是 ♣2 与 ♠7；A 已领出黑桃，C 有黑桃就必须跟，不能先打梅花。",
+        "title": "One step forward",
+        "text": "C plays ♠7 in round one. C's entire hand is ♣2 and ♠7. A has led spades, so C must follow with ♠7 rather than play the club.",
         "evidenceIDs": [
           "f1",
           "f3",
@@ -1577,7 +1577,7 @@
         "C2"
       ],
       "falseTestimonyIDs": [],
-      "explanation": "第 1 轮 A：♠3 → B：♣11 → C：♠7。领出的是黑桃，同花色中点数最大的牌属于 C，因此 C 获胜。\nB 本轮没有跟黑桃，说明其余手牌 ♣6 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 C：♣2 → A：♠12 → B：♣6。领出的是梅花，同花色中点数最大的牌属于 B，因此 B 获胜。"
+      "explanation": "Round 1: A: ♠3 → B: ♣11 → C: ♠7. The lead suit is spades. C holds the highest card of that suit and wins.\n\nB did not follow spades, so the remaining cards (♣6) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 2: C: ♣2 → A: ♠12 → B: ♣6. The lead suit is clubs. B holds the highest card of that suit and wins."
     }
   },
   {
@@ -1586,9 +1586,9 @@
     "id": "chapter02.level06",
     "chapterID": "chapter02",
     "number": 12,
-    "title": "换轨之后",
-    "subtitle": "列车档案 06",
-    "story": "换轨时的颠簸弄乱了笔迹。第一张牌没有丢，后面的每次领出仍要交给上一轮赢家。",
+    "title": "After the Junction",
+    "subtitle": "Train file 06",
+    "story": "The jolt at a junction scattered the handwriting. The first card survives. Every later lead still belongs to the previous round's winner.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -1632,7 +1632,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 1 轮，A 出的是 ♠3。",
+        "text": "In round 1, A plays ♠3.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -1642,7 +1642,7 @@
       },
       {
         "id": "f2",
-        "text": "第 1 轮，B 出的是 ♥5。",
+        "text": "In round 1, B plays ♥5.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -1652,7 +1652,7 @@
       },
       {
         "id": "f3",
-        "text": "第 3 轮，C 出的是 ♥10。",
+        "text": "In round 3, C plays ♥10.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 3,
@@ -1662,7 +1662,7 @@
       },
       {
         "id": "f4",
-        "text": "♣7 原本在 A 的手中。",
+        "text": "A originally holds ♣7.",
         "constraint": {
           "kind": "owner",
           "player": "A",
@@ -1671,7 +1671,7 @@
       },
       {
         "id": "f5",
-        "text": "♠13 原本在 A 的手中。",
+        "text": "A originally holds ♠13.",
         "constraint": {
           "kind": "owner",
           "player": "A",
@@ -1680,7 +1680,7 @@
       },
       {
         "id": "f6",
-        "text": "第 2 轮领出的牌是 ♠9。",
+        "text": "Round 2 is led with ♠9.",
         "constraint": {
           "kind": "leadCard",
           "round": 2,
@@ -1689,7 +1689,7 @@
       },
       {
         "id": "f7",
-        "text": "第 3 轮，B 出的是 ♥14。",
+        "text": "In round 3, B plays ♥14.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 3,
@@ -1702,8 +1702,8 @@
     "testimonies": [],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先关注第 2 轮 C 的牌位。这一处可以从以下公开记录入手：第 1 轮，A 出的是 ♠3；第 1 轮，B 出的是 ♥5；第 2 轮领出的牌是 ♠9。",
+        "title": "Look at the evidence",
+        "text": "Focus on C's slot in round 2. Start with these public records: In round 1, A plays ♠3. In round 1, B plays ♥5. Round 2 is led with ♠9.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -1712,8 +1712,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "第一轮由 A 领出 ♠3，而 B 出了 ♥5。必须跟花色，所以 B 当时手中没有黑桃，后面也不能再出黑桃。",
+        "title": "Connect the rules",
+        "text": "A leads ♠3 in round one, while B plays ♥5. Players must follow suit, so B had no spades and cannot play that suit in a later round.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -1726,8 +1726,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第二轮 C 出 ♠9。B 第一轮没有跟黑桃，所以他没有黑桃。假如 C 第一轮也不跟，剩余三张黑桃将全归 A，但 A 连同已出的 ♠3 会持有四张牌，超过每人三张的上限。因此 C 必须用更大的黑桃赢第一轮，并领出第二轮的 ♠9。",
+        "title": "One step forward",
+        "text": "C plays ♠9 in round two. B did not follow spades and holds none. If C also failed to follow, all three remaining spades would belong to A. With the already played ♠3, that would give A four cards instead of three. C must win round one with a higher spade and lead ♠9 next.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -1754,7 +1754,7 @@
         "H10"
       ],
       "falseTestimonyIDs": [],
-      "explanation": "第 1 轮 A：♠3 → B：♥5 → C：♠6。领出的是黑桃，同花色中点数最大的牌属于 C，因此 C 获胜。\nB 本轮没有跟黑桃，说明其余手牌 ♥2、♥14 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 C：♠9 → A：♠13 → B：♥2。领出的是黑桃，同花色中点数最大的牌属于 A，因此 A 获胜。\nB 本轮没有跟黑桃，说明其余手牌 ♥14 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 3 轮 A：♣7 → B：♥14 → C：♥10。领出的是梅花，同花色中点数最大的牌属于 A，因此 A 获胜。"
+      "explanation": "Round 1: A: ♠3 → B: ♥5 → C: ♠6. The lead suit is spades. C holds the highest card of that suit and wins.\n\nB did not follow spades, so the remaining cards (♥2, ♥14) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 2: C: ♠9 → A: ♠13 → B: ♥2. The lead suit is spades. A holds the highest card of that suit and wins.\n\nB did not follow spades, so the remaining cards (♥14) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 3: A: ♣7 → B: ♥14 → C: ♥10. The lead suit is clubs. A holds the highest card of that suit and wins."
     }
   },
   {
@@ -1763,9 +1763,9 @@
     "id": "chapter02.level07",
     "chapterID": "chapter02",
     "number": 13,
-    "title": "夜班检票员",
-    "subtitle": "列车档案 07",
-    "story": "夜班检票员没有记全牌面，只在赢家旁边打了一个钩。那枚钩与手牌容量一样可靠。",
+    "title": "The Night Conductor",
+    "subtitle": "Train file 07",
+    "story": "The night conductor missed some cards but left a check beside a winner. That mark is as reliable as the limit on each player's hand.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -1809,7 +1809,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 1 轮，A 出的是 ♠5。",
+        "text": "In round 1, A plays ♠5.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -1819,7 +1819,7 @@
       },
       {
         "id": "f2",
-        "text": "第 1 轮，B 出的是 ♥12。",
+        "text": "In round 1, B plays ♥12.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -1829,7 +1829,7 @@
       },
       {
         "id": "f3",
-        "text": "第 2 轮领出的牌是 ♦9。",
+        "text": "Round 2 is led with ♦9.",
         "constraint": {
           "kind": "leadCard",
           "round": 2,
@@ -1838,7 +1838,7 @@
       },
       {
         "id": "f4",
-        "text": "第 3 轮的赢家是 B。",
+        "text": "B wins round 3.",
         "constraint": {
           "kind": "roundWinner",
           "round": 3,
@@ -1847,7 +1847,7 @@
       },
       {
         "id": "f5",
-        "text": "♣4 原本在 B 的手中。",
+        "text": "B originally holds ♣4.",
         "constraint": {
           "kind": "owner",
           "player": "B",
@@ -1859,8 +1859,8 @@
     "testimonies": [],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先关注第 1 轮 C 的牌位。这一处可以从以下公开记录入手：第 1 轮，A 出的是 ♠5；第 1 轮，B 出的是 ♥12；第 2 轮领出的牌是 ♦9；第 3 轮的赢家是 B。",
+        "title": "Look at the evidence",
+        "text": "Focus on C's slot in round 1. Start with these public records: In round 1, A plays ♠5. In round 1, B plays ♥12. Round 2 is led with ♦9. B wins round 3.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -1870,8 +1870,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "第一轮由 A 领出 ♠5，而 B 出了 ♥12。必须跟花色，所以 B 当时手中没有黑桃，后面也不能再出黑桃。",
+        "title": "Connect the rules",
+        "text": "A leads ♠5 in round one, while B plays ♥12. Players must follow suit, so B had no spades and cannot play that suit in a later round.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -1882,8 +1882,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第一轮 C 出 ♠13。B 没有黑桃，♠13 只能属于 A 或 C。若 A 留着 ♠13，用 ♠5 赢第一轮，再领出最大的方块 ♦9 赢第二轮，第三轮便由 A 领 ♠13；没有黑桃的 B 不可能赢第三轮。这与可信赢家记录冲突，所以 C 必须在第一轮出 ♠13。",
+        "title": "One step forward",
+        "text": "C plays ♠13 in round one. B has no spades, so ♠13 belongs to A or C. If A kept it while winning with ♠5, A would then lead ♦9, the highest diamond, and lead ♠13 in round three. B, with no spades, could not win that round. This contradicts the reliable winner record. C must play ♠13 in round one.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -1911,7 +1911,7 @@
         "H2"
       ],
       "falseTestimonyIDs": [],
-      "explanation": "第 1 轮 A：♠5 → B：♥12 → C：♠13。领出的是黑桃，同花色中点数最大的牌属于 C，因此 C 获胜。\nB 本轮没有跟黑桃，说明其余手牌 ♣4、♥7 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 C：♦9 → A：♦3 → B：♣4。领出的是方块，同花色中点数最大的牌属于 C，因此 C 获胜。\nB 本轮没有跟方块，说明其余手牌 ♥7 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 3 轮 C：♥2 → A：♣10 → B：♥7。领出的是红桃，同花色中点数最大的牌属于 B，因此 B 获胜。"
+      "explanation": "Round 1: A: ♠5 → B: ♥12 → C: ♠13. The lead suit is spades. C holds the highest card of that suit and wins.\n\nB did not follow spades, so the remaining cards (♣4, ♥7) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 2: C: ♦9 → A: ♦3 → B: ♣4. The lead suit is diamonds. C holds the highest card of that suit and wins.\n\nB did not follow diamonds, so the remaining cards (♥7) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 3: C: ♥2 → A: ♣10 → B: ♥7. The lead suit is hearts. B holds the highest card of that suit and wins."
     }
   },
   {
@@ -1920,9 +1920,9 @@
     "id": "chapter02.level08",
     "chapterID": "chapter02",
     "number": 14,
-    "title": "折起的时刻表",
-    "subtitle": "列车档案 08",
-    "story": "时刻表折痕处缺了一行。虽然看不见那张牌，之后的出牌仍能证明它不可能来自某些人。",
+    "title": "The Folded Timetable",
+    "subtitle": "Train file 08",
+    "story": "A line is missing along the timetable's fold. Later plays can still prove which players could not have held the missing card.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -1966,7 +1966,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 1 轮，A 出的是 ♣10。",
+        "text": "In round 1, A plays ♣10.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -1976,7 +1976,7 @@
       },
       {
         "id": "f2",
-        "text": "第 1 轮，B 出的是 ♦2。",
+        "text": "In round 1, B plays ♦2.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -1986,7 +1986,7 @@
       },
       {
         "id": "f3",
-        "text": "第 2 轮领出的牌是 ♦14。",
+        "text": "Round 2 is led with ♦14.",
         "constraint": {
           "kind": "leadCard",
           "round": 2,
@@ -1995,7 +1995,7 @@
       },
       {
         "id": "f4",
-        "text": "♦8 原本在 A 的手中。",
+        "text": "A originally holds ♦8.",
         "constraint": {
           "kind": "owner",
           "player": "A",
@@ -2004,7 +2004,7 @@
       },
       {
         "id": "f5",
-        "text": "第 3 轮，B 出的是 ♦11。",
+        "text": "In round 3, B plays ♦11.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 3,
@@ -2014,7 +2014,7 @@
       },
       {
         "id": "f6",
-        "text": "第 3 轮，C 出的是 ♠12。",
+        "text": "In round 3, C plays ♠12.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 3,
@@ -2027,8 +2027,8 @@
     "testimonies": [],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先关注第 2 轮 A 的牌位。这一处可以从以下公开记录入手：第 1 轮，A 出的是 ♣10；第 2 轮领出的牌是 ♦14。",
+        "title": "Look at the evidence",
+        "text": "Focus on A's slot in round 2. Start with these public records: In round 1, A plays ♣10. Round 2 is led with ♦14.",
         "evidenceIDs": [
           "f1",
           "f3"
@@ -2036,8 +2036,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "第一轮由 A 领出 ♣10，而 B 出了 ♦2。必须跟花色，所以 B 当时手中没有梅花，后面也不能再出梅花。",
+        "title": "Connect the rules",
+        "text": "A leads ♣10 in round one, while B plays ♦2. Players must follow suit, so B had no clubs and cannot play that suit in a later round.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -2049,8 +2049,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第二轮 A 出 ♦14。A 第一轮领出的 ♣10 是牌池中最大的梅花，不会被其他花色的高点数击败。A 因此赢第一轮，并负责领出第二轮已确认的 ♦14。",
+        "title": "One step forward",
+        "text": "A plays ♦14 in round two. A's opening ♣10 is the highest club in the pool and cannot lose to another suit. A wins round one and must lead the confirmed ♦14 next.",
         "evidenceIDs": [
           "f1",
           "f3"
@@ -2076,7 +2076,7 @@
         "S12"
       ],
       "falseTestimonyIDs": [],
-      "explanation": "第 1 轮 A：♣10 → B：♦2 → C：♣4。领出的是梅花，同花色中点数最大的牌属于 A，因此 A 获胜。\nB 本轮没有跟梅花，说明其余手牌 ♦5、♦11 都不是梅花；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♦14 → B：♦5 → C：♠6。领出的是方块，同花色中点数最大的牌属于 A，因此 A 获胜。\nC 本轮没有跟方块，说明其余手牌 ♠12 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 3 轮 A：♦8 → B：♦11 → C：♠12。领出的是方块，同花色中点数最大的牌属于 B，因此 B 获胜。"
+      "explanation": "Round 1: A: ♣10 → B: ♦2 → C: ♣4. The lead suit is clubs. A holds the highest card of that suit and wins.\n\nB did not follow clubs, so the remaining cards (♦5, ♦11) cannot be clubs. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♦14 → B: ♦5 → C: ♠6. The lead suit is diamonds. A holds the highest card of that suit and wins.\n\nC did not follow diamonds, so the remaining cards (♠12) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 3: A: ♦8 → B: ♦11 → C: ♠12. The lead suit is diamonds. B holds the highest card of that suit and wins."
     }
   },
   {
@@ -2085,9 +2085,9 @@
     "id": "chapter02.level09",
     "chapterID": "chapter02",
     "number": 15,
-    "title": "站台来电",
-    "subtitle": "列车档案 09",
-    "story": "站台打来的电话补充了一条确切记录。将它与车厢中已有的记录交叉检查，不能让同一张牌出现两次。",
+    "title": "A Call from the Platform",
+    "subtitle": "Train file 09",
+    "story": "A call from the platform adds one definite record. Check it against the carriage notes, remembering that no card can appear twice.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -2131,7 +2131,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 1 轮，A 出的是 ♠2。",
+        "text": "In round 1, A plays ♠2.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -2141,7 +2141,7 @@
       },
       {
         "id": "f2",
-        "text": "第 1 轮，C 出的是 ♦12。",
+        "text": "In round 1, C plays ♦12.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -2151,7 +2151,7 @@
       },
       {
         "id": "f3",
-        "text": "第 2 轮领出的牌是 ♥3。",
+        "text": "Round 2 is led with ♥3.",
         "constraint": {
           "kind": "leadCard",
           "round": 2,
@@ -2160,7 +2160,7 @@
       },
       {
         "id": "f4",
-        "text": "♥13 原本在 B 的手中。",
+        "text": "B originally holds ♥13.",
         "constraint": {
           "kind": "owner",
           "player": "B",
@@ -2169,7 +2169,7 @@
       },
       {
         "id": "f5",
-        "text": "第 2 轮，A 出的是 ♠6。",
+        "text": "In round 2, A plays ♠6.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 2,
@@ -2179,7 +2179,7 @@
       },
       {
         "id": "f6",
-        "text": "♦7 原本在 C 的手中。",
+        "text": "C originally holds ♦7.",
         "constraint": {
           "kind": "owner",
           "player": "C",
@@ -2191,8 +2191,8 @@
     "testimonies": [],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先关注第 2 轮 B 的牌位。这一处可以从以下公开记录入手：第 1 轮，A 出的是 ♠2；第 1 轮，C 出的是 ♦12；第 2 轮领出的牌是 ♥3。",
+        "title": "Look at the evidence",
+        "text": "Focus on B's slot in round 2. Start with these public records: In round 1, A plays ♠2. In round 1, C plays ♦12. Round 2 is led with ♥3.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -2201,8 +2201,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "第一轮由 A 领出 ♠2，而 C 出了 ♦12。必须跟花色，所以 C 当时手中没有黑桃，后面也不能再出黑桃。",
+        "title": "Connect the rules",
+        "text": "A leads ♠2 in round one, while C plays ♦12. Players must follow suit, so C had no spades and cannot play that suit in a later round.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -2214,8 +2214,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第二轮 B 出 ♥3。C 没有跟黑桃，不能持有余下的黑桃。若 B 也不跟，A 就必须持有全部三张黑桃；A 虽会赢第一轮，却没有位置再持有第二轮必须领出的 ♥3。故第一轮由 B 以较大的黑桃获胜，第二轮 ♥3 属于 B。",
+        "title": "One step forward",
+        "text": "B plays ♥3 in round two. C did not follow spades and cannot hold any remaining spade. If B also failed to follow, A would hold all three spades. A would win, but have no room in hand for the next lead, ♥3. B must win with a higher spade and then lead ♥3.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -2242,7 +2242,7 @@
         "D7"
       ],
       "falseTestimonyIDs": [],
-      "explanation": "第 1 轮 A：♠2 → B：♠11 → C：♦12。领出的是黑桃，同花色中点数最大的牌属于 B，因此 B 获胜。\nC 本轮没有跟黑桃，说明其余手牌 ♥8、♦7 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 B：♥3 → C：♥8 → A：♠6。领出的是红桃，同花色中点数最大的牌属于 C，因此 C 获胜。\nA 本轮没有跟红桃，说明其余手牌 ♦4 都不是红桃；这是必须跟花色规则留下的持牌证据。\n第 3 轮 C：♦7 → A：♦4 → B：♥13。领出的是方块，同花色中点数最大的牌属于 C，因此 C 获胜。"
+      "explanation": "Round 1: A: ♠2 → B: ♠11 → C: ♦12. The lead suit is spades. B holds the highest card of that suit and wins.\n\nC did not follow spades, so the remaining cards (♥8, ♦7) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 2: B: ♥3 → C: ♥8 → A: ♠6. The lead suit is hearts. C holds the highest card of that suit and wins.\n\nA did not follow hearts, so the remaining cards (♦4) cannot be hearts. This follows from the requirement to follow suit when able.\n\nRound 3: C: ♦7 → A: ♦4 → B: ♥13. The lead suit is diamonds. C holds the highest card of that suit and wins."
     }
   },
   {
@@ -2251,9 +2251,9 @@
     "id": "chapter02.level10",
     "chapterID": "chapter02",
     "number": 16,
-    "title": "灯灭的一分钟",
-    "subtitle": "列车档案 10",
-    "story": "灯熄灭时，牌局仍按固定座次继续。人名对应的位置没变，只有领出的人可能改变。",
+    "title": "A Minute in the Dark",
+    "subtitle": "Train file 10",
+    "story": "The lights went out, but play continued around the same seats. Each name still marks the same column; only the leader may change.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -2297,7 +2297,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 1 轮，A 出的是 ♠10。",
+        "text": "In round 1, A plays ♠10.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -2307,7 +2307,7 @@
       },
       {
         "id": "f2",
-        "text": "第 1 轮，C 出的是 ♥4。",
+        "text": "In round 1, C plays ♥4.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -2317,7 +2317,7 @@
       },
       {
         "id": "f3",
-        "text": "第 2 轮领出的牌是 ♦3。",
+        "text": "Round 2 is led with ♦3.",
         "constraint": {
           "kind": "leadCard",
           "round": 2,
@@ -2326,7 +2326,7 @@
       },
       {
         "id": "f4",
-        "text": "♠2 原本在 A 的手中。",
+        "text": "A originally holds ♠2.",
         "constraint": {
           "kind": "owner",
           "player": "A",
@@ -2335,7 +2335,7 @@
       },
       {
         "id": "f5",
-        "text": "第 2 轮，B 出的是 ♥13。",
+        "text": "In round 2, B plays ♥13.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 2,
@@ -2345,7 +2345,7 @@
       },
       {
         "id": "f6",
-        "text": "第 3 轮领出的牌是 ♦7。",
+        "text": "Round 3 is led with ♦7.",
         "constraint": {
           "kind": "leadCard",
           "round": 3,
@@ -2357,8 +2357,8 @@
     "testimonies": [],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先关注第 2 轮 A 的牌位。这一处可以从以下公开记录入手：第 1 轮，A 出的是 ♠10；第 2 轮领出的牌是 ♦3。",
+        "title": "Look at the evidence",
+        "text": "Focus on A's slot in round 2. Start with these public records: In round 1, A plays ♠10. Round 2 is led with ♦3.",
         "evidenceIDs": [
           "f1",
           "f3"
@@ -2366,8 +2366,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "第一轮由 A 领出 ♠10，而 C 出了 ♥4。必须跟花色，所以 C 当时手中没有黑桃，后面也不能再出黑桃。",
+        "title": "Connect the rules",
+        "text": "A leads ♠10 in round one, while C plays ♥4. Players must follow suit, so C had no spades and cannot play that suit in a later round.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -2379,8 +2379,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第二轮 A 出 ♦3。A 领出的 ♠10 是本局最大的黑桃，因此必定赢第一轮。赢家领出下一轮，第二轮已确认的 ♦3 就落在 A 的位置。",
+        "title": "One step forward",
+        "text": "A plays ♦3 in round two. A's opening ♠10 is the highest spade in this game, so A wins round one. The winner leads next, placing the confirmed ♦3 in A's second-round slot.",
         "evidenceIDs": [
           "f1",
           "f3"
@@ -2406,7 +2406,7 @@
         "D7"
       ],
       "falseTestimonyIDs": [],
-      "explanation": "第 1 轮 A：♠10 → B：♠5 → C：♥4。领出的是黑桃，同花色中点数最大的牌属于 A，因此 A 获胜。\nC 本轮没有跟黑桃，说明其余手牌 ♦12、♦7 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♦3 → B：♥13 → C：♦12。领出的是方块，同花色中点数最大的牌属于 C，因此 C 获胜。\nB 本轮没有跟方块，说明其余手牌 ♥8 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 3 轮 C：♦7 → A：♠2 → B：♥8。领出的是方块，同花色中点数最大的牌属于 C，因此 C 获胜。"
+      "explanation": "Round 1: A: ♠10 → B: ♠5 → C: ♥4. The lead suit is spades. A holds the highest card of that suit and wins.\n\nC did not follow spades, so the remaining cards (♦12, ♦7) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♦3 → B: ♥13 → C: ♦12. The lead suit is diamonds. C holds the highest card of that suit and wins.\n\nB did not follow diamonds, so the remaining cards (♥8) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 3: C: ♦7 → A: ♠2 → B: ♥8. The lead suit is diamonds. C holds the highest card of that suit and wins."
     }
   },
   {
@@ -2415,9 +2415,9 @@
     "id": "chapter02.level11",
     "chapterID": "chapter02",
     "number": 17,
-    "title": "终点前的三轮",
-    "subtitle": "列车档案 11",
-    "story": "终点站快到了，三位旅客把余下的牌全部打完。纸上不同花色交织，留下的缺门信息尤其有用。",
+    "title": "Three Rounds to Go",
+    "subtitle": "Train file 11",
+    "story": "Near the terminus, three passengers played out their hands. Amid the mixed suits, the cards they could not follow offer valuable evidence.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -2461,7 +2461,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 1 轮，A 出的是 ♣5。",
+        "text": "In round 1, A plays ♣5.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -2471,7 +2471,7 @@
       },
       {
         "id": "f2",
-        "text": "第 1 轮，B 出的是 ♦7。",
+        "text": "In round 1, B plays ♦7.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -2481,7 +2481,7 @@
       },
       {
         "id": "f3",
-        "text": "第 2 轮领出的牌是 ♥4。",
+        "text": "Round 2 is led with ♥4.",
         "constraint": {
           "kind": "leadCard",
           "round": 2,
@@ -2490,7 +2490,7 @@
       },
       {
         "id": "f4",
-        "text": "第 1 轮，C 出的是 ♦3。",
+        "text": "In round 1, C plays ♦3.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -2500,7 +2500,7 @@
       },
       {
         "id": "f5",
-        "text": "第 3 轮领出的牌是 ♥2。",
+        "text": "Round 3 is led with ♥2.",
         "constraint": {
           "kind": "leadCard",
           "round": 3,
@@ -2509,7 +2509,7 @@
       },
       {
         "id": "f6",
-        "text": "♥12 原本在 B 的手中。",
+        "text": "B originally holds ♥12.",
         "constraint": {
           "kind": "owner",
           "player": "B",
@@ -2521,8 +2521,8 @@
     "testimonies": [],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先关注第 2 轮 A 的牌位。这一处可以从以下公开记录入手：第 1 轮，B 出的是 ♦7；第 2 轮领出的牌是 ♥4；第 1 轮，C 出的是 ♦3。",
+        "title": "Look at the evidence",
+        "text": "Focus on A's slot in round 2. Start with these public records: In round 1, B plays ♦7. Round 2 is led with ♥4. In round 1, C plays ♦3.",
         "evidenceIDs": [
           "f2",
           "f3",
@@ -2531,8 +2531,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "第一轮由 A 领出 ♣5，而 B 出了 ♦7。必须跟花色，所以 B 当时手中没有梅花，后面也不能再出梅花。",
+        "title": "Connect the rules",
+        "text": "A leads ♣5 in round one, while B plays ♦7. Players must follow suit, so B had no clubs and cannot play that suit in a later round.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -2544,8 +2544,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第二轮 A 出 ♥4。第一轮 B、C 已分别出 ♦7、♦3：如果 A 领出方块，只剩更大的 ♦11；如果 A 领出其他花色，B、C 都不能争胜。两种情况下赢家都是 A，所以第二轮由 A 领出 ♥4。",
+        "title": "One step forward",
+        "text": "A plays ♥4 in round two. B and C play ♦7 and ♦3 in round one. If A leads diamonds, only the higher ♦11 remains. If A leads another suit, neither B nor C can win. Either way, A wins and leads ♥4 in round two.",
         "evidenceIDs": [
           "f2",
           "f3",
@@ -2572,7 +2572,7 @@
         "D11"
       ],
       "falseTestimonyIDs": [],
-      "explanation": "第 1 轮 A：♣5 → B：♦7 → C：♦3。领出的是梅花，同花色中点数最大的牌属于 A，因此 A 获胜。\nB 本轮没有跟梅花，说明其余手牌 ♥12、♥2 都不是梅花；这是必须跟花色规则留下的持牌证据。\nC 本轮没有跟梅花，说明其余手牌 ♥8、♦11 都不是梅花；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♥4 → B：♥12 → C：♥8。领出的是红桃，同花色中点数最大的牌属于 B，因此 B 获胜。\n第 3 轮 B：♥2 → C：♦11 → A：♣10。领出的是红桃，同花色中点数最大的牌属于 B，因此 B 获胜。"
+      "explanation": "Round 1: A: ♣5 → B: ♦7 → C: ♦3. The lead suit is clubs. A holds the highest card of that suit and wins.\n\nB did not follow clubs, so the remaining cards (♥12, ♥2) cannot be clubs. This follows from the requirement to follow suit when able.\n\nC did not follow clubs, so the remaining cards (♥8, ♦11) cannot be clubs. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♥4 → B: ♥12 → C: ♥8. The lead suit is hearts. B holds the highest card of that suit and wins.\n\nRound 3: B: ♥2 → C: ♦11 → A: ♣10. The lead suit is hearts. B holds the highest card of that suit and wins."
     }
   },
   {
@@ -2581,9 +2581,9 @@
     "id": "chapter02.level12",
     "chapterID": "chapter02",
     "number": 18,
-    "title": "末班车归档",
-    "subtitle": "列车档案 12",
-    "story": "十二页记录终于收齐。最后一页需要同时核对持牌、赢家和余牌，让这段旅途有一个完整的落款。",
+    "title": "The Last Train Filed",
+    "subtitle": "Train file 12",
+    "story": "All twelve pages have arrived. Check ownership, winners, and remaining hands together to bring this journey to a complete close.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -2627,7 +2627,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 1 轮，A 出的是 ♦6。",
+        "text": "In round 1, A plays ♦6.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -2637,7 +2637,7 @@
       },
       {
         "id": "f2",
-        "text": "第 1 轮，B 出的是 ♣10。",
+        "text": "In round 1, B plays ♣10.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -2647,7 +2647,7 @@
       },
       {
         "id": "f3",
-        "text": "第 2 轮领出的牌是 ♣5。",
+        "text": "Round 2 is led with ♣5.",
         "constraint": {
           "kind": "leadCard",
           "round": 2,
@@ -2656,7 +2656,7 @@
       },
       {
         "id": "f4",
-        "text": "第 2 轮，C 出的是 ♦9。",
+        "text": "In round 2, C plays ♦9.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 2,
@@ -2666,7 +2666,7 @@
       },
       {
         "id": "f5",
-        "text": "♥7 原本在 A 的手中。",
+        "text": "A originally holds ♥7.",
         "constraint": {
           "kind": "owner",
           "player": "A",
@@ -2675,7 +2675,7 @@
       },
       {
         "id": "f6",
-        "text": "第 3 轮领出的牌是 ♣2。",
+        "text": "Round 3 is led with ♣2.",
         "constraint": {
           "kind": "leadCard",
           "round": 3,
@@ -2687,8 +2687,8 @@
     "testimonies": [],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先关注第 1 轮 C 的牌位。这一处可以从以下公开记录入手：第 1 轮，A 出的是 ♦6；第 2 轮领出的牌是 ♣5；第 2 轮，C 出的是 ♦9。",
+        "title": "Look at the evidence",
+        "text": "Focus on C's slot in round 1. Start with these public records: In round 1, A plays ♦6. Round 2 is led with ♣5. In round 2, C plays ♦9.",
         "evidenceIDs": [
           "f1",
           "f3",
@@ -2697,8 +2697,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "第一轮由 A 领出 ♦6，而 B 出了 ♣10。必须跟花色，所以 B 当时手中没有方块，后面也不能再出方块。",
+        "title": "Connect the rules",
+        "text": "A leads ♦6 in round one, while B plays ♣10. Players must follow suit, so B had no diamonds and cannot play that suit in a later round.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -2710,8 +2710,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第一轮 C 出 ♦3。C 第二轮还持有 ♦9，所以第一轮必须跟 A 领出的方块。♦9 留在第二轮不能提前用，剩下的候选是 ♦3、♦13；若 C 第一轮出 ♦13 获胜，他第二轮必须领 ♣5，便与已确认的 ♦9 冲突。因此只能出 ♦3。",
+        "title": "One step forward",
+        "text": "C plays ♦3 in round one. C still holds ♦9 for round two and must follow A's diamond lead. ♦9 cannot be used early, leaving ♦3 or ♦13. If C won with ♦13, C would have to lead ♣5 next, contradicting the confirmed ♦9. Only ♦3 works.",
         "evidenceIDs": [
           "f1",
           "f3",
@@ -2738,7 +2738,7 @@
         "D13"
       ],
       "falseTestimonyIDs": [],
-      "explanation": "第 1 轮 A：♦6 → B：♣10 → C：♦3。领出的是方块，同花色中点数最大的牌属于 A，因此 A 获胜。\nB 本轮没有跟方块，说明其余手牌 ♣14、♣2 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♣5 → B：♣14 → C：♦9。领出的是梅花，同花色中点数最大的牌属于 B，因此 B 获胜。\nC 本轮没有跟梅花，说明其余手牌 ♦13 都不是梅花；这是必须跟花色规则留下的持牌证据。\n第 3 轮 B：♣2 → C：♦13 → A：♥7。领出的是梅花，同花色中点数最大的牌属于 B，因此 B 获胜。"
+      "explanation": "Round 1: A: ♦6 → B: ♣10 → C: ♦3. The lead suit is diamonds. A holds the highest card of that suit and wins.\n\nB did not follow diamonds, so the remaining cards (♣14, ♣2) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♣5 → B: ♣14 → C: ♦9. The lead suit is clubs. B holds the highest card of that suit and wins.\n\nC did not follow clubs, so the remaining cards (♦13) cannot be clubs. This follows from the requirement to follow suit when able.\n\nRound 3: B: ♣2 → C: ♦13 → A: ♥7. The lead suit is clubs. B holds the highest card of that suit and wins."
     }
   },
   {
@@ -2747,9 +2747,9 @@
     "id": "chapter03.level01",
     "chapterID": "chapter03",
     "number": 19,
-    "title": "钟声之前",
-    "subtitle": "茶馆档案 01",
-    "story": "茶馆的钟声响起前，三段记录已经写好。现在它们次序散乱，请用领出牌与赢家恢复联系。",
+    "title": "Before the Chime",
+    "subtitle": "Tea room file 01",
+    "story": "Three rounds were recorded before the clock chimed. The notes are now out of order. Use the lead cards and winners to reconnect them.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -2793,7 +2793,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 3 轮领出的牌是 ♣14。",
+        "text": "Round 3 is led with ♣14.",
         "constraint": {
           "kind": "leadCard",
           "round": 3,
@@ -2802,7 +2802,7 @@
       },
       {
         "id": "f2",
-        "text": "第 1 轮领出的牌是 ♣5。",
+        "text": "Round 1 is led with ♣5.",
         "constraint": {
           "kind": "leadCard",
           "round": 1,
@@ -2811,7 +2811,7 @@
       },
       {
         "id": "f3",
-        "text": "第 2 轮领出的牌是 ♣2。",
+        "text": "Round 2 is led with ♣2.",
         "constraint": {
           "kind": "leadCard",
           "round": 2,
@@ -2820,7 +2820,7 @@
       },
       {
         "id": "f4",
-        "text": "第 1 轮，C 出的是黑桃。",
+        "text": "In round 1, C plays spades.",
         "constraint": {
           "kind": "playedSuit",
           "round": 1,
@@ -2830,7 +2830,7 @@
       },
       {
         "id": "f5",
-        "text": "♥12 原本在 A 的手中。",
+        "text": "A originally holds ♥12.",
         "constraint": {
           "kind": "owner",
           "player": "A",
@@ -2839,7 +2839,7 @@
       },
       {
         "id": "f6",
-        "text": "♣11 原本在 B 的手中。",
+        "text": "B originally holds ♣11.",
         "constraint": {
           "kind": "owner",
           "player": "B",
@@ -2848,7 +2848,7 @@
       },
       {
         "id": "f7",
-        "text": "第 3 轮，C 出的是 ♠10。",
+        "text": "In round 3, C plays ♠10.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 3,
@@ -2861,8 +2861,8 @@
     "testimonies": [],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先关注第 1 轮 C 的牌位。这一处可以从以下公开记录入手：第 1 轮，C 出的是黑桃；第 3 轮，C 出的是 ♠10。",
+        "title": "Look at the evidence",
+        "text": "Focus on C's slot in round 1. Start with these public records: In round 1, C plays spades. In round 3, C plays ♠10.",
         "evidenceIDs": [
           "f4",
           "f7"
@@ -2870,8 +2870,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "先把这些已知花色和牌面放到对应的人与轮次。每张牌只使用一次；某人较晚轮次的牌，在较早轮次仍属于他的手牌，也受必须跟花色的规则约束。",
+        "title": "Connect the rules",
+        "text": "Place the known suits and cards with their players and rounds. Each card is used once. A card played in a later round was still in that player's hand earlier and was subject to the follow-suit rule.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -2884,8 +2884,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第一轮 C 出 ♠4。牌池只有 ♠4、♠10 两张黑桃；C 第一轮的花色确定为黑桃，而 ♠10 已确认留到 C 第三轮。同一张牌不能使用两次，所以第一轮只剩 ♠4。",
+        "title": "One step forward",
+        "text": "C plays ♠4 in round one. There are only two spades: ♠4 and ♠10. C must play a spade in round one, but ♠10 is reserved for C's third round. A card cannot be used twice, so ♠4 is the only choice.",
         "evidenceIDs": [
           "f4",
           "f7"
@@ -2911,7 +2911,7 @@
         "S10"
       ],
       "falseTestimonyIDs": [],
-      "explanation": "第 1 轮 B：♣5 → C：♠4 → A：♣8。领出的是梅花，同花色中点数最大的牌属于 A，因此 A 获胜。\nC 本轮没有跟梅花，说明其余手牌 ♥6、♠10 都不是梅花；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♣2 → B：♣11 → C：♥6。领出的是梅花，同花色中点数最大的牌属于 B，因此 B 获胜。\nC 本轮没有跟梅花，说明其余手牌 ♠10 都不是梅花；这是必须跟花色规则留下的持牌证据。\n第 3 轮 B：♣14 → C：♠10 → A：♥12。领出的是梅花，同花色中点数最大的牌属于 B，因此 B 获胜。"
+      "explanation": "Round 1: B: ♣5 → C: ♠4 → A: ♣8. The lead suit is clubs. A holds the highest card of that suit and wins.\n\nC did not follow clubs, so the remaining cards (♥6, ♠10) cannot be clubs. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♣2 → B: ♣11 → C: ♥6. The lead suit is clubs. B holds the highest card of that suit and wins.\n\nC did not follow clubs, so the remaining cards (♠10) cannot be clubs. This follows from the requirement to follow suit when able.\n\nRound 3: B: ♣14 → C: ♠10 → A: ♥12. The lead suit is clubs. B holds the highest card of that suit and wins."
     }
   },
   {
@@ -2920,9 +2920,9 @@
     "id": "chapter03.level02",
     "chapterID": "chapter03",
     "number": 20,
-    "title": "错放的杯垫",
-    "subtitle": "茶馆档案 02",
-    "story": "杯垫下面压着一条领出记录。杯垫摆放的位置不是座次证据，档案中明确的人名与规则才是。",
+    "title": "A Misplaced Coaster",
+    "subtitle": "Tea room file 02",
+    "story": "A lead-card record lies beneath a coaster. The coaster's position proves nothing about the seats; rely on the named records and the rules.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -2957,7 +2957,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 2 轮领出的牌是 ♠3。",
+        "text": "Round 2 is led with ♠3.",
         "constraint": {
           "kind": "leadCard",
           "round": 2,
@@ -2966,7 +2966,7 @@
       },
       {
         "id": "f2",
-        "text": "第 1 轮领出的牌是 ♥2。",
+        "text": "Round 1 is led with ♥2.",
         "constraint": {
           "kind": "leadCard",
           "round": 1,
@@ -2975,7 +2975,7 @@
       },
       {
         "id": "f3",
-        "text": "♦5 原本在 A 的手中。",
+        "text": "A originally holds ♦5.",
         "constraint": {
           "kind": "owner",
           "player": "A",
@@ -2984,7 +2984,7 @@
       },
       {
         "id": "f4",
-        "text": "第 2 轮，A 出的是 ♦13。",
+        "text": "In round 2, A plays ♦13.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 2,
@@ -2997,8 +2997,8 @@
     "testimonies": [],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先关注第 1 轮 A 的牌位。这一处可以从以下公开记录入手：♦5 原本在 A 的手中；第 2 轮，A 出的是 ♦13。",
+        "title": "Look at the evidence",
+        "text": "Focus on A's slot in round 1. Start with these public records: A originally holds ♦5. In round 2, A plays ♦13.",
         "evidenceIDs": [
           "f3",
           "f4"
@@ -3006,8 +3006,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "♦5 必须落在 A 的列内。每人恰有 2 张牌；检查它放在较晚轮次时，是否会让这个人较早时明明有领出花色却没有跟。",
+        "title": "Connect the rules",
+        "text": "♦5 must go in A's column. Each player has exactly 2 cards. If you place it in a later round, check whether that would mean failing to follow its suit in an earlier round.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -3017,8 +3017,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第一轮 A 出 ♦5。♦5 的归属已经确定是 A，A 第二轮又已确认出 ♦13。每人只有两张牌，♦5 只能落在 A 第一轮。",
+        "title": "One step forward",
+        "text": "A plays ♦5 in round one. A is known to hold ♦5 and to play ♦13 in round two. With exactly two cards per player, ♦5 must occupy A's first round.",
         "evidenceIDs": [
           "f3",
           "f4"
@@ -3041,7 +3041,7 @@
         "S8"
       ],
       "falseTestimonyIDs": [],
-      "explanation": "第 1 轮 C：♥2 → A：♦5 → B：♥9。领出的是红桃，同花色中点数最大的牌属于 B，因此 B 获胜。\nA 本轮没有跟红桃，说明其余手牌 ♦13 都不是红桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 B：♠3 → C：♠8 → A：♦13。领出的是黑桃，同花色中点数最大的牌属于 C，因此 C 获胜。"
+      "explanation": "Round 1: C: ♥2 → A: ♦5 → B: ♥9. The lead suit is hearts. B holds the highest card of that suit and wins.\n\nA did not follow hearts, so the remaining cards (♦13) cannot be hearts. This follows from the requirement to follow suit when able.\n\nRound 2: B: ♠3 → C: ♠8 → A: ♦13. The lead suit is spades. C holds the highest card of that suit and wins."
     }
   },
   {
@@ -3050,9 +3050,9 @@
     "id": "chapter03.level03",
     "chapterID": "chapter03",
     "number": 21,
-    "title": "从 B 开始",
-    "subtitle": "茶馆档案 03",
-    "story": "这一局从 B 领出。桌边仍然按 A、B、C 顺时针循环，下一轮则要从赢家重新开始。",
+    "title": "Beginning with B",
+    "subtitle": "Tea room file 03",
+    "story": "B leads this game. The seats still cycle A, B, C, and each new round starts with the previous winner.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -3096,7 +3096,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 3 轮领出的牌是 ♣7。",
+        "text": "Round 3 is led with ♣7.",
         "constraint": {
           "kind": "leadCard",
           "round": 3,
@@ -3105,7 +3105,7 @@
       },
       {
         "id": "f2",
-        "text": "第 2 轮领出的牌是 ♦13。",
+        "text": "Round 2 is led with ♦13.",
         "constraint": {
           "kind": "leadCard",
           "round": 2,
@@ -3114,7 +3114,7 @@
       },
       {
         "id": "f3",
-        "text": "第 1 轮领出的牌是 ♦8。",
+        "text": "Round 1 is led with ♦8.",
         "constraint": {
           "kind": "leadCard",
           "round": 1,
@@ -3123,7 +3123,7 @@
       },
       {
         "id": "f4",
-        "text": "第 3 轮的赢家是 C。",
+        "text": "C wins round 3.",
         "constraint": {
           "kind": "roundWinner",
           "round": 3,
@@ -3132,7 +3132,7 @@
       },
       {
         "id": "f5",
-        "text": "第 2 轮，A 出的是梅花。",
+        "text": "In round 2, A plays clubs.",
         "constraint": {
           "kind": "playedSuit",
           "round": 2,
@@ -3142,7 +3142,7 @@
       },
       {
         "id": "f6",
-        "text": "第 1 轮，C 出的是 ♥10。",
+        "text": "In round 1, C plays ♥10.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -3152,7 +3152,7 @@
       },
       {
         "id": "f7",
-        "text": "♥5 原本在 A 的手中。",
+        "text": "A originally holds ♥5.",
         "constraint": {
           "kind": "owner",
           "player": "A",
@@ -3164,8 +3164,8 @@
     "testimonies": [],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先关注第 2 轮 B 的牌位。这一处可以从以下公开记录入手：第 2 轮领出的牌是 ♦13；第 1 轮领出的牌是 ♦8。",
+        "title": "Look at the evidence",
+        "text": "Focus on B's slot in round 2. Start with these public records: Round 2 is led with ♦13. Round 1 is led with ♦8.",
         "evidenceIDs": [
           "f2",
           "f3"
@@ -3173,8 +3173,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "♦13 是第 2 轮的第一张牌，只能由该轮领出者打出。把这个条件与前轮赢家相连，再检查各人尚未打出的同花色牌。",
+        "title": "Connect the rules",
+        "text": "♦13 is the first card of round 2, so only that round's leader can play it. Connect this to the previous winner, then check the same-suit cards still in each hand.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -3187,8 +3187,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第二轮 B 出 ♦13。首轮由 B 领出 ♦8，而更大的 ♦13 已确认留到第二轮才领出。第一轮没有其他方块能够超过 ♦8，因此 B 赢第一轮，随后领出 ♦13。",
+        "title": "One step forward",
+        "text": "B plays ♦13 in round two. B opens with ♦8. The only higher diamond, ♦13, is reserved as the next round's lead, so nothing can beat ♦8 in round one. B wins and then leads ♦13.",
         "evidenceIDs": [
           "f2",
           "f3"
@@ -3214,7 +3214,7 @@
         "C12"
       ],
       "falseTestimonyIDs": [],
-      "explanation": "第 1 轮 B：♦8 → C：♥10 → A：♦4。领出的是方块，同花色中点数最大的牌属于 B，因此 B 获胜。\nC 本轮没有跟方块，说明其余手牌 ♥2、♣12 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 2 轮 B：♦13 → C：♥2 → A：♣3。领出的是方块，同花色中点数最大的牌属于 B，因此 B 获胜。\nC 本轮没有跟方块，说明其余手牌 ♣12 都不是方块；这是必须跟花色规则留下的持牌证据。\nA 本轮没有跟方块，说明其余手牌 ♥5 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 3 轮 B：♣7 → C：♣12 → A：♥5。领出的是梅花，同花色中点数最大的牌属于 C，因此 C 获胜。"
+      "explanation": "Round 1: B: ♦8 → C: ♥10 → A: ♦4. The lead suit is diamonds. B holds the highest card of that suit and wins.\n\nC did not follow diamonds, so the remaining cards (♥2, ♣12) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 2: B: ♦13 → C: ♥2 → A: ♣3. The lead suit is diamonds. B holds the highest card of that suit and wins.\n\nC did not follow diamonds, so the remaining cards (♣12) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nA did not follow diamonds, so the remaining cards (♥5) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 3: B: ♣7 → C: ♣12 → A: ♥5. The lead suit is clubs. C holds the highest card of that suit and wins."
     }
   },
   {
@@ -3223,9 +3223,9 @@
     "id": "chapter03.level04",
     "chapterID": "chapter03",
     "number": 22,
-    "title": "柜台下的纸条",
-    "subtitle": "茶馆档案 04",
-    "story": "柜台下找到的纸条注明了某轮领出的牌，却没有写人名。谁赢得上一轮，谁才有资格领出它。",
+    "title": "Under the Counter",
+    "subtitle": "Tea room file 04",
+    "story": "A slip beneath the counter names a round's lead card but not its owner. Only the winner of the previous round can have led it.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -3269,7 +3269,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 3 轮领出的牌是 ♣7。",
+        "text": "Round 3 is led with ♣7.",
         "constraint": {
           "kind": "leadCard",
           "round": 3,
@@ -3278,7 +3278,7 @@
       },
       {
         "id": "f2",
-        "text": "第 1 轮领出的牌是 ♦4。",
+        "text": "Round 1 is led with ♦4.",
         "constraint": {
           "kind": "leadCard",
           "round": 1,
@@ -3287,7 +3287,7 @@
       },
       {
         "id": "f3",
-        "text": "♦8 原本在 C 的手中。",
+        "text": "C originally holds ♦8.",
         "constraint": {
           "kind": "owner",
           "player": "C",
@@ -3296,7 +3296,7 @@
       },
       {
         "id": "f4",
-        "text": "♠10 原本在 C 的手中。",
+        "text": "C originally holds ♠10.",
         "constraint": {
           "kind": "owner",
           "player": "C",
@@ -3305,7 +3305,7 @@
       },
       {
         "id": "f5",
-        "text": "第 1 轮，B 出的是黑桃。",
+        "text": "In round 1, B plays spades.",
         "constraint": {
           "kind": "playedSuit",
           "round": 1,
@@ -3315,7 +3315,7 @@
       },
       {
         "id": "f6",
-        "text": "第 3 轮，C 出的是方块。",
+        "text": "In round 3, C plays diamonds.",
         "constraint": {
           "kind": "playedSuit",
           "round": 3,
@@ -3328,8 +3328,8 @@
     "testimonies": [],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先关注第 1 轮 B 的牌位。这一处可以从以下公开记录入手：♠10 原本在 C 的手中；第 1 轮，B 出的是黑桃。",
+        "title": "Look at the evidence",
+        "text": "Focus on B's slot in round 1. Start with these public records: C originally holds ♠10. In round 1, B plays spades.",
         "evidenceIDs": [
           "f4",
           "f5"
@@ -3337,8 +3337,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "♠10 必须落在 C 的列内。每人恰有 3 张牌；检查它放在较晚轮次时，是否会让这个人较早时明明有领出花色却没有跟。",
+        "title": "Connect the rules",
+        "text": "♠10 must go in C's column. Each player has exactly 3 cards. If you place it in a later round, check whether that would mean failing to follow its suit in an earlier round.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -3350,8 +3350,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第一轮 B 出 ♠5。B 的这一手确定是黑桃，而牌池只有 ♠5 与 ♠10 两张黑桃。♠10 已确认属于 C，不能同时分给 B，故 B 只能出 ♠5。",
+        "title": "One step forward",
+        "text": "B plays ♠5 in round one. This play is known to be a spade. The pool has only ♠5 and ♠10, and ♠10 belongs to C. It cannot also belong to B, leaving ♠5.",
         "evidenceIDs": [
           "f4",
           "f5"
@@ -3377,7 +3377,7 @@
         "D8"
       ],
       "falseTestimonyIDs": [],
-      "explanation": "第 1 轮 C：♦4 → A：♦12 → B：♠5。领出的是方块，同花色中点数最大的牌属于 A，因此 A 获胜。\nB 本轮没有跟方块，说明其余手牌 ♣11、♣7 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♣3 → B：♣11 → C：♠10。领出的是梅花，同花色中点数最大的牌属于 B，因此 B 获胜。\nC 本轮没有跟梅花，说明其余手牌 ♦8 都不是梅花；这是必须跟花色规则留下的持牌证据。\n第 3 轮 B：♣7 → C：♦8 → A：♦2。领出的是梅花，同花色中点数最大的牌属于 B，因此 B 获胜。"
+      "explanation": "Round 1: C: ♦4 → A: ♦12 → B: ♠5. The lead suit is diamonds. A holds the highest card of that suit and wins.\n\nB did not follow diamonds, so the remaining cards (♣11, ♣7) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♣3 → B: ♣11 → C: ♠10. The lead suit is clubs. B holds the highest card of that suit and wins.\n\nC did not follow clubs, so the remaining cards (♦8) cannot be clubs. This follows from the requirement to follow suit when able.\n\nRound 3: B: ♣7 → C: ♦8 → A: ♦2. The lead suit is clubs. B holds the highest card of that suit and wins."
     }
   },
   {
@@ -3386,9 +3386,9 @@
     "id": "chapter03.level05",
     "chapterID": "chapter03",
     "number": 23,
-    "title": "两次交接",
-    "subtitle": "茶馆档案 05",
-    "story": "记录上的箭头被抹掉了。两次领出权交接仍由牌面决定，不能按纸条摆放的先后来推断。",
+    "title": "Two Handovers",
+    "subtitle": "Tea room file 05",
+    "story": "The arrows in the record have faded. The cards still determine both changes of leader; the order of the loose slips does not.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -3432,7 +3432,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 3 轮领出的牌是 ♠10。",
+        "text": "Round 3 is led with ♠10.",
         "constraint": {
           "kind": "leadCard",
           "round": 3,
@@ -3441,7 +3441,7 @@
       },
       {
         "id": "f2",
-        "text": "第 1 轮领出的牌是 ♣6。",
+        "text": "Round 1 is led with ♣6.",
         "constraint": {
           "kind": "leadCard",
           "round": 1,
@@ -3450,7 +3450,7 @@
       },
       {
         "id": "f3",
-        "text": "第 2 轮领出的牌是 ♠5。",
+        "text": "Round 2 is led with ♠5.",
         "constraint": {
           "kind": "leadCard",
           "round": 2,
@@ -3459,7 +3459,7 @@
       },
       {
         "id": "f4",
-        "text": "♠5 原本在 C 的手中。",
+        "text": "C originally holds ♠5.",
         "constraint": {
           "kind": "owner",
           "player": "C",
@@ -3468,7 +3468,7 @@
       },
       {
         "id": "f5",
-        "text": "♣13 原本在 C 的手中。",
+        "text": "C originally holds ♣13.",
         "constraint": {
           "kind": "owner",
           "player": "C",
@@ -3477,7 +3477,7 @@
       },
       {
         "id": "f6",
-        "text": "第 1 轮，A 出的是方块。",
+        "text": "In round 1, A plays diamonds.",
         "constraint": {
           "kind": "playedSuit",
           "round": 1,
@@ -3490,8 +3490,8 @@
     "testimonies": [],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先关注第 2 轮 C 的牌位。这一处可以从以下公开记录入手：第 2 轮领出的牌是 ♠5；♠5 原本在 C 的手中。",
+        "title": "Look at the evidence",
+        "text": "Focus on C's slot in round 2. Start with these public records: Round 2 is led with ♠5. C originally holds ♠5.",
         "evidenceIDs": [
           "f3",
           "f4"
@@ -3499,8 +3499,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "♠5 必须落在 C 的列内。每人恰有 3 张牌；检查它放在较晚轮次时，是否会让这个人较早时明明有领出花色却没有跟。",
+        "title": "Connect the rules",
+        "text": "♠5 must go in C's column. Each player has exactly 3 cards. If you place it in a later round, check whether that would mean failing to follow its suit in an earlier round.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -3512,8 +3512,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第二轮 C 出 ♠5。这张牌既被确认为第二轮领出牌，也被确认为原本属于 C。它必须落在 C 第二轮，同时证明 C 是第二轮的领出者。",
+        "title": "One step forward",
+        "text": "C plays ♠5 in round two. This card is both the confirmed lead for round two and a card known to belong to C. It must occupy C's second-round slot, making C the leader.",
         "evidenceIDs": [
           "f3",
           "f4"
@@ -3539,7 +3539,7 @@
         "C13"
       ],
       "falseTestimonyIDs": [],
-      "explanation": "第 1 轮 C：♣6 → A：♦7 → B：♣3。领出的是梅花，同花色中点数最大的牌属于 C，因此 C 获胜。\nA 本轮没有跟梅花，说明其余手牌 ♠14、♠10 都不是梅花；这是必须跟花色规则留下的持牌证据。\n第 2 轮 C：♠5 → A：♠14 → B：♠2。领出的是黑桃，同花色中点数最大的牌属于 A，因此 A 获胜。\n第 3 轮 A：♠10 → B：♣9 → C：♣13。领出的是黑桃，同花色中点数最大的牌属于 A，因此 A 获胜。"
+      "explanation": "Round 1: C: ♣6 → A: ♦7 → B: ♣3. The lead suit is clubs. C holds the highest card of that suit and wins.\n\nA did not follow clubs, so the remaining cards (♠14, ♠10) cannot be clubs. This follows from the requirement to follow suit when able.\n\nRound 2: C: ♠5 → A: ♠14 → B: ♠2. The lead suit is spades. A holds the highest card of that suit and wins.\n\nRound 3: A: ♠10 → B: ♣9 → C: ♣13. The lead suit is spades. A holds the highest card of that suit and wins."
     }
   },
   {
@@ -3548,9 +3548,9 @@
     "id": "chapter03.level06",
     "chapterID": "chapter03",
     "number": 24,
-    "title": "逆光的笔迹",
-    "subtitle": "茶馆档案 06",
-    "story": "逆光让几个点数难以辨认，但修复师已确认下面的公开事实。先连起轮次，再补每个人的牌。",
+    "title": "Ink against the Light",
+    "subtitle": "Tea room file 06",
+    "story": "Backlighting obscures several ranks, but the restorer has confirmed the public records below. Connect the rounds, then place each hand.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -3594,7 +3594,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 3 轮领出的牌是 ♥3。",
+        "text": "Round 3 is led with ♥3.",
         "constraint": {
           "kind": "leadCard",
           "round": 3,
@@ -3603,7 +3603,7 @@
       },
       {
         "id": "f2",
-        "text": "第 1 轮领出的牌是 ♦4。",
+        "text": "Round 1 is led with ♦4.",
         "constraint": {
           "kind": "leadCard",
           "round": 1,
@@ -3612,7 +3612,7 @@
       },
       {
         "id": "f3",
-        "text": "第 3 轮的赢家是 C。",
+        "text": "C wins round 3.",
         "constraint": {
           "kind": "roundWinner",
           "round": 3,
@@ -3621,7 +3621,7 @@
       },
       {
         "id": "f4",
-        "text": "♠7 原本在 C 的手中。",
+        "text": "C originally holds ♠7.",
         "constraint": {
           "kind": "owner",
           "player": "C",
@@ -3630,7 +3630,7 @@
       },
       {
         "id": "f5",
-        "text": "♣5 原本在 C 的手中。",
+        "text": "C originally holds ♣5.",
         "constraint": {
           "kind": "owner",
           "player": "C",
@@ -3639,7 +3639,7 @@
       },
       {
         "id": "f6",
-        "text": "第 3 轮，B 出的是梅花。",
+        "text": "In round 3, B plays clubs.",
         "constraint": {
           "kind": "playedSuit",
           "round": 3,
@@ -3649,7 +3649,7 @@
       },
       {
         "id": "f7",
-        "text": "第 2 轮，C 出的是梅花。",
+        "text": "In round 2, C plays clubs.",
         "constraint": {
           "kind": "playedSuit",
           "round": 2,
@@ -3659,7 +3659,7 @@
       },
       {
         "id": "f8",
-        "text": "第 1 轮，B 出的是 ♠12。",
+        "text": "In round 1, B plays ♠12.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -3672,8 +3672,8 @@
     "testimonies": [],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先关注第 3 轮 B 的牌位。这一处可以从以下公开记录入手：♣5 原本在 C 的手中；第 3 轮，B 出的是梅花。",
+        "title": "Look at the evidence",
+        "text": "Focus on B's slot in round 3. Start with these public records: C originally holds ♣5. In round 3, B plays clubs.",
         "evidenceIDs": [
           "f5",
           "f6"
@@ -3681,8 +3681,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "♣5 必须落在 C 的列内。每人恰有 3 张牌；检查它放在较晚轮次时，是否会让这个人较早时明明有领出花色却没有跟。",
+        "title": "Connect the rules",
+        "text": "♣5 must go in C's column. Each player has exactly 3 cards. If you place it in a later round, check whether that would mean failing to follow its suit in an earlier round.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -3696,8 +3696,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第三轮 B 出 ♣13。本局只有 ♣5、♣13 两张梅花。♣5 确定属于 C；B 第三轮却确定出梅花，因此 B 只能出剩下的 ♣13。",
+        "title": "One step forward",
+        "text": "B plays ♣13 in round three. This game contains only ♣5 and ♣13. ♣5 belongs to C, while B is known to play a club in round three. B must play ♣13.",
         "evidenceIDs": [
           "f5",
           "f6"
@@ -3723,7 +3723,7 @@
         "H9"
       ],
       "falseTestimonyIDs": [],
-      "explanation": "第 1 轮 A：♦4 → B：♠12 → C：♠7。领出的是方块，同花色中点数最大的牌属于 A，因此 A 获胜。\nB 本轮没有跟方块，说明其余手牌 ♠2、♣13 都不是方块；这是必须跟花色规则留下的持牌证据。\nC 本轮没有跟方块，说明其余手牌 ♣5、♥9 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♦10 → B：♠2 → C：♣5。领出的是方块，同花色中点数最大的牌属于 A，因此 A 获胜。\nB 本轮没有跟方块，说明其余手牌 ♣13 都不是方块；这是必须跟花色规则留下的持牌证据。\nC 本轮没有跟方块，说明其余手牌 ♥9 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 3 轮 A：♥3 → B：♣13 → C：♥9。领出的是红桃，同花色中点数最大的牌属于 C，因此 C 获胜。"
+      "explanation": "Round 1: A: ♦4 → B: ♠12 → C: ♠7. The lead suit is diamonds. A holds the highest card of that suit and wins.\n\nB did not follow diamonds, so the remaining cards (♠2, ♣13) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nC did not follow diamonds, so the remaining cards (♣5, ♥9) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♦10 → B: ♠2 → C: ♣5. The lead suit is diamonds. A holds the highest card of that suit and wins.\n\nB did not follow diamonds, so the remaining cards (♣13) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nC did not follow diamonds, so the remaining cards (♥9) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 3: A: ♥3 → B: ♣13 → C: ♥9. The lead suit is hearts. C holds the highest card of that suit and wins."
     }
   },
   {
@@ -3732,9 +3732,9 @@
     "id": "chapter03.level07",
     "chapterID": "chapter03",
     "number": 25,
-    "title": "第三把椅子",
-    "subtitle": "茶馆档案 07",
-    "story": "这次由 C 开局。椅子没有移动，固定座次循环会让每轮的第二、第三手自然确定。",
+    "title": "The Third Chair",
+    "subtitle": "Tea room file 07",
+    "story": "C begins this game. The chairs have not moved, so the fixed seating cycle determines the second and third plays of every round.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -3778,7 +3778,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 3 轮领出的牌是 ♥5。",
+        "text": "Round 3 is led with ♥5.",
         "constraint": {
           "kind": "leadCard",
           "round": 3,
@@ -3787,7 +3787,7 @@
       },
       {
         "id": "f2",
-        "text": "第 2 轮领出的牌是 ♥14。",
+        "text": "Round 2 is led with ♥14.",
         "constraint": {
           "kind": "leadCard",
           "round": 2,
@@ -3796,7 +3796,7 @@
       },
       {
         "id": "f3",
-        "text": "第 1 轮领出的牌是 ♦4。",
+        "text": "Round 1 is led with ♦4.",
         "constraint": {
           "kind": "leadCard",
           "round": 1,
@@ -3805,7 +3805,7 @@
       },
       {
         "id": "f4",
-        "text": "第 3 轮的赢家是 B。",
+        "text": "B wins round 3.",
         "constraint": {
           "kind": "roundWinner",
           "round": 3,
@@ -3814,7 +3814,7 @@
       },
       {
         "id": "f5",
-        "text": "第 1 轮，B 出的是 ♥11。",
+        "text": "In round 1, B plays ♥11.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -3824,7 +3824,7 @@
       },
       {
         "id": "f6",
-        "text": "第 3 轮，C 出的是 ♣6。",
+        "text": "In round 3, C plays ♣6.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 3,
@@ -3837,8 +3837,8 @@
     "testimonies": [],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先关注第 1 轮 A 的牌位。这一处可以从以下公开记录入手：第 3 轮领出的牌是 ♥5；第 2 轮领出的牌是 ♥14；第 1 轮领出的牌是 ♦4；第 1 轮，B 出的是 ♥11。",
+        "title": "Look at the evidence",
+        "text": "Focus on A's slot in round 1. Start with these public records: Round 3 is led with ♥5. Round 2 is led with ♥14. Round 1 is led with ♦4. In round 1, B plays ♥11.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -3848,8 +3848,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "♥5 是第 3 轮的第一张牌，只能由该轮领出者打出。把这个条件与前轮赢家相连，再检查各人尚未打出的同花色牌。",
+        "title": "Connect the rules",
+        "text": "♥5 is the first card of round 3, so only that round's leader can play it. Connect this to the previous winner, then check the same-suit cards still in each hand.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -3861,8 +3861,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第一轮 A 出 ♦10。C 领 ♦4，B 出 ♥11，因此 B 没有方块。若 C 赢第一轮，他会连着领出最大的红桃 ♥14，再领第三轮的 ♥5；C 的三张牌随即用满，而 A、B 又都没有方块，剩余的 ♦10 将无人能持有。因此 A 必须用 ♦10 赢第一轮。",
+        "title": "One step forward",
+        "text": "A plays ♦10 in round one. C leads ♦4 and B plays ♥11, so B has no diamonds. If C won, C would then lead the highest heart, ♥14, followed by ♥5 in round three. C's hand would be full, while neither A nor B could hold diamonds. No one could hold ♦10. A must therefore win round one with ♦10.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -3890,7 +3890,7 @@
         "C6"
       ],
       "falseTestimonyIDs": [],
-      "explanation": "第 1 轮 C：♦4 → A：♦10 → B：♥11。领出的是方块，同花色中点数最大的牌属于 A，因此 A 获胜。\nB 本轮没有跟方块，说明其余手牌 ♥2、♥8 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♥14 → B：♥2 → C：♣12。领出的是红桃，同花色中点数最大的牌属于 A，因此 A 获胜。\nC 本轮没有跟红桃，说明其余手牌 ♣6 都不是红桃；这是必须跟花色规则留下的持牌证据。\n第 3 轮 A：♥5 → B：♥8 → C：♣6。领出的是红桃，同花色中点数最大的牌属于 B，因此 B 获胜。"
+      "explanation": "Round 1: C: ♦4 → A: ♦10 → B: ♥11. The lead suit is diamonds. A holds the highest card of that suit and wins.\n\nB did not follow diamonds, so the remaining cards (♥2, ♥8) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♥14 → B: ♥2 → C: ♣12. The lead suit is hearts. A holds the highest card of that suit and wins.\n\nC did not follow hearts, so the remaining cards (♣6) cannot be hearts. This follows from the requirement to follow suit when able.\n\nRound 3: A: ♥5 → B: ♥8 → C: ♣6. The lead suit is hearts. B holds the highest card of that suit and wins."
     }
   },
   {
@@ -3899,9 +3899,9 @@
     "id": "chapter03.level08",
     "chapterID": "chapter03",
     "number": 26,
-    "title": "梅花印记",
-    "subtitle": "茶馆档案 08",
-    "story": "纸条角上有梅花形的印记。印记只作装饰；真正能确定顺序的是公开记录中的花色、牌面与赢家。",
+    "title": "The Club Emblem",
+    "subtitle": "Tea room file 08",
+    "story": "A club-shaped emblem decorates the page. The emblem is not a clue; recorded suits, cards, and winners establish the order.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -3945,7 +3945,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 3 轮领出的牌是 ♠13。",
+        "text": "Round 3 is led with ♠13.",
         "constraint": {
           "kind": "leadCard",
           "round": 3,
@@ -3954,7 +3954,7 @@
       },
       {
         "id": "f2",
-        "text": "第 2 轮领出的牌是 ♣2。",
+        "text": "Round 2 is led with ♣2.",
         "constraint": {
           "kind": "leadCard",
           "round": 2,
@@ -3963,7 +3963,7 @@
       },
       {
         "id": "f3",
-        "text": "第 1 轮领出的牌是 ♠8。",
+        "text": "Round 1 is led with ♠8.",
         "constraint": {
           "kind": "leadCard",
           "round": 1,
@@ -3972,7 +3972,7 @@
       },
       {
         "id": "f4",
-        "text": "♣11 原本在 A 的手中。",
+        "text": "A originally holds ♣11.",
         "constraint": {
           "kind": "owner",
           "player": "A",
@@ -3981,7 +3981,7 @@
       },
       {
         "id": "f5",
-        "text": "第 1 轮，C 出的是 ♥4。",
+        "text": "In round 1, C plays ♥4.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -3991,7 +3991,7 @@
       },
       {
         "id": "f6",
-        "text": "第 2 轮，C 出的是 ♥12。",
+        "text": "In round 2, C plays ♥12.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 2,
@@ -4004,8 +4004,8 @@
     "testimonies": [],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先关注第 2 轮 A 的牌位。这一处可以从以下公开记录入手：第 3 轮领出的牌是 ♠13；第 2 轮领出的牌是 ♣2；第 1 轮领出的牌是 ♠8。",
+        "title": "Look at the evidence",
+        "text": "Focus on A's slot in round 2. Start with these public records: Round 3 is led with ♠13. Round 2 is led with ♣2. Round 1 is led with ♠8.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -4014,8 +4014,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "♠13 是第 3 轮的第一张牌，只能由该轮领出者打出。把这个条件与前轮赢家相连，再检查各人尚未打出的同花色牌。",
+        "title": "Connect the rules",
+        "text": "♠13 is the first card of round 3, so only that round's leader can play it. Connect this to the previous winner, then check the same-suit cards still in each hand.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -4027,8 +4027,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第二轮 A 出 ♣2。A 第一轮领出 ♠8。唯一更大的黑桃 ♠13 已确认留到第三轮领出，不可能第一轮出现；所以 A 赢第一轮，并领出已确认的第二轮 ♣2。",
+        "title": "One step forward",
+        "text": "A plays ♣2 in round two. A opens with ♠8. The only higher spade, ♠13, is reserved as the third-round lead and cannot appear in round one. A wins and leads the confirmed ♣2 next.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -4055,7 +4055,7 @@
         "H7"
       ],
       "falseTestimonyIDs": [],
-      "explanation": "第 1 轮 A：♠8 → B：♠3 → C：♥4。领出的是黑桃，同花色中点数最大的牌属于 A，因此 A 获胜。\nC 本轮没有跟黑桃，说明其余手牌 ♥12、♥7 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♣2 → B：♣6 → C：♥12。领出的是梅花，同花色中点数最大的牌属于 B，因此 B 获胜。\nC 本轮没有跟梅花，说明其余手牌 ♥7 都不是梅花；这是必须跟花色规则留下的持牌证据。\n第 3 轮 B：♠13 → C：♥7 → A：♣11。领出的是黑桃，同花色中点数最大的牌属于 B，因此 B 获胜。"
+      "explanation": "Round 1: A: ♠8 → B: ♠3 → C: ♥4. The lead suit is spades. A holds the highest card of that suit and wins.\n\nC did not follow spades, so the remaining cards (♥12, ♥7) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♣2 → B: ♣6 → C: ♥12. The lead suit is clubs. B holds the highest card of that suit and wins.\n\nC did not follow clubs, so the remaining cards (♥7) cannot be clubs. This follows from the requirement to follow suit when able.\n\nRound 3: B: ♠13 → C: ♥7 → A: ♣11. The lead suit is spades. B holds the highest card of that suit and wins."
     }
   },
   {
@@ -4064,9 +4064,9 @@
     "id": "chapter03.level09",
     "chapterID": "chapter03",
     "number": 27,
-    "title": "没有编号的页",
-    "subtitle": "茶馆档案 09",
-    "story": "这一页没有手写编号。领出记录跨越三轮，必须同时满足才能恢复整场牌局的先后。",
+    "title": "The Unnumbered Page",
+    "subtitle": "Tea room file 09",
+    "story": "This page has no handwritten number. Its lead-card records span three rounds and must all fit the same sequence of play.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -4110,7 +4110,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 3 轮领出的牌是 ♣2。",
+        "text": "Round 3 is led with ♣2.",
         "constraint": {
           "kind": "leadCard",
           "round": 3,
@@ -4119,7 +4119,7 @@
       },
       {
         "id": "f2",
-        "text": "第 2 轮领出的牌是 ♠13。",
+        "text": "Round 2 is led with ♠13.",
         "constraint": {
           "kind": "leadCard",
           "round": 2,
@@ -4128,7 +4128,7 @@
       },
       {
         "id": "f3",
-        "text": "第 2 轮，B 出的是红桃。",
+        "text": "In round 2, B plays hearts.",
         "constraint": {
           "kind": "playedSuit",
           "round": 2,
@@ -4138,7 +4138,7 @@
       },
       {
         "id": "f4",
-        "text": "♣5 原本在 B 的手中。",
+        "text": "B originally holds ♣5.",
         "constraint": {
           "kind": "owner",
           "player": "B",
@@ -4147,7 +4147,7 @@
       },
       {
         "id": "f5",
-        "text": "第 3 轮的赢家是 B。",
+        "text": "B wins round 3.",
         "constraint": {
           "kind": "roundWinner",
           "round": 3,
@@ -4156,7 +4156,7 @@
       },
       {
         "id": "f6",
-        "text": "第 2 轮，C 出的是 ♠4。",
+        "text": "In round 2, C plays ♠4.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 2,
@@ -4166,7 +4166,7 @@
       },
       {
         "id": "f7",
-        "text": "第 1 轮，B 出的是 ♥7。",
+        "text": "In round 1, B plays ♥7.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -4179,8 +4179,8 @@
     "testimonies": [],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先关注第 2 轮 A 的牌位。这一处可以从以下公开记录入手：第 2 轮领出的牌是 ♠13；第 2 轮，B 出的是红桃；第 2 轮，C 出的是 ♠4。",
+        "title": "Look at the evidence",
+        "text": "Focus on A's slot in round 2. Start with these public records: Round 2 is led with ♠13. In round 2, B plays hearts. In round 2, C plays ♠4.",
         "evidenceIDs": [
           "f2",
           "f3",
@@ -4189,8 +4189,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "♠13 是第 2 轮的第一张牌，只能由该轮领出者打出。把这个条件与前轮赢家相连，再检查各人尚未打出的同花色牌。",
+        "title": "Connect the rules",
+        "text": "♠13 is the first card of round 2, so only that round's leader can play it. Connect this to the previous winner, then check the same-suit cards still in each hand.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -4203,8 +4203,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第二轮 A 出 ♠13。该轮领出牌已确认是 ♠13，B 却出红桃，C 已确认出 ♠4；两人都不可能领出 ♠13，因此这张牌只能属于 A 的第二轮。",
+        "title": "One step forward",
+        "text": "A plays ♠13 in round two. ♠13 is the confirmed lead. B plays a heart, and C is known to play ♠4. Neither can lead ♠13, leaving A.",
         "evidenceIDs": [
           "f2",
           "f3",
@@ -4231,7 +4231,7 @@
         "S8"
       ],
       "falseTestimonyIDs": [],
-      "explanation": "第 1 轮 A：♥12 → B：♥7 → C：♣10。领出的是红桃，同花色中点数最大的牌属于 A，因此 A 获胜。\nC 本轮没有跟红桃，说明其余手牌 ♠4、♠8 都不是红桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♠13 → B：♥3 → C：♠4。领出的是黑桃，同花色中点数最大的牌属于 A，因此 A 获胜。\nB 本轮没有跟黑桃，说明其余手牌 ♣5 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 3 轮 A：♣2 → B：♣5 → C：♠8。领出的是梅花，同花色中点数最大的牌属于 B，因此 B 获胜。"
+      "explanation": "Round 1: A: ♥12 → B: ♥7 → C: ♣10. The lead suit is hearts. A holds the highest card of that suit and wins.\n\nC did not follow hearts, so the remaining cards (♠4, ♠8) cannot be hearts. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♠13 → B: ♥3 → C: ♠4. The lead suit is spades. A holds the highest card of that suit and wins.\n\nB did not follow spades, so the remaining cards (♣5) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 3: A: ♣2 → B: ♣5 → C: ♠8. The lead suit is clubs. B holds the highest card of that suit and wins."
     }
   },
   {
@@ -4240,9 +4240,9 @@
     "id": "chapter03.level10",
     "chapterID": "chapter03",
     "number": 28,
-    "title": "最后一壶茶",
-    "subtitle": "茶馆档案 10",
-    "story": "最后一壶茶送到时，记录员只写下了第三轮的片段。从已经确认的归属逐步向前推，补齐缺失的交接。",
+    "title": "The Last Pot of Tea",
+    "subtitle": "Tea room file 10",
+    "story": "When the last pot arrived, the clerk recorded only a fragment of round three. Work from confirmed ownership to recover the missing handovers.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -4286,7 +4286,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 3 轮领出的牌是 ♠4。",
+        "text": "Round 3 is led with ♠4.",
         "constraint": {
           "kind": "leadCard",
           "round": 3,
@@ -4295,7 +4295,7 @@
       },
       {
         "id": "f2",
-        "text": "第 1 轮领出的牌是 ♥3。",
+        "text": "Round 1 is led with ♥3.",
         "constraint": {
           "kind": "leadCard",
           "round": 1,
@@ -4304,7 +4304,7 @@
       },
       {
         "id": "f3",
-        "text": "第 2 轮领出的牌是 ♠2。",
+        "text": "Round 2 is led with ♠2.",
         "constraint": {
           "kind": "leadCard",
           "round": 2,
@@ -4313,7 +4313,7 @@
       },
       {
         "id": "f4",
-        "text": "♠12 原本在 B 的手中。",
+        "text": "B originally holds ♠12.",
         "constraint": {
           "kind": "owner",
           "player": "B",
@@ -4322,7 +4322,7 @@
       },
       {
         "id": "f5",
-        "text": "第 1 轮，C 出的是 ♥7。",
+        "text": "In round 1, C plays ♥7.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -4332,7 +4332,7 @@
       },
       {
         "id": "f6",
-        "text": "第 2 轮，A 出的是 ♦10。",
+        "text": "In round 2, A plays ♦10.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 2,
@@ -4345,8 +4345,8 @@
     "testimonies": [],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先关注第 2 轮 C 的牌位。这一处可以从以下公开记录入手：第 1 轮领出的牌是 ♥3；第 2 轮领出的牌是 ♠2；第 2 轮，A 出的是 ♦10。",
+        "title": "Look at the evidence",
+        "text": "Focus on C's slot in round 2. Start with these public records: Round 1 is led with ♥3. Round 2 is led with ♠2. In round 2, A plays ♦10.",
         "evidenceIDs": [
           "f2",
           "f3",
@@ -4355,8 +4355,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "♥3 是第 1 轮的第一张牌，只能由该轮领出者打出。把这个条件与前轮赢家相连，再检查各人尚未打出的同花色牌。",
+        "title": "Connect the rules",
+        "text": "♥3 is the first card of round 1, so only that round's leader can play it. Connect this to the previous winner, then check the same-suit cards still in each hand.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -4368,8 +4368,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第二轮 C 出 ♠2。B 第一轮领 ♥3。若 B 获胜，另外两人必然没有红桃，剩余 ♥7、♥11 就都属于 B；B 不可能再持有第二轮必须领出的 ♠2。因此赢家是 A 或 C，而 A 第二轮已出 ♦10，只能由 C 领 ♠2。",
+        "title": "One step forward",
+        "text": "C plays ♠2 in round two. B leads ♥3 in round one. If B won, both other players would have no hearts, leaving ♥7 and ♥11 with B. B's hand would then have no room for the required next lead, ♠2. A or C must win, and A plays ♦10 in round two, so C must lead ♠2.",
         "evidenceIDs": [
           "f2",
           "f3",
@@ -4396,7 +4396,7 @@
         "H11"
       ],
       "falseTestimonyIDs": [],
-      "explanation": "第 1 轮 B：♥3 → C：♥7 → A：♠8。领出的是红桃，同花色中点数最大的牌属于 C，因此 C 获胜。\nA 本轮没有跟红桃，说明其余手牌 ♦10、♦5 都不是红桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 C：♠2 → A：♦10 → B：♠12。领出的是黑桃，同花色中点数最大的牌属于 B，因此 B 获胜。\nA 本轮没有跟黑桃，说明其余手牌 ♦5 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 3 轮 B：♠4 → C：♥11 → A：♦5。领出的是黑桃，同花色中点数最大的牌属于 B，因此 B 获胜。"
+      "explanation": "Round 1: B: ♥3 → C: ♥7 → A: ♠8. The lead suit is hearts. C holds the highest card of that suit and wins.\n\nA did not follow hearts, so the remaining cards (♦10, ♦5) cannot be hearts. This follows from the requirement to follow suit when able.\n\nRound 2: C: ♠2 → A: ♦10 → B: ♠12. The lead suit is spades. B holds the highest card of that suit and wins.\n\nA did not follow spades, so the remaining cards (♦5) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 3: B: ♠4 → C: ♥11 → A: ♦5. The lead suit is spades. B holds the highest card of that suit and wins."
     }
   },
   {
@@ -4405,9 +4405,9 @@
     "id": "chapter03.level11",
     "chapterID": "chapter03",
     "number": 29,
-    "title": "钟摆停下以后",
-    "subtitle": "茶馆档案 11",
-    "story": "钟摆停了，牌局没有停。时间不再可靠，规则却仍可靠：先前的赢家领出，手中有同花色必须跟随。",
+    "title": "After the Pendulum Stopped",
+    "subtitle": "Tea room file 11",
+    "story": "The pendulum stopped, but the game continued. Time is unreliable; the rules are not. Winners lead, and players must follow suit when able.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -4451,7 +4451,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 3 轮领出的牌是 ♦5。",
+        "text": "Round 3 is led with ♦5.",
         "constraint": {
           "kind": "leadCard",
           "round": 3,
@@ -4460,7 +4460,7 @@
       },
       {
         "id": "f2",
-        "text": "第 1 轮领出的牌是 ♥9。",
+        "text": "Round 1 is led with ♥9.",
         "constraint": {
           "kind": "leadCard",
           "round": 1,
@@ -4469,7 +4469,7 @@
       },
       {
         "id": "f3",
-        "text": "第 2 轮领出的牌是 ♦2。",
+        "text": "Round 2 is led with ♦2.",
         "constraint": {
           "kind": "leadCard",
           "round": 2,
@@ -4478,7 +4478,7 @@
       },
       {
         "id": "f4",
-        "text": "♥13 原本在 B 的手中。",
+        "text": "B originally holds ♥13.",
         "constraint": {
           "kind": "owner",
           "player": "B",
@@ -4487,7 +4487,7 @@
       },
       {
         "id": "f5",
-        "text": "第 2 轮，C 出的是黑桃。",
+        "text": "In round 2, C plays spades.",
         "constraint": {
           "kind": "playedSuit",
           "round": 2,
@@ -4497,7 +4497,7 @@
       },
       {
         "id": "f6",
-        "text": "第 1 轮，C 出的是 ♥6。",
+        "text": "In round 1, C plays ♥6.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -4507,7 +4507,7 @@
       },
       {
         "id": "f7",
-        "text": "第 2 轮，A 出的是 ♦14。",
+        "text": "In round 2, A plays ♦14.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 2,
@@ -4520,8 +4520,8 @@
     "testimonies": [],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先关注第 2 轮 B 的牌位。这一处可以从以下公开记录入手：第 1 轮领出的牌是 ♥9；第 2 轮领出的牌是 ♦2；♥13 原本在 B 的手中。",
+        "title": "Look at the evidence",
+        "text": "Focus on B's slot in round 2. Start with these public records: Round 1 is led with ♥9. Round 2 is led with ♦2. B originally holds ♥13.",
         "evidenceIDs": [
           "f2",
           "f3",
@@ -4530,8 +4530,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "♥13 必须落在 B 的列内。每人恰有 3 张牌；检查它放在较晚轮次时，是否会让这个人较早时明明有领出花色却没有跟。",
+        "title": "Connect the rules",
+        "text": "♥13 must go in B's column. Each player has exactly 3 cards. If you place it in a later round, check whether that would mean failing to follow its suit in an earlier round.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -4544,8 +4544,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第二轮 B 出 ♦2。B 首轮领出的牌是 ♥9，唯一更大的红桃 ♥13 又确定在 B 自己手中，因此别人无法赢过这手 ♥9。B 赢第一轮，接着领出第二轮的 ♦2。",
+        "title": "One step forward",
+        "text": "B plays ♦2 in round two. B leads ♥9 in round one and also owns the only higher heart, ♥13. No other player can beat ♥9. B wins and leads ♦2 next.",
         "evidenceIDs": [
           "f2",
           "f3",
@@ -4572,7 +4572,7 @@
         "H3"
       ],
       "falseTestimonyIDs": [],
-      "explanation": "第 1 轮 B：♥9 → C：♥6 → A：♦10。领出的是红桃，同花色中点数最大的牌属于 B，因此 B 获胜。\nA 本轮没有跟红桃，说明其余手牌 ♦14、♦5 都不是红桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 B：♦2 → C：♠7 → A：♦14。领出的是方块，同花色中点数最大的牌属于 A，因此 A 获胜。\nC 本轮没有跟方块，说明其余手牌 ♥3 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 3 轮 A：♦5 → B：♥13 → C：♥3。领出的是方块，同花色中点数最大的牌属于 A，因此 A 获胜。"
+      "explanation": "Round 1: B: ♥9 → C: ♥6 → A: ♦10. The lead suit is hearts. B holds the highest card of that suit and wins.\n\nA did not follow hearts, so the remaining cards (♦14, ♦5) cannot be hearts. This follows from the requirement to follow suit when able.\n\nRound 2: B: ♦2 → C: ♠7 → A: ♦14. The lead suit is diamonds. A holds the highest card of that suit and wins.\n\nC did not follow diamonds, so the remaining cards (♥3) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 3: A: ♦5 → B: ♥13 → C: ♥3. The lead suit is diamonds. A holds the highest card of that suit and wins."
     }
   },
   {
@@ -4581,9 +4581,9 @@
     "id": "chapter03.level12",
     "chapterID": "chapter03",
     "number": 30,
-    "title": "风散纸页",
-    "subtitle": "茶馆档案 12",
-    "story": "将茶馆最后一组散页归档。先后顺序必须由公开事实和牌局规则共同确定，不能拿作者的排列作线索。",
+    "title": "Pages in the Wind",
+    "subtitle": "Tea room file 12",
+    "story": "File the tea room's final scattered pages. Their order must follow from the public records and the rules, not from the way the pages are arranged.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -4627,7 +4627,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 3 轮领出的牌是 ♦2。",
+        "text": "Round 3 is led with ♦2.",
         "constraint": {
           "kind": "leadCard",
           "round": 3,
@@ -4636,7 +4636,7 @@
       },
       {
         "id": "f2",
-        "text": "第 2 轮领出的牌是 ♠4。",
+        "text": "Round 2 is led with ♠4.",
         "constraint": {
           "kind": "leadCard",
           "round": 2,
@@ -4645,7 +4645,7 @@
       },
       {
         "id": "f3",
-        "text": "第 1 轮领出的牌是 ♥5。",
+        "text": "Round 1 is led with ♥5.",
         "constraint": {
           "kind": "leadCard",
           "round": 1,
@@ -4654,7 +4654,7 @@
       },
       {
         "id": "f4",
-        "text": "♣3 原本在 B 的手中。",
+        "text": "B originally holds ♣3.",
         "constraint": {
           "kind": "owner",
           "player": "B",
@@ -4663,7 +4663,7 @@
       },
       {
         "id": "f5",
-        "text": "第 3 轮，A 出的是梅花。",
+        "text": "In round 3, A plays clubs.",
         "constraint": {
           "kind": "playedSuit",
           "round": 3,
@@ -4673,7 +4673,7 @@
       },
       {
         "id": "f6",
-        "text": "♦7 原本在 C 的手中。",
+        "text": "C originally holds ♦7.",
         "constraint": {
           "kind": "owner",
           "player": "C",
@@ -4682,7 +4682,7 @@
       },
       {
         "id": "f7",
-        "text": "第 3 轮的赢家是 C。",
+        "text": "C wins round 3.",
         "constraint": {
           "kind": "roundWinner",
           "round": 3,
@@ -4694,8 +4694,8 @@
     "testimonies": [],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先关注第 3 轮 A 的牌位。这一处可以从以下公开记录入手：♣3 原本在 B 的手中；第 3 轮，A 出的是梅花。",
+        "title": "Look at the evidence",
+        "text": "Focus on A's slot in round 3. Start with these public records: B originally holds ♣3. In round 3, A plays clubs.",
         "evidenceIDs": [
           "f4",
           "f5"
@@ -4703,8 +4703,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "♣3 必须落在 B 的列内。每人恰有 3 张牌；检查它放在较晚轮次时，是否会让这个人较早时明明有领出花色却没有跟。",
+        "title": "Connect the rules",
+        "text": "♣3 must go in B's column. Each player has exactly 3 cards. If you place it in a later round, check whether that would mean failing to follow its suit in an earlier round.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -4717,8 +4717,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第三轮 A 出 ♣9。本局只有两张梅花：♣3、♣9。♣3 已确认属于 B，而 A 第三轮确定出梅花，因此只能是 ♣9。",
+        "title": "One step forward",
+        "text": "A plays ♣9 in round three. There are only two clubs, ♣3 and ♣9. ♣3 belongs to B, and A must play a club in round three, leaving ♣9.",
         "evidenceIDs": [
           "f4",
           "f5"
@@ -4744,7 +4744,7 @@
         "D2"
       ],
       "falseTestimonyIDs": [],
-      "explanation": "第 1 轮 B：♥5 → C：♦7 → A：♥13。领出的是红桃，同花色中点数最大的牌属于 A，因此 A 获胜。\nC 本轮没有跟红桃，说明其余手牌 ♠10、♦2 都不是红桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♠4 → B：♦12 → C：♠10。领出的是黑桃，同花色中点数最大的牌属于 C，因此 C 获胜。\nB 本轮没有跟黑桃，说明其余手牌 ♣3 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 3 轮 C：♦2 → A：♣9 → B：♣3。领出的是方块，同花色中点数最大的牌属于 C，因此 C 获胜。"
+      "explanation": "Round 1: B: ♥5 → C: ♦7 → A: ♥13. The lead suit is hearts. A holds the highest card of that suit and wins.\n\nC did not follow hearts, so the remaining cards (♠10, ♦2) cannot be hearts. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♠4 → B: ♦12 → C: ♠10. The lead suit is spades. C holds the highest card of that suit and wins.\n\nB did not follow spades, so the remaining cards (♣3) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 3: C: ♦2 → A: ♣9 → B: ♣3. The lead suit is diamonds. C holds the highest card of that suit and wins."
     }
   },
   {
@@ -4753,9 +4753,9 @@
     "id": "chapter04.level01",
     "chapterID": "chapter04",
     "number": 31,
-    "title": "港口第一封信",
-    "subtitle": "证词档案 01",
-    "story": "三位旧友寄来不同的回忆。下面的可信记录已由原稿核对；证词区明确标出了错误条数，请一并推理。",
+    "title": "The First Harbor Letter",
+    "subtitle": "Witness file 01",
+    "story": "Three old friends send different recollections. The reliable clues have been checked against the originals. Use the stated number of false witness accounts as well.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -4790,7 +4790,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 1 轮，B 出的是 ♣2。",
+        "text": "In round 1, B plays ♣2.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -4800,7 +4800,7 @@
       },
       {
         "id": "f2",
-        "text": "♣11 原本在 B 的手中。",
+        "text": "B originally holds ♣11.",
         "constraint": {
           "kind": "owner",
           "player": "B",
@@ -4809,7 +4809,7 @@
       },
       {
         "id": "f3",
-        "text": "♠7 原本在 C 的手中。",
+        "text": "C originally holds ♠7.",
         "constraint": {
           "kind": "owner",
           "player": "C",
@@ -4821,7 +4821,7 @@
     "testimonies": [
       {
         "id": "t1",
-        "text": "第 2 轮，A 出的是 ♠3。",
+        "text": "In round 2, A plays ♠3.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 2,
@@ -4831,7 +4831,7 @@
       },
       {
         "id": "t2",
-        "text": "第 1 轮，C 出的是 ♠12。",
+        "text": "In round 1, C plays ♠12.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -4841,7 +4841,7 @@
       },
       {
         "id": "t3",
-        "text": "第 1 轮，A 出的是 ♣6。",
+        "text": "In round 1, A plays ♣6.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -4851,7 +4851,7 @@
       },
       {
         "id": "t4",
-        "text": "第 1 轮，C 出的是 ♣6。",
+        "text": "In round 1, C plays ♣6.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -4862,8 +4862,8 @@
     ],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先把证词 2、3、4 放在一起读：它们是否对同一张牌或同一个牌位给出了不同说法？本页恰有一条错误证词。",
+        "title": "Look at the evidence",
+        "text": "Read statements 2, 3, and 4 together. Do they make different claims about the same card or slot? Exactly one statement is false.",
         "evidenceIDs": [
           "t1",
           "t2",
@@ -4873,8 +4873,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "同一张 ♣6 不可能同时出现在 A 与 C 的第一轮。因此证词 3、4 至少有一句是假；再检验哪种情况会迫使证词 2 也是假，超过允许的错误数量。",
+        "title": "Connect the rules",
+        "text": "The same ♣6 cannot be played by both A and C in round one. At least one of statements 3 and 4 is false. Check which possibility would also make statement 2 false, exceeding the allowed count.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -4887,8 +4887,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第一轮 A 出 ♣6。证词 3 与证词 4 把同一张 ♣6 放在两个位置，至少有一句是假。若证词 3 假、证词 4 真，证词 2 又会与证词 4 的 C 第一轮牌面冲突，便出现两句假话。因此唯一的假话只能是证词 4，证词 3 所说的 A 第一轮 ♣6 成立。",
+        "title": "One step forward",
+        "text": "A plays ♣6 in round one. Statements 3 and 4 put the same ♣6 in different slots, so at least one is false. If statement 3 were false and 4 true, statement 2 would also conflict with C's first-round card in statement 4. That makes two false statements, but only one is allowed. Statement 4 is false, so statement 3 confirms A's ♣6.",
         "evidenceIDs": [
           "t1",
           "t2",
@@ -4915,7 +4915,7 @@
       "falseTestimonyIDs": [
         "t4"
       ],
-      "explanation": "第 1 轮 B：♣2 → C：♠12 → A：♣6。领出的是梅花，同花色中点数最大的牌属于 A，因此 A 获胜。\nC 本轮没有跟梅花，说明其余手牌 ♠7 都不是梅花；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♠3 → B：♣11 → C：♠7。领出的是黑桃，同花色中点数最大的牌属于 C，因此 C 获胜。\n归档核对：证词 4有误，其余证词成立。可信记录全部成立。\n证词 4 的更正：第 1 轮，C 出的是 ♠12。"
+      "explanation": "Round 1: B: ♣2 → C: ♠12 → A: ♣6. The lead suit is clubs. A holds the highest card of that suit and wins.\n\nC did not follow clubs, so the remaining cards (♠7) cannot be clubs. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♠3 → B: ♣11 → C: ♠7. The lead suit is spades. C holds the highest card of that suit and wins.\n\nFalse statements: statement 4. All other statements and every reliable clue are true.\n\nCorrection to statement 4: In round 1, C plays ♠12."
     }
   },
   {
@@ -4924,9 +4924,9 @@
     "id": "chapter04.level02",
     "chapterID": "chapter04",
     "number": 32,
-    "title": "记错的花色",
-    "subtitle": "证词档案 02",
-    "story": "来信人记得轮次，却可能认错了花色。证词中的每句话都能由完整牌局判断真假，主观印象不作证据。",
+    "title": "A Suit Misremembered",
+    "subtitle": "Witness file 02",
+    "story": "A correspondent remembers the round but may have mistaken the suit. A complete game can establish whether each statement is true; impressions alone cannot.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -4970,7 +4970,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 1 轮，C 出的是 ♠10。",
+        "text": "In round 1, C plays ♠10.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -4980,7 +4980,7 @@
       },
       {
         "id": "f2",
-        "text": "第 3 轮，B 出的是黑桃。",
+        "text": "In round 3, B plays spades.",
         "constraint": {
           "kind": "playedSuit",
           "round": 3,
@@ -4990,7 +4990,7 @@
       },
       {
         "id": "f3",
-        "text": "♦7 原本在 B 的手中。",
+        "text": "B originally holds ♦7.",
         "constraint": {
           "kind": "owner",
           "player": "B",
@@ -4999,7 +4999,7 @@
       },
       {
         "id": "f4",
-        "text": "♦12 原本在 C 的手中。",
+        "text": "C originally holds ♦12.",
         "constraint": {
           "kind": "owner",
           "player": "C",
@@ -5008,7 +5008,7 @@
       },
       {
         "id": "f5",
-        "text": "第 2 轮，A 出的是 ♥4。",
+        "text": "In round 2, A plays ♥4.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 2,
@@ -5018,7 +5018,7 @@
       },
       {
         "id": "f6",
-        "text": "第 1 轮，B 出的是 ♠5。",
+        "text": "In round 1, B plays ♠5.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -5031,7 +5031,7 @@
     "testimonies": [
       {
         "id": "t1",
-        "text": "第 3 轮，C 出的是 ♦3。",
+        "text": "In round 3, C plays ♦3.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 3,
@@ -5041,7 +5041,7 @@
       },
       {
         "id": "t2",
-        "text": "♥8 原本在 C 的手中。",
+        "text": "C originally holds ♥8.",
         "constraint": {
           "kind": "owner",
           "player": "C",
@@ -5050,7 +5050,7 @@
       },
       {
         "id": "t3",
-        "text": "第 3 轮领出的牌是 ♥13。",
+        "text": "Round 3 is led with ♥13.",
         "constraint": {
           "kind": "leadCard",
           "round": 3,
@@ -5059,7 +5059,7 @@
       },
       {
         "id": "t4",
-        "text": "第 3 轮领出的牌是 ♥8。",
+        "text": "Round 3 is led with ♥8.",
         "constraint": {
           "kind": "leadCard",
           "round": 3,
@@ -5069,8 +5069,8 @@
     ],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先关注第 2 轮 C 的牌位。这一处可以从以下公开记录入手：第 1 轮，C 出的是 ♠10；♦12 原本在 C 的手中。同时保留“恰有 2 条错误证词”的条件。",
+        "title": "Look at the evidence",
+        "text": "Focus on C's slot in round 2. Start with these public records: In round 1, C plays ♠10. C originally holds ♦12. Keep the requirement of exactly 2 false statements in mind.",
         "evidenceIDs": [
           "f1",
           "f4",
@@ -5082,8 +5082,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "♦12 必须落在 C 的列内。每人恰有 3 张牌；检查它放在较晚轮次时，是否会让这个人较早时明明有领出花色却没有跟。证词必须合起来核对：恰有 2 条为假，而不是每句话都必须为真。",
+        "title": "Connect the rules",
+        "text": "♦12 must go in C's column. Each player has exactly 3 cards. If you place it in a later round, check whether that would mean failing to follow its suit in an earlier round. Check the statements together: exactly 2 must be false, rather than every statement being true.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -5099,8 +5099,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第 2 轮，C 出的是 ♦12。暂时不采用“♦12 原本在 C 的手中”时，这里还可能出现 ♦3、♦7、♥4、♥8、♥13、♠2、♠5；但这些分支都无法在遵守跟花色与赢家领出规则的同时满足这条记录。把该记录放回，留下的只有 ♦12。",
+        "title": "One step forward",
+        "text": "In round 2, C plays ♦12. Without the record \"C originally holds ♦12.\", this slot could also hold ♦3, ♦7, ♥4, ♥8, ♥13, ♠2, ♠5. None of those alternatives can satisfy that record together with following suit and the winner leading next. Restoring the record leaves only ♦12.",
         "evidenceIDs": [
           "f1",
           "f4",
@@ -5133,7 +5133,7 @@
         "t1",
         "t3"
       ],
-      "explanation": "第 1 轮 C：♠10 → A：♦3 → B：♠5。领出的是黑桃，同花色中点数最大的牌属于 C，因此 C 获胜。\nA 本轮没有跟黑桃，说明其余手牌 ♥4、♥13 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 C：♦12 → A：♥4 → B：♦7。领出的是方块，同花色中点数最大的牌属于 C，因此 C 获胜。\nA 本轮没有跟方块，说明其余手牌 ♥13 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 3 轮 C：♥8 → A：♥13 → B：♠2。领出的是红桃，同花色中点数最大的牌属于 A，因此 A 获胜。\n归档核对：证词 1、证词 3有误，其余证词成立。可信记录全部成立。\n证词 1 的更正：第 3 轮，C 出的是 ♥8。\n证词 3 的更正：第 3 轮领出的牌是 ♥8。"
+      "explanation": "Round 1: C: ♠10 → A: ♦3 → B: ♠5. The lead suit is spades. C holds the highest card of that suit and wins.\n\nA did not follow spades, so the remaining cards (♥4, ♥13) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 2: C: ♦12 → A: ♥4 → B: ♦7. The lead suit is diamonds. C holds the highest card of that suit and wins.\n\nA did not follow diamonds, so the remaining cards (♥13) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 3: C: ♥8 → A: ♥13 → B: ♠2. The lead suit is hearts. A holds the highest card of that suit and wins.\n\nFalse statements: statement 1, statement 3. All other statements and every reliable clue are true.\n\nCorrection to statement 1: In round 3, C plays ♥8.\n\nCorrection to statement 3: Round 3 is led with ♥8."
     }
   },
   {
@@ -5142,9 +5142,9 @@
     "id": "chapter04.level03",
     "chapterID": "chapter04",
     "number": 33,
-    "title": "码头的交接",
-    "subtitle": "证词档案 03",
-    "story": "有人把领出者与赢家混在一起。仔细区分这一轮谁先出，与谁将在下一轮先出。",
+    "title": "A Handover at the Dock",
+    "subtitle": "Witness file 03",
+    "story": "Someone has confused a leader with a winner. Distinguish who starts this round from who will start the next.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -5188,7 +5188,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 1 轮，C 出的是 ♥4。",
+        "text": "In round 1, C plays ♥4.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -5198,7 +5198,7 @@
       },
       {
         "id": "f2",
-        "text": "第 3 轮领出的牌是 ♦7。",
+        "text": "Round 3 is led with ♦7.",
         "constraint": {
           "kind": "leadCard",
           "round": 3,
@@ -5207,7 +5207,7 @@
       },
       {
         "id": "f3",
-        "text": "第 1 轮，A 出的是方块。",
+        "text": "In round 1, A plays diamonds.",
         "constraint": {
           "kind": "playedSuit",
           "round": 1,
@@ -5217,7 +5217,7 @@
       },
       {
         "id": "f4",
-        "text": "♦3 原本在 C 的手中。",
+        "text": "C originally holds ♦3.",
         "constraint": {
           "kind": "owner",
           "player": "C",
@@ -5226,7 +5226,7 @@
       },
       {
         "id": "f5",
-        "text": "第 3 轮，A 出的是 ♣10。",
+        "text": "In round 3, A plays ♣10.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 3,
@@ -5239,7 +5239,7 @@
     "testimonies": [
       {
         "id": "t1",
-        "text": "第 2 轮，B 出的是 ♥12。",
+        "text": "In round 2, B plays ♥12.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 2,
@@ -5249,7 +5249,7 @@
       },
       {
         "id": "t2",
-        "text": "第 3 轮的赢家是 C。",
+        "text": "C wins round 3.",
         "constraint": {
           "kind": "roundWinner",
           "round": 3,
@@ -5258,7 +5258,7 @@
       },
       {
         "id": "t3",
-        "text": "第 2 轮，C 出的是 ♥8。",
+        "text": "In round 2, C plays ♥8.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 2,
@@ -5268,7 +5268,7 @@
       },
       {
         "id": "t4",
-        "text": "第 3 轮，C 出的是 ♦3。",
+        "text": "In round 3, C plays ♦3.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 3,
@@ -5279,8 +5279,8 @@
     ],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先关注第 1 轮 B 的牌位。这一处可以从以下公开记录入手：第 1 轮，C 出的是 ♥4；第 3 轮领出的牌是 ♦7。同时保留“恰有 1 条错误证词”的条件。",
+        "title": "Look at the evidence",
+        "text": "Focus on B's slot in round 1. Start with these public records: In round 1, C plays ♥4. Round 3 is led with ♦7. Keep the requirement of exactly 1 false statements in mind.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -5292,8 +5292,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "♦7 是第 3 轮的第一张牌，只能由该轮领出者打出。把这个条件与前轮赢家相连，再检查各人尚未打出的同花色牌。证词必须合起来核对：恰有 1 条为假，而不是每句话都必须为真。",
+        "title": "Connect the rules",
+        "text": "♦7 is the first card of round 3, so only that round's leader can play it. Connect this to the previous winner, then check the same-suit cards still in each hand. Check the statements together: exactly 1 must be false, rather than every statement being true.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -5308,8 +5308,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第 1 轮，B 出的是 ♥2。暂时不采用“第 3 轮领出的牌是 ♦7”时，这里还可能出现 ♦7、♦11、♥12；但这些分支都无法在遵守跟花色与赢家领出规则的同时满足这条记录。把该记录放回，留下的只有 ♥2。",
+        "title": "One step forward",
+        "text": "In round 1, B plays ♥2. Without the record \"Round 3 is led with ♦7.\", this slot could also hold ♦7, ♦11, ♥12. None of those alternatives can satisfy that record together with following suit and the winner leading next. Restoring the record leaves only ♥2.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -5341,7 +5341,7 @@
       "falseTestimonyIDs": [
         "t2"
       ],
-      "explanation": "第 1 轮 C：♥4 → A：♦11 → B：♥2。领出的是红桃，同花色中点数最大的牌属于 C，因此 C 获胜。\nA 本轮没有跟红桃，说明其余手牌 ♣5、♣10 都不是红桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 C：♥8 → A：♣5 → B：♥12。领出的是红桃，同花色中点数最大的牌属于 B，因此 B 获胜。\nA 本轮没有跟红桃，说明其余手牌 ♣10 都不是红桃；这是必须跟花色规则留下的持牌证据。\n第 3 轮 B：♦7 → C：♦3 → A：♣10。领出的是方块，同花色中点数最大的牌属于 B，因此 B 获胜。\n归档核对：证词 2有误，其余证词成立。可信记录全部成立。\n证词 2 的更正：第 3 轮的赢家是 B。"
+      "explanation": "Round 1: C: ♥4 → A: ♦11 → B: ♥2. The lead suit is hearts. C holds the highest card of that suit and wins.\n\nA did not follow hearts, so the remaining cards (♣5, ♣10) cannot be hearts. This follows from the requirement to follow suit when able.\n\nRound 2: C: ♥8 → A: ♣5 → B: ♥12. The lead suit is hearts. B holds the highest card of that suit and wins.\n\nA did not follow hearts, so the remaining cards (♣10) cannot be hearts. This follows from the requirement to follow suit when able.\n\nRound 3: B: ♦7 → C: ♦3 → A: ♣10. The lead suit is diamonds. B holds the highest card of that suit and wins.\n\nFalse statements: statement 2. All other statements and every reliable clue are true.\n\nCorrection to statement 2: B wins round 3."
     }
   },
   {
@@ -5350,9 +5350,9 @@
     "id": "chapter04.level04",
     "chapterID": "chapter04",
     "number": 34,
-    "title": "相邻的数字",
-    "subtitle": "证词档案 04",
-    "story": "潮湿的纸上点数容易看错。不要先认定某个人可靠，按题目公开的错误条数核对所有证词。",
+    "title": "Neighboring Numbers",
+    "subtitle": "Witness file 04",
+    "story": "Damp paper makes ranks easy to misread. Do not decide that one witness is trustworthy in advance. Test all statements against the given false count.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -5396,7 +5396,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 1 轮，C 出的是 ♣14。",
+        "text": "In round 1, C plays ♣14.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -5406,7 +5406,7 @@
       },
       {
         "id": "f2",
-        "text": "♣5 原本在 C 的手中。",
+        "text": "C originally holds ♣5.",
         "constraint": {
           "kind": "owner",
           "player": "C",
@@ -5415,7 +5415,7 @@
       },
       {
         "id": "f3",
-        "text": "第 3 轮领出的牌是 ♦6。",
+        "text": "Round 3 is led with ♦6.",
         "constraint": {
           "kind": "leadCard",
           "round": 3,
@@ -5424,7 +5424,7 @@
       },
       {
         "id": "f4",
-        "text": "第 3 轮，A 出的是 ♦13。",
+        "text": "In round 3, A plays ♦13.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 3,
@@ -5434,7 +5434,7 @@
       },
       {
         "id": "f5",
-        "text": "第 2 轮，A 出的是 ♦9。",
+        "text": "In round 2, A plays ♦9.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 2,
@@ -5447,7 +5447,7 @@
     "testimonies": [
       {
         "id": "t1",
-        "text": "第 2 轮的赢家是 B。",
+        "text": "B wins round 2.",
         "constraint": {
           "kind": "roundWinner",
           "round": 2,
@@ -5456,7 +5456,7 @@
       },
       {
         "id": "t2",
-        "text": "♣10 原本在 A 的手中。",
+        "text": "A originally holds ♣10.",
         "constraint": {
           "kind": "owner",
           "player": "A",
@@ -5465,7 +5465,7 @@
       },
       {
         "id": "t3",
-        "text": "第 2 轮，B 出的是 ♣10。",
+        "text": "In round 2, B plays ♣10.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 2,
@@ -5475,7 +5475,7 @@
       },
       {
         "id": "t4",
-        "text": "♥7 原本在 A 的手中。",
+        "text": "A originally holds ♥7.",
         "constraint": {
           "kind": "owner",
           "player": "A",
@@ -5485,8 +5485,8 @@
     ],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先关注第 1 轮 B 的牌位。这一处可以从以下公开记录入手：第 1 轮，C 出的是 ♣14；♣5 原本在 C 的手中；第 3 轮领出的牌是 ♦6；第 3 轮，A 出的是 ♦13。同时保留“恰有 2 条错误证词”的条件。",
+        "title": "Look at the evidence",
+        "text": "Focus on B's slot in round 1. Start with these public records: In round 1, C plays ♣14. C originally holds ♣5. Round 3 is led with ♦6. In round 3, A plays ♦13. Keep the requirement of exactly 2 false statements in mind.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -5500,8 +5500,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "♣5 必须落在 C 的列内。每人恰有 3 张牌；检查它放在较晚轮次时，是否会让这个人较早时明明有领出花色却没有跟。证词必须合起来核对：恰有 2 条为假，而不是每句话都必须为真。",
+        "title": "Connect the rules",
+        "text": "♣5 must go in C's column. Each player has exactly 3 cards. If you place it in a later round, check whether that would mean failing to follow its suit in an earlier round. Check the statements together: exactly 2 must be false, rather than every statement being true.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -5516,8 +5516,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第 1 轮，B 出的是 ♣2。暂时不采用“第 3 轮，A 出的是 ♦13”时，这里还可能出现 ♣10、♦3、♦9、♦13、♥7；但这些分支都无法在遵守跟花色与赢家领出规则的同时满足这条记录。把该记录放回，留下的只有 ♣2。",
+        "title": "One step forward",
+        "text": "In round 1, B plays ♣2. Without the record \"In round 3, A plays ♦13.\", this slot could also hold ♣10, ♦3, ♦9, ♦13, ♥7. None of those alternatives can satisfy that record together with following suit and the winner leading next. Restoring the record leaves only ♣2.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -5552,7 +5552,7 @@
         "t2",
         "t4"
       ],
-      "explanation": "第 1 轮 C：♣14 → A：♦3 → B：♣2。领出的是梅花，同花色中点数最大的牌属于 C，因此 C 获胜。\nA 本轮没有跟梅花，说明其余手牌 ♦9、♦13 都不是梅花；这是必须跟花色规则留下的持牌证据。\n第 2 轮 C：♣5 → A：♦9 → B：♣10。领出的是梅花，同花色中点数最大的牌属于 B，因此 B 获胜。\nA 本轮没有跟梅花，说明其余手牌 ♦13 都不是梅花；这是必须跟花色规则留下的持牌证据。\n第 3 轮 B：♦6 → C：♥7 → A：♦13。领出的是方块，同花色中点数最大的牌属于 A，因此 A 获胜。\n归档核对：证词 2、证词 4有误，其余证词成立。可信记录全部成立。\n证词 2 的更正：♣10 原本在 B 的手中。\n证词 4 的更正：♥7 原本在 C 的手中。"
+      "explanation": "Round 1: C: ♣14 → A: ♦3 → B: ♣2. The lead suit is clubs. C holds the highest card of that suit and wins.\n\nA did not follow clubs, so the remaining cards (♦9, ♦13) cannot be clubs. This follows from the requirement to follow suit when able.\n\nRound 2: C: ♣5 → A: ♦9 → B: ♣10. The lead suit is clubs. B holds the highest card of that suit and wins.\n\nA did not follow clubs, so the remaining cards (♦13) cannot be clubs. This follows from the requirement to follow suit when able.\n\nRound 3: B: ♦6 → C: ♥7 → A: ♦13. The lead suit is diamonds. A holds the highest card of that suit and wins.\n\nFalse statements: statement 2, statement 4. All other statements and every reliable clue are true.\n\nCorrection to statement 2: B originally holds ♣10.\n\nCorrection to statement 4: C originally holds ♥7."
     }
   },
   {
@@ -5561,9 +5561,9 @@
     "id": "chapter04.level05",
     "chapterID": "chapter04",
     "number": 35,
-    "title": "第二位见证人",
-    "subtitle": "证词档案 05",
-    "story": "第二位见证人的来信补全了另一种说法。它仍是待核实证词，不能覆盖经过原稿确认的事实。",
+    "title": "The Second Witness",
+    "subtitle": "Witness file 05",
+    "story": "A second witness offers another account. It remains unverified testimony and cannot overrule a fact confirmed by the original record.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -5607,7 +5607,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 1 轮，C 出的是 ♥4。",
+        "text": "In round 1, C plays ♥4.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -5617,7 +5617,7 @@
       },
       {
         "id": "f2",
-        "text": "第 1 轮，B 出的是黑桃。",
+        "text": "In round 1, B plays spades.",
         "constraint": {
           "kind": "playedSuit",
           "round": 1,
@@ -5627,7 +5627,7 @@
       },
       {
         "id": "f3",
-        "text": "第 1 轮，A 出的是黑桃。",
+        "text": "In round 1, A plays spades.",
         "constraint": {
           "kind": "playedSuit",
           "round": 1,
@@ -5637,7 +5637,7 @@
       },
       {
         "id": "f4",
-        "text": "♠9 原本在 B 的手中。",
+        "text": "B originally holds ♠9.",
         "constraint": {
           "kind": "owner",
           "player": "B",
@@ -5646,7 +5646,7 @@
       },
       {
         "id": "f5",
-        "text": "第 3 轮领出的牌是 ♣7。",
+        "text": "Round 3 is led with ♣7.",
         "constraint": {
           "kind": "leadCard",
           "round": 3,
@@ -5655,7 +5655,7 @@
       },
       {
         "id": "f6",
-        "text": "第 2 轮，A 出的是 ♦13。",
+        "text": "In round 2, A plays ♦13.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 2,
@@ -5668,7 +5668,7 @@
     "testimonies": [
       {
         "id": "t1",
-        "text": "第 2 轮，C 出的是 ♣2。",
+        "text": "In round 2, C plays ♣2.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 2,
@@ -5678,7 +5678,7 @@
       },
       {
         "id": "t2",
-        "text": "第 3 轮，B 出的是 ♣7。",
+        "text": "In round 3, B plays ♣7.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 3,
@@ -5688,7 +5688,7 @@
       },
       {
         "id": "t3",
-        "text": "♣7 原本在 B 的手中。",
+        "text": "B originally holds ♣7.",
         "constraint": {
           "kind": "owner",
           "player": "B",
@@ -5697,7 +5697,7 @@
       },
       {
         "id": "t4",
-        "text": "第 3 轮，B 出的是 ♣12。",
+        "text": "In round 3, B plays ♣12.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 3,
@@ -5708,8 +5708,8 @@
     ],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先关注第 1 轮 A 的牌位。这一处可以从以下公开记录入手：第 1 轮，A 出的是黑桃；♠9 原本在 B 的手中。同时保留“恰有 1 条错误证词”的条件。",
+        "title": "Look at the evidence",
+        "text": "Focus on A's slot in round 1. Start with these public records: In round 1, A plays spades. B originally holds ♠9. Keep the requirement of exactly 1 false statements in mind.",
         "evidenceIDs": [
           "f3",
           "f4",
@@ -5721,8 +5721,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "♠9 必须落在 B 的列内。每人恰有 3 张牌；检查它放在较晚轮次时，是否会让这个人较早时明明有领出花色却没有跟。证词必须合起来核对：恰有 1 条为假，而不是每句话都必须为真。",
+        "title": "Connect the rules",
+        "text": "♠9 must go in B's column. Each player has exactly 3 cards. If you place it in a later round, check whether that would mean failing to follow its suit in an earlier round. Check the statements together: exactly 1 must be false, rather than every statement being true.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -5738,8 +5738,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第一轮 A 出 ♠3。A 的这一手已确认是黑桃，牌池中的另一张黑桃 ♠9 又已确认归 B。牌不能重复，故 A 第一轮只剩 ♠3；证词真假仍需要结合后两轮再核实。",
+        "title": "One step forward",
+        "text": "A plays ♠3 in round one. This play is known to be a spade, and the only other spade, ♠9, belongs to B. Cards cannot be duplicated, leaving ♠3 for A. The witness statements still need to be checked against the later rounds.",
         "evidenceIDs": [
           "f3",
           "f4",
@@ -5771,7 +5771,7 @@
       "falseTestimonyIDs": [
         "t4"
       ],
-      "explanation": "第 1 轮 C：♥4 → A：♠3 → B：♠9。领出的是红桃，同花色中点数最大的牌属于 C，因此 C 获胜。\nA 本轮没有跟红桃，说明其余手牌 ♦13、♦5 都不是红桃；这是必须跟花色规则留下的持牌证据。\nB 本轮没有跟红桃，说明其余手牌 ♣12、♣7 都不是红桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 C：♣2 → A：♦13 → B：♣12。领出的是梅花，同花色中点数最大的牌属于 B，因此 B 获胜。\nA 本轮没有跟梅花，说明其余手牌 ♦5 都不是梅花；这是必须跟花色规则留下的持牌证据。\n第 3 轮 B：♣7 → C：♥10 → A：♦5。领出的是梅花，同花色中点数最大的牌属于 B，因此 B 获胜。\n归档核对：证词 4有误，其余证词成立。可信记录全部成立。\n证词 4 的更正：第 3 轮，B 出的是 ♣7。"
+      "explanation": "Round 1: C: ♥4 → A: ♠3 → B: ♠9. The lead suit is hearts. C holds the highest card of that suit and wins.\n\nA did not follow hearts, so the remaining cards (♦13, ♦5) cannot be hearts. This follows from the requirement to follow suit when able.\n\nB did not follow hearts, so the remaining cards (♣12, ♣7) cannot be hearts. This follows from the requirement to follow suit when able.\n\nRound 2: C: ♣2 → A: ♦13 → B: ♣12. The lead suit is clubs. B holds the highest card of that suit and wins.\n\nA did not follow clubs, so the remaining cards (♦5) cannot be clubs. This follows from the requirement to follow suit when able.\n\nRound 3: B: ♣7 → C: ♥10 → A: ♦5. The lead suit is clubs. B holds the highest card of that suit and wins.\n\nFalse statements: statement 4. All other statements and every reliable clue are true.\n\nCorrection to statement 4: In round 3, B plays ♣7."
     }
   },
   {
@@ -5780,9 +5780,9 @@
     "id": "chapter04.level06",
     "chapterID": "chapter04",
     "number": 36,
-    "title": "灯塔来信",
-    "subtitle": "证词档案 06",
-    "story": "灯塔守夜人记下了夜间牌局。几句话互相牵连，某一句暂时不符并不代表整份假设立刻失败。",
+    "title": "A Letter from the Lighthouse",
+    "subtitle": "Witness file 06",
+    "story": "The lighthouse keeper recorded a late-night game. The statements are linked; one statement being false need not invalidate the whole reconstruction.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -5826,7 +5826,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 1 轮，A 出的是 ♥10。",
+        "text": "In round 1, A plays ♥10.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -5836,7 +5836,7 @@
       },
       {
         "id": "f2",
-        "text": "第 2 轮领出的牌是 ♠5。",
+        "text": "Round 2 is led with ♠5.",
         "constraint": {
           "kind": "leadCard",
           "round": 2,
@@ -5845,7 +5845,7 @@
       },
       {
         "id": "f3",
-        "text": "第 3 轮领出的牌是 ♠14。",
+        "text": "Round 3 is led with ♠14.",
         "constraint": {
           "kind": "leadCard",
           "round": 3,
@@ -5854,7 +5854,7 @@
       },
       {
         "id": "f4",
-        "text": "第 3 轮，C 出的是 ♠8。",
+        "text": "In round 3, C plays ♠8.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 3,
@@ -5864,7 +5864,7 @@
       },
       {
         "id": "f5",
-        "text": "♦6 原本在 B 的手中。",
+        "text": "B originally holds ♦6.",
         "constraint": {
           "kind": "owner",
           "player": "B",
@@ -5876,7 +5876,7 @@
     "testimonies": [
       {
         "id": "t1",
-        "text": "第 1 轮，C 出的是 ♦12。",
+        "text": "In round 1, C plays ♦12.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -5886,7 +5886,7 @@
       },
       {
         "id": "t2",
-        "text": "第 1 轮，B 出的是黑桃。",
+        "text": "In round 1, B plays spades.",
         "constraint": {
           "kind": "playedSuit",
           "round": 1,
@@ -5896,7 +5896,7 @@
       },
       {
         "id": "t3",
-        "text": "♠14 原本在 B 的手中。",
+        "text": "B originally holds ♠14.",
         "constraint": {
           "kind": "owner",
           "player": "B",
@@ -5905,7 +5905,7 @@
       },
       {
         "id": "t4",
-        "text": "第 1 轮，C 出的是 ♠11。",
+        "text": "In round 1, C plays ♠11.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -5916,8 +5916,8 @@
     ],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先关注第 2 轮 A 的牌位。这一处可以从以下公开记录入手：第 1 轮，A 出的是 ♥10；第 2 轮领出的牌是 ♠5。同时保留“恰有 2 条错误证词”的条件。",
+        "title": "Look at the evidence",
+        "text": "Focus on A's slot in round 2. Start with these public records: In round 1, A plays ♥10. Round 2 is led with ♠5. Keep the requirement of exactly 2 false statements in mind.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -5929,8 +5929,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "♠5 是第 2 轮的第一张牌，只能由该轮领出者打出。把这个条件与前轮赢家相连，再检查各人尚未打出的同花色牌。证词必须合起来核对：恰有 2 条为假，而不是每句话都必须为真。",
+        "title": "Connect the rules",
+        "text": "♠5 is the first card of round 2, so only that round's leader can play it. Connect this to the previous winner, then check the same-suit cards still in each hand. Check the statements together: exactly 2 must be false, rather than every statement being true.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -5945,8 +5945,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第二轮 A 出 ♠5。A 第一轮领出的 ♥10 是本局最大的红桃，其他花色都不能击败它。因此 A 赢第一轮，第二轮已确认的领出牌 ♠5 必须由 A 打出。",
+        "title": "One step forward",
+        "text": "A plays ♠5 in round two. A's opening ♥10 is the highest heart. No other suit can beat it, so A wins and must play the confirmed next lead, ♠5.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -5979,7 +5979,7 @@
         "t2",
         "t4"
       ],
-      "explanation": "第 1 轮 A：♥10 → B：♦6 → C：♦12。领出的是红桃，同花色中点数最大的牌属于 A，因此 A 获胜。\nB 本轮没有跟红桃，说明其余手牌 ♠11、♠14 都不是红桃；这是必须跟花色规则留下的持牌证据。\nC 本轮没有跟红桃，说明其余手牌 ♠2、♠8 都不是红桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♠5 → B：♠11 → C：♠2。领出的是黑桃，同花色中点数最大的牌属于 B，因此 B 获胜。\n第 3 轮 B：♠14 → C：♠8 → A：♥4。领出的是黑桃，同花色中点数最大的牌属于 B，因此 B 获胜。\n归档核对：证词 2、证词 4有误，其余证词成立。可信记录全部成立。\n证词 2 的更正：第 1 轮，B 出的是方块。\n证词 4 的更正：第 1 轮，C 出的是 ♦12。"
+      "explanation": "Round 1: A: ♥10 → B: ♦6 → C: ♦12. The lead suit is hearts. A holds the highest card of that suit and wins.\n\nB did not follow hearts, so the remaining cards (♠11, ♠14) cannot be hearts. This follows from the requirement to follow suit when able.\n\nC did not follow hearts, so the remaining cards (♠2, ♠8) cannot be hearts. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♠5 → B: ♠11 → C: ♠2. The lead suit is spades. B holds the highest card of that suit and wins.\n\nRound 3: B: ♠14 → C: ♠8 → A: ♥4. The lead suit is spades. B holds the highest card of that suit and wins.\n\nFalse statements: statement 2, statement 4. All other statements and every reliable clue are true.\n\nCorrection to statement 2: In round 1, B plays diamonds.\n\nCorrection to statement 4: In round 1, C plays ♦12."
     }
   },
   {
@@ -5988,9 +5988,9 @@
     "id": "chapter04.level07",
     "chapterID": "chapter04",
     "number": 37,
-    "title": "邮戳之间",
-    "subtitle": "证词档案 07",
-    "story": "邮戳证明来信同属一场牌局。将证词与持牌限制放在一起，找出恰好符合错误数量的还原。",
+    "title": "Between the Postmarks",
+    "subtitle": "Witness file 07",
+    "story": "The postmarks place the letters at the same game. Combine the statements with hand limits to find the reconstruction with exactly the required false count.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -6034,7 +6034,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 1 轮，A 出的是 ♣13。",
+        "text": "In round 1, A plays ♣13.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -6044,7 +6044,7 @@
       },
       {
         "id": "f2",
-        "text": "第 3 轮领出的牌是 ♣8。",
+        "text": "Round 3 is led with ♣8.",
         "constraint": {
           "kind": "leadCard",
           "round": 3,
@@ -6053,7 +6053,7 @@
       },
       {
         "id": "f3",
-        "text": "♦11 原本在 A 的手中。",
+        "text": "A originally holds ♦11.",
         "constraint": {
           "kind": "owner",
           "player": "A",
@@ -6062,7 +6062,7 @@
       },
       {
         "id": "f4",
-        "text": "第 1 轮，B 出的是 ♠4。",
+        "text": "In round 1, B plays ♠4.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -6072,7 +6072,7 @@
       },
       {
         "id": "f5",
-        "text": "第 2 轮，B 出的是 ♦6。",
+        "text": "In round 2, B plays ♦6.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 2,
@@ -6085,7 +6085,7 @@
     "testimonies": [
       {
         "id": "t1",
-        "text": "第 3 轮，C 出的是黑桃。",
+        "text": "In round 3, C plays spades.",
         "constraint": {
           "kind": "playedSuit",
           "round": 3,
@@ -6095,7 +6095,7 @@
       },
       {
         "id": "t2",
-        "text": "第 2 轮，C 出的是黑桃。",
+        "text": "In round 2, C plays spades.",
         "constraint": {
           "kind": "playedSuit",
           "round": 2,
@@ -6105,7 +6105,7 @@
       },
       {
         "id": "t3",
-        "text": "第 2 轮，A 出的是 ♠7。",
+        "text": "In round 2, A plays ♠7.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 2,
@@ -6115,7 +6115,7 @@
       },
       {
         "id": "t4",
-        "text": "第 3 轮，C 出的是梅花。",
+        "text": "In round 3, C plays clubs.",
         "constraint": {
           "kind": "playedSuit",
           "round": 3,
@@ -6126,8 +6126,8 @@
     ],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先关注第 3 轮 A 的牌位。这一处可以从以下公开记录入手：第 1 轮，A 出的是 ♣13；♦11 原本在 A 的手中。同时保留“恰有 1 条错误证词”的条件。",
+        "title": "Look at the evidence",
+        "text": "Focus on A's slot in round 3. Start with these public records: In round 1, A plays ♣13. A originally holds ♦11. Keep the requirement of exactly 1 false statements in mind.",
         "evidenceIDs": [
           "f1",
           "f3",
@@ -6139,8 +6139,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "第一轮由 A 领出 ♣13，而 B 出了 ♠4。必须跟花色，所以 B 当时手中没有梅花，后面也不能再出梅花。证词必须合起来核对：恰有 1 条为假，而不是每句话都必须为真。",
+        "title": "Connect the rules",
+        "text": "A leads ♣13 in round one, while B plays ♠4. Players must follow suit, so B had no clubs and cannot play that suit in a later round. Check the statements together: exactly 1 must be false, rather than every statement being true.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -6155,8 +6155,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第三轮 A 出 ♦11。证词 1 与证词 4 对 C 第三轮的花色互相矛盾，恰有一条错误意味着另外两条证词必须成立，所以 A 第二轮出 ♠7。A 第一轮的 ♣13 已固定，♦11 又确定归 A，因此 ♦11 只能留在 A 第三轮。",
+        "title": "One step forward",
+        "text": "A plays ♦11 in round three. Statements 1 and 4 disagree about C's third-round suit. With exactly one false statement, the other two statements must be true, confirming A's ♠7 in round two. A's first-round ♣13 is fixed, and ♦11 belongs to A, leaving it for round three.",
         "evidenceIDs": [
           "f1",
           "f3",
@@ -6188,7 +6188,7 @@
       "falseTestimonyIDs": [
         "t1"
       ],
-      "explanation": "第 1 轮 A：♣13 → B：♠4 → C：♣3。领出的是梅花，同花色中点数最大的牌属于 A，因此 A 获胜。\nB 本轮没有跟梅花，说明其余手牌 ♦6、♦2 都不是梅花；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♠7 → B：♦6 → C：♠12。领出的是黑桃，同花色中点数最大的牌属于 C，因此 C 获胜。\nB 本轮没有跟黑桃，说明其余手牌 ♦2 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 3 轮 C：♣8 → A：♦11 → B：♦2。领出的是梅花，同花色中点数最大的牌属于 C，因此 C 获胜。\n归档核对：证词 1有误，其余证词成立。可信记录全部成立。\n证词 1 的更正：第 3 轮，C 出的是梅花。"
+      "explanation": "Round 1: A: ♣13 → B: ♠4 → C: ♣3. The lead suit is clubs. A holds the highest card of that suit and wins.\n\nB did not follow clubs, so the remaining cards (♦6, ♦2) cannot be clubs. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♠7 → B: ♦6 → C: ♠12. The lead suit is spades. C holds the highest card of that suit and wins.\n\nB did not follow spades, so the remaining cards (♦2) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 3: C: ♣8 → A: ♦11 → B: ♦2. The lead suit is clubs. C holds the highest card of that suit and wins.\n\nFalse statements: statement 1. All other statements and every reliable clue are true.\n\nCorrection to statement 1: In round 3, C plays clubs."
     }
   },
   {
@@ -6197,9 +6197,9 @@
     "id": "chapter04.level08",
     "chapterID": "chapter04",
     "number": 38,
-    "title": "两处偏差",
-    "subtitle": "证词档案 08",
-    "story": "这一页有两处明确的记忆偏差。错误并非随机惩罚，而是需要由同一个完整牌局同时判定的约束。",
+    "title": "Two Faulty Memories",
+    "subtitle": "Witness file 08",
+    "story": "This page contains two definite errors of memory. Both must be shown false by the same complete game, while the other statements remain true.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -6243,7 +6243,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 1 轮，A 出的是 ♦5。",
+        "text": "In round 1, A plays ♦5.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -6253,7 +6253,7 @@
       },
       {
         "id": "f2",
-        "text": "第 2 轮，C 出的是方块。",
+        "text": "In round 2, C plays diamonds.",
         "constraint": {
           "kind": "playedSuit",
           "round": 2,
@@ -6263,7 +6263,7 @@
       },
       {
         "id": "f3",
-        "text": "♠3 原本在 C 的手中。",
+        "text": "C originally holds ♠3.",
         "constraint": {
           "kind": "owner",
           "player": "C",
@@ -6272,7 +6272,7 @@
       },
       {
         "id": "f4",
-        "text": "第 3 轮的赢家是 B。",
+        "text": "B wins round 3.",
         "constraint": {
           "kind": "roundWinner",
           "round": 3,
@@ -6281,7 +6281,7 @@
       },
       {
         "id": "f5",
-        "text": "♣8 原本在 B 的手中。",
+        "text": "B originally holds ♣8.",
         "constraint": {
           "kind": "owner",
           "player": "B",
@@ -6290,7 +6290,7 @@
       },
       {
         "id": "f6",
-        "text": "第 3 轮，A 出的是 ♣13。",
+        "text": "In round 3, A plays ♣13.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 3,
@@ -6303,7 +6303,7 @@
     "testimonies": [
       {
         "id": "t1",
-        "text": "第 1 轮的赢家是 C。",
+        "text": "C wins round 1.",
         "constraint": {
           "kind": "roundWinner",
           "round": 1,
@@ -6312,7 +6312,7 @@
       },
       {
         "id": "t2",
-        "text": "第 2 轮，B 出的是 ♠7。",
+        "text": "In round 2, B plays ♠7.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 2,
@@ -6322,7 +6322,7 @@
       },
       {
         "id": "t3",
-        "text": "♠7 原本在 A 的手中。",
+        "text": "A originally holds ♠7.",
         "constraint": {
           "kind": "owner",
           "player": "A",
@@ -6331,7 +6331,7 @@
       },
       {
         "id": "t4",
-        "text": "第 2 轮，A 出的是 ♠7。",
+        "text": "In round 2, A plays ♠7.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 2,
@@ -6342,8 +6342,8 @@
     ],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先关注第 1 轮 C 的牌位。这一处可以从以下公开记录入手：第 1 轮，A 出的是 ♦5；第 2 轮，C 出的是方块；♠3 原本在 C 的手中。同时保留“恰有 2 条错误证词”的条件。",
+        "title": "Look at the evidence",
+        "text": "Focus on C's slot in round 1. Start with these public records: In round 1, A plays ♦5. In round 2, C plays diamonds. C originally holds ♠3. Keep the requirement of exactly 2 false statements in mind.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -6356,8 +6356,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "♠3 必须落在 C 的列内。每人恰有 3 张牌；检查它放在较晚轮次时，是否会让这个人较早时明明有领出花色却没有跟。证词必须合起来核对：恰有 2 条为假，而不是每句话都必须为真。",
+        "title": "Connect the rules",
+        "text": "♠3 must go in C's column. Each player has exactly 3 cards. If you place it in a later round, check whether that would mean failing to follow its suit in an earlier round. Check the statements together: exactly 2 must be false, rather than every statement being true.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -6373,8 +6373,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第 1 轮，C 出的是 ♦10。暂时不采用“♠3 原本在 C 的手中”时，这里还可能出现 ♦2；但这些分支都无法在遵守跟花色与赢家领出规则的同时满足这条记录。把该记录放回，留下的只有 ♦10。",
+        "title": "One step forward",
+        "text": "In round 1, C plays ♦10. Without the record \"C originally holds ♠3.\", this slot could also hold ♦2. None of those alternatives can satisfy that record together with following suit and the winner leading next. Restoring the record leaves only ♦10.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -6408,7 +6408,7 @@
         "t3",
         "t4"
       ],
-      "explanation": "第 1 轮 A：♦5 → B：♣8 → C：♦10。领出的是方块，同花色中点数最大的牌属于 C，因此 C 获胜。\nB 本轮没有跟方块，说明其余手牌 ♠7、♠12 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 2 轮 C：♦2 → A：♣4 → B：♠7。领出的是方块，同花色中点数最大的牌属于 C，因此 C 获胜。\nA 本轮没有跟方块，说明其余手牌 ♣13 都不是方块；这是必须跟花色规则留下的持牌证据。\nB 本轮没有跟方块，说明其余手牌 ♠12 都不是方块；这是必须跟花色规则留下的持牌证据。\n第 3 轮 C：♠3 → A：♣13 → B：♠12。领出的是黑桃，同花色中点数最大的牌属于 B，因此 B 获胜。\n归档核对：证词 3、证词 4有误，其余证词成立。可信记录全部成立。\n证词 3 的更正：♠7 原本在 B 的手中。\n证词 4 的更正：第 2 轮，A 出的是 ♣4。"
+      "explanation": "Round 1: A: ♦5 → B: ♣8 → C: ♦10. The lead suit is diamonds. C holds the highest card of that suit and wins.\n\nB did not follow diamonds, so the remaining cards (♠7, ♠12) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 2: C: ♦2 → A: ♣4 → B: ♠7. The lead suit is diamonds. C holds the highest card of that suit and wins.\n\nA did not follow diamonds, so the remaining cards (♣13) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nB did not follow diamonds, so the remaining cards (♠12) cannot be diamonds. This follows from the requirement to follow suit when able.\n\nRound 3: C: ♠3 → A: ♣13 → B: ♠12. The lead suit is spades. B holds the highest card of that suit and wins.\n\nFalse statements: statement 3, statement 4. All other statements and every reliable clue are true.\n\nCorrection to statement 3: B originally holds ♠7.\n\nCorrection to statement 4: In round 2, A plays ♣4."
     }
   },
   {
@@ -6417,9 +6417,9 @@
     "id": "chapter04.level09",
     "chapterID": "chapter04",
     "number": 39,
-    "title": "最后的旁观者",
-    "subtitle": "证词档案 09",
-    "story": "最后一位旁观者寄来的纸条让档案接近完整。检查三轮中的赢家轮转，也检查每条证词的实际含义。",
+    "title": "The Last Onlooker",
+    "subtitle": "Witness file 09",
+    "story": "The final onlooker's note brings the file close to completion. Check the changing winners across all three rounds and the precise claim in every statement.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -6463,7 +6463,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 1 轮，A 出的是 ♥5。",
+        "text": "In round 1, A plays ♥5.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -6473,7 +6473,7 @@
       },
       {
         "id": "f2",
-        "text": "第 2 轮领出的牌是 ♣4。",
+        "text": "Round 2 is led with ♣4.",
         "constraint": {
           "kind": "leadCard",
           "round": 2,
@@ -6482,7 +6482,7 @@
       },
       {
         "id": "f3",
-        "text": "第 1 轮，B 出的是 ♣12。",
+        "text": "In round 1, B plays ♣12.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -6492,7 +6492,7 @@
       },
       {
         "id": "f4",
-        "text": "♣2 原本在 B 的手中。",
+        "text": "B originally holds ♣2.",
         "constraint": {
           "kind": "owner",
           "player": "B",
@@ -6501,7 +6501,7 @@
       },
       {
         "id": "f5",
-        "text": "♠7 原本在 B 的手中。",
+        "text": "B originally holds ♠7.",
         "constraint": {
           "kind": "owner",
           "player": "B",
@@ -6513,7 +6513,7 @@
     "testimonies": [
       {
         "id": "t1",
-        "text": "♣8 原本在 C 的手中。",
+        "text": "C originally holds ♣8.",
         "constraint": {
           "kind": "owner",
           "player": "C",
@@ -6522,7 +6522,7 @@
       },
       {
         "id": "t2",
-        "text": "第 3 轮领出的牌是 ♠3。",
+        "text": "Round 3 is led with ♠3.",
         "constraint": {
           "kind": "leadCard",
           "round": 3,
@@ -6531,7 +6531,7 @@
       },
       {
         "id": "t3",
-        "text": "第 2 轮，A 出的是 ♠3。",
+        "text": "In round 2, A plays ♠3.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 2,
@@ -6541,7 +6541,7 @@
       },
       {
         "id": "t4",
-        "text": "♥10 原本在 A 的手中。",
+        "text": "A originally holds ♥10.",
         "constraint": {
           "kind": "owner",
           "player": "A",
@@ -6551,8 +6551,8 @@
     ],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先关注第 2 轮 A 的牌位。这一处可以从以下公开记录入手：第 1 轮，A 出的是 ♥5；第 2 轮领出的牌是 ♣4。同时保留“恰有 1 条错误证词”的条件。",
+        "title": "Look at the evidence",
+        "text": "Focus on A's slot in round 2. Start with these public records: In round 1, A plays ♥5. Round 2 is led with ♣4. Keep the requirement of exactly 1 false statements in mind.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -6564,8 +6564,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "第一轮由 A 领出 ♥5，而 B 出了 ♣12。必须跟花色，所以 B 当时手中没有红桃，后面也不能再出红桃。证词必须合起来核对：恰有 1 条为假，而不是每句话都必须为真。",
+        "title": "Connect the rules",
+        "text": "A leads ♥5 in round one, while B plays ♣12. Players must follow suit, so B had no hearts and cannot play that suit in a later round. Check the statements together: exactly 1 must be false, rather than every statement being true.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -6580,8 +6580,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第 2 轮，A 出的是 ♣4。暂时不采用“第 2 轮领出的牌是 ♣4”时，这里还可能出现 ♣2、♥10、♠3、♠7；但这些分支都无法在遵守跟花色与赢家领出规则的同时满足这条记录。把该记录放回，留下的只有 ♣4。",
+        "title": "One step forward",
+        "text": "In round 2, A plays ♣4. Without the record \"Round 2 is led with ♣4.\", this slot could also hold ♣2, ♥10, ♠3, ♠7. None of those alternatives can satisfy that record together with following suit and the winner leading next. Restoring the record leaves only ♣4.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -6613,7 +6613,7 @@
       "falseTestimonyIDs": [
         "t3"
       ],
-      "explanation": "第 1 轮 A：♥5 → B：♣12 → C：♠11。领出的是红桃，同花色中点数最大的牌属于 A，因此 A 获胜。\nB 本轮没有跟红桃，说明其余手牌 ♣2、♠7 都不是红桃；这是必须跟花色规则留下的持牌证据。\nC 本轮没有跟红桃，说明其余手牌 ♣8、♠3 都不是红桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 A：♣4 → B：♣2 → C：♣8。领出的是梅花，同花色中点数最大的牌属于 C，因此 C 获胜。\n第 3 轮 C：♠3 → A：♥10 → B：♠7。领出的是黑桃，同花色中点数最大的牌属于 B，因此 B 获胜。\n归档核对：证词 3有误，其余证词成立。可信记录全部成立。\n证词 3 的更正：第 2 轮，A 出的是 ♣4。"
+      "explanation": "Round 1: A: ♥5 → B: ♣12 → C: ♠11. The lead suit is hearts. A holds the highest card of that suit and wins.\n\nB did not follow hearts, so the remaining cards (♣2, ♠7) cannot be hearts. This follows from the requirement to follow suit when able.\n\nC did not follow hearts, so the remaining cards (♣8, ♠3) cannot be hearts. This follows from the requirement to follow suit when able.\n\nRound 2: A: ♣4 → B: ♣2 → C: ♣8. The lead suit is clubs. C holds the highest card of that suit and wins.\n\nRound 3: C: ♠3 → A: ♥10 → B: ♠7. The lead suit is spades. B holds the highest card of that suit and wins.\n\nFalse statements: statement 3. All other statements and every reliable clue are true.\n\nCorrection to statement 3: In round 2, A plays ♣4."
     }
   },
   {
@@ -6622,9 +6622,9 @@
     "id": "chapter04.level10",
     "chapterID": "chapter04",
     "number": 40,
-    "title": "封存之前",
-    "subtitle": "证词档案 10",
-    "story": "四十份档案来到最后一页。把可靠事实、待核实证词和自己的假设分清，再让每张牌回到唯一的位置。",
+    "title": "Before the Seal",
+    "subtitle": "Witness file 10",
+    "story": "Forty files have led to this last page. Separate reliable facts, witness accounts, and your own assumptions, then return every card to its only possible place.",
     "rules": {
       "id": "follow_suit_no_trump",
       "version": 1,
@@ -6668,7 +6668,7 @@
     "facts": [
       {
         "id": "f1",
-        "text": "第 1 轮，B 出的是 ♥14。",
+        "text": "In round 1, B plays ♥14.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 1,
@@ -6678,7 +6678,7 @@
       },
       {
         "id": "f2",
-        "text": "第 3 轮，B 出的是梅花。",
+        "text": "In round 3, B plays clubs.",
         "constraint": {
           "kind": "playedSuit",
           "round": 3,
@@ -6688,7 +6688,7 @@
       },
       {
         "id": "f3",
-        "text": "第 3 轮领出的牌是 ♠3。",
+        "text": "Round 3 is led with ♠3.",
         "constraint": {
           "kind": "leadCard",
           "round": 3,
@@ -6697,7 +6697,7 @@
       },
       {
         "id": "f4",
-        "text": "第 2 轮，A 出的是 ♠13。",
+        "text": "In round 2, A plays ♠13.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 2,
@@ -6707,7 +6707,7 @@
       },
       {
         "id": "f5",
-        "text": "第 3 轮，C 出的是 ♥5。",
+        "text": "In round 3, C plays ♥5.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 3,
@@ -6720,7 +6720,7 @@
     "testimonies": [
       {
         "id": "t1",
-        "text": "第 2 轮，C 出的是红桃。",
+        "text": "In round 2, C plays hearts.",
         "constraint": {
           "kind": "playedSuit",
           "round": 2,
@@ -6730,7 +6730,7 @@
       },
       {
         "id": "t2",
-        "text": "第 2 轮，C 出的是 ♥2。",
+        "text": "In round 2, C plays ♥2.",
         "constraint": {
           "kind": "cardPlayed",
           "round": 2,
@@ -6740,7 +6740,7 @@
       },
       {
         "id": "t3",
-        "text": "♠9 原本在 B 的手中。",
+        "text": "B originally holds ♠9.",
         "constraint": {
           "kind": "owner",
           "player": "B",
@@ -6749,7 +6749,7 @@
       },
       {
         "id": "t4",
-        "text": "♠6 原本在 A 的手中。",
+        "text": "A originally holds ♠6.",
         "constraint": {
           "kind": "owner",
           "player": "A",
@@ -6759,8 +6759,8 @@
     ],
     "hints": [
       {
-        "title": "关注证据",
-        "text": "先关注第 3 轮 A 的牌位。这一处可以从以下公开记录入手：第 3 轮，B 出的是梅花；第 3 轮领出的牌是 ♠3；第 3 轮，C 出的是 ♥5。同时保留“恰有 2 条错误证词”的条件。",
+        "title": "Look at the evidence",
+        "text": "Focus on A's slot in round 3. Start with these public records: In round 3, B plays clubs. Round 3 is led with ♠3. In round 3, C plays ♥5. Keep the requirement of exactly 2 false statements in mind.",
         "evidenceIDs": [
           "f2",
           "f3",
@@ -6773,8 +6773,8 @@
         "conclusion": null
       },
       {
-        "title": "连接规则",
-        "text": "♠3 是第 3 轮的第一张牌，只能由该轮领出者打出。把这个条件与前轮赢家相连，再检查各人尚未打出的同花色牌。证词必须合起来核对：恰有 2 条为假，而不是每句话都必须为真。",
+        "title": "Connect the rules",
+        "text": "♠3 is the first card of round 3, so only that round's leader can play it. Connect this to the previous winner, then check the same-suit cards still in each hand. Check the statements together: exactly 2 must be false, rather than every statement being true.",
         "evidenceIDs": [
           "f1",
           "f2",
@@ -6789,8 +6789,8 @@
         "conclusion": null
       },
       {
-        "title": "给出一步",
-        "text": "第三轮 A 出 ♠3。该轮已确认领出 ♠3，但 B 的牌确定是梅花，C 已确认出 ♥5；他们都不可能领出黑桃，因此只能由 A 在第三轮出 ♠3。",
+        "title": "One step forward",
+        "text": "A plays ♠3 in round three. ♠3 is the confirmed lead, but B plays a club and C plays ♥5. Neither can lead the spade, so A must play ♠3.",
         "evidenceIDs": [
           "f2",
           "f3",
@@ -6824,7 +6824,7 @@
         "t3",
         "t4"
       ],
-      "explanation": "第 1 轮 B：♥14 → C：♥10 → A：♠9。领出的是红桃，同花色中点数最大的牌属于 B，因此 B 获胜。\nA 本轮没有跟红桃，说明其余手牌 ♠13、♠3 都不是红桃；这是必须跟花色规则留下的持牌证据。\n第 2 轮 B：♠6 → C：♥2 → A：♠13。领出的是黑桃，同花色中点数最大的牌属于 A，因此 A 获胜。\nC 本轮没有跟黑桃，说明其余手牌 ♥5 都不是黑桃；这是必须跟花色规则留下的持牌证据。\n第 3 轮 A：♠3 → B：♣7 → C：♥5。领出的是黑桃，同花色中点数最大的牌属于 A，因此 A 获胜。\n归档核对：证词 3、证词 4有误，其余证词成立。可信记录全部成立。\n证词 3 的更正：♠9 原本在 A 的手中。\n证词 4 的更正：♠6 原本在 B 的手中。"
+      "explanation": "Round 1: B: ♥14 → C: ♥10 → A: ♠9. The lead suit is hearts. B holds the highest card of that suit and wins.\n\nA did not follow hearts, so the remaining cards (♠13, ♠3) cannot be hearts. This follows from the requirement to follow suit when able.\n\nRound 2: B: ♠6 → C: ♥2 → A: ♠13. The lead suit is spades. A holds the highest card of that suit and wins.\n\nC did not follow spades, so the remaining cards (♥5) cannot be spades. This follows from the requirement to follow suit when able.\n\nRound 3: A: ♠3 → B: ♣7 → C: ♥5. The lead suit is spades. A holds the highest card of that suit and wins.\n\nFalse statements: statement 3, statement 4. All other statements and every reliable clue are true.\n\nCorrection to statement 3: A originally holds ♠9.\n\nCorrection to statement 4: B originally holds ♠6."
     }
   }
 ]

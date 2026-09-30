@@ -18,10 +18,7 @@ extension UIColor {
 func archiveFont(_ style: UIFont.TextStyle, serif: Bool = false) -> UIFont {
     guard serif else { return UIFont.preferredFont(forTextStyle: style) }
     let descriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: style, compatibleWith: UITraitCollection(preferredContentSizeCategory: .large))
-    let face = UIFont(name: "SourceHanSerifSC-SemiBold", size: descriptor.pointSize)
-        ?? UIFont(name: "STSongti-SC-Bold", size: descriptor.pointSize)
-        ?? UIFont(name: "SongtiSC-Bold", size: descriptor.pointSize)
-        ?? UIFont(descriptor: descriptor.withDesign(.serif) ?? descriptor, size: descriptor.pointSize)
+    let face = UIFont(descriptor: descriptor.withDesign(.serif) ?? descriptor, size: descriptor.pointSize)
     return UIFontMetrics(forTextStyle: style).scaledFont(for: face)
 }
 func textLabel(_ text: String, _ style: UIFont.TextStyle = .body, color: UIColor = Palette.ink, serif: Bool = false) -> UILabel {
@@ -50,7 +47,7 @@ func paperPanel(_ content: UIView, inset: CGFloat = 16) -> UIView {
 final class ActionButton: UIButton {
     private let shading = CAGradientLayer()
     var action: (() -> Void)?
-    init(_ title: String, primary: Bool = false, symbol: String? = nil) {
+    init(_ title: String, primary: Bool = false, symbol: String? = nil, accessory: String? = nil) {
         super.init(frame: .zero)
         setTitle(title, for: .normal); setTitleColor(primary ? Palette.card : Palette.wine, for: .normal)
         setTitleColor(Palette.muted, for: .disabled)
@@ -67,22 +64,34 @@ final class ActionButton: UIButton {
             layer.shadowColor = Palette.wine.cgColor; layer.shadowOpacity = 0.16; layer.shadowRadius = 3; layer.shadowOffset = CGSize(width: 0, height: 2)
         }
         if let symbol = symbol { setImage(UIImage(systemName: symbol), for: .normal); tintColor = primary ? Palette.card : Palette.wine; imageEdgeInsets.right = 8 }
+        if let accessory = accessory {
+            let icon = archiveSymbol(accessory, color: primary ? Palette.card : Palette.wine, size: 17)
+            icon.translatesAutoresizingMaskIntoConstraints = false; addSubview(icon)
+            NSLayoutConstraint.activate([icon.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16), icon.centerYAnchor.constraint(equalTo: centerYAnchor)])
+            contentEdgeInsets.right = 44; contentHorizontalAlignment = .left; titleLabel?.textAlignment = .left
+        }
         heightAnchor.constraint(greaterThanOrEqualToConstant: 48).isActive = true
         addTarget(self, action: #selector(tapped), for: .touchUpInside)
     }
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     override func layoutSubviews() { super.layoutSubviews(); shading.frame = bounds }
+    override var isHighlighted: Bool { didSet { alpha = isHighlighted ? 0.72 : (isEnabled ? 1 : 0.45) } }
+    override var isEnabled: Bool { didSet { alpha = isEnabled ? 1 : 0.45 } }
     @objc private func tapped() { action?() }
 }
-class PaperScreen: UIViewController {
+class PaperScreen: UIViewController, UIScrollViewDelegate {
     let scroll = UIScrollView()
     let stack = vertical(spacing: 16)
     var scrollBottom: NSLayoutConstraint!
+    private var savedScrollOffset = CGPoint.zero
     override func viewDidLoad() {
         super.viewDidLoad(); view.backgroundColor = Palette.paper
         let texture = UIImageView(image: UIImage(named: "PaperTextureV2")); texture.contentMode = .scaleAspectFill; texture.alpha = 0.58; texture.isUserInteractionEnabled = false; texture.isAccessibilityElement = false
         texture.translatesAutoresizingMaskIntoConstraints = false; view.addSubview(texture)
         NSLayoutConstraint.activate([texture.topAnchor.constraint(equalTo: view.topAnchor), texture.bottomAnchor.constraint(equalTo: view.bottomAnchor), texture.leadingAnchor.constraint(equalTo: view.leadingAnchor), texture.trailingAnchor.constraint(equalTo: view.trailingAnchor)])
+        // The scroll view is already constrained to the safe area; avoid a second navigation-bar inset.
+        scroll.contentInsetAdjustmentBehavior = .never
+        scroll.delegate = self
         scroll.alwaysBounceVertical = true; scroll.keyboardDismissMode = .interactive
         scroll.translatesAutoresizingMaskIntoConstraints = false; stack.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(scroll); scroll.addSubview(stack)
@@ -95,12 +104,26 @@ class PaperScreen: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(navigationController?.viewControllers.first === self, animated: animated)
     }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        // Preserve intentional scrolling, not UIKit's automatic offset during navigation transitions.
+        if scrollView.isDragging || scrollView.isDecelerating { savedScrollOffset = scrollView.contentOffset }
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        view.layoutIfNeeded()
+        let maximum = max(0, scroll.contentSize.height - scroll.bounds.height)
+        scroll.setContentOffset(CGPoint(x: 0, y: min(max(0, savedScrollOffset.y), maximum)), animated: false)
+    }
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if previousTraitCollection?.preferredContentSizeCategory != traitCollection.preferredContentSizeCategory { fontChanged() }
+    }
     @objc func fontChanged() { view.setNeedsLayout() }
     func clear() { stack.arrangedSubviews.forEach { $0.removeFromSuperview() } }
     func add(_ view: UIView) { stack.addArrangedSubview(view) }
     func message(_ title: String, _ text: String) {
         let alert = UIAlertController(title: title, message: text, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "知道了", style: .default)); present(alert, animated: !UIAccessibility.isReduceMotionEnabled)
+        alert.addAction(UIAlertAction(title: "OK", style: .default)); present(alert, animated: !UIAccessibility.isReduceMotionEnabled)
     }
     deinit { NotificationCenter.default.removeObserver(self) }
 }
@@ -147,7 +170,7 @@ final class IllustratedArchiveRow: UIControl {
         let panel = paperPanel(content, inset: 9); panel.isUserInteractionEnabled = false
         panel.translatesAutoresizingMaskIntoConstraints = false; addSubview(panel)
         NSLayoutConstraint.activate([panel.leadingAnchor.constraint(equalTo: leadingAnchor),panel.trailingAnchor.constraint(equalTo: trailingAnchor),panel.topAnchor.constraint(equalTo: topAnchor),panel.bottomAnchor.constraint(equalTo: bottomAnchor)])
-        isAccessibilityElement = true; accessibilityTraits = .button; accessibilityLabel = title + "，" + detail
+        isAccessibilityElement = true; accessibilityTraits = .button; accessibilityLabel = title + ", " + detail
         addTarget(self, action: #selector(tap), for: .touchUpInside)
     }
     required init?(coder: NSCoder) { fatalError() }

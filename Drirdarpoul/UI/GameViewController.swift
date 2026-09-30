@@ -21,12 +21,12 @@ final class GameViewController: PaperScreen {
     required init?(coder: NSCoder) { fatalError() }
     override func viewDidLoad() {
         super.viewDidLoad(); stack.spacing = 12
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "规则", style: .plain, target: self, action: #selector(showRules))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Rules", style: .plain, target: self, action: #selector(showRules))
         let dock = UIView(); dock.backgroundColor = Palette.paper; dock.translatesAutoresizingMaskIntoConstraints = false; view.addSubview(dock)
-        undoButton = ActionButton("撤销", symbol: "arrow.uturn.backward"); undoButton.accessibilityIdentifier = "game.undo"
-        undoButton.action = { [weak self] in guard let self = self else { return }; if self.session.undo() { self.didChange("已撤销上一步") } }
-        let hints = ActionButton("提示", symbol: "lightbulb"); hints.accessibilityIdentifier = "game.hint"; hints.action = { [weak self] in self?.showHint() }
-        let verify = ActionButton("验证推理", primary: true); verify.accessibilityIdentifier = "game.verify"; verify.action = { [weak self] in self?.verify() }
+        undoButton = ActionButton("Undo", symbol: "arrow.uturn.backward"); undoButton.accessibilityIdentifier = "game.undo"
+        undoButton.action = { [weak self] in guard let self = self else { return }; if self.session.undo() { self.didChange("Last move undone") } }
+        let hints = ActionButton("Hint", symbol: "lightbulb"); hints.accessibilityIdentifier = "game.hint"; hints.action = { [weak self] in self?.showHint() }
+        let verify = ActionButton("Check", primary: true); verify.accessibilityIdentifier = "game.verify"; verify.action = { [weak self] in self?.verify() }
         let buttons = horizontal([undoButton, hints, verify], spacing: 8); buttons.distribution = .fillEqually; buttons.alignment = .fill
         buttons.translatesAutoresizingMaskIntoConstraints = false; dock.addSubview(buttons)
         scrollBottom.isActive = false
@@ -34,6 +34,7 @@ final class GameViewController: PaperScreen {
         NotificationCenter.default.addObserver(self, selector: #selector(save), name: UIApplication.willResignActiveNotification, object: nil)
         render(); persist()
     }
+    override func fontChanged() { if isViewLoaded, undoButton != nil { render() } }
     override func viewWillDisappear(_ animated: Bool) { super.viewWillDisappear(animated); save() }
     @objc private func save() { persist(); _ = store.saves.saveNow() }
     private func persist() { if !hasSavedCompletion { store.saves.updateDraft(session.makeDraft()) } }
@@ -45,16 +46,20 @@ final class GameViewController: PaperScreen {
     private func render() {
         let offset = scroll.contentOffset
         clear(); undoButton.isEnabled = session.canUndo
+        let compactUndo = traitCollection.preferredContentSizeCategory.isAccessibilityCategory
+        undoButton.setTitle(compactUndo ? nil : "Undo", for: .normal)
+        undoButton.accessibilityLabel = "Undo"
+        undoButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: compactUndo ? 0 : 8)
         let derived = RuleEngine.evaluate(level: level, board: session.board)
-        add(textLabel("档案 \(String(format: "%02d", level.number))  ·  \(level.cards.count) 张牌 / \(level.rules.roundCount) 轮", .caption1, color: Palette.wine))
-        let rule = textLabel("须跟花色 · 无王牌", .subheadline, color: Palette.muted, serif: true);rule.textAlignment = .center
+        add(textLabel("FILE \(String(format: "%02d", level.number)) · \(level.cards.count) cards / \(level.rules.roundCount) rounds", .caption1, color: Palette.wine))
+        let rule = textLabel("Follow suit · No trumps", .subheadline, color: Palette.muted, serif: true);rule.textAlignment = .center
         add(rule)
-        let instructions = level.number <= 6 ? "点选牌 → 点牌位 · 可拖动与交换" : "按人物归位出牌 · 领出者决定顺序"
+        let instructions = level.number <= 6 ? "Tap a card, then a slot. Drag to move or swap." : "Place each player's cards. The leader sets the order."
         add(textLabel(instructions, .footnote, color: Palette.muted))
         if let feedback = feedback {
             add(paperPanel(textLabel(feedback, .subheadline, color: Palette.wine), inset: 12))
             if let checked = submitted, checked.complete, !checked.accepted {
-                let inspect = ActionButton("逐手检查这次摆法")
+                let inspect = ActionButton("Review this attempt")
                 inspect.accessibilityIdentifier = "game.inspectFailure"
                 inspect.action = { [weak self] in
                     guard let self = self else { return }
@@ -63,44 +68,46 @@ final class GameViewController: PaperScreen {
             }
         }
         if let error = store.saves.lastError { add(textLabel(error, .footnote, color: Palette.wine)) }
-        add(textLabel("出牌时间线", .title2, serif: true))
+        add(textLabel("The play record", .title2, serif: true))
         for round in 1...level.rules.roundCount {
             let players = level.rules.players
             let leader = derived.leaders[round]
             var ordered = players
             if let leader = leader, let index = players.firstIndex(of: leader) { ordered = Array(players[index...]) + Array(players[..<index]) }
             let grid = CardGrid()
-            grid.accessibilityContext = "第 \(round) 轮"
+            grid.accessibilityContext = "Round \(round)"
             grid.items = ordered.map { player in
                 let slot = level.slot(round: round, player: player)!
-                return CardItem(card: session.board[slot], slot: slot, caption: player + (player == leader ? " · 领出" : ""), fixed: level.fixedPlays[slot] != nil, selected: selectedCard != nil && selectedCard == session.board[slot])
+                return CardItem(card: session.board[slot], slot: slot, caption: player + (player == leader ? " · Lead" : ""), fixed: level.fixedPlays[slot] != nil, selected: selectedCard != nil && selectedCard == session.board[slot])
             }
             wire(grid)
-            let winnerText = derived.winners[round].map { "  ·  \($0) 获胜" } ?? ""
-            let heading = textLabel("第 \(round) 轮\(winnerText)", .headline, color: Palette.wine, serif: true)
-            let order = textLabel(leader == nil ? "领出者待推断 · 暂按座次排列" : "\(ordered.joined(separator: " → ")) · \(round == 1 ? "规则指定" : "当前推导")", .caption1, color: Palette.muted)
-            add(paperPanel(vertical([horizontal([heading, UIView(), order], spacing: 6), grid], spacing: 6), inset: 12))
+            let winnerText = derived.winners[round].map { " · \($0) wins" } ?? ""
+            let heading = textLabel("Round \(round)\(winnerText)", .headline, color: Palette.wine, serif: true)
+            let order = textLabel(leader == nil ? "Leader not yet known" : "\(ordered.joined(separator: " → ")) · \(round == 1 ? "Play order" : "Deduced order")", .caption1, color: Palette.muted)
+            let roundHeading = horizontal([heading, UIView(), order], spacing: 6)
+            if traitCollection.preferredContentSizeCategory.isAccessibilityCategory { roundHeading.axis = .vertical; roundHeading.alignment = .leading }
+            add(paperPanel(vertical([roundHeading, grid], spacing: 6), inset: 12))
         }
-        add(textLabel("待归位的牌", .title2, serif: true))
-        if session.pool.isEmpty { add(textLabel("所有牌已归位，可以验证推理。", .footnote, color: Palette.muted)) }
+        add(textLabel("Unplaced cards", .title2, serif: true))
+        if session.pool.isEmpty { add(textLabel("Every card is in place. Check your reconstruction.", .footnote, color: Palette.muted)) }
         else {
-            let pool = CardGrid(); pool.items = session.pool.map { CardItem(card: $0.id, slot: nil, caption: "待归位", fixed: false, selected: $0.id == selectedCard) }; wire(pool); add(pool)
+            let pool = CardGrid(); pool.items = session.pool.map { CardItem(card: $0.id, slot: nil, caption: "Unplaced", fixed: false, selected: $0.id == selectedCard) }; wire(pool); add(pool)
         }
         if let selected = selectedCard {
-            let selection = textLabel("已选 \(Card(id: selected).spoken) · 点目标位置", .footnote, color: Palette.wine)
+            let selection = textLabel("Selected: \(Card(id: selected).spoken). Tap a destination.", .footnote, color: Palette.wine)
             selection.accessibilityIdentifier = "game.selection"; add(selection)
             if session.board.contains(where: { $0 == selected }) {
-                let back = ActionButton("移回待归位牌"); back.accessibilityIdentifier = "game.return"; back.action = { [weak self] in self?.move(selected, to: nil) }; add(back)
+                let back = ActionButton("Return to unplaced cards"); back.accessibilityIdentifier = "game.return"; back.action = { [weak self] in self?.move(selected, to: nil) }; add(back)
             }
         }
-        var evidenceViews: [UIView] = [textLabel("📌  可信线索", .title3, serif: true)]
+        var evidenceViews: [UIView] = [archiveHeading("Reliable clues", symbol: "pin")]
         for fact in level.facts { evidenceViews.append(evidenceLabel(fact, isTestimony: false)) }
         add(paperPanel(vertical(evidenceViews)))
         if !level.testimonies.isEmpty {
-            var testimonyViews: [UIView] = [textLabel("待核实证词", .title3, serif: true), textLabel("以下恰有 \(level.falseTestimonyCount) 条错误。标记仅作你的推理笔记。", .footnote, color: Palette.wine)]
+            var testimonyViews: [UIView] = [textLabel("Witness statements", .title3, serif: true), textLabel("Exactly \(level.falseTestimonyCount) of these statements are false. Your marks are for your own reference.", .footnote, color: Palette.wine)]
             for (index, testimony) in level.testimonies.enumerated() {
                 testimonyViews.append(evidenceLabel(testimony, isTestimony: true))
-                let control = UISegmentedControl(items: ["待核实", "我认为真", "我认为假"])
+                let control = UISegmentedControl(items: ["Uncertain", "True", "False"])
                 control.tag = index; control.selectedSegmentIndex = ["unknown","true","false"].firstIndex(of: session.testimonyMarks[testimony.id] ?? "unknown") ?? 0
                 control.selectedSegmentTintColor = Palette.wash; control.accessibilityLabel = testimony.text
                 control.heightAnchor.constraint(greaterThanOrEqualToConstant: 44).isActive = true
@@ -108,11 +115,11 @@ final class GameViewController: PaperScreen {
             }
             add(paperPanel(vertical(testimonyViews)))
         }
-        let notes = ActionButton(session.notes.isEmpty ? "写下推理笔记    ✎" : "编辑推理笔记    ✎"); notes.accessibilityIdentifier = "game.notes"; notes.action = { [weak self] in self?.editNotes() }; add(notes)
+        let notes = ActionButton(session.notes.isEmpty ? "Add a note" : "Edit your notes", symbol: "square.and.pencil"); notes.accessibilityIdentifier = "game.notes"; notes.action = { [weak self] in self?.editNotes() }; add(notes)
         if !session.notes.isEmpty { add(textLabel(session.notes, .body, color: Palette.muted)) }
         if session.hintCount > 0 {
             let hintText = level.hints.prefix(session.hintCount).map { "\($0.title)\n\($0.text)" }.joined(separator: "\n\n")
-            add(paperPanel(vertical([textLabel("已读提示 · \(session.hintCount) / \(level.hints.count)", .headline, color: Palette.wine), textLabel(hintText, .footnote)])))
+            add(paperPanel(vertical([textLabel("Hints read · \(session.hintCount) / \(level.hints.count)", .headline, color: Palette.wine), textLabel(hintText, .footnote)])))
         }
         view.layoutIfNeeded(); scroll.setContentOffset(offset, animated: false)
     }
@@ -120,9 +127,9 @@ final class GameViewController: PaperScreen {
         let result = submitted?.evidence.first { $0.id == evidence.id && $0.isTestimony == isTestimony }
         let prefix: String
         switch result?.truth {
-        case .satisfied?: prefix = isTestimony ? "[符合当前牌局] " : "[当前成立] "
-        case .contradicted?: prefix = isTestimony ? "[不符合当前牌局] " : "[矛盾] "
-        default: prefix = submitted == nil ? "· " : "[待推断] "
+        case .satisfied?: prefix = isTestimony ? "[Matches] " : "[Supported] "
+        case .contradicted?: prefix = isTestimony ? "[Does not match] " : "[Conflict] "
+        default: prefix = submitted == nil ? "· " : "[Undetermined] "
         }
         return textLabel(prefix + evidence.text, .subheadline)
     }
@@ -132,14 +139,14 @@ final class GameViewController: PaperScreen {
         grid.onRemove = { [weak self] card in self?.move(card, to: nil) }
     }
     private func tap(_ item: CardItem) {
-        if item.fixed { message("已知牌", "这是可信线索中已经确认的牌，不能移动。"); return }
+        if item.fixed { message("Fixed card", "A reliable clue confirms this card's position. It cannot be moved."); return }
         if let selected = selectedCard, let slot = item.slot, item.card != selected { move(selected, to: slot); return }
         if let card = item.card { selectedCard = selectedCard == card ? nil : card; store.haptic(); render() }
-        else { feedback = "先选择一张待归位的牌，再点这个位置。"; render() }
+        else { feedback = "Select an unplaced card first, then tap this slot."; render() }
     }
     private func move(_ card: String, to slot: Int?) {
         if session.move(card: card, to: slot) { didChange() }
-        else { message("不能移动", "公开的固定牌不可移动；请选择其他位置。") }
+        else { message("Cannot move this card", "Fixed cards cannot be moved. Choose another slot.") }
     }
     @objc private func markTestimony(_ sender: UISegmentedControl) {
         let testimony = level.testimonies[sender.tag]
@@ -154,19 +161,19 @@ final class GameViewController: PaperScreen {
             let replay = ReplayViewController(store: store, level: level, board: session.board, fromCollection: false)
             navigationController?.pushViewController(replay, animated: !UIAccessibility.isReduceMotionEnabled)
         } else {
-            feedback = result.issues.first?.message ?? "还有 \(session.pool.count) 张牌未归位。信息不足的线索仍为待推断。"
+            feedback = result.issues.first?.message ?? "Unplaced cards: \(session.pool.count). Clues remain undetermined until there is enough evidence."
             render(); scroll.setContentOffset(CGPoint(x: 0, y: -scroll.adjustedContentInset.top), animated: !UIAccessibility.isReduceMotionEnabled)
             UIAccessibility.post(notification: .announcement, argument: feedback)
         }
     }
     @objc private func showRules() {
-        message("须跟花色 · 无王牌", "\(level.story)\n\n全部牌发完，\(level.rules.players.joined(separator: "、")) 各持 \(level.rules.roundCount) 张。座次 \(level.rules.players.joined(separator: " → ")) 循环。\n\n首轮由 \(level.rules.firstLeader) 领出，每轮每人出一张。手中有领出花色必须跟；没有时才可出其他花色。只有领出花色参与争胜，点数最大者获胜，并领出下一轮。已出的牌不能再用。\n\n可信线索始终成立；标为待核实的证词按题面指定的错误数量检查。")
+        message("Follow suit · No trumps", "\(level.story)\n\nAll cards are dealt. Each player (\(level.rules.players.joined(separator: ", "))) holds \(level.rules.roundCount) cards. Play follows the seating order \(level.rules.players.joined(separator: " → ")).\n\n\(level.rules.firstLeader) leads the first round. Each player plays one card per round and must follow the lead suit if they have it. Otherwise, they may play another suit. The highest card of the lead suit wins and its owner leads the next round. Each card is used once.\n\nReliable clues are always true. Check witness statements against the exact false-statement count given in the file.")
     }
     private func showHint() {
-        guard session.hintCount < level.hints.count else { message("提示已全部展开", level.hints.map { "\($0.title)\n\($0.text)" }.joined(separator: "\n\n")); return }
+        guard session.hintCount < level.hints.count else { message("All hints revealed", level.hints.map { "\($0.title)\n\($0.text)" }.joined(separator: "\n\n")); return }
         if session.hintCount == 2 {
-            let alert = UIAlertController(title: "展开具体推导？", message: "第三层提示会明确给出下一步结论。提示免费。", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "再想一想", style: .cancel)); alert.addAction(UIAlertAction(title: "展开提示", style: .default) { [weak self] _ in self?.revealHint() }); present(alert, animated: true)
+            let alert = UIAlertController(title: "Reveal the next deduction?", message: "This hint reveals a specific next move.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Keep thinking", style: .cancel)); alert.addAction(UIAlertAction(title: "Reveal hint", style: .default) { [weak self] _ in self?.revealHint() }); present(alert, animated: true)
         } else { revealHint() }
     }
     private func revealHint() {
@@ -180,15 +187,15 @@ final class GameViewController: PaperScreen {
 final class NotesViewController: UIViewController, UITextViewDelegate {
     private var pendingSave: DispatchWorkItem?
     private let editor = UITextView(); private let original: String; private let saveText: (String) -> Void
-    init(text: String, save: @escaping (String) -> Void) { original = text; saveText = save; super.init(nibName: nil, bundle: nil); title = "推理笔记" }
+    init(text: String, save: @escaping (String) -> Void) { original = text; saveText = save; super.init(nibName: nil, bundle: nil); title = "Notebook" }
     required init?(coder: NSCoder) { fatalError() }
     override func viewDidLoad() {
         super.viewDidLoad(); view.backgroundColor = Palette.paper; editor.backgroundColor = Palette.paper; editor.textColor = Palette.ink
         editor.delegate = self
-        editor.font = UIFont.preferredFont(forTextStyle: .body); editor.adjustsFontForContentSizeCategory = true; editor.text = original; editor.accessibilityLabel = "推理笔记正文"
+        editor.font = UIFont.preferredFont(forTextStyle: .body); editor.adjustsFontForContentSizeCategory = true; editor.text = original; editor.accessibilityLabel = "Your notes"
         editor.translatesAutoresizingMaskIntoConstraints = false; view.addSubview(editor)
         NSLayoutConstraint.activate([editor.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 12),editor.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),editor.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),editor.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)])
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "完成", style: .done, target: self, action: #selector(done))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(done))
         NotificationCenter.default.addObserver(self, selector: #selector(keyboard(_:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(persist), name: UIApplication.willResignActiveNotification, object: nil)
     }

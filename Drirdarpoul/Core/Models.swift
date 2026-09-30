@@ -5,9 +5,9 @@ struct Card: Codable, Hashable {
     var suit: String { String(id.prefix(1)) }
     var rank: Int { Int(id.dropFirst()) ?? 0 }
     var symbol: String { ["S": "♠", "H": "♥", "D": "♦", "C": "♣"][suit] ?? "?" }
-    var suitName: String { ["S": "黑桃", "H": "红桃", "D": "方块", "C": "梅花"][suit] ?? "未知" }
+    var suitName: String { ["S": "spades", "H": "hearts", "D": "diamonds", "C": "clubs"][suit] ?? "Unknown" }
     var label: String { "\(symbol)\(rank)" }
-    var spoken: String { "\(suitName) \(rank)" }
+    var spoken: String { "\(rank) of \(suitName)" }
     var isRed: Bool { suit == "H" || suit == "D" }
 }
 

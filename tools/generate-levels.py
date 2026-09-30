@@ -6,6 +6,7 @@ Final release validation MUST also use the shared Swift engine.
 import itertools
 import json
 import random
+from english_copy import apply_english_copy
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -414,6 +415,6 @@ if __name__=="__main__":
     levels=[]
     path=ROOT/"Drirdarpoul/Data/levels.json"
     for n in range(1,41):
-        level=make_level(n); levels.append(level)
+        level=apply_english_copy(make_level(n)); levels.append(level)
         print(f"{n:02d} {level['title']}: {len(level['cards'])} cards, {len(level['facts'])} facts, {len(level['testimonies'])} testimonies; unique",flush=True)
     path.write_text(json.dumps(levels,ensure_ascii=False,indent=2)+"\n")
