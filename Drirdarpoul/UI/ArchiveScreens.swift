@@ -1,4 +1,5 @@
 import UIKit
+import SafariServices
 
 final class AppStore {
     let levels: [Level]
@@ -173,6 +174,11 @@ final class SettingsViewController: PaperScreen {
         let storage = ArchiveSettingsRow("Saving your files", detail: "Pick up where you left off", symbol: "archivebox")
         storage.accessibilityIdentifier = "settings.storage"; storage.action = { [weak self] in self?.openGuide(.storage) }
         add(paperPanel(vertical([rules, archiveDivider(), storage], spacing: 0), inset: 14))
+        add(textLabel("Privacy", .title3, serif: true))
+        let privacy = ArchiveSettingsRow("Privacy Policy", detail: "How your information is handled", symbol: "hand.raised")
+        privacy.accessibilityIdentifier = "settings.privacyPolicy"
+        privacy.action = { [weak self] in self?.openPrivacyPolicy() }
+        add(paperPanel(privacy, inset: 14))
         let brand = SuitMark()
         let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "1.0"
         let signature = vertical([brand, textLabel("Card Trace", .title3, serif: true), textLabel("Every card leaves a trace.", .caption1, color: Palette.muted), textLabel("Version \(version)", .caption2, color: Palette.muted)], spacing: 9)
@@ -181,6 +187,14 @@ final class SettingsViewController: PaperScreen {
     }
     private func openGuide(_ topic: ArchiveGuideViewController.Topic) {
         navigationController?.pushViewController(ArchiveGuideViewController(topic: topic), animated: !UIAccessibility.isReduceMotionEnabled)
+    }
+    private func openPrivacyPolicy() {
+        guard let url = URL(string: "https://tkzcpoj.netlify.app/card-trace/privacy-policy/") else { return }
+        let browser = SFSafariViewController(url: url)
+        browser.preferredBarTintColor = Palette.paper
+        browser.preferredControlTintColor = Palette.wine
+        browser.dismissButtonStyle = .done
+        present(browser, animated: !UIAccessibility.isReduceMotionEnabled)
     }
     @objc private func setHaptics(_ sender: UISwitch) { store.settings.hapticsEnabled = sender.isOn; if sender.isOn { store.haptic() } }
     @objc private func setLarge(_ sender: UISwitch) { store.settings.largerText = sender.isOn; NotificationCenter.default.post(name: .init("CardTraceTextChanged"), object: nil) }

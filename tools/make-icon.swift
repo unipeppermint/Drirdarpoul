@@ -1,30 +1,31 @@
 import AppKit
 import Foundation
 
-// Original, code-drawn archive mark; no external image or licensed artwork.
-let root = CommandLine.arguments.count > 1 ? CommandLine.arguments[1] : "Drirdarpoul/Assets.xcassets/AppIcon.appiconset"
-let specs: [(String, Int, Int)] = [("20x20",20,2),("20x20",20,3),("29x29",29,2),("29x29",29,3),("40x40",40,2),("40x40",40,3),("60x60",60,2),("60x60",60,3),("1024x1024",1024,1)]
-var images: [[String:String]] = []
-for (size, points, scale) in specs {
-    let pixels = points * scale
-    let context = CGContext(data:nil,width:pixels,height:pixels,bitsPerComponent:8,bytesPerRow:pixels*4,space:CGColorSpaceCreateDeviceRGB(),bitmapInfo:CGImageAlphaInfo.noneSkipLast.rawValue)!
-    NSGraphicsContext.saveGraphicsState(); NSGraphicsContext.current = NSGraphicsContext(cgContext:context,flipped:false)
-    context.scaleBy(x:CGFloat(pixels)/1024,y:CGFloat(pixels)/1024)
-    NSColor(srgbRed:0.965,green:0.949,blue:0.91,alpha:1).setFill(); NSBezierPath(rect:NSRect(x:0,y:0,width:1024,height:1024)).fill()
-    let ink = NSColor(srgbRed:0.145,green:0.17,blue:0.153,alpha:1)
-    let wine = NSColor(srgbRed:0.514,green:0.239,blue:0.275,alpha:1)
-    ink.withAlphaComponent(0.5).setStroke()
-    let box = NSBezierPath(roundedRect:NSRect(x:174,y:144,width:676,height:736),xRadius:24,yRadius:24); box.lineWidth = 5; box.stroke()
-    let seam=NSBezierPath(); seam.move(to:NSPoint(x:512,y:162));seam.line(to:NSPoint(x:512,y:862));seam.move(to:NSPoint(x:192,y:512));seam.line(to:NSPoint(x:832,y:512));seam.lineWidth=3;seam.stroke()
-    for (symbol,x,y,color) in [("♠",235,539,ink),("♥",573,539,wine),("♦",235,191,wine),("♣",573,191,ink)] {
-        (symbol as NSString).draw(at:NSPoint(x:x,y:y),withAttributes:[.font:NSFont.systemFont(ofSize:260),.foregroundColor:color])
-    }
-    wine.setFill();NSBezierPath(roundedRect:NSRect(x:636,y:829,width:172,height:60),xRadius:5,yRadius:5).fill()
-    NSGraphicsContext.restoreGraphicsState()
-    let name = "icon-\(pixels).png"
-    let bitmap = NSBitmapImageRep(cgImage:context.makeImage()!)
-    try bitmap.representation(using:.png,properties:[:])!.write(to:URL(fileURLWithPath:root).appendingPathComponent(name))
-    images.append(["filename":name,"idiom":points == 1024 ? "ios-marketing":"iphone","scale":"\(scale)x","size":size])
+// Import one 1024px source. Xcode generates the required device sizes at build time.
+guard CommandLine.arguments.count >= 2 else {
+    fatalError("Usage: swift tools/make-icon.swift <1024px-image> [appiconset-directory]")
 }
-let data = try JSONSerialization.data(withJSONObject:["images":images,"info":["author":"xcode","version":1]],options:[.prettyPrinted,.sortedKeys])
-try data.write(to:URL(fileURLWithPath:root).appendingPathComponent("Contents.json"))
+let source = URL(fileURLWithPath: CommandLine.arguments[1])
+let destination = URL(fileURLWithPath: CommandLine.arguments.count > 2
+    ? CommandLine.arguments[2] : "Drirdarpoul/Assets.xcassets/AppIcon.appiconset")
+guard let image = NSImage(contentsOf: source),
+      let input = image.cgImage(forProposedRect: nil, context: nil, hints: nil),
+      input.width == 1024, input.height == 1024 else {
+    fatalError("The app icon must be 1024 × 1024 pixels.")
+}
+// App Store icons must be opaque. Keep the supplied artwork at its original size.
+let context = CGContext(data: nil, width: 1024, height: 1024, bitsPerComponent: 8,
+                        bytesPerRow: 4096, space: CGColorSpace(name: CGColorSpace.sRGB)!,
+                        bitmapInfo: CGImageAlphaInfo.noneSkipLast.rawValue)!
+context.setFillColor(CGColor(red: 0.965, green: 0.949, blue: 0.91, alpha: 1))
+context.fill(CGRect(x: 0, y: 0, width: 1024, height: 1024))
+context.draw(input, in: CGRect(x: 0, y: 0, width: 1024, height: 1024))
+let bitmap = NSBitmapImageRep(cgImage: context.makeImage()!)
+try bitmap.representation(using: .png, properties: [:])!.write(to: destination.appendingPathComponent("AppIcon.png"))
+let contents: [String: Any] = [
+    "images": [["filename": "AppIcon.png", "idiom": "universal", "platform": "ios", "size": "1024x1024"]],
+    "info": ["author": "xcode", "version": 1]
+]
+try JSONSerialization.data(withJSONObject: contents, options: [.prettyPrinted, .sortedKeys])
+    .write(to: destination.appendingPathComponent("Contents.json"))
+print("Imported AppIcon.png (1024 × 1024, opaque).")
